@@ -15,37 +15,68 @@ layout: default
     </div>
   </header>
 
-  <aside class="toc-card">
-    <strong>本期目录</strong>
-    <div id="toc"></div>
-  </aside>
+  <div class="post-layout">
+    <aside class="toc-rail" aria-label="文章目录">
+      <details class="toc-card">
+        <summary>本期目录</summary>
+        <nav id="toc" aria-label="本期目录"></nav>
+      </details>
+    </aside>
 
-  <div class="post-content" id="article-content">
-    {{ content }}
+    <div class="post-main">
+      <div class="post-content" id="article-content">
+        {{ content }}
+      </div>
+
+      <nav class="post-nav">
+        {% if page.previous %}
+          <a href="{{ page.previous.url | relative_url }}"><span>上一篇</span>{{ page.previous.date | date: "%Y-%m-%d" }}</a>
+        {% endif %}
+        {% if page.next %}
+          <a href="{{ page.next.url | relative_url }}"><span>下一篇</span>{{ page.next.date | date: "%Y-%m-%d" }}</a>
+        {% endif %}
+      </nav>
+    </div>
   </div>
-
-  <nav class="post-nav">
-    {% if page.previous %}
-      <a href="{{ page.previous.url | relative_url }}"><span>上一篇</span>{{ page.previous.date | date: "%Y-%m-%d" }}</a>
-    {% endif %}
-    {% if page.next %}
-      <a href="{{ page.next.url | relative_url }}"><span>下一篇</span>{{ page.next.date | date: "%Y-%m-%d" }}</a>
-    {% endif %}
-  </nav>
 </article>
 <script>
 (() => {
   const root = document.getElementById('article-content');
   const toc = document.getElementById('toc');
-  if (!root || !toc) return;
-  const headings = [...root.querySelectorAll('h2, h3')];
+  const details = document.querySelector('.toc-card');
+  if (!root || !toc || !details) return;
+
+  const headings = [...root.querySelectorAll('h2')];
+  const links = new Map();
+
   headings.forEach((heading, index) => {
     if (!heading.id) heading.id = `section-${index + 1}`;
     const link = document.createElement('a');
     link.href = `#${heading.id}`;
     link.textContent = heading.textContent;
-    link.className = heading.tagName === 'H3' ? 'toc-sub' : '';
     toc.appendChild(link);
+    links.set(heading.id, link);
   });
+
+  const syncTocMode = () => {
+    if (window.matchMedia('(min-width: 1025px)').matches) details.open = true;
+  };
+  syncTocMode();
+  window.addEventListener('resize', syncTocMode, { passive: true });
+
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+    if (!visible) return;
+    links.forEach((link) => link.classList.remove('is-active'));
+    const active = links.get(visible.target.id);
+    if (active) {
+      active.classList.add('is-active');
+      active.scrollIntoView({ block: 'nearest' });
+    }
+  }, { rootMargin: '-96px 0px -70% 0px', threshold: [0, 1] });
+
+  headings.forEach((heading) => observer.observe(heading));
 })();
 </script>
