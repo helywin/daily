@@ -1,7 +1,7 @@
 title: "机器人技术日报"
 description: "聚焦 SLAM、机器人控制、强化学习、VLA 与 AI Coding Agent 的中文技术深度简报"
-url: "https://helywin.github.io"
-baseurl: "/daily"
+url: "https://daily.helywin.com"
+baseurl: ""
 lang: "zh-CN"
 timezone: "Asia/Shanghai"
 permalink: /reports/:year/:month/:day/
