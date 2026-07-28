@@ -20,6 +20,9 @@ minima:
   date_format: "%Y-%m-%d"
 
 exclude:
+  - .github
+  - data
+  - scripts
   - Gemfile
   - Gemfile.lock
   - vendor
