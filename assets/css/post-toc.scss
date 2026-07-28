@@ -1,0 +1,133 @@
+---
+---
+
+.post {
+  max-width: 1220px;
+}
+
+.post-header {
+  width: min(860px, 100%);
+  margin-left: auto;
+}
+
+.post-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 860px);
+  gap: 42px;
+  align-items: start;
+  justify-content: end;
+  margin-top: 28px;
+}
+
+.post-main {
+  min-width: 0;
+}
+
+.toc-rail {
+  position: sticky;
+  top: 96px;
+  max-height: calc(100vh - 116px);
+  align-self: start;
+}
+
+.toc-card {
+  margin: 0;
+  padding: 18px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .96);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+}
+
+.toc-card summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.toc-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.toc-card summary::after {
+  content: "⌄";
+  float: right;
+  color: var(--muted);
+  transition: transform .18s ease;
+}
+
+.toc-card[open] summary::after {
+  transform: rotate(180deg);
+}
+
+#toc {
+  display: flex;
+  grid-template-columns: none;
+  flex-direction: column;
+  gap: 3px;
+  max-height: calc(100vh - 176px);
+  margin-top: 12px;
+  padding-right: 4px;
+  overflow-y: auto;
+}
+
+#toc a {
+  display: block;
+  padding: 6px 9px;
+  border-left: 2px solid transparent;
+  border-radius: 0 8px 8px 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+
+#toc a:hover {
+  color: var(--accent);
+  background: #eff6ff;
+}
+
+#toc a.is-active {
+  color: var(--accent-dark);
+  border-left-color: var(--accent);
+  background: #eff6ff;
+  font-weight: 700;
+}
+
+.post-content {
+  padding-top: 0;
+}
+
+.post-content h2,
+.post-content h3 {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 1024px) {
+  .post {
+    max-width: 860px;
+  }
+
+  .post-header {
+    width: 100%;
+  }
+
+  .post-layout {
+    display: block;
+    margin-top: 22px;
+  }
+
+  .toc-rail {
+    position: static;
+    max-height: none;
+    margin-bottom: 24px;
+  }
+
+  .toc-card {
+    box-shadow: none;
+  }
+
+  #toc {
+    max-height: 320px;
+  }
+}
