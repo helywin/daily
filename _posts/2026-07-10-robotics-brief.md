@@ -123,3 +123,15 @@ MPPI 残差自适应安全层
 给现有 MPPI / MPC 增加 prediction-execution residual 监控：残差大时缩短 horizon、降低速度、提高安全距离、切换保守模式，优先用于无人机绕障或机器狗高速避障。
 VLA action chunk 安全执行器
 不急着重训 VLA，先在推理层加入视觉偏差检测、chunk 截断、jerk 限制和传统控制器兜底。这个方向对真实机械臂、机器狗、无人机端到端控制都更实用。
+
+## 参考资料
+
+- [GeoGS-SLAM](https://arxiv.org/search/?query=GeoGS-SLAM&searchtype=all)
+- [PLED-VINS](https://arxiv.org/search/?query=PLED-VINS&searchtype=all)
+- [Real-Time LiDAR Gaussian Splatting SLAM](https://arxiv.org/search/?query=Real-Time%20LiDAR%20Gaussian%20Splatting%20SLAM&searchtype=all)
+- [RC-MPPI + Safe RL with MPC](https://arxiv.org/search/?query=RC-MPPI%20%2B%20Safe%20RL%20with%20MPC&searchtype=all)
+- [PSDF-MPC](https://arxiv.org/search/?query=PSDF-MPC&searchtype=all)
+- [VLA-Corrector / LingBot-VLA 2.0](https://arxiv.org/search/?query=VLA-Corrector%20/%20LingBot-VLA%202.0&searchtype=all)
+- [GPT-5.6 / Grok 4.5 / Copilot](https://github.com/search?q=GPT-5.6%20/%20Grok%204.5%20/%20Copilot&type=repositories)
+
+> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
