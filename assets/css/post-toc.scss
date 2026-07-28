@@ -2,20 +2,20 @@
 ---
 
 .post {
-  max-width: 1220px;
+  max-width: 1120px;
 }
 
 .post-header {
-  width: min(860px, 100%);
+  width: calc(100% - 272px);
+  max-width: 848px;
   margin-left: auto;
 }
 
 .post-layout {
   display: grid;
-  grid-template-columns: 270px minmax(0, 860px);
-  gap: 42px;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 32px;
   align-items: start;
-  justify-content: end;
   margin-top: 28px;
 }
 
@@ -110,6 +110,7 @@
 
   .post-header {
     width: 100%;
+    max-width: none;
   }
 
   .post-layout {
