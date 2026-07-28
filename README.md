@@ -1,32 +1,32 @@
-# 机器人 / SLAM / 控制 / AI Coding 技术日报
+# 机器人技术日报 · GitHub Pages
 
-本仓库用于归档每日生成的中文技术深度简报，重点覆盖：
+基于 Jekyll 构建的中文技术日报归档网站，内容覆盖 SLAM、机器人控制、强化学习、VLA 与 AI Coding Agent。
 
-- 视觉 SLAM、激光 SLAM、LiDAR-inertial SLAM、多传感器融合、回环检测、地图压缩与动态环境定位
-- 机器人控制、运动规划、轨迹优化、MPC、强化学习控制、安全强化学习、sim-to-real 与端到端控制
-- Vibe Coding / AI Coding Agent、工程工作流、安全治理与开源项目
-- 最新大模型、代码模型、多模态模型、机器人基础模型与端侧模型
+## 在线地址
 
-## 归档结构
+启用 GitHub Pages 后访问：
+
+`https://helywin.github.io/daily/`
+
+## 内容结构
 
 ```text
-/
-├── README.md
-├── latest.md
-└── YYYY/MM/YYYY-MM-DD.md
+_posts/                 # 每日技术简报
+_config.yml             # Jekyll 配置
+index.md                # 网站首页
+archive.md              # 按时间归档
+about.md                # 网站说明
+assets/main.scss        # 自定义样式
+.github/workflows/      # GitHub Pages 自动部署
 ```
 
-## 历史归档状态
+## 本地预览
 
-当前仓库已初始化。由于历史日报内容来自之前 ChatGPT 会话，而 GitHub 归档任务从今天开始建立，后续生成的新日报会自动写入仓库。
+```bash
+bundle install
+bundle exec jekyll serve
+```
 
-如需导入已有历史日报，需要从原始会话记录重新整理后批量提交，避免生成不存在的历史文件。
+浏览器打开 `http://127.0.0.1:4000/daily/`。
 
-## 后续自动更新
-
-每日生成后：
-
-1. 创建当天 Markdown 文件；
-2. 更新 `latest.md`；
-3. 更新目录索引；
-4. 提交 Git commit。
+历史日报由聊天导出的 Markdown 自动拆分，并根据日期、章节编号和固定栏目恢复标题、列表和层级。后续日报可直接保存为 `_posts/YYYY-MM-DD-robotics-brief.md`。
