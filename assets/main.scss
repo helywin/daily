@@ -1,0 +1,83 @@
+---
+---
+@import "minima";
+
+:root {
+  --daily-accent: #2563eb;
+  --daily-text: #172033;
+  --daily-muted: #667085;
+  --daily-line: #dfe5ec;
+  --daily-surface: #ffffff;
+}
+
+body {
+  color: var(--daily-text);
+  background: #f5f7f9;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.8;
+}
+
+.site-header {
+  border-top: 0;
+  border-bottom: 1px solid var(--daily-line);
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-title { font-weight: 800; letter-spacing: -.02em; }
+.site-nav .page-link:hover { color: var(--daily-accent); }
+.wrapper { max-width: 980px; }
+
+.daily-hero {
+  margin: 36px 0 52px;
+  padding: 48px;
+  border-radius: 24px;
+  color: white;
+  background: linear-gradient(135deg, #111827, #1e3a8a 72%, #2563eb);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, .16);
+}
+.daily-hero h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.18; letter-spacing: -.045em; margin: 0 0 20px; }
+.daily-hero p { max-width: 760px; color: #dbeafe; font-size: 17px; }
+.daily-kicker { font-size: 12px !important; font-weight: 800; letter-spacing: .16em; }
+.daily-button { display: inline-block; padding: 11px 18px; color: #111827 !important; background: white; border-radius: 11px; font-weight: 750; }
+.daily-actions { margin-top: 28px; }
+
+.post-list > li {
+  margin-bottom: 20px;
+  padding: 24px;
+  border: 1px solid var(--daily-line);
+  border-radius: 18px;
+  background: var(--daily-surface);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, .05);
+}
+.post-list-heading { font-size: 30px; }
+.post-link { font-weight: 760; letter-spacing: -.02em; }
+.post-meta { color: var(--daily-muted); }
+
+.post-header {
+  margin-bottom: 38px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--daily-line);
+}
+.post-title { font-size: clamp(34px, 5vw, 50px); line-height: 1.25; letter-spacing: -.04em; }
+.post-content { font-size: 16px; line-height: 1.9; }
+.post-content h2 { margin-top: 52px; padding-top: 8px; font-size: 28px; line-height: 1.42; letter-spacing: -.025em; }
+.post-content h3 { margin-top: 34px; font-size: 20px; line-height: 1.5; }
+.post-content ul, .post-content ol { margin-bottom: 24px; }
+.post-content li { margin: 7px 0; }
+.post-content blockquote { color: #344054; border-left-color: var(--daily-accent); background: white; padding: 14px 20px; }
+.post-content code { background: #e9eef5; padding: 2px 6px; border-radius: 5px; }
+
+.page-content { padding-top: 42px; }
+.page-heading { font-size: 42px; letter-spacing: -.04em; }
+.site-footer { border-top: 1px solid var(--daily-line); background: white; }
+
+@media (max-width: 700px) {
+  .daily-hero { padding: 30px 24px; border-radius: 18px; }
+  .daily-hero h1 { font-size: 35px; }
+  .post-list > li { padding: 20px; }
+  .post-content h2 { font-size: 24px; }
+}
