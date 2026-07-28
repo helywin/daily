@@ -1,0 +1,13 @@
+---
+layout: default
+title: 最新一期
+permalink: /latest/
+---
+{% assign latest = site.posts.first %}
+<section class="page-heading">
+  <p class="eyebrow">Latest</p>
+  <h1>最新一期日报</h1>
+  <p>{{ latest.date | date: "%Y 年 %m 月 %d 日" }}</p>
+  <a class="button primary" href="{{ latest.url | relative_url }}">立即阅读</a>
+</section>
+<meta http-equiv="refresh" content="0; url={{ latest.url | relative_url }}">

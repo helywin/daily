@@ -1,0 +1,51 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <a class="back-link" href="{{ '/archive/' | relative_url }}">← 返回归档</a>
+    <p class="eyebrow">技术深度简报</p>
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y 年 %m 月 %d 日" }}</time>
+      <span>约 {{ content | number_of_words }} 字</span>
+    </div>
+    <div class="tag-row">
+      {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+    </div>
+  </header>
+
+  <aside class="toc-card">
+    <strong>本期目录</strong>
+    <div id="toc"></div>
+  </aside>
+
+  <div class="post-content" id="article-content">
+    {{ content }}
+  </div>
+
+  <nav class="post-nav">
+    {% if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}"><span>上一篇</span>{{ page.previous.date | date: "%Y-%m-%d" }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a href="{{ page.next.url | relative_url }}"><span>下一篇</span>{{ page.next.date | date: "%Y-%m-%d" }}</a>
+    {% endif %}
+  </nav>
+</article>
+<script>
+(() => {
+  const root = document.getElementById('article-content');
+  const toc = document.getElementById('toc');
+  if (!root || !toc) return;
+  const headings = [...root.querySelectorAll('h2, h3')];
+  headings.forEach((heading, index) => {
+    if (!heading.id) heading.id = `section-${index + 1}`;
+    const link = document.createElement('a');
+    link.href = `#${heading.id}`;
+    link.textContent = heading.textContent;
+    link.className = heading.tagName === 'H3' ? 'toc-sub' : '';
+    toc.appendChild(link);
+  });
+})();
+</script>

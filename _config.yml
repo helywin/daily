@@ -4,25 +4,24 @@ url: "https://helywin.github.io"
 baseurl: "/daily"
 lang: "zh-CN"
 timezone: "Asia/Shanghai"
-theme: minima
 permalink: /reports/:year/:month/:day/
-show_excerpts: true
+markdown: kramdown
+highlighter: rouge
 future: true
+show_excerpts: true
 
-plugins:
-  - jekyll-feed
+collections:
+  posts:
+    output: true
 
-header_pages:
-  - archive.md
-  - about.md
-
-minima:
-  date_format: "%Y-%m-%d"
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
 
 exclude:
-  - .github
-  - data
-  - scripts
   - Gemfile
   - Gemfile.lock
   - vendor

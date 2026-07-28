@@ -1,0 +1,59 @@
+---
+layout: default
+title: 首页
+---
+<section class="hero">
+  <p class="eyebrow">Daily Engineering Intelligence</p>
+  <h1>机器人、SLAM、控制与 AI Coding<br>每日技术深度简报</h1>
+  <p class="hero-copy">筛选论文、开源项目和官方发布，重点提炼算法结构、实时性、可复现性、落地价值与工程风险。</p>
+  <div class="hero-actions">
+    {% assign latest = site.posts.first %}
+    <a class="button primary" href="{{ latest.url | relative_url }}">阅读最新一期</a>
+    <a class="button" href="{{ '/archive/' | relative_url }}">查看全部归档</a>
+  </div>
+</section>
+
+<section class="section-head">
+  <div>
+    <p class="eyebrow">Latest reports</p>
+    <h2>最近更新</h2>
+  </div>
+  <label class="search-box">
+    <span>搜索</span>
+    <input id="report-search" type="search" placeholder="SLAM、MPC、VLA…">
+  </label>
+</section>
+
+<div class="report-grid" id="report-grid">
+  {% for post in site.posts %}
+  <article class="report-card" data-search="{{ post.title | append: ' ' | append: post.description | append: ' ' | append: post.tags | downcase | escape }}">
+    <div class="card-top">
+      <time>{{ post.date | date: "%Y-%m-%d" }}</time>
+      <span>{{ post.tags | first }}</span>
+    </div>
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <p>{{ post.description | default: post.excerpt | strip_html | truncate: 150 }}</p>
+    <a class="read-more" href="{{ post.url | relative_url }}">阅读全文 →</a>
+  </article>
+  {% endfor %}
+</div>
+
+<p class="empty-state" id="empty-state" hidden>没有找到匹配的日报。</p>
+
+<script>
+(() => {
+  const input = document.getElementById('report-search');
+  const cards = [...document.querySelectorAll('.report-card')];
+  const empty = document.getElementById('empty-state');
+  input?.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const show = !query || card.dataset.search.includes(query);
+      card.hidden = !show;
+      if (show) visible++;
+    });
+    empty.hidden = visible !== 0;
+  });
+})();
+</script>

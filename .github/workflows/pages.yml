@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -20,37 +20,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Import historical reports
-        run: python scripts/import_history.py
-
-      - name: Persist generated posts
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add _posts
-          if ! git diff --cached --quiet; then
-            git commit -m "docs: generate historical reports [skip ci]"
-            git push origin HEAD:master
-          fi
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 

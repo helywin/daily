@@ -1,0 +1,28 @@
+---
+layout: default
+title: 日报归档
+permalink: /archive/
+---
+<section class="page-heading">
+  <p class="eyebrow">Archive</p>
+  <h1>日报归档</h1>
+  <p>共收录 {{ site.posts | size }} 期技术深度简报。</p>
+</section>
+
+<div class="archive-list">
+{% assign posts_by_month = site.posts | group_by_exp: "post", "post.date | date: '%Y 年 %m 月'" %}
+{% for month in posts_by_month %}
+  <section class="archive-group">
+    <h2>{{ month.name }}</h2>
+    <div>
+    {% for post in month.items %}
+      <a class="archive-item" href="{{ post.url | relative_url }}">
+        <time>{{ post.date | date: "%m-%d" }}</time>
+        <span>{{ post.title }}</span>
+        <b>→</b>
+      </a>
+    {% endfor %}
+    </div>
+  </section>
+{% endfor %}
+</div>
