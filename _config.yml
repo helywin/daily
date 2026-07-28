@@ -1,0 +1,26 @@
+title: "机器人技术日报"
+description: "聚焦 SLAM、机器人控制、强化学习、VLA 与 AI Coding Agent 的中文技术深度简报"
+url: "https://helywin.github.io"
+baseurl: "/daily"
+lang: "zh-CN"
+timezone: "Asia/Shanghai"
+theme: minima
+permalink: /reports/:year/:month/:day/
+show_excerpts: true
+future: true
+
+plugins:
+  - jekyll-feed
+
+header_pages:
+  - archive.md
+  - about.md
+
+minima:
+  date_format: "%Y-%m-%d"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md
