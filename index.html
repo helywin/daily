@@ -18,15 +18,15 @@ title: 首页
     <p class="eyebrow">Latest reports</p>
     <h2>最近更新</h2>
   </div>
-  <label class="search-box">
-    <span>搜索</span>
-    <input id="report-search" type="search" placeholder="SLAM、MPC、VLA…">
-  </label>
+  <form class="search-box" action="{{ '/search/' | relative_url }}" method="get" role="search">
+    <label for="report-search">搜索</label>
+    <input id="report-search" name="q" type="search" placeholder="搜索全部历史文章正文…" autocomplete="off">
+  </form>
 </section>
 
 <div class="report-grid" id="report-grid">
   {% for post in site.posts %}
-  <article class="report-card" data-search="{{ post.title | append: ' ' | append: post.description | append: ' ' | append: post.tags | downcase | escape }}">
+  <article class="report-card">
     <div class="card-top">
       <time>{{ post.date | date: "%Y-%m-%d" }}</time>
       <span>{{ post.tags | first }}</span>
@@ -37,23 +37,3 @@ title: 首页
   </article>
   {% endfor %}
 </div>
-
-<p class="empty-state" id="empty-state" hidden>没有找到匹配的日报。</p>
-
-<script>
-(() => {
-  const input = document.getElementById('report-search');
-  const cards = [...document.querySelectorAll('.report-card')];
-  const empty = document.getElementById('empty-state');
-  input?.addEventListener('input', () => {
-    const query = input.value.trim().toLowerCase();
-    let visible = 0;
-    cards.forEach(card => {
-      const show = !query || card.dataset.search.includes(query);
-      card.hidden = !show;
-      if (show) visible++;
-    });
-    empty.hidden = visible !== 0;
-  });
-})();
-</script>

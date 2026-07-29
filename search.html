@@ -1,0 +1,32 @@
+---
+layout: default
+title: 全文搜索
+permalink: /search/
+---
+<section class="page-heading search-heading">
+  <p class="eyebrow">Full-text search</p>
+  <h1>搜索历史文章</h1>
+  <p>可搜索标题、摘要、标签和文章正文。</p>
+</section>
+
+<section class="search-panel" aria-labelledby="search-label">
+  <form class="search-page-form" role="search">
+    <label id="search-label" for="search-input">搜索关键词</label>
+    <div class="search-input-row">
+      <input id="search-input" name="q" type="search" placeholder="例如：FAST-LIO2、强化学习、安全治理" autocomplete="off" autofocus>
+      <button type="submit">搜索</button>
+    </div>
+  </form>
+  <p class="search-help">多个关键词以空格分隔，结果需同时包含所有关键词。</p>
+</section>
+
+<div class="search-summary" id="search-summary" role="status" aria-live="polite">
+  输入关键词，查找已归档的技术日报。
+</div>
+<div class="search-results" id="search-results"></div>
+
+<noscript>
+  <p class="empty-state">全文搜索需要启用 JavaScript。</p>
+</noscript>
+
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>

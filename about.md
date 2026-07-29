@@ -8,7 +8,7 @@ permalink: /about/
   <h1>关于这个日报</h1>
 </section>
 
-<div class="prose-page">
+<div class="prose-page" markdown="1">
 本网站归档每日生成的中文技术深度简报，重点关注：
 
 - 视觉 SLAM、LiDAR SLAM、LIO、多传感器融合、回环与长期地图；
