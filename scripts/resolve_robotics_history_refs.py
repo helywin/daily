@@ -47,12 +47,11 @@ def parse_pending() -> list[dict[str, str]]:
             continue
         if not line or line.startswith(">") or line.startswith("以下条目"):
             continue
-        if current_date and "；" in line or (current_date and line.endswith("。")):
+        if (current_date and "；" in line) or (current_date and line.endswith("。")):
             for item in re.split(r"[；;]", line.rstrip("。")):
                 item = item.strip()
                 if item and not item.startswith("注："):
                     items.append({"date": current_date, "label": item})
-    # de-duplicate exact date/label
     seen = set()
     out = []
     for item in items:
