@@ -17,7 +17,6 @@
 
 | 首次覆盖 | 最近覆盖 | 领域 | 规范条目 | 规范来源 / 别名 | 备注 |
 |---|---|---|---|---|---|
-| 2026-07-10 | 2026-07-15 | 视觉建图 / 3DGS-SLAM | GeoGS-SLAM | [论文](https://arxiv.org/abs/2607.07452) · [项目](https://rlgao.github.io/geogs_slam/) | 7 月 15 日再次展开；后续仅可按更新或经典复盘处理 |
 | 2026-07-10 | 2026-07-10 | 事件相机 / VIO | PLED-VINS | [论文](https://arxiv.org/abs/2607.07374) |  |
 | 2026-07-10 | 2026-07-10 | LiDAR / 3DGS-SLAM | Real-Time LiDAR Gaussian Splatting SLAM | [论文](https://arxiv.org/abs/2607.04127) |  |
 | 2026-07-10 | 2026-07-10 | MPPI / 安全控制 | RC-MPPI | [论文](https://arxiv.org/abs/2607.06950) |  |
@@ -63,6 +62,7 @@
 | 2026-07-15 | 2026-07-15 | 足式强化学习 / Koopman | SKooP | [论文](https://arxiv.org/abs/2607.11624) · [项目](https://evelyd.github.io/SymmetricKoopmanPredictions/) |  |
 | 2026-07-15 | 2026-07-15 | 灵巧操作 / 强化学习 | REGRIND | [论文](https://arxiv.org/abs/2607.11874) · [项目](https://yunhaifeng.com/REGRIND) |  |
 | 2026-07-15 | 2026-07-15 | 世界模型 / 机器人数据 | Xiaomi-Robotics-U0 | [论文](https://arxiv.org/abs/2607.11643) · [官方页面](https://robotics.xiaomi.com/xiaomi-robotics-u0.html) |  |
+| 2026-07-10 | 2026-07-15 | 视觉建图 / 3DGS-SLAM | GeoGS-SLAM | [论文](https://arxiv.org/abs/2607.07452) · [项目](https://rlgao.github.io/geogs_slam/) | 7 月 15 日再次展开；后续仅可按更新或经典复盘处理 |
 | 2026-07-16 | 2026-07-16 | 雷达 SLAM / Gaussian | DiffRadar | [论文](https://arxiv.org/abs/2607.12265) |  |
 | 2026-07-16 | 2026-07-16 | 拓扑导航 / 回环 | PixelLoop | [论文](https://arxiv.org/abs/2607.12811) · [项目](https://pixelloop-nav.github.io/) |  |
 | 2026-07-16 | 2026-07-16 | 无人机编队 / 残差学习 | Flatness-Preserving Residual Learning | [论文](https://arxiv.org/abs/2607.12275) |  |
@@ -153,7 +153,6 @@
 | 2026-07-25 | 2026-07-25 | 导航 / VLA | Robostral Navigate | [论文](https://arxiv.org/abs/2607.20785) |  |
 | 2026-07-25 | 2026-07-25 | VLA / Mixture-of-Experts | Emergent Compositional Skills in MoE VLAs | [论文](https://arxiv.org/abs/2607.20771) |  |
 | 2026-07-25 | 2026-07-25 | AI Coding / Agent 安全 | IssueTrojanBench | [论文](https://arxiv.org/abs/2607.20759) · [Harness 记忆](https://arxiv.org/abs/2607.20972) |  |
-| 2026-07-25 | 2026-07-28 | AI Coding / 基础模型 | Claude Opus 5 | [官方发布](https://www.anthropic.com/news/claude-opus-5) · [Copilot](https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot/) | 7 月 25–28 日多次提及；后续仅可按更新或经典复盘处理 |
 | 2026-07-26 | 2026-07-26 | 视觉建图 / Gaussian SLAM | GLAM-SLAM | [论文](https://arxiv.org/abs/2607.21416) · [项目](https://glamslam.github.io/) · [代码](https://github.com/pmermigkas/GLAM-SLAM) |  |
 | 2026-07-26 | 2026-07-26 | 拓扑地图 / 几何先验 | HGeo-TopoMap | [论文](https://arxiv.org/abs/2607.21281) · [代码](https://github.com/lynn-yu/HGeo-TopoMap) |  |
 | 2026-07-26 | 2026-07-26 | 机器人数据 / 操作学习 | AXIS | [论文](https://arxiv.org/abs/2607.21588) |  |
@@ -182,31 +181,20 @@
 | 2026-07-28 | 2026-07-28 | AI Coding / 并行写入治理 | Claim Plane | [论文](https://arxiv.org/abs/2607.21909) |  |
 | 2026-07-28 | 2026-07-28 | AI Coding / 测试验证 | MineValiCoder | [论文](https://arxiv.org/abs/2607.22471) |  |
 | 2026-07-28 | 2026-07-28 | GitHub Agent / 企业治理 | Enterprise managed settings for Copilot app and cloud agent | [官方更新](https://github.blog/changelog/2026-07-27-enterprise-managed-settings-now-apply-to-the-github-copilot-app/) |  |
-| 2026-08-03 | 2026-08-03 | 规划 / POMDP | ROP-RAS3 | [论文](https://arxiv.org/abs/2606.04355) · [代码](https://github.com/RDLLab/ROPRAS3) |  |
-| 2026-08-03 | 2026-08-03 | 机器人基础模型 | XS-VLA | [论文](https://arxiv.org/abs/2607.04171) |  |
-| 2026-08-03 | 2026-08-03 | 人机协同控制 | HandITL / Hand-in-the-Loop | [论文](https://arxiv.org/abs/2605.15157) |  |
-| 2026-08-03 | 2026-08-03 | 世界模型 | Mem-World | [论文](https://arxiv.org/abs/2606.18960) |  |
-| 2026-08-03 | 2026-08-03 | AI Coding | Agentic Harness Engineering | [论文](https://arxiv.org/abs/2604.25850) · [代码](https://github.com/china-qijizhifeng/agentic-harness-engineering) |  |
-| 2026-08-03 | 2026-08-03 | AI Coding | Harness-Bench | [论文](https://arxiv.org/abs/2605.27922) · [项目](https://www.harness-bench.ai/) |  |
-| 2026-08-02 | 2026-08-02 | 导航 / VLN | TEA-AgriVLN | [论文](https://arxiv.org/abs/2607.28474) · [代码](https://github.com/AlexTraveling/TEA-AgriVLN) |  |
-| 2026-08-02 | 2026-08-02 | 机器人系统 | Machines that Know They Are Aging | [论文](https://arxiv.org/abs/2607.28451) |  |
-| 2026-08-02 | 2026-08-02 | 多机器人 | Collective-State JEPA / CS-JEPA | [论文](https://arxiv.org/abs/2607.28443) |  |
-| 2026-08-02 | 2026-08-02 | 触觉 / 世界模型 | TacWAM | [论文](https://arxiv.org/abs/2607.28391) |  |
-| 2026-08-02 | 2026-08-02 | 操作 / 对应 | SemAnCorr | [论文](https://arxiv.org/abs/2607.28382) · [项目](https://semancorr.github.io/) |  |
-| 2026-08-02 | 2026-08-02 | 机器人学习 | RedFlow | [论文](https://arxiv.org/abs/2607.27782) |  |
-| 2026-08-02 | 2026-08-02 | AI Coding | SIGIL: Compiling Agent Skills into Typed Harnesses | [论文](https://arxiv.org/abs/2607.27309) |  |
-| 2026-08-01 | 2026-08-01 | 雷达里程计 | RaDiVe | [论文](https://arxiv.org/abs/2607.28045) |  |
-| 2026-08-01 | 2026-08-02 | 地图维护 | Write-Safe Flow Field Mapping | [论文](https://arxiv.org/abs/2607.27713) | 8 月 2 日再次展开；后续仅可按更新或经典复盘处理 |
-| 2026-08-01 | 2026-08-01 | 导航 / 扩散策略 | X-NavDP | [论文](https://arxiv.org/abs/2607.28560) · [项目](https://yty-sky.github.io/x-navdp-project-page/) · [代码](https://github.com/InternRobotics/NavDP/tree/master/baselines/x-navdp) |  |
-| 2026-08-01 | 2026-08-01 | 安全控制 / CBF | PAC-MAN | [论文](https://arxiv.org/abs/2607.28623) · [项目](https://lzyang2000.github.io/perceptive_cbf_rl/) |  |
-| 2026-08-01 | 2026-08-01 | 接触控制 / 扩散策略 | FA-RDP | [论文](https://arxiv.org/abs/2607.28596) · [项目](https://fa-rdp.github.io/) |  |
-| 2026-08-01 | 2026-08-01 | 机器人 Agent / VLA | RoboBRIDGE | [论文](https://arxiv.org/abs/2607.27881) |  |
-| 2026-08-01 | 2026-08-01 | 世界模型规划 | World Action Planner | [论文](https://arxiv.org/abs/2607.27599) · [项目](https://worldactionplanner.github.io/) · [代码](https://github.com/XiangchengZhang/world-action-planner) |  |
-| 2026-08-01 | 2026-08-01 | 世界模型 | PhiZero | [论文](https://arxiv.org/abs/2607.28624) · [项目](https://phi-zero.github.io/) |  |
-| 2026-08-01 | 2026-08-01 | AI Coding | Change2Task | [论文](https://arxiv.org/abs/2607.28591) |  |
-| 2026-08-01 | 2026-08-01 | AI Coding | PAIChecker | [论文](https://arxiv.org/abs/2607.28587) |  |
-| 2026-08-01 | 2026-08-01 | Agent 安全 | HALO | [论文](https://arxiv.org/abs/2607.27636) |  |
-| 2026-08-01 | 2026-08-01 | 代码安全 | CoGate | [论文](https://arxiv.org/abs/2607.28529) |  |
+| 2026-07-25 | 2026-07-28 | AI Coding / 基础模型 | Claude Opus 5 | [官方发布](https://www.anthropic.com/news/claude-opus-5) · [Copilot](https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot/) | 7 月 25–28 日多次提及；后续仅可按更新或经典复盘处理 |
+| 2026-07-29 | 2026-07-29 | 对象 SLAM | Semantic Semi-Incremental Data-Association-Free Object SLAM | [论文](https://arxiv.org/abs/2607.23384) |  |
+| 2026-07-29 | 2026-07-29 | 无人机规划 / MPC | Model Predictive Planner for UAV Navigation in Non-Convex Air Corridors | [论文](https://arxiv.org/abs/2607.24369) |  |
+| 2026-07-29 | 2026-07-29 | 无人机 NMPC | BC-NMPC | [论文](https://arxiv.org/abs/2607.23867) |  |
+| 2026-07-29 | 2026-07-29 | 强化学习控制 | WARL | [论文](https://arxiv.org/abs/2607.24036) · [项目](https://keitayoneda.github.io/kleiyn-warl/) |  |
+| 2026-07-29 | 2026-07-29 | 视觉触觉世界模型 | FeelWorld | [论文](https://arxiv.org/abs/2607.24267) |  |
+| 2026-07-29 | 2026-07-29 | 机器人数据 | Embodied Data Pyramid / Data Pyramid | [论文](https://arxiv.org/abs/2607.24744) · [项目](https://jasper-aaa.github.io/embodied-data-pyramid/) · [代码](https://github.com/worldbench/awesome-embodied-data-pyramid) |  |
+| 2026-07-30 | 2026-07-30 | 跨视角定位 | LOCI | [论文](https://arxiv.org/abs/2607.25215) · [项目](https://efahnestock.github.io/loci/) |  |
+| 2026-07-30 | 2026-07-30 | IMU 标定 | Motion-Acceleration Calibration and Compensation in IMUs | [论文](https://arxiv.org/abs/2607.25784) |  |
+| 2026-07-30 | 2026-07-30 | 无人机强化学习控制 | Physics-Aware End-to-End DRL for Quadcopter Control | [论文](https://arxiv.org/abs/2607.25985) |  |
+| 2026-07-30 | 2026-07-30 | 飞行安全监测 | Critical Slowing Down for Predicting Quadrotor Loss of Control | [论文](https://arxiv.org/abs/2607.25370) |  |
+| 2026-07-30 | 2026-07-30 | MPC / 轨迹优化 | Amortising Trajectory Optimisation for Residual MPC | [论文](https://arxiv.org/abs/2607.24959) · [代码分支](https://github.com/calumarnott/mujoco/tree/3.9.0-derivatives) |  |
+| 2026-07-30 | 2026-07-30 | VLA / 实时策略 | πR²: Reactive Real-time Flow Policies | [论文](https://arxiv.org/abs/2607.26055) · [项目](https://pi-r2-flow.github.io/) |  |
+| 2026-07-30 | 2026-07-30 | 世界模型规划 | INTACT: Search-Free World Models | [论文](https://arxiv.org/abs/2607.26056) |  |
 | 2026-07-31 | 2026-07-31 | 视觉建图 / SfM | VidMap | [论文](https://arxiv.org/abs/2607.27194) · [代码](https://github.com/cvg/vidmap) |  |
 | 2026-07-31 | 2026-07-31 | 雷达惯性定位 | Dense Soft Weighting for Radar Ego-Velocity Estimation | [论文](https://arxiv.org/abs/2607.26980) |  |
 | 2026-07-31 | 2026-07-31 | MPC / 在线学习 | Self-Adaptive Learning and Model Predictive Control | [论文](https://arxiv.org/abs/2607.26370) |  |
@@ -218,19 +206,31 @@
 | 2026-07-31 | 2026-07-31 | 代码检索 / RAG | VITAL-RAG | [论文](https://arxiv.org/abs/2607.26937) |  |
 | 2026-07-31 | 2026-07-31 | AI Coding 治理 | Coding Agents 对开源 AI 贡献规则的遵守研究 | [论文](https://arxiv.org/abs/2607.26819) |  |
 | 2026-07-31 | 2026-07-31 | AI IDE 安全 | LLM-native IDE 安全与隐私研究 | [论文](https://arxiv.org/abs/2607.26390) |  |
-| 2026-07-30 | 2026-07-30 | 跨视角定位 | LOCI | [论文](https://arxiv.org/abs/2607.25215) · [项目](https://efahnestock.github.io/loci/) |  |
-| 2026-07-30 | 2026-07-30 | IMU 标定 | Motion-Acceleration Calibration and Compensation in IMUs | [论文](https://arxiv.org/abs/2607.25784) |  |
-| 2026-07-30 | 2026-07-30 | 无人机强化学习控制 | Physics-Aware End-to-End DRL for Quadcopter Control | [论文](https://arxiv.org/abs/2607.25985) |  |
-| 2026-07-30 | 2026-07-30 | 飞行安全监测 | Critical Slowing Down for Predicting Quadrotor Loss of Control | [论文](https://arxiv.org/abs/2607.25370) |  |
-| 2026-07-30 | 2026-07-30 | MPC / 轨迹优化 | Amortising Trajectory Optimisation for Residual MPC | [论文](https://arxiv.org/abs/2607.24959) · [代码分支](https://github.com/calumarnott/mujoco/tree/3.9.0-derivatives) |  |
-| 2026-07-30 | 2026-07-30 | VLA / 实时策略 | πR²: Reactive Real-time Flow Policies | [论文](https://arxiv.org/abs/2607.26055) · [项目](https://pi-r2-flow.github.io/) |  |
-| 2026-07-30 | 2026-07-30 | 世界模型规划 | INTACT: Search-Free World Models | [论文](https://arxiv.org/abs/2607.26056) |  |
-| 2026-07-29 | 2026-07-29 | 对象 SLAM | Semantic Semi-Incremental Data-Association-Free Object SLAM | [论文](https://arxiv.org/abs/2607.23384) |  |
-| 2026-07-29 | 2026-07-29 | 无人机规划 / MPC | Model Predictive Planner for UAV Navigation in Non-Convex Air Corridors | [论文](https://arxiv.org/abs/2607.24369) |  |
-| 2026-07-29 | 2026-07-29 | 无人机 NMPC | BC-NMPC | [论文](https://arxiv.org/abs/2607.23867) |  |
-| 2026-07-29 | 2026-07-29 | 强化学习控制 | WARL | [论文](https://arxiv.org/abs/2607.24036) · [项目](https://keitayoneda.github.io/kleiyn-warl/) |  |
-| 2026-07-29 | 2026-07-29 | 视觉触觉世界模型 | FeelWorld | [论文](https://arxiv.org/abs/2607.24267) |  |
-| 2026-07-29 | 2026-07-29 | 机器人数据 | Embodied Data Pyramid / Data Pyramid | [论文](https://arxiv.org/abs/2607.24744) · [项目](https://jasper-aaa.github.io/embodied-data-pyramid/) · [代码](https://github.com/worldbench/awesome-embodied-data-pyramid) |  |
+| 2026-08-01 | 2026-08-01 | 雷达里程计 | RaDiVe | [论文](https://arxiv.org/abs/2607.28045) |  |
+| 2026-08-01 | 2026-08-01 | 导航 / 扩散策略 | X-NavDP | [论文](https://arxiv.org/abs/2607.28560) · [项目](https://yty-sky.github.io/x-navdp-project-page/) · [代码](https://github.com/InternRobotics/NavDP/tree/master/baselines/x-navdp) |  |
+| 2026-08-01 | 2026-08-01 | 安全控制 / CBF | PAC-MAN | [论文](https://arxiv.org/abs/2607.28623) · [项目](https://lzyang2000.github.io/perceptive_cbf_rl/) |  |
+| 2026-08-01 | 2026-08-01 | 接触控制 / 扩散策略 | FA-RDP | [论文](https://arxiv.org/abs/2607.28596) · [项目](https://fa-rdp.github.io/) |  |
+| 2026-08-01 | 2026-08-01 | 机器人 Agent / VLA | RoboBRIDGE | [论文](https://arxiv.org/abs/2607.27881) |  |
+| 2026-08-01 | 2026-08-01 | 世界模型规划 | World Action Planner | [论文](https://arxiv.org/abs/2607.27599) · [项目](https://worldactionplanner.github.io/) · [代码](https://github.com/XiangchengZhang/world-action-planner) |  |
+| 2026-08-01 | 2026-08-01 | 世界模型 | PhiZero | [论文](https://arxiv.org/abs/2607.28624) · [项目](https://phi-zero.github.io/) |  |
+| 2026-08-01 | 2026-08-01 | AI Coding | Change2Task | [论文](https://arxiv.org/abs/2607.28591) |  |
+| 2026-08-01 | 2026-08-01 | AI Coding | PAIChecker | [论文](https://arxiv.org/abs/2607.28587) |  |
+| 2026-08-01 | 2026-08-01 | Agent 安全 | HALO | [论文](https://arxiv.org/abs/2607.27636) |  |
+| 2026-08-01 | 2026-08-01 | 代码安全 | CoGate | [论文](https://arxiv.org/abs/2607.28529) |  |
+| 2026-08-02 | 2026-08-02 | 导航 / VLN | TEA-AgriVLN | [论文](https://arxiv.org/abs/2607.28474) · [代码](https://github.com/AlexTraveling/TEA-AgriVLN) |  |
+| 2026-08-02 | 2026-08-02 | 机器人系统 | Machines that Know They Are Aging | [论文](https://arxiv.org/abs/2607.28451) |  |
+| 2026-08-02 | 2026-08-02 | 多机器人 | Collective-State JEPA / CS-JEPA | [论文](https://arxiv.org/abs/2607.28443) |  |
+| 2026-08-02 | 2026-08-02 | 触觉 / 世界模型 | TacWAM | [论文](https://arxiv.org/abs/2607.28391) |  |
+| 2026-08-02 | 2026-08-02 | 操作 / 对应 | SemAnCorr | [论文](https://arxiv.org/abs/2607.28382) · [项目](https://semancorr.github.io/) |  |
+| 2026-08-02 | 2026-08-02 | 机器人学习 | RedFlow | [论文](https://arxiv.org/abs/2607.27782) |  |
+| 2026-08-02 | 2026-08-02 | AI Coding | SIGIL: Compiling Agent Skills into Typed Harnesses | [论文](https://arxiv.org/abs/2607.27309) |  |
+| 2026-08-01 | 2026-08-02 | 地图维护 | Write-Safe Flow Field Mapping | [论文](https://arxiv.org/abs/2607.27713) | 8 月 2 日再次展开；后续仅可按更新或经典复盘处理 |
+| 2026-08-03 | 2026-08-03 | 规划 / POMDP | ROP-RAS3 | [论文](https://arxiv.org/abs/2606.04355) · [代码](https://github.com/RDLLab/ROPRAS3) |  |
+| 2026-08-03 | 2026-08-03 | 机器人基础模型 | XS-VLA | [论文](https://arxiv.org/abs/2607.04171) |  |
+| 2026-08-03 | 2026-08-03 | 人机协同控制 | HandITL / Hand-in-the-Loop | [论文](https://arxiv.org/abs/2605.15157) |  |
+| 2026-08-03 | 2026-08-03 | 世界模型 | Mem-World | [论文](https://arxiv.org/abs/2606.18960) |  |
+| 2026-08-03 | 2026-08-03 | AI Coding | Agentic Harness Engineering | [论文](https://arxiv.org/abs/2604.25850) · [代码](https://github.com/china-qijizhifeng/agentic-harness-engineering) |  |
+| 2026-08-03 | 2026-08-03 | AI Coding | Harness-Bench | [论文](https://arxiv.org/abs/2605.27922) · [项目](https://www.harness-bench.ai/) |  |
 | 2026-07-12 | 2026-08-03 | 多机器人定位 | D-CLIPSE | [论文](https://arxiv.org/abs/2607.07995) | 8 月 3 日深度复盘；后续仅可按实质更新或经典复盘处理 |
 
 ## 维护检查表
