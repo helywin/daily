@@ -126,12 +126,16 @@ VLA action chunk 安全执行器
 
 ## 参考资料
 
-- [GeoGS-SLAM](https://arxiv.org/search/?query=GeoGS-SLAM&searchtype=all)
-- [PLED-VINS](https://arxiv.org/search/?query=PLED-VINS&searchtype=all)
-- [Real-Time LiDAR Gaussian Splatting SLAM](https://arxiv.org/search/?query=Real-Time%20LiDAR%20Gaussian%20Splatting%20SLAM&searchtype=all)
-- [RC-MPPI + Safe RL with MPC](https://arxiv.org/search/?query=RC-MPPI%20%2B%20Safe%20RL%20with%20MPC&searchtype=all)
-- [PSDF-MPC](https://arxiv.org/search/?query=PSDF-MPC&searchtype=all)
-- [VLA-Corrector / LingBot-VLA 2.0](https://arxiv.org/search/?query=VLA-Corrector%20/%20LingBot-VLA%202.0&searchtype=all)
-- [GPT-5.6 / Grok 4.5 / Copilot](https://github.com/search?q=GPT-5.6%20/%20Grok%204.5%20/%20Copilot&type=repositories)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [GeoGS-SLAM：Geometry-Only Gaussian Splatting for Dense Monocular SLAM](https://arxiv.org/abs/2607.07452)
+- [PLED-VINS：A Point-Line Event-Based Visual Inertial SLAM for Dynamic Environments](https://arxiv.org/abs/2607.07374)
+- [Real-Time LiDAR Gaussian Splatting SLAM](https://arxiv.org/abs/2607.04127)
+- [Residual-Conservative Model Predictive Path Integral Control（RC-MPPI）](https://arxiv.org/abs/2607.06950)
+- [Safe Reinforcement Learning using Ideas from Model Predictive Control](https://arxiv.org/abs/2607.07252)
+- [GPU-Accelerated Polygonal Signed Distance Functions for Real-Time Collision Avoidance（PSDF-MPC）](https://arxiv.org/abs/2607.04310)
+- [VLA-Corrector：Lightweight Detect-and-Correct Inference for Adaptive Action Horizon](https://arxiv.org/abs/2607.01804)
+- [LingBot-VLA 2.0：From Foundation to Application](https://arxiv.org/abs/2607.06403)
+- [GPT-5.6 官方发布](https://openai.com/index/gpt-5-6/)
+- [GPT-5.6 在 GitHub Copilot 中可用](https://github.blog/changelog/2026-07-09-openais-gpt-5-6-sol-terra-and-luna-are-now-available-in-github-copilot/)
+- [Copilot VS Code 2026 年 6 月更新](https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases/)
+- [Copilot 浏览器工具 GA](https://github.blog/changelog/2026-07-01-browser-tools-for-github-copilot-in-vs-code-are-generally-available/)
+- [Grok 4.5 官方发布](https://x.ai/news/grok-4-5)

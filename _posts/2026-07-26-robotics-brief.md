@@ -335,13 +335,13 @@ Opus 5 更适合跨模块重构、复杂根因分析和高价值 PR 审查，不
 
 ## 参考资料
 
-- [GLAM-SLAM](https://arxiv.org/search/?query=GLAM-SLAM&searchtype=all)
-- [HGeo-TopoMap](https://arxiv.org/search/?query=HGeo-TopoMap&searchtype=all)
-- [AXIS](https://arxiv.org/search/?query=AXIS&searchtype=all)
-- [FORGE-plus](https://arxiv.org/search/?query=FORGE-plus&searchtype=all)
-- [PhysCoRe](https://arxiv.org/search/?query=PhysCoRe&searchtype=all)
-- [GuidedAttention](https://arxiv.org/search/?query=GuidedAttention&searchtype=all)
-- [AI Coding](https://arxiv.org/search/?query=AI%20Coding&searchtype=all)
-- [MCP 与最新模型](https://github.com/search?q=MCP%20%E4%B8%8E%E6%9C%80%E6%96%B0%E6%A8%A1%E5%9E%8B&type=repositories)
+- [GLAM-SLAM](https://arxiv.org/abs/2607.21416) · [项目](https://glamslam.github.io/) · [代码](https://github.com/pmermigkas/GLAM-SLAM)
+- [HGeo-TopoMap](https://arxiv.org/abs/2607.21281) · [代码](https://github.com/lynn-yu/HGeo-TopoMap)
+- [AXIS](https://arxiv.org/abs/2607.21588)
+- [FORGE-plus](https://arxiv.org/abs/2607.21227)
+- [PhysCoRe](https://arxiv.org/abs/2607.20653)
+- [GuidedAttention](https://arxiv.org/abs/2607.21049)
+- [Petri-Net-guided Rust 测试生成](https://arxiv.org/abs/2607.21530)
+- [GitHub MCP Server 新规范](https://github.blog/changelog/2026-07-23-github-mcp-server-supports-the-next-mcp-specification/) · [Claude Opus 5](https://www.anthropic.com/news/claude-opus-5)
 
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+> 说明：历史聊天导出文本没有保留原始超链接，现已按论文、项目、代码仓库和官方发布页逐项补回直接来源。

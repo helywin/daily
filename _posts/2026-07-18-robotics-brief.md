@@ -455,12 +455,11 @@ Reflex 可以提升 VLA 频率，BadWAM 则说明世界预测分支不能替代�
 
 ## 参考资料
 
-- [OASIS-Map](https://arxiv.org/search/?query=OASIS-Map&searchtype=all)
-- [G²SR](https://arxiv.org/search/?query=G%C2%B2SR&searchtype=all)
-- [ITAC-MPPI](https://arxiv.org/search/?query=ITAC-MPPI&searchtype=all)
-- [Acc-CBF-QP](https://arxiv.org/search/?query=Acc-CBF-QP&searchtype=all)
-- [RoboTTT](https://arxiv.org/search/?query=RoboTTT&searchtype=all)
-- [Reflex + BadWAM](https://arxiv.org/search/?query=Reflex%20%2B%20BadWAM&searchtype=all)
-- [Coding Agent](https://arxiv.org/search/?query=Coding%20Agent&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [OASIS-Map：Object-Level Change Detection in Multi-Session Mapping](https://arxiv.org/abs/2607.14899) · [项目](https://dynamic.robots.ox.ac.uk/projects/oasis-map/)
+- [G²SR：Geometric Methods for Fast Gaussian Surface Reconstruction](https://arxiv.org/abs/2607.14470)
+- [ITAC-MPPI：Information-Theoretic Adaptive Cooling](https://arxiv.org/abs/2607.14245)
+- [Acc-CBF-QP：Safe Execution of RL Policies](https://arxiv.org/abs/2607.14488)
+- [RoboTTT：Context Scaling for Robot Policies](https://arxiv.org/abs/2607.15275) · [项目](https://research.nvidia.com/labs/gear/robottt/)
+- [Reflex：Real-Time VLA Control through Streaming Inference](https://arxiv.org/abs/2607.14695)
+- [BadWAM：When World-Action Models Dream Right but Act Wrong](https://arxiv.org/abs/2607.15207)
+- [Setup Complete, Now You Are Compromised](https://arxiv.org/abs/2607.15143)

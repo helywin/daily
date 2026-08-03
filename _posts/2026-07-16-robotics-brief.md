@@ -424,13 +424,12 @@ Coding Agent 只能生成经过 schema 验证的行为树，不能直接执行�
 
 ## 参考资料
 
-- [DiffRadar](https://arxiv.org/search/?query=DiffRadar&searchtype=all)
-- [PixelLoop](https://arxiv.org/search/?query=PixelLoop&searchtype=all)
-- [Flatness-Preserving Residual Learning](https://arxiv.org/search/?query=Flatness-Preserving%20Residual%20Learning&searchtype=all)
-- [ATACOM-DC](https://arxiv.org/search/?query=ATACOM-DC&searchtype=all)
-- [MDOC](https://arxiv.org/search/?query=MDOC&searchtype=all)
-- [Jetson-PI](https://arxiv.org/search/?query=Jetson-PI&searchtype=all)
-- [Contract-Grounded BT](https://arxiv.org/search/?query=Contract-Grounded%20BT&searchtype=all)
-- [AI Coding 与模型动态](https://arxiv.org/search/?query=AI%20Coding%20%E4%B8%8E%E6%A8%A1%E5%9E%8B%E5%8A%A8%E6%80%81&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [DiffRadar：Differentiable Physics-Aware Radar SLAM](https://arxiv.org/abs/2607.12265)
+- [PixelLoop：Shortcut Topological Navigation with Pixel-Level Loops](https://arxiv.org/abs/2607.12811) · [项目](https://pixelloop-nav.github.io/)
+- [Flatness-Preserving Residual Learning](https://arxiv.org/abs/2607.12275)
+- [ATACOM-DC：Directional Constraints for Efficient Exploration](https://arxiv.org/abs/2607.12784) · [项目](https://atacom-dc.robot-learning.net/)
+- [MDOC：Model-Based Diffusion Optimal Control](https://arxiv.org/abs/2607.12423)
+- [Jetson-PI：Foresight-Aligned Asynchronous Inference](https://arxiv.org/abs/2607.12659) · [代码](https://github.com/PKU-SEC-Lab/Jetson-PI)
+- [Contract-Grounded Behavior Tree Synthesis](https://arxiv.org/abs/2607.12220)
+- [Grok Build 开源](https://x.ai/news/grok-build-open-source)
+- [GPT-Red：Unlocking Self-Improvement for Robustness](https://openai.com/index/unlocking-self-improvement-gpt-red/)

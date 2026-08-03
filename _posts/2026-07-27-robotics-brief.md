@@ -352,13 +352,13 @@ Tencent WorkBuddy Bench 覆盖四类真实工作域：
 
 ## 参考资料
 
-- [VoLN](https://arxiv.org/search/?query=VoLN&searchtype=all)
-- [ZONDA](https://arxiv.org/search/?query=ZONDA&searchtype=all)
-- [RL 引导 MPC](https://arxiv.org/search/?query=RL%20%E5%BC%95%E5%AF%BC%20MPC&searchtype=all)
-- [仅靠平面 LiDAR，在 CPU 上估计周围人员位置与朝向](https://arxiv.org/search/?query=%E4%BB%85%E9%9D%A0%E5%B9%B3%E9%9D%A2%20LiDAR%EF%BC%8C%E5%9C%A8%20CPU%20%E4%B8%8A%E4%BC%B0%E8%AE%A1%E5%91%A8%E5%9B%B4%E4%BA%BA%E5%91%98%E4%BD%8D%E7%BD%AE%E4%B8%8E%E6%9C%9D%E5%90%91&searchtype=all)
-- [矿山破碎锤 RGB-D 感知](https://arxiv.org/search/?query=%E7%9F%BF%E5%B1%B1%E7%A0%B4%E7%A2%8E%E9%94%A4%20RGB-D%20%E6%84%9F%E7%9F%A5&searchtype=all)
-- [GS-Agent 与 TableVerse](https://arxiv.org/search/?query=GS-Agent%20%E4%B8%8E%20TableVerse&searchtype=all)
-- [FELT 与偏置感知采集](https://arxiv.org/search/?query=FELT%20%E4%B8%8E%E5%81%8F%E7%BD%AE%E6%84%9F%E7%9F%A5%E9%87%87%E9%9B%86&searchtype=all)
-- [Coding Agent](https://arxiv.org/search/?query=Coding%20Agent&searchtype=all)
+- [VoLN](https://arxiv.org/abs/2607.21400) · [项目](https://admire-ljb.github.io/VoLN-UAV/)
+- [ZONDA](https://arxiv.org/abs/2607.21025)
+- [RL 引导 MPC](https://arxiv.org/abs/2607.20973)
+- [平面 LiDAR 人员位置与朝向](https://arxiv.org/abs/2607.21309)
+- [矿山破碎锤 RGB-D 感知](https://arxiv.org/abs/2607.20748)
+- [GS-Agent](https://arxiv.org/abs/2607.21522) · [项目](https://umass-embodied-agi.github.io/gs-agent/) · [TableVerse](https://arxiv.org/abs/2607.21017)
+- [FELT](https://arxiv.org/abs/2607.20683) · [项目](https://felt-tactile.github.io/)
+- [WorkBuddy Bench](https://arxiv.org/abs/2607.20911) · [项目](https://workbuddybench.com/) · [代码](https://github.com/Tencent/workbuddy-bench)
 
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+> 说明：历史聊天导出文本没有保留原始超链接，现已按论文、项目、代码仓库和官方发布页逐项补回直接来源。

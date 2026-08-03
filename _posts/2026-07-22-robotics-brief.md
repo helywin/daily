@@ -316,13 +316,12 @@ Gemini 3.6 Flash 已逐步进入 GitHub Copilot 的 VS Code、Visual Studio、CL
 
 ## 参考资料
 
-- [Geometry-Verified VIO](https://arxiv.org/search/?query=Geometry-Verified%20VIO&searchtype=all)
-- [MR-Voxel-SVIO](https://arxiv.org/search/?query=MR-Voxel-SVIO&searchtype=all)
-- [Disturbance-Aware Flight](https://arxiv.org/search/?query=Disturbance-Aware%20Flight&searchtype=all)
-- [Adaptive Safety Critic](https://arxiv.org/search/?query=Adaptive%20Safety%20Critic&searchtype=all)
-- [Patch Policy](https://arxiv.org/search/?query=Patch%20Policy&searchtype=all)
-- [FM-VLA](https://arxiv.org/search/?query=FM-VLA&searchtype=all)
-- [RynnBrain 1.1](https://arxiv.org/search/?query=RynnBrain%201.1&searchtype=all)
-- [AI Coding](https://arxiv.org/search/?query=AI%20Coding&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [Geometry-Verified VIO](https://arxiv.org/abs/2607.17956)
+- [MR-Voxel-SVIO](https://arxiv.org/abs/2607.17332)
+- [Disturbance-Aware Flight](https://arxiv.org/abs/2607.17476)
+- [Adaptive Safety Critic](https://arxiv.org/abs/2607.18200)
+- [Patch Policy](https://arxiv.org/abs/2607.18236) · [项目](https://patch-policy.github.io)
+- [FM-VLA](https://arxiv.org/abs/2607.18231) · [项目](https://qft-333.github.io/FM-VLA-Page/)
+- [RynnBrain 1.1](https://arxiv.org/abs/2607.17977) · [代码](https://github.com/alibaba-damo-academy/RynnBrain)
+- [DiffTestGen](https://arxiv.org/abs/2607.16024)
+- [TRIM：Reducing AI-Generated CodeSlop](https://arxiv.org/abs/2607.18161)

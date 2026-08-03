@@ -347,13 +347,14 @@ GitHub 在 7 月 17 日将 Copilot 仓库级用量指标正式开放，可分别
 
 ## 参考资料
 
-- [CERPE](https://arxiv.org/search/?query=CERPE&searchtype=all)
-- [Rectified Flow LiDAR Upsampling](https://arxiv.org/search/?query=Rectified%20Flow%20LiDAR%20Upsampling&searchtype=all)
-- [Risk-Aware BCBF](https://arxiv.org/search/?query=Risk-Aware%20BCBF&searchtype=all)
-- [VOP-Nav](https://arxiv.org/search/?query=VOP-Nav&searchtype=all)
-- [BridgeFlow 与 MD-COAS](https://arxiv.org/search/?query=BridgeFlow%20%E4%B8%8E%20MD-COAS&searchtype=all)
-- [Humanoid Behavior Foundation Model](https://arxiv.org/search/?query=Humanoid%20Behavior%20Foundation%20Model&searchtype=all)
-- [DriftWorld 与 LIFT](https://arxiv.org/search/?query=DriftWorld%20%E4%B8%8E%20LIFT&searchtype=all)
-- [AI Coding](https://arxiv.org/search/?query=AI%20Coding&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [CERPE：Communication-Efficient Relative Pose Estimation](https://arxiv.org/abs/2607.14539)
+- [Image-to-Point Cloud Registration with Rectified Flow LiDAR Upsampling](https://arxiv.org/abs/2607.14639)
+- [Risk-Aware Belief Control Barrier Functions](https://arxiv.org/abs/2607.15016)
+- [VOP-Nav：Learning Agile Navigation in Crowded Environments](https://arxiv.org/abs/2607.15036)
+- [BridgeFlow：SE(2)-Equivariant Motion Planning](https://arxiv.org/abs/2607.14725)
+- [MD-COAS：Model-Based Diffusion via Constraint Optimization](https://arxiv.org/abs/2607.14455)
+- [Perceptive Behavior Foundation Model](https://arxiv.org/abs/2606.08059)
+- [DriftWorld：Fast World Modeling through Drifting](https://arxiv.org/abs/2607.15065)
+- [LIFT：Late Reactive Injection of Force for VLA](https://arxiv.org/abs/2607.14236)
+- [How agents are transforming work](https://openai.com/index/how-agents-are-transforming-work/)
+- [Repository-level Copilot usage metrics GA](https://github.blog/changelog/2026-07-17-repository-level-github-copilot-usage-metrics-generally-available/)

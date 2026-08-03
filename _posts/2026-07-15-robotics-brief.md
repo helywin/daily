@@ -413,13 +413,14 @@ AI 安全扫描适合立即加入日常 PR 流程，但绝不能作为唯一的�
 
 ## 参考资料
 
-- [Desc++](https://arxiv.org/search/?query=Desc%2B%2B&searchtype=all)
-- [GeoGS-SLAM](https://arxiv.org/search/?query=GeoGS-SLAM&searchtype=all)
-- [WarpMPC](https://arxiv.org/search/?query=WarpMPC&searchtype=all)
-- [Stop to Decide](https://arxiv.org/search/?query=Stop%20to%20Decide&searchtype=all)
-- [SKooP 与 REGRIND](https://arxiv.org/search/?query=SKooP%20%E4%B8%8E%20REGRIND&searchtype=all)
-- [Xiaomi-Robotics-U0](https://arxiv.org/search/?query=Xiaomi-Robotics-U0&searchtype=all)
-- [AI Coding Agent](https://arxiv.org/search/?query=AI%20Coding%20Agent&searchtype=all)
-- [最新通用模型动态](https://arxiv.org/search/?query=%E6%9C%80%E6%96%B0%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9E%8B%E5%8A%A8%E6%80%81&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [Desc++：Efficient Descriptor Enhancement for Data Association](https://arxiv.org/abs/2607.11099)
+- [GeoGS-SLAM：Geometry-Only Gaussian Splatting](https://arxiv.org/abs/2607.07452)
+- [WarpMPC：Large-Batch MPC on GPU](https://arxiv.org/abs/2607.11603)
+- [Stop to Decide：Latency-Aware Proprioceptive Navigation](https://arxiv.org/abs/2607.11204)
+- [SKooP：Symmetric Koopman Predictions](https://arxiv.org/abs/2607.11624) · [项目](https://evelyd.github.io/SymmetricKoopmanPredictions/)
+- [REGRIND：A Minimalist Retargeting-Guided RL Recipe](https://arxiv.org/abs/2607.11874) · [项目](https://yunhaifeng.com/REGRIND)
+- [Xiaomi-Robotics-U0](https://arxiv.org/abs/2607.11643) · [官方页面](https://robotics.xiaomi.com/xiaomi-robotics-u0.html)
+- [Copilot Security Review](https://github.blog/changelog/2026-07-14-security-reviews-now-available-in-the-github-copilot-app/)
+- [Visual Studio Copilot 信任验证与 C++ Modernization](https://github.blog/changelog/2026-07-14-github-copilot-in-visual-studio-june-update/)
+- [Dependabot 默认更新冷却期](https://github.blog/changelog/2026-07-14-dependabot-version-updates-introduce-default-package-cooldown/)
+- [GPT-5.6 官方发布](https://openai.com/index/gpt-5-6/)

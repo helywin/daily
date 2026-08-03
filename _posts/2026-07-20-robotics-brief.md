@@ -405,13 +405,12 @@ Agent 框架的审批按钮只能作为界面功能，不能被视为安全边�
 
 ## 参考资料
 
-- [KineFuse](https://arxiv.org/search/?query=KineFuse&searchtype=all)
-- [NavCMPO](https://arxiv.org/search/?query=NavCMPO&searchtype=all)
-- [DRIFT](https://arxiv.org/search/?query=DRIFT&searchtype=all)
-- [WA-LQR](https://arxiv.org/search/?query=WA-LQR&searchtype=all)
-- [AeroAct](https://arxiv.org/search/?query=AeroAct&searchtype=all)
-- [MEMORA](https://arxiv.org/search/?query=MEMORA&searchtype=all)
-- [Coding Agent 安全](https://arxiv.org/search/?query=Coding%20Agent%20%E5%AE%89%E5%85%A8&searchtype=all)
-- [最新大模型发布状态](https://arxiv.org/search/?query=%E6%9C%80%E6%96%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%8F%91%E5%B8%83%E7%8A%B6%E6%80%81&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [KineFuse](https://arxiv.org/abs/2607.14842) · [项目](https://cold-young.github.io/kine-fuse/)
+- [NavCMPO](https://arxiv.org/abs/2607.14643)
+- [DRIFT](https://arxiv.org/abs/2607.14507)
+- [WA-LQR](https://arxiv.org/abs/2607.14943)
+- [AeroAct](https://arxiv.org/abs/2607.14997)
+- [MEMORA](https://arxiv.org/abs/2607.14252) · [项目](https://yuzihaowashu.github.io/MEMORA/)
+- [Stop Means Stop / SOUNDGATE](https://arxiv.org/abs/2607.14166)
+- [Ada/SPARK Coding Agent 验证](https://arxiv.org/abs/2607.14340)
+- [GPT-5.6](https://openai.com/index/gpt-5-6/) · [Claude](https://www.anthropic.com/news/claude-opus-4-1) · [Muse Spark](https://ai.meta.com/blog/introducing-muse-spark-msl/)

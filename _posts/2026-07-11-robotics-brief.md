@@ -327,13 +327,12 @@ Muse Spark 1.1 值得在隔离环境中与现有 Codex、Claude Code 或 Copilot
 
 ## 参考资料
 
-- [RadLoc](https://arxiv.org/search/?query=RadLoc&searchtype=all)
-- [DeepCORD](https://arxiv.org/search/?query=DeepCORD&searchtype=all)
-- [STEMbot](https://arxiv.org/search/?query=STEMbot&searchtype=all)
-- [HumoSlope](https://arxiv.org/search/?query=HumoSlope&searchtype=all)
-- [基于 TTC 的动态避障](https://arxiv.org/search/?query=%E5%9F%BA%E4%BA%8E%20TTC%20%E7%9A%84%E5%8A%A8%E6%80%81%E9%81%BF%E9%9A%9C&searchtype=all)
-- [LingBot-VA 2.0](https://arxiv.org/search/?query=LingBot-VA%202.0&searchtype=all)
-- [Harness VLA](https://arxiv.org/search/?query=Harness%20VLA&searchtype=all)
-- [AI Coding 与大模型](https://arxiv.org/search/?query=AI%20Coding%20%E4%B8%8E%E5%A4%A7%E6%A8%A1%E5%9E%8B&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [RadLoc：Radar-based 3-DoF Global Localization](https://arxiv.org/abs/2607.08115)
+- [DeepCORD：Learning Adaptive Solvers for Distributed Factor Graph Optimization](https://arxiv.org/abs/2607.08735)
+- [STEMbot：A Compliant Robot for Under-Canopy Plant Navigation](https://arxiv.org/abs/2607.07873)
+- [HumoSlope：Physics-Guided Biomechanical Gait Adaptation](https://arxiv.org/abs/2607.07830)
+- [Time-to-Collision Based Dynamic Obstacle Avoidance Using Pretrained Vision Models](https://arxiv.org/abs/2607.07885)
+- [LingBot-VA 2.0：Native Video-Action Pretraining](https://arxiv.org/abs/2607.08639)
+- [Harness VLA：Steering Frozen VLAs into Reliable Manipulation Primitives](https://arxiv.org/abs/2607.08448)
+- [Muse Spark 官方发布](https://ai.meta.com/blog/introducing-muse-spark-msl/)
+- [GitHub Copilot 会话与成本治理更新](https://github.blog/changelog/2026-07-08-github-copilot-in-visual-studio-code-june-2026-releases/)

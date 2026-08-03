@@ -370,13 +370,11 @@ OpenAI 最新官方更新显示，原 Codex 桌面应用已在 7 月 9 日并入
 
 ## 参考资料
 
-- [D-CLIPSE](https://arxiv.org/search/?query=D-CLIPSE&searchtype=all)
-- [Input-Constrained STT](https://arxiv.org/search/?query=Input-Constrained%20STT&searchtype=all)
-- [EVIS](https://arxiv.org/search/?query=EVIS&searchtype=all)
-- [Shift & Drift](https://arxiv.org/search/?query=Shift%20%26%20Drift&searchtype=all)
-- [ContactMimic](https://arxiv.org/search/?query=ContactMimic&searchtype=all)
-- [EgoWAM](https://arxiv.org/search/?query=EgoWAM&searchtype=all)
-- [FabriVLA](https://arxiv.org/search/?query=FabriVLA&searchtype=all)
-- [Codex 并入 ChatGPT 桌面端](https://www.google.com/search?q=site%3Aopenai.com%20Codex%20%E5%B9%B6%E5%85%A5%20ChatGPT%20%E6%A1%8C%E9%9D%A2%E7%AB%AF)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [D-CLIPSE：Distributed Consensus-based Localization](https://arxiv.org/abs/2607.07995)
+- [Input-Constrained Spatiotemporal Tubes](https://arxiv.org/abs/2607.08189)
+- [EVIS：A Physics-Grounded Event Camera Plugin for NVIDIA Isaac Sim](https://arxiv.org/abs/2607.08098) · [代码](https://github.com/spikelab-jhu/isaac-sim-event-camera-plugin)
+- [Shift & Drift：A Zero-Shot Benchmark for Generalizable and Robust Autonomous Driving Motion Planning](https://arxiv.org/abs/2607.07844)
+- [ContactMimic：Humanoid Object Interaction via Contact Control](https://arxiv.org/abs/2607.08742) · [项目](https://lixinyao11.github.io/contactmimic-page/)
+- [EgoWAM：World Action Models Beyond Pixels](https://arxiv.org/abs/2607.08436) · [项目](https://gatech-rl2.github.io/egowam.github.io/)
+- [FabriVLA：A Lightweight Vision-Language-Action Model](https://arxiv.org/abs/2607.08575)
+- [ChatGPT Work 与 Codex 桌面端发布](https://openai.com/index/chatgpt-for-your-most-ambitious-work/)
