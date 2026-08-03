@@ -329,13 +329,16 @@ GitHub 已将企业托管设置扩展到 Copilot App 和 Cloud Agent。企业可
 
 ## 参考资料
 
-- [Flight-Ready LIO](https://arxiv.org/search/?query=Flight-Ready%20LIO&searchtype=all)
-- [DB-VIO](https://arxiv.org/search/?query=DB-VIO&searchtype=all)
-- [Mag4D-SLAM](https://arxiv.org/search/?query=Mag4D-SLAM&searchtype=all)
-- [JustDepth](https://arxiv.org/search/?query=JustDepth&searchtype=all)
-- [Conformal Constraint Tightening](https://arxiv.org/search/?query=Conformal%20Constraint%20Tightening&searchtype=all)
-- [GRACE](https://arxiv.org/search/?query=GRACE&searchtype=all)
-- [世界模型分工升级](https://arxiv.org/search/?query=%E4%B8%96%E7%95%8C%E6%A8%A1%E5%9E%8B%E5%88%86%E5%B7%A5%E5%8D%87%E7%BA%A7&searchtype=all)
-- [AI Coding](https://arxiv.org/search/?query=AI%20Coding&searchtype=all)
+- [Flight-Ready LIO](https://arxiv.org/abs/2607.22145)
+- [DB-VIO](https://arxiv.org/abs/2607.22123)
+- [Mag4D-SLAM](https://arxiv.org/abs/2607.21986)
+- [JustDepth](https://arxiv.org/abs/2607.22172)
+- [Conformal Constraint Tightening](https://arxiv.org/abs/2607.22409)
+- [GRACE](https://arxiv.org/abs/2607.21661)
+- [ViTacWorld](https://arxiv.org/abs/2607.22530) · [项目](https://vitacworld.github.io/)
+- [Robot-Factored World Models](https://arxiv.org/abs/2607.22535)
+- [Claim Plane](https://arxiv.org/abs/2607.21909)
+- [MineValiCoder](https://arxiv.org/abs/2607.22471)
+- [GitHub 企业托管设置](https://github.blog/changelog/2026-07-27-enterprise-managed-settings-now-apply-to-the-github-copilot-app/)
 
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+> 说明：历史聊天导出文本没有保留原始超链接，现已按论文、项目、代码仓库和官方发布页逐项补回直接来源。

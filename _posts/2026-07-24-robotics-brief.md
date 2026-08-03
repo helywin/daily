@@ -276,13 +276,14 @@ DINS-IO 用物理一致性约束学习 IMU 速度，但不取代完整状态估�
 
 ## 参考资料
 
-- [DINS-IO](https://arxiv.org/search/?query=DINS-IO&searchtype=all)
-- [EA-Nav](https://arxiv.org/search/?query=EA-Nav&searchtype=all)
-- [分布式 MPC + CBF](https://arxiv.org/search/?query=%E5%88%86%E5%B8%83%E5%BC%8F%20MPC%20%2B%20CBF&searchtype=all)
-- [Koopman Dreamer](https://arxiv.org/search/?query=Koopman%20Dreamer&searchtype=all)
-- [Extreme-RGMT](https://arxiv.org/search/?query=Extreme-RGMT&searchtype=all)
-- [Contact-Persistent Full Actuation](https://arxiv.org/search/?query=Contact-Persistent%20Full%20Actuation&searchtype=all)
-- [LENS](https://arxiv.org/search/?query=LENS&searchtype=all)
-- [AI Coding 与模型动态](https://arxiv.org/search/?query=AI%20Coding%20%E4%B8%8E%E6%A8%A1%E5%9E%8B%E5%8A%A8%E6%80%81&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [DINS-IO](https://arxiv.org/abs/2607.20232)
+- [EA-Nav](https://arxiv.org/abs/2607.19880)
+- [分布式 MPC + CBF](https://arxiv.org/abs/2603.19170)
+- [Koopman Dreamer](https://arxiv.org/abs/2607.19719)
+- [Extreme-RGMT](https://arxiv.org/abs/2607.20110)
+- [Contact-Persistent Full Actuation](https://arxiv.org/abs/2607.19708)
+- [LENS](https://arxiv.org/abs/2607.19633) · [项目](https://lens-2026.github.io/)
+- [PerfAgent](https://arxiv.org/abs/2607.19653)
+- [AI 供应链许可证](https://arxiv.org/abs/2607.20300)
+- [GitHub Issues Agent 自动化](https://github.blog/changelog/2026-07-23-agent-automation-controls-in-github-issues-in-public-preview/)
+- [GPT-5.6](https://openai.com/index/previewing-gpt-5-6-sol/) · [模型指南](https://developers.openai.com/api/docs/guides/latest-model)

@@ -223,13 +223,13 @@ Anthropic 于 2026 年 7 月 24 日发布 Claude Opus 5。官方将其定位为�
 
 ## 参考资料
 
-- [GlassRecon](https://arxiv.org/search/?query=GlassRecon&searchtype=all)
-- [CAT](https://arxiv.org/search/?query=CAT&searchtype=all)
-- [CBF 强化学习](https://arxiv.org/search/?query=CBF%20%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0&searchtype=all)
-- [URF](https://arxiv.org/search/?query=URF&searchtype=all)
-- [DMBD](https://arxiv.org/search/?query=DMBD&searchtype=all)
-- [Robostral Navigate 与 MoE VLA](https://arxiv.org/search/?query=Robostral%20Navigate%20%E4%B8%8E%20MoE%20VLA&searchtype=all)
-- [Coding Agent](https://arxiv.org/search/?query=Coding%20Agent&searchtype=all)
-- [Claude Opus 5](https://www.google.com/search?q=site%3Aanthropic.com%20Claude%20Opus%205)
+- [GlassRecon](https://arxiv.org/abs/2604.18336) · [代码](https://github.com/jarvisyjw/GlassRecon)
+- [CAT：Capability-Aware Traversability](https://arxiv.org/abs/2607.20679)
+- [CBF 强化学习](https://arxiv.org/abs/2607.20665)
+- [URF](https://arxiv.org/abs/2607.20912) · [项目页](https://jiyou384.github.io/urf_project_page/)
+- [DMBD](https://arxiv.org/abs/2607.20992)
+- [Robostral Navigate](https://arxiv.org/abs/2607.20785) · [MoE VLA](https://arxiv.org/abs/2607.20771)
+- [IssueTrojanBench](https://arxiv.org/abs/2607.20759) · [记忆 Harness](https://arxiv.org/abs/2607.20972)
+- [Claude Opus 5](https://www.anthropic.com/news/claude-opus-5) · [Copilot 发布说明](https://github.blog/changelog/2026-07-24-claude-opus-5-is-now-available-in-github-copilot/)
 
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+> 说明：历史聊天导出文本没有保留原始超链接，现已按论文、项目、代码仓库和官方发布页逐项补回直接来源。

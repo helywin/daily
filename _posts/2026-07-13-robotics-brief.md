@@ -408,13 +408,13 @@ GitHub Copilot App 已覆盖 macOS、Windows 和 Linux，并支持所有 Copilot
 
 ## 参考资料
 
-- [SASGeo](https://arxiv.org/search/?query=SASGeo&searchtype=all)
-- [Anytime LiDAR Detection](https://arxiv.org/search/?query=Anytime%20LiDAR%20Detection&searchtype=all)
-- [FSD-VLN](https://arxiv.org/search/?query=FSD-VLN&searchtype=all)
-- [TFP](https://arxiv.org/search/?query=TFP&searchtype=all)
-- [APIVOT](https://arxiv.org/search/?query=APIVOT&searchtype=all)
-- [仅靠单目视觉，对软物体和硬物体使用统一抓取控制管线](https://arxiv.org/search/?query=%E4%BB%85%E9%9D%A0%E5%8D%95%E7%9B%AE%E8%A7%86%E8%A7%89%EF%BC%8C%E5%AF%B9%E8%BD%AF%E7%89%A9%E4%BD%93%E5%92%8C%E7%A1%AC%E7%89%A9%E4%BD%93%E4%BD%BF%E7%94%A8%E7%BB%9F%E4%B8%80%E6%8A%93%E5%8F%96%E6%8E%A7%E5%88%B6%E7%AE%A1%E7%BA%BF&searchtype=all)
-- [DexVerse](https://arxiv.org/search/?query=DexVerse&searchtype=all)
-- [最新模型与 AI Coding](https://arxiv.org/search/?query=%E6%9C%80%E6%96%B0%E6%A8%A1%E5%9E%8B%E4%B8%8E%20AI%20Coding&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [SASGeo：Stability-Aware Semantic Map Localization](https://arxiv.org/abs/2607.07737)
+- [Anytime LiDAR Detection / MURAL](https://arxiv.org/abs/2607.08391)
+- [FSD-VLN：Fast-Slow Dual-System Modeling](https://arxiv.org/abs/2607.08359)
+- [TFP：Temporally Conditioned Memory-Fusion Policies](https://arxiv.org/abs/2607.08283)
+- [APIVOT：Adaptive Planning with Interleaved Vision-Language Thoughts](https://arxiv.org/abs/2607.08024)
+- [Monocular Vision Based Control Framework for Grasping](https://arxiv.org/abs/2607.07897)
+- [DexVerse：A Modular Benchmark for Multi-Task, Multi-Embodiment Dexterous Manipulation](https://arxiv.org/abs/2607.08751) · [项目](https://ycyao216.github.io/DexVerse.site)
+- [GPT-5.6 官方发布](https://openai.com/index/gpt-5-6/)
+- [Grok 4.5 官方发布](https://x.ai/news/grok-4-5)
+- [GitHub Copilot](https://github.com/features/copilot)

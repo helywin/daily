@@ -357,13 +357,13 @@ Coding Agent 生成代码，追踪图、实体复核和测试决定能否合并�
 
 ## 参考资料
 
-- [OREN + Bubble★](https://arxiv.org/search/?query=OREN%20%2B%20Bubble%E2%98%85&searchtype=all)
-- [NGPS](https://arxiv.org/search/?query=NGPS&searchtype=all)
-- [Koopman DCM](https://arxiv.org/search/?query=Koopman%20DCM&searchtype=all)
-- [FARO](https://arxiv.org/search/?query=FARO&searchtype=all)
-- [Agentic Real2Sim](https://arxiv.org/search/?query=Agentic%20Real2Sim&searchtype=all)
-- [WorldScape Policy 2.0 与 Masked Visual Actions](https://arxiv.org/search/?query=WorldScape%20Policy%202.0%20%E4%B8%8E%20Masked%20Visual%20Actions&searchtype=all)
-- [AI Coding](https://arxiv.org/search/?query=AI%20Coding&searchtype=all)
-- [最新模型与 Copilot](https://github.com/search?q=%E6%9C%80%E6%96%B0%E6%A8%A1%E5%9E%8B%E4%B8%8E%20Copilot&type=repositories)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [OREN + Bubble★](https://arxiv.org/abs/2607.19306) · [代码](https://github.com/ExistentialRobotics/erl_oren_bubble_star_demo)
+- [NGPS](https://arxiv.org/abs/2607.18936) · [代码](https://github.com/snktshrma/ngps_flight)
+- [Koopman DCM](https://arxiv.org/abs/2607.18760)
+- [FARO](https://arxiv.org/abs/2607.18362)
+- [Agentic Real2Sim](https://arxiv.org/abs/2607.19190) · [项目](https://agentic-real2sim.github.io/)
+- [WorldScape Policy 2.0](https://arxiv.org/abs/2607.18840)
+- [Masked Visual Actions](https://arxiv.org/abs/2607.19343) · [项目](https://masked-visual-actions.github.io/)
+- [TraceDev](https://arxiv.org/abs/2607.18886)
+- [Binding Drift](https://arxiv.org/abs/2607.18316) · [代码](https://github.com/shashank-indukuri/binding-drift)
+- [LISA](https://arxiv.org/abs/2607.18711)

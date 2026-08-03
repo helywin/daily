@@ -485,13 +485,12 @@ APT-RL 的价值在这里是提供“统一技能先验和自动切换”的设�
 
 ## 参考资料
 
-- [AeroMap3D](https://arxiv.org/search/?query=AeroMap3D&searchtype=all)
-- [信息感知 LiDAR SLAM](https://arxiv.org/search/?query=%E4%BF%A1%E6%81%AF%E6%84%9F%E7%9F%A5%20LiDAR%20SLAM&searchtype=all)
-- [APT-RL](https://arxiv.org/search/?query=APT-RL&searchtype=all)
-- [OptCar](https://arxiv.org/search/?query=OptCar&searchtype=all)
-- [VAMP-MR](https://arxiv.org/search/?query=VAMP-MR&searchtype=all)
-- [Anchor-Align](https://arxiv.org/search/?query=Anchor-Align&searchtype=all)
-- [GigaWorld-Policy-0.5](https://arxiv.org/search/?query=GigaWorld-Policy-0.5&searchtype=all)
-- [Coding Agent](https://arxiv.org/search/?query=Coding%20Agent&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [AeroMap3D：Anchoring Monocular UAV 6-DoF Localization](https://arxiv.org/abs/2607.14009)
+- [Information-Aware Odometry and Retroactive Loop Closure for LiDAR SLAM](https://arxiv.org/abs/2607.13516)
+- [APT-RL：Agile Perceptive Multi-Skill Locomotion](https://arxiv.org/abs/2607.13579)
+- [OptCar：Adapting Generalist Vehicle Models for High-Speed MPC](https://arxiv.org/abs/2607.13319)
+- [VAMP-MR：Vector-Accelerated Motion Planning for Multi-Robot-Arms](https://arxiv.org/abs/2607.13478) · [项目](https://vamp-mr.github.io/vamp-mr)
+- [Anchor-Align：Generalizable VLA Finetuning](https://arxiv.org/abs/2607.13429) · [项目](https://anchoralignvla.github.io/)
+- [GigaWorld-Policy-0.5](https://arxiv.org/abs/2607.13960)
+- [VisualRepair：Dynamic Tool Calling and Region Focusing](https://arxiv.org/abs/2607.14075)
+- [CLAP：Closed-Loop Training, Evaluation, and Release Control](https://arxiv.org/abs/2607.01846)

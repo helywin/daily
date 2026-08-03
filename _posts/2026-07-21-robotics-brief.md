@@ -477,13 +477,13 @@ Coding Agent 生产化的关键不是让 Agent 写更多代码，而是让每次
 
 ## 参考资料
 
-- [工业 UWB 定位](https://arxiv.org/search/?query=%E5%B7%A5%E4%B8%9A%20UWB%20%E5%AE%9A%E4%BD%8D&searchtype=all)
-- [Vision-Language-Motion Maps](https://arxiv.org/search/?query=Vision-Language-Motion%20Maps&searchtype=all)
-- [ImprovedVBGS](https://arxiv.org/search/?query=ImprovedVBGS&searchtype=all)
-- [SCAGE](https://arxiv.org/search/?query=SCAGE&searchtype=all)
-- [Task-Space Receding Horizon](https://arxiv.org/search/?query=Task-Space%20Receding%20Horizon&searchtype=all)
-- [RAVEN](https://arxiv.org/search/?query=RAVEN&searchtype=all)
-- [快慢 VLA](https://arxiv.org/search/?query=%E5%BF%AB%E6%85%A2%20VLA&searchtype=all)
-- [Xiaomi-Robotics-1 与 AI Coding](https://arxiv.org/search/?query=Xiaomi-Robotics-1%20%E4%B8%8E%20AI%20Coding&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [工业 UWB 定位](https://arxiv.org/abs/2607.15807)
+- [Vision-Language-Motion Maps](https://arxiv.org/abs/2607.16173)
+- [ImprovedVBGS](https://arxiv.org/abs/2607.15542)
+- [SCAGE](https://arxiv.org/abs/2607.15828)
+- [Task-Space Receding Horizon](https://arxiv.org/abs/2607.15733)
+- [RAVEN](https://arxiv.org/abs/2607.15701)
+- [快慢 VLA](https://arxiv.org/abs/2607.15621)
+- [Xiaomi-Robotics-1](https://arxiv.org/abs/2607.15330) · [项目](https://robotics.xiaomi.com/xiaomi-robotics-1.html)
+- [DiffTestGen](https://arxiv.org/abs/2607.16024)
+- [GitHub Code Quality GA](https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available/)

@@ -447,13 +447,14 @@ Agent 编码能力已经足以进入日常研发，但高权限自动化必须�
 
 ## 参考资料
 
-- [AnythingReality](https://arxiv.org/search/?query=AnythingReality&searchtype=all)
-- [Hydra++](https://arxiv.org/search/?query=Hydra%2B%2B&searchtype=all)
-- [Adaptive MPPI](https://arxiv.org/search/?query=Adaptive%20MPPI&searchtype=all)
-- [B-spline Policy 与 PAC-ACT](https://arxiv.org/search/?query=B-spline%20Policy%20%E4%B8%8E%20PAC-ACT&searchtype=all)
-- [TACTIC](https://arxiv.org/search/?query=TACTIC&searchtype=all)
-- [CORAL-AUV](https://arxiv.org/search/?query=CORAL-AUV&searchtype=all)
-- [CoDiMAD](https://arxiv.org/search/?query=CoDiMAD&searchtype=all)
-- [AI Coding 与模型动态](https://arxiv.org/search/?query=AI%20Coding%20%E4%B8%8E%E6%A8%A1%E5%9E%8B%E5%8A%A8%E6%80%81&searchtype=all)
-
-> 说明：历史聊天导出文本没有保留原始超链接，上述链接为按论文或项目名称生成的官方站点/学术检索入口；后续日报将直接保存原始论文、GitHub 与官方发布链接。
+- [AnythingReality：Robust Online Gaussian Splatting SLAM](https://arxiv.org/abs/2607.09260)
+- [Hydra++：Real-Time Hierarchical 3D Scene Graph Construction](https://arxiv.org/abs/2607.09455) · [项目](https://hydra-plusplus.github.io/)
+- [Adaptive MPPI with Online Disturbance Covariance Estimation](https://arxiv.org/abs/2607.08942)
+- [B-spline Policy](https://arxiv.org/abs/2607.09648) · [项目](https://b-spline-policy.github.io/)
+- [PAC-ACT：Post-training Actor-Critic for ACT](https://arxiv.org/abs/2607.09590)
+- [TACTIC：Tactile and Vision Conditioned Contact-Centric Control](https://arxiv.org/abs/2607.09218) · [项目](https://emprise.cs.cornell.edu/tactic)
+- [CORAL-AUV：CFD Oriented Reinforcement Learning](https://arxiv.org/abs/2607.09557)
+- [CoDiMAD：Diffusion-Based Privileged Distillation](https://arxiv.org/abs/2607.09587)
+- [CodeQL 2.26.0 与 AI prompt injection 检测](https://github.blog/changelog/2026-07-10-codeql-2-26-0-adds-kotlin-2-4-0-support-and-ai-prompt-injection-detection/)
+- [GitHub Code Quality GA](https://github.blog/changelog/2026-07-20-github-code-quality-is-now-generally-available/)
+- [GPT-5.6 官方发布](https://openai.com/index/gpt-5-6/)
