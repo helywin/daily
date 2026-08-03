@@ -1,0 +1,36 @@
+name: Resolve robotics history references
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - scripts/resolve_robotics_history_refs.py
+      - .github/workflows/resolve-robotics-history-refs.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Resolve arXiv candidates
+        run: python scripts/resolve_robotics_history_refs.py
+      - name: Commit candidate report
+        run: |
+          if git diff --quiet -- robotics-ref-resolution.json; then
+            echo 'No candidate report changes.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add robotics-ref-resolution.json
+          git commit -m 'chore: refresh robotics reference candidates [skip ci]'
+          git push origin master
