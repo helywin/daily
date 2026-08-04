@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-03（Asia/Shanghai）
+> 最后更新：2026-08-04（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。该文件记录已经作为主动态、重点案例或深度复盘出现过的论文与项目。
 >
@@ -232,6 +232,14 @@
 | 2026-08-03 | 2026-08-03 | AI Coding | Agentic Harness Engineering | [论文](https://arxiv.org/abs/2604.25850) · [代码](https://github.com/china-qijizhifeng/agentic-harness-engineering) |  |
 | 2026-08-03 | 2026-08-03 | AI Coding | Harness-Bench | [论文](https://arxiv.org/abs/2605.27922) · [项目](https://www.harness-bench.ai/) |  |
 | 2026-07-12 | 2026-08-03 | 多机器人定位 | D-CLIPSE | [论文](https://arxiv.org/abs/2607.07995) | 8 月 3 日深度复盘；后续仅可按实质更新或经典复盘处理 |
+| 2026-08-04 | 2026-08-04 | 运动规划 / GCS | Homotopy-Aware Corridor Generation without Predefined Reference Paths | [论文](https://arxiv.org/abs/2607.29513) · [代码](https://github.com/HauserDong/path-free-gcs-corridors) |  |
+| 2026-08-04 | 2026-08-04 | 多机器人 / 预测安全过滤 | MROPE | [论文](https://arxiv.org/abs/2607.29203) |  |
+| 2026-08-04 | 2026-08-04 | LiDAR 动态感知 / 场景流 | CorrelationFlow | [论文](https://arxiv.org/abs/2607.29237) |  |
+| 2026-08-04 | 2026-08-04 | VLA / CBF 安全 | Safe Vision Language Action Models via Barrier Enhanced Flow Matching | [论文](https://arxiv.org/abs/2607.29569) |  |
+| 2026-08-04 | 2026-08-04 | VLA / 世界 critic | WCM | [论文](https://arxiv.org/abs/2607.29613) · [代码](https://github.com/sylvestf/WCM) · [项目](https://sylvestf.github.io/wcm-homepage/) |  |
+| 2026-08-04 | 2026-08-04 | VLA / 运行时安全 | ActFovea | [论文](https://arxiv.org/abs/2607.29169) · [代码](https://github.com/SunnyYWD/ActFovea) |  |
+| 2026-08-04 | 2026-08-04 | AI Coding / 验证证据 | Validation Evidence in LLM Repair Agents | [论文](https://arxiv.org/abs/2607.28871) |  |
+| 2026-08-04 | 2026-08-04 | 经典 SLAM / 因子图 | iSAM2 | [论文页](https://www.cs.cmu.edu/~kaess/pub/Kaess12ijrr.html) · [DOI](https://doi.org/10.1177/0278364911430419) · [GTSAM](https://gtsam.org/docs/) | 经典论文回顾 |
 
 ## 维护检查表
 
