@@ -35,8 +35,8 @@
   padding: 18px 16px;
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(255, 255, 255, .96);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+  background: var(--surface);
+  box-shadow: var(--shadow);
 }
 
 .toc-card summary {
@@ -84,13 +84,13 @@
 
 #toc a:hover {
   color: var(--accent);
-  background: #eff6ff;
+  background: var(--surface-2);
 }
 
 #toc a.is-active {
   color: var(--accent-dark);
   border-left-color: var(--accent);
-  background: #eff6ff;
+  background: var(--surface-2);
   font-weight: 700;
 }
 
