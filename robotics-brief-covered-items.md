@@ -1,12 +1,14 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-05（Asia/Shanghai）
+> 最后更新：2026-08-06（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
 > 去重时联合使用规范化标题、arXiv ID、DOI、GitHub 仓库和项目主页。论文页、项目页与代码仓库属于同一工作时视为同一条目。
 >
 > 2026-08-05 将原六列表压缩为四列表以降低持续写入成本；压缩前 223 条历史记录全部保留，随后新增当日 8 条，共 231 条。
+>
+> 2026-08-06 新增 7 条主动态与 1 条经典论文回顾，共 239 条。
 
 ## 已核验条目
 
@@ -243,6 +245,14 @@
 | 2026-08-05 | Probabilistic Reachable-Action Verification of Visuomotor Policies via Set-Based Training | [论文](https://arxiv.org/abs/2608.02545) |  |
 | 2026-08-05 | SWE-Touch | [论文](https://arxiv.org/abs/2608.02499) |  |
 | 2026-08-05 | MSCKF | [DOI](https://doi.org/10.1109/ROBOT.2007.364024) | 经典论文回顾 |
+| 2026-08-06 | SLAMFormer-∞ | [论文](https://arxiv.org/abs/2608.03429) |  |
+| 2026-08-06 | PLS-Calib | [论文](https://arxiv.org/abs/2608.03296) |  |
+| 2026-08-06 | CUDA MPC | [论文](https://arxiv.org/abs/2608.03051) |  |
+| 2026-08-06 | Stochastic Multiple Shooting Trajectory Optimization via Sequential Local Policy Evaluation | [论文](https://arxiv.org/abs/2608.03978) |  |
+| 2026-08-06 | Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles | [论文](https://arxiv.org/abs/2608.02834) |  |
+| 2026-08-06 | Light-Loco-Parkour | [论文](https://arxiv.org/abs/2608.02653) |  |
+| 2026-08-06 | TraceCompiler | [论文](https://arxiv.org/abs/2608.02680) |  |
+| 2026-08-06 | LOAM | [论文页](https://www.roboticsproceedings.org/rss10/p07.html) | 经典论文回顾 |
 
 ## 维护检查表
 
