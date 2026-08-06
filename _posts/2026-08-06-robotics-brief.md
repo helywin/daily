@@ -11,7 +11,7 @@ tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 
 ## 摘要
 
-arXiv 在 2026 年 8 月 5 日公开的最新批次中，Robotics 列表包含 55 条记录，Software Engineering 列表包含 52 条记录。本期已先读取 `helywin/daily` 的去重索引，并排除截至 8 月 5 日已经完整报道的条目。最终筛选 7 条主动态，其中 6 条直接涉及 SLAM、标定、轨迹优化、MPC 或足式控制。citeturn673597view0turn673597view1
+arXiv 在 2026 年 8 月 5 日公开的最新批次中，Robotics 列表包含 55 条记录，Software Engineering 列表包含 52 条记录。本期已先读取 `helywin/daily` 的去重索引，并排除截至 8 月 5 日已经完整报道的条目。最终筛选 7 条主动态，其中 6 条直接涉及 SLAM、标定、轨迹优化、MPC 或足式控制。（[arXiv Robotics 最新列表](https://arxiv.org/list/cs.RO/recent)，[arXiv Software Engineering 最新列表](https://arxiv.org/list/cs.SE/recent)）
 
 今天最值得关注的技术变化有四点：
 
@@ -20,13 +20,13 @@ arXiv 在 2026 年 8 月 5 日公开的最新批次中，Robotics 列表包含 5
 3. 黑箱或学习动力学也可以通过局部策略 rollout 近似 Jacobian，进入 multiple shooting 轨迹优化；
 4. AI Coding Agent 的常见重复工具轨迹可以编译成确定性工作流，但不可逆副作用和未见过的分支必须继续交给 Agent 或人工处理。
 
-在本次核验的 OpenAI 官方发布页和 GitHub Copilot 官方更新源中，没有发现 8 月 5 日新发布且足以进入本期主动态的通用大模型或代码模型，因此本期不以旧模型新闻凑数。citeturn306214search1turn306214search2
+在本次核验的 OpenAI 官方发布页和 GitHub Copilot 官方更新源中，没有发现 8 月 5 日新发布且足以进入本期主动态的通用大模型或代码模型，因此本期不以旧模型新闻凑数。（[OpenAI 官方发布页](https://openai.com/news/)，[GitHub Copilot Changelog](https://github.blog/changelog/label/copilot/)）
 
 ## 1. SLAMFormer-∞：几何 Transformer SLAM 开始跨越 17 公里长程场景
 
 **公开时间：2026-08-05 最新公开批次；论文 v1 提交于 2026-08-04。**
 
-SLAMFormer-∞ 试图解决几何 Transformer SLAM 的长程扩展问题。系统不再让一个 Transformer 持续处理完整历史，而是使用 memory condition 为不同局部窗口定义可变坐标系和尺度：前端在局部坐标系中持续估计稠密几何与相机运动，后端周期性联合优化局部轨迹和结构；发现回环或任务结束时，再通过全局 Pose-Geometry Graph Optimization 统一调整位姿与几何。作者在自采约 17 公里、45 分钟的驾驶序列上展示了连续运行。citeturn781558view0turn517342view3turn452222view0
+SLAMFormer-∞ 试图解决几何 Transformer SLAM 的长程扩展问题。系统不再让一个 Transformer 持续处理完整历史，而是使用 memory condition 为不同局部窗口定义可变坐标系和尺度：前端在局部坐标系中持续估计稠密几何与相机运动，后端周期性联合优化局部轨迹和结构；发现回环或任务结束时，再通过全局 Pose-Geometry Graph Optimization 统一调整位姿与几何。作者在自采约 17 公里、45 分钟的驾驶序列上展示了连续运行。（[论文](https://arxiv.org/abs/2608.03429)，[项目页](https://tsinghua-mars-lab.github.io/SLAMFormer-Infinity/)）
 
 ### 为什么重要
 
@@ -49,11 +49,11 @@ VGGT、DUSt3R 系列方法证明了大型几何模型可以从图像直接推断
 
 ### 实时性
 
-项目结果显示其能够处理长程数据，但论文训练使用 48 张 A100 GPU，室内和室外训练窗口、分辨率也经过专门配置。当前公开信息没有给出 Jetson 或普通桌面 GPU 上完整前端、后端和全局优化的固定最坏延迟，因此不能仅凭长序列结果判断其已经适合实时机器人部署。citeturn452222view0
+项目结果显示其能够处理长程数据，但论文训练使用 48 张 A100 GPU，室内和室外训练窗口、分辨率也经过专门配置。当前公开信息没有给出 Jetson 或普通桌面 GPU 上完整前端、后端和全局优化的固定最坏延迟，因此不能仅凭长序列结果判断其已经适合实时机器人部署。（[论文](https://arxiv.org/abs/2608.03429)）
 
 ### 鲁棒性
 
-在 KITTI、Waymo 和 7-Scenes 等数据上，全局 PGGO 相对只运行局部模型进一步降低了轨迹误差，说明显式全局结构确实有价值。但论文也明确指出，PGGO 使用前端和回环模块给出的预定义图；如果回环图缺边或出现错误连接，全局优化本身不会自动修复图拓扑。citeturn268013view0
+在 KITTI、Waymo 和 7-Scenes 等数据上，全局 PGGO 相对只运行局部模型进一步降低了轨迹误差，说明显式全局结构确实有价值。但论文也明确指出，PGGO 使用前端和回环模块给出的预定义图；如果回环图缺边或出现错误连接，全局优化本身不会自动修复图拓扑。（[论文](https://arxiv.org/abs/2608.03429)）
 
 ### 可复现性与风险
 
@@ -84,7 +84,7 @@ VGGT、DUSt3R 系列方法证明了大型几何模型可以从图像直接推断
 
 **公开时间：2026-08-05 最新公开批次；论文 v1 提交于 2026-08-04。**
 
-PLS-Calib 面向地面机器人事件相机与里程计之间的旋转外参标定。传统相关分析方法需要白化协方差，在运动激励不足或事件统计退化时容易出现病态矩阵。该工作改用 Partial Least Squares，直接最大化事件特征与里程计运动之间的协方差，并设计考虑事件极性的时空表示，得到闭式旋转解。论文已被 IROS 2026 接收。citeturn781558view1
+PLS-Calib 面向地面机器人事件相机与里程计之间的旋转外参标定。传统相关分析方法需要白化协方差，在运动激励不足或事件统计退化时容易出现病态矩阵。该工作改用 Partial Least Squares，直接最大化事件特征与里程计运动之间的协方差，并设计考虑事件极性的时空表示，得到闭式旋转解。论文已被 IROS 2026 接收。（[论文](https://arxiv.org/abs/2608.03296)）
 
 ### 为什么重要
 
@@ -107,7 +107,7 @@ PLS-Calib 的工程价值在于：它不要求完整重建事件图像，也不�
 
 ### 实时性与实验结果
 
-真实平台使用 Clearpath Jackal 和 DAVIS 346，数据由 Jetson Orin 采集，离线标定在桌面 CPU 上运行。真实实验中，Andreff 和 CCA 方法的旋转误差分别约为 74.65° 和 40.73°，PLS-Calib 降至约 3.18°；合成不同平面路线中，其误差约为 0.23°–1.05°。citeturn268013view3turn268013view4
+真实平台使用 Clearpath Jackal 和 DAVIS 346，数据由 Jetson Orin 采集，离线标定在桌面 CPU 上运行。真实实验中，Andreff 和 CCA 方法的旋转误差分别约为 74.65° 和 40.73°，PLS-Calib 降至约 3.18°；合成不同平面路线中，其误差约为 0.23°–1.05°。（[论文](https://arxiv.org/abs/2608.03296)）
 
 ### 鲁棒性
 
@@ -141,7 +141,7 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 **公开时间：2026-08-05 最新公开批次；论文 v1 提交于 2026-08-04。**
 
-这项工作针对长预测时域非线性 MPC，将相邻时间步之间的耦合通过 ADMM 拆分，并让每个时间块在 GPU 上并行计算。真正的技术重点不是简单使用 CUDA，而是把完整迭代融合成单个 persistent kernel：变量长期保留在 shared memory，相邻 block 通过原子标志同步，从而避免每轮 kernel launch 和全局显存往返。citeturn781558view2
+这项工作针对长预测时域非线性 MPC，将相邻时间步之间的耦合通过 ADMM 拆分，并让每个时间块在 GPU 上并行计算。真正的技术重点不是简单使用 CUDA，而是把完整迭代融合成单个 persistent kernel：变量长期保留在 shared memory，相邻 block 通过原子标志同步，从而避免每轮 kernel launch 和全局显存往返。（[论文](https://arxiv.org/abs/2608.03051)）
 
 ### 为什么重要
 
@@ -164,9 +164,9 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 ### 实时性
 
-测试硬件为 Intel i7-12700H 和 RTX 3060 Laptop 6 GB。在长度 1000 的问题中，kernel launch 从 172456 次降为 1 次，显存流量由约 17.42 GB 降至 31.2 MB，单迭代由约 0.86 ms 降到 0.006 ms；部分规模下，相对同一分裂算法的 tensor-framework 实现最高加速约 965 倍。citeturn831468view0
+测试硬件为 Intel i7-12700H 和 RTX 3060 Laptop 6 GB。在长度 1000 的问题中，kernel launch 从 172456 次降为 1 次，显存流量由约 17.42 GB 降至 31.2 MB，单迭代由约 0.86 ms 降到 0.006 ms；部分规模下，相对同一分裂算法的 tensor-framework 实现最高加速约 965 倍。（[论文](https://arxiv.org/abs/2608.03051)）
 
-10 智能体、预测长度 100 的集中式群体案例中，该实现约 28.22 ms，可落在 100 ms 控制周期内；acados 和 CasADi 配置需要数秒，另一 iLQR 基线虽约 26.37 ms，但在局部极小值中出现死锁或碰撞。citeturn831468view2
+10 智能体、预测长度 100 的集中式群体案例中，该实现约 28.22 ms，可落在 100 ms 控制周期内；acados 和 CasADi 配置需要数秒，另一 iLQR 基线虽约 26.37 ms，但在局部极小值中出现死锁或碰撞。（[论文](https://arxiv.org/abs/2608.03051)）
 
 ### 鲁棒性
 
@@ -174,7 +174,7 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 ### 可复现性与风险
 
-作者表示代码将在论文接收后公开，目前尚不能直接复现。论文的主要实验仍在 RTX 3060 Laptop 上，尚未完成 Jetson 等嵌入式 GPU 和真实机器人闭环验证。citeturn831468view3
+作者表示代码将在论文接收后公开，目前尚不能直接复现。论文的主要实验仍在 RTX 3060 Laptop 上，尚未完成 Jetson 等嵌入式 GPU 和真实机器人闭环验证。（[论文](https://arxiv.org/abs/2608.03051)）
 
 其他风险包括：
 
@@ -203,7 +203,7 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 **公开时间：2026-08-05 最新公开批次；论文 v1 提交于 2026-08-04。**
 
-《Stochastic Multiple Shooting Trajectory Optimization via Sequential Local Policy Evaluation》将长时域轨迹拆成多个短段，并在段与段之间使用局部反馈策略连接。对于无法直接求导的仿真器、真实系统或神经网络动力学，它通过多次带扰动 rollout 评估局部策略，估计状态转移和代价对段初始条件的近似 Jacobian，再用 multiple shooting 协调所有段。citeturn781558view3
+《Stochastic Multiple Shooting Trajectory Optimization via Sequential Local Policy Evaluation》将长时域轨迹拆成多个短段，并在段与段之间使用局部反馈策略连接。对于无法直接求导的仿真器、真实系统或神经网络动力学，它通过多次带扰动 rollout 评估局部策略，估计状态转移和代价对段初始条件的近似 Jacobian，再用 multiple shooting 协调所有段。（[论文](https://arxiv.org/abs/2608.03978)）
 
 ### 为什么重要
 
@@ -225,9 +225,9 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 ### 实时性与结果
 
-论文在解析 cartpole、神经网络 cartpole 和 VTOL quadplane 上评估。VTOL 模型包含 22 维状态和 9 维输入，任务是在 2.5 秒内从约 15 m/s、15 m 高度状态转入距离目标 1 m 内且速度低于 2 m/s 的着陆状态。citeturn831468view5
+论文在解析 cartpole、神经网络 cartpole 和 VTOL quadplane 上评估。VTOL 模型包含 22 维状态和 9 维输入，任务是在 2.5 秒内从约 15 m/s、15 m 高度状态转入距离目标 1 m 内且速度低于 2 m/s 的着陆状态。（[论文](https://arxiv.org/abs/2608.03978)）
 
-在文中对比中，MPPI 和 CEM 在 quadplane 任务上未成功，而 multiple shooting 方案成功完成；相同方法也在含噪学习动力学上保持较低终端代价。citeturn831468view6
+在文中对比中，MPPI 和 CEM 在 quadplane 任务上未成功，而 multiple shooting 方案成功完成；相同方法也在含噪学习动力学上保持较低终端代价。（[论文](https://arxiv.org/abs/2608.03978)）
 
 ### 鲁棒性
 
@@ -244,7 +244,7 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 ### 可复现性与风险
 
-当前页面没有列出代码，实验也主要为仿真。论文将地面碰撞等事件简化为代价，尚未展示真实接触平台和硬约束保证。作者把混合动力学、接触事件和自适应 segment 划分列为后续方向。citeturn831468view7
+当前页面没有列出代码，实验也主要为仿真。论文将地面碰撞等事件简化为代价，尚未展示真实接触平台和硬约束保证。作者把混合动力学、接触事件和自适应 segment 划分列为后续方向。（[论文](https://arxiv.org/abs/2608.03978)）
 
 ### 适合谁关注
 
@@ -265,7 +265,7 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 **时间回补：论文 v1 提交于 2026-08-03，并进入 8 月 5 日最新公开列表。入选原因是代码已公开且包含双臂实体实验。**
 
-《Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles》通过变量替换，将最短时间目标以及速度、加速度、jerk 和 snap 约束转成凸形式；碰撞约束则由随时间变化的分离超平面表达。固定轨迹时可以求最大间隔分离面，固定分离面时可以求最短时间轨迹，因此整体形成双凸交替优化。citeturn636529view0
+《Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles》通过变量替换，将最短时间目标以及速度、加速度、jerk 和 snap 约束转成凸形式；碰撞约束则由随时间变化的分离超平面表达。固定轨迹时可以求最大间隔分离面，固定分离面时可以求最短时间轨迹，因此整体形成双凸交替优化。（[论文](https://arxiv.org/abs/2608.02834)，[项目页](https://wernerpe.github.io/bmtp-website/)）
 
 ### 为什么重要
 
@@ -287,9 +287,9 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 ### 实时性与实体结果
 
-在 Drone Village 场景中，系统处理 521 个盒状障碍，生成满足速度、加速度、jerk 和 snap 限制的四阶连续轨迹；6 次迭代约 0.19 秒，得到约 11.83 秒的飞行轨迹，相对论文中的 FPP 最短时间变体快 50 倍以上。citeturn517342view0
+在 Drone Village 场景中，系统处理 521 个盒状障碍，生成满足速度、加速度、jerk 和 snap 限制的四阶连续轨迹；6 次迭代约 0.19 秒，得到约 11.83 秒的飞行轨迹，相对论文中的 FPP 最短时间变体快 50 倍以上。（[论文](https://arxiv.org/abs/2608.02834)，[项目页](https://wernerpe.github.io/bmtp-website/)）
 
-双 Franka FR3 实验中，50 次规划与执行均成功且无碰撞，单阶段规划平均约 145 ms；随机双臂测试也报告全部成功。citeturn517342view0
+双 Franka FR3 实验中，50 次规划与执行均成功且无碰撞，单阶段规划平均约 145 ms；随机双臂测试也报告全部成功。（[论文](https://arxiv.org/abs/2608.02834)，[项目页](https://wernerpe.github.io/bmtp-website/)）
 
 ### 鲁棒性
 
@@ -297,7 +297,7 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 ### 可复现性与风险
 
-代码 `pybmtp` 已公开，采用 MIT 许可证，包含 Python 接口、C++ 碰撞内核、示例和测试，可复现性较高。citeturn517342view1
+代码 `pybmtp` 已公开，采用 MIT 许可证，包含 Python 接口、C++ 碰撞内核、示例和测试，可复现性较高。（[GitHub](https://github.com/wernerpe/pybmtp)）
 
 主要风险包括：
 
@@ -326,7 +326,7 @@ PLS 避免了小样本或相关变量下协方差逆的病态问题，但它仍�
 
 **时间回补：论文 v1 提交于 2026-08-01。入选原因是它给出了统一技能策略、Real2Sim2Real 训练管线和零样本实体展示。**
 
-Light-Loco-Parkour 希望消除足式跑酷系统中的技能标签、手工状态机和运行时 motion graph。系统从少量动作 seed 出发，在物理仿真中通过 curriculum 扩展可跨越高度，再把多个 privileged teacher 蒸馏到一个只使用机载深度图和速度指令的循环策略。部署时，机器人根据当前地形自行在行走、平衡、攀爬、下台阶和 vault 之间切换。citeturn636529view1turn517342view2
+Light-Loco-Parkour 希望消除足式跑酷系统中的技能标签、手工状态机和运行时 motion graph。系统从少量动作 seed 出发，在物理仿真中通过 curriculum 扩展可跨越高度，再把多个 privileged teacher 蒸馏到一个只使用机载深度图和速度指令的循环策略。部署时，机器人根据当前地形自行在行走、平衡、攀爬、下台阶和 vault 之间切换。（[论文](https://arxiv.org/abs/2608.02653)，[项目页](https://light-loco-parkour.github.io/)）
 
 ### 为什么重要
 
@@ -356,9 +356,9 @@ Light-Loco-Parkour 希望消除足式跑酷系统中的技能标签、手工状�
 
 ### 实时性与结果
 
-项目页报告，一个 45 cm 的基础动作 seed 被扩展到最高约 75 cm，相当于机器人高度的约 83%。完整策略在 60、65、70、75 cm 障碍上的仿真成功率约为 99.2%、98.8%、90.0% 和 33.4%；privileged teacher 在 75 cm 上仍约为 98.6%，说明视觉蒸馏和实体感知是极限能力的主要瓶颈。citeturn517342view2
+项目页报告，一个 45 cm 的基础动作 seed 被扩展到最高约 75 cm，相当于机器人高度的约 83%。完整策略在 60、65、70、75 cm 障碍上的仿真成功率约为 99.2%、98.8%、90.0% 和 33.4%；privileged teacher 在 75 cm 上仍约为 98.6%，说明视觉蒸馏和实体感知是极限能力的主要瓶颈。（[项目页](https://light-loco-parkour.github.io/)）
 
-训练时模拟 27–33 Hz 深度帧率和约 30–60 ms 延迟，策略控制频率为 50 Hz。实体机器人展示为零样本部署，但项目页明确说明定量表格主要来自仿真，真实硬件尚缺少同规模成功率统计。citeturn517342view2
+训练时模拟 27–33 Hz 深度帧率和约 30–60 ms 延迟，策略控制频率为 50 Hz。实体机器人展示为零样本部署，但项目页明确说明定量表格主要来自仿真，真实硬件尚缺少同规模成功率统计。（[项目页](https://light-loco-parkour.github.io/)）
 
 ### 鲁棒性
 
@@ -401,7 +401,7 @@ GRU 与多帧深度有助于处理短时遮挡和技能连续性，但单前视�
 
 **时间回补：论文 v1 提交于 2026-08-03，并进入 8 月 5 日最新公开列表。入选原因是它直接涉及 AI Coding/Agent 工程成本、可靠性和副作用治理。**
 
-TraceCompiler 从多次 Agent 工具调用轨迹中恢复依赖关系，再将高频、稳定的部分编译成确定性工作流。它只在某个工具参数能够唯一归因于此前某个输出时建立硬依赖；若存在多个可能来源，则标记为 suspected edge，不强行排序。参数绑定可分为常量、用户输入、直接复制、确定性转换和仍需 LLM 判断的 residual decision。citeturn636529view2
+TraceCompiler 从多次 Agent 工具调用轨迹中恢复依赖关系，再将高频、稳定的部分编译成确定性工作流。它只在某个工具参数能够唯一归因于此前某个输出时建立硬依赖；若存在多个可能来源，则标记为 suspected edge，不强行排序。参数绑定可分为常量、用户输入、直接复制、确定性转换和仍需 LLM 判断的 residual decision。（[论文](https://arxiv.org/abs/2608.02680)）
 
 ### 为什么重要
 
@@ -428,7 +428,7 @@ TraceCompiler 的关键不是把全部 Agent 变成脚本，而是只编译证�
 
 ### 实验结果
 
-在 T1 依赖恢复任务中，方法的精确率约 0.928、召回率约 0.943，显著高于简单相邻步骤基线；盲编译器技能测试在 250 条边上达到约 0.992。AppWorld 实验中的依赖精确率约 0.993。citeturn636529view2
+在 T1 依赖恢复任务中，方法的精确率约 0.928、召回率约 0.943，显著高于简单相邻步骤基线；盲编译器技能测试在 250 条边上达到约 0.992。AppWorld 实验中的依赖精确率约 0.993。（[论文](https://arxiv.org/abs/2608.02680)）
 
 Venmo 意图工作流从 34 次调用压缩到 11 次，并通过 21 个留一测试中的 15 个；失败折暴露了训练轨迹未覆盖的新分支。对 Spotify 和 Todoist 的部分任务，编译器因为不可逆副作用或依赖不确定而主动拒绝编译。
 
@@ -486,7 +486,7 @@ Venmo 意图工作流从 34 次调用压缩到 11 次，并通过 21 个留一�
 
 ### LOAM：把高频 LiDAR 里程计与低频地图配准解耦
 
-**发表时间与历史位置：** Ji Zhang 和 Sanjiv Singh 的《LOAM: Lidar Odometry and Mapping in Real-time》发表于 RSS 2014，DOI 为 `10.15607/RSS.2014.X.007`。它在实时三维 LiDAR SLAM 仍高度依赖昂贵计算和特定硬件的时期，提出高频低精度里程计与低频高精度地图配准的双线程结构，并获得 RSS 2024 Test of Time Award。citeturn257355search2turn257355search6turn257355search8
+**发表时间与历史位置：** Ji Zhang 和 Sanjiv Singh 的《LOAM: Lidar Odometry and Mapping in Real-time》发表于 RSS 2014，DOI 为 [`10.15607/RSS.2014.X.007`](https://doi.org/10.15607/RSS.2014.X.007)。它在实时三维 LiDAR SLAM 仍高度依赖昂贵计算和特定硬件的时期，提出高频低精度里程计与低频高精度地图配准的双线程结构，并获得 [RSS 2024 Test of Time Award](https://roboticsconference.org/2024/program/testoftimeaward/)。（[RSS 论文页](https://www.roboticsproceedings.org/rss10/p07.html)）
 
 ### 解决的核心问题
 
@@ -516,7 +516,7 @@ LOAM 将问题拆成：
 
 ### 当年为什么重要
 
-LOAM 证明，不需要先构建完整概率地图，也可以通过稀疏几何特征和双频率优化实现低漂移实时三维 LiDAR SLAM。它长期占据 KITTI Odometry 前列，并直接影响了 LeGO-LOAM、A-LOAM、LIO-SAM 以及大量 scan-to-map 系统的架构。citeturn257355search2turn257355search8
+LOAM 证明，不需要先构建完整概率地图，也可以通过稀疏几何特征和双频率优化实现低漂移实时三维 LiDAR SLAM。它长期占据 KITTI Odometry 前列，并直接影响了 LeGO-LOAM、A-LOAM、LIO-SAM 以及大量 scan-to-map 系统的架构。（[RSS 论文页](https://www.roboticsproceedings.org/rss10/p07.html)，[CMU 页面](https://publications.ri.cmu.edu/loam-lidar-odometry-and-mapping-in-real-time)）
 
 ### 今天仍然有效的思想
 
@@ -540,7 +540,7 @@ LOAM 证明，不需要先构建完整概率地图，也可以通过稀疏几何
 
 ### 公开代码、数据和可复现性
 
-原始连续 LOAM 代码曾以 BSD 形式发布，但后来从公开域移除，因此当前常见仓库多为第三方重实现，而不是作者原始版本。A-LOAM、LeGO-LOAM 和其他实现对特征阈值、优化频率和坐标约定有明显差异，复现时必须以论文残差和时间模型为准。citeturn257355search13
+原始连续 LOAM 代码曾以 BSD 形式发布，但后来从公开域移除，因此当前常见仓库多为第三方重实现，而不是作者原始版本。A-LOAM、LeGO-LOAM 和其他实现对特征阈值、优化频率和坐标约定有明显差异，复现时必须以论文残差和时间模型为准。（[A-LOAM](https://github.com/HKUST-Aerial-Robotics/A-LOAM)，[LIO-SAM](https://github.com/TixiaoShan/LIO-SAM)）
 
 可使用 KITTI 等公开数据验证，但应重点检查：
 
@@ -598,38 +598,39 @@ IMU 高频传播
 
 ## 参考资料
 
-1. SLAMFormer-∞  
-   - 论文：https://arxiv.org/abs/2608.03429  
-   - 项目页：https://tsinghua-mars-lab.github.io/SLAMFormer-Infinity/
+1. **SLAMFormer-∞**  
+   - [论文](https://arxiv.org/abs/2608.03429)  
+   - [项目页](https://tsinghua-mars-lab.github.io/SLAMFormer-Infinity/)
 
-2. PLS-Calib  
-   - 论文：https://arxiv.org/abs/2608.03296
+2. **PLS-Calib**  
+   - [论文](https://arxiv.org/abs/2608.03296)
 
-3. CUDA MPC  
-   - 论文：https://arxiv.org/abs/2608.03051
+3. **CUDA MPC**  
+   - [论文](https://arxiv.org/abs/2608.03051)
 
-4. Stochastic Multiple Shooting Trajectory Optimization via Sequential Local Policy Evaluation  
-   - 论文：https://arxiv.org/abs/2608.03978
+4. **Stochastic Multiple Shooting Trajectory Optimization via Sequential Local Policy Evaluation**  
+   - [论文](https://arxiv.org/abs/2608.03978)
 
-5. Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles  
-   - 论文：https://arxiv.org/abs/2608.02834  
-   - 项目页：https://wernerpe.github.io/bmtp-website/  
-   - 代码：https://github.com/wernerpe/pybmtp
+5. **Biconvex Optimization for Smooth Minimum-Time Trajectories around Convex Obstacles**  
+   - [论文](https://arxiv.org/abs/2608.02834)  
+   - [项目页](https://wernerpe.github.io/bmtp-website/)  
+   - [代码](https://github.com/wernerpe/pybmtp)
 
-6. Light-Loco-Parkour  
-   - 论文：https://arxiv.org/abs/2608.02653  
-   - 项目页：https://light-loco-parkour.github.io/
+6. **Light-Loco-Parkour**  
+   - [论文](https://arxiv.org/abs/2608.02653)  
+   - [项目页](https://light-loco-parkour.github.io/)
 
-7. TraceCompiler  
-   - 论文：https://arxiv.org/abs/2608.02680
+7. **TraceCompiler**  
+   - [论文](https://arxiv.org/abs/2608.02680)
 
-8. LOAM  
-   - RSS 论文页：https://www.roboticsproceedings.org/rss10/p07.html  
-   - DOI：https://doi.org/10.15607/RSS.2014.X.007  
-   - CMU 页面：https://publications.ri.cmu.edu/loam-lidar-odometry-and-mapping-in-real-time  
-   - A-LOAM：https://github.com/HKUST-Aerial-Robotics/A-LOAM  
-   - LIO-SAM：https://github.com/TixiaoShan/LIO-SAM
+8. **LOAM**  
+   - [RSS 论文页](https://www.roboticsproceedings.org/rss10/p07.html)  
+   - [DOI](https://doi.org/10.15607/RSS.2014.X.007)  
+   - [RSS 2024 Test of Time Award](https://roboticsconference.org/2024/program/testoftimeaward/)  
+   - [CMU 页面](https://publications.ri.cmu.edu/loam-lidar-odometry-and-mapping-in-real-time)  
+   - [A-LOAM](https://github.com/HKUST-Aerial-Robotics/A-LOAM)  
+   - [LIO-SAM](https://github.com/TixiaoShan/LIO-SAM)
 
-9. 最新公开列表  
-   - arXiv Robotics：https://arxiv.org/list/cs.RO/recent  
-   - arXiv Software Engineering：https://arxiv.org/list/cs.SE/recent
+9. **最新公开列表**  
+   - [arXiv Robotics](https://arxiv.org/list/cs.RO/recent)  
+   - [arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent)
