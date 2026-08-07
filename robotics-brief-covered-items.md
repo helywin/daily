@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-06（Asia/Shanghai）
+> 最后更新：2026-08-07（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -9,6 +9,8 @@
 > 2026-08-05 将原六列表压缩为四列表以降低持续写入成本；压缩前 223 条历史记录全部保留，随后新增当日 8 条，共 231 条。
 >
 > 2026-08-06 新增 7 条主动态与 1 条经典论文回顾，共 239 条。
+>
+> 2026-08-07 新增 8 条主动态与 1 条经典论文回顾，共 248 条。
 
 ## 已核验条目
 
@@ -253,6 +255,15 @@
 | 2026-08-06 | Light-Loco-Parkour | [论文](https://arxiv.org/abs/2608.02653) |  |
 | 2026-08-06 | TraceCompiler | [论文](https://arxiv.org/abs/2608.02680) |  |
 | 2026-08-06 | LOAM | [论文页](https://www.roboticsproceedings.org/rss10/p07.html) | 经典论文回顾 |
+| 2026-08-07 | KILVO | [论文](https://arxiv.org/abs/2608.05647) · [代码与数据](https://github.com/JixinGao/KILVO) |  |
+| 2026-08-07 | TRACE | [论文](https://arxiv.org/abs/2608.05975) |  |
+| 2026-08-07 | PathCover | [论文](https://arxiv.org/abs/2608.05586) · [代码](https://github.com/kunalnk123690/PathCover) |  |
+| 2026-08-07 | Search-Aided Joint Agent-Environment Reinforcement Learning / SJRL | [论文](https://arxiv.org/abs/2608.05588) |  |
+| 2026-08-07 | ω-0 | [论文](https://arxiv.org/abs/2608.06375) · [项目页](https://gentlefress.github.io/OMEGA-0_page/) |  |
+| 2026-08-07 | IcFuzz | [论文](https://arxiv.org/abs/2608.06088) |  |
+| 2026-08-07 | CodeGrep | [论文](https://arxiv.org/abs/2608.05886) |  |
+| 2026-08-07 | Towards a Risk Assessment of Malicious Skill Files in Coding Agents | [论文](https://arxiv.org/abs/2608.05223) · [代码与数据](https://github.com/awsm-research/AgentJailbreak) |  |
+| 2026-08-07 | State Estimation for Legged Robots - Consistent Fusion of Leg Kinematics and IMU | [RSS](https://www.roboticsproceedings.org/rss08/p03.html) · [DOI](https://doi.org/10.15607/RSS.2012.VIII.003) | 经典论文回顾 |
 
 ## 维护检查表
 
