@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-07（Asia/Shanghai）
+> 最后更新：2026-08-08（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -11,6 +11,8 @@
 > 2026-08-06 新增 7 条主动态与 1 条经典论文回顾，共 239 条。
 >
 > 2026-08-07 新增 8 条主动态与 1 条经典论文回顾，共 248 条。
+>
+> 2026-08-08 新增 6 条主动态与 1 条经典论文回顾，共 255 条。
 
 ## 已核验条目
 
@@ -264,6 +266,13 @@
 | 2026-08-07 | CodeGrep | [论文](https://arxiv.org/abs/2608.05886) |  |
 | 2026-08-07 | Towards a Risk Assessment of Malicious Skill Files in Coding Agents | [论文](https://arxiv.org/abs/2608.05223) · [代码与数据](https://github.com/awsm-research/AgentJailbreak) |  |
 | 2026-08-07 | State Estimation for Legged Robots - Consistent Fusion of Leg Kinematics and IMU | [RSS](https://www.roboticsproceedings.org/rss08/p03.html) · [DOI](https://doi.org/10.15607/RSS.2012.VIII.003) | 经典论文回顾 |
+| 2026-08-08 | Topometric Autonomous Vehicle Localization by Combining Visual Embeddings and Feed-Forward 3D Models | [论文](https://arxiv.org/abs/2608.06021) | 时间回补；8 月 7 日最新批次，8 月 8 日周末无新批次 |
+| 2026-08-08 | ErgoSurf: Ergodic Control for the Coverage of Unknown Surfaces | [论文](https://arxiv.org/abs/2608.06208) | 时间回补；8 月 7 日最新批次，8 月 8 日周末无新批次 |
+| 2026-08-08 | Unified Planning-Learning Framework for Robust UUV Navigation Under Partial Observability | [论文](https://arxiv.org/abs/2608.05365) | 时间回补；v1 为 8 月 5 日，进入 8 月 7 日列表 |
+| 2026-08-08 | ARGUS: Aligning Robot Scene Geometry Under Shifting Views with Large 3D Vision Models | [论文](https://arxiv.org/abs/2608.05579) · [项目页](https://rsathua.github.io/ARGUS/) | 时间回补 |
+| 2026-08-08 | DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation | [论文](https://arxiv.org/abs/2608.06374) · [项目页](https://livfour.github.io/DyPES-VLA_RELEASE/) | 时间回补 |
+| 2026-08-08 | Learning Globally Reusable Skills for Coding Agents / GSE | [论文](https://arxiv.org/abs/2608.06153) | 时间回补；AI Coding |
+| 2026-08-08 | ORB-SLAM2 | [论文](https://arxiv.org/abs/1610.06475) · [代码](https://github.com/raulmur/ORB_SLAM2) · [DOI](https://doi.org/10.1109/TRO.2017.2705103) | 经典论文回顾 |
 
 ## 维护检查表
 
