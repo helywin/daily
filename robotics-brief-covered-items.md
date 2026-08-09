@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-08（Asia/Shanghai）
+> 最后更新：2026-08-09（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -13,6 +13,8 @@
 > 2026-08-07 新增 8 条主动态与 1 条经典论文回顾，共 248 条。
 >
 > 2026-08-08 新增 6 条主动态与 1 条经典论文回顾，共 255 条。
+>
+> 2026-08-09 新增 8 条主动态与 1 条经典论文回顾，共 264 条。
 
 ## 已核验条目
 
@@ -273,6 +275,15 @@
 | 2026-08-08 | DyPES-VLA: Learning Shared Dynamics Priors and Embodiment-Specific Control for Cross-Embodiment Manipulation | [论文](https://arxiv.org/abs/2608.06374) · [项目页](https://livfour.github.io/DyPES-VLA_RELEASE/) | 时间回补 |
 | 2026-08-08 | Learning Globally Reusable Skills for Coding Agents / GSE | [论文](https://arxiv.org/abs/2608.06153) | 时间回补；AI Coding |
 | 2026-08-08 | ORB-SLAM2 | [论文](https://arxiv.org/abs/1610.06475) · [代码](https://github.com/raulmur/ORB_SLAM2) · [DOI](https://doi.org/10.1109/TRO.2017.2705103) | 经典论文回顾 |
+| 2026-08-09 | Sliding Sensors: Configurable Confidence in State Estimation for Continuum Robots | [论文](https://arxiv.org/abs/2608.05410) | 时间回补；8 月 9 日周末无新批次 |
+| 2026-08-09 | VIDP: Variable Impedance Diffusion Policy for Compliant Robot Manipulation from Diverse Demonstrations | [论文](https://arxiv.org/abs/2608.06210) | 时间回补；接触丰富操作与可变阻抗 |
+| 2026-08-09 | Failing Gracefully: Mitigating Impact of Inevitable Robot Failures | [论文](https://arxiv.org/abs/2608.05313) | 时间回补；FailBench 与故障后果安全 |
+| 2026-08-09 | Adaptive-WAM: Quality-Guided Early-Exit Planning from Intermediate Video-Diffusion Features | [论文](https://arxiv.org/abs/2608.06008) | 时间回补；世界模型早退规划 |
+| 2026-08-09 | JoyAI-RA 0.5: Scaling Robot Manipulation Learning via Dual Action Alignment | [论文](https://arxiv.org/abs/2608.05674) · [项目页](https://joyai-ra-05.github.io/) | 时间回补；机器人基础模型 |
+| 2026-08-09 | GAUGE: A Measurement-Grounded Benchmark for Physical Fidelity in Simulation Engines and Video World Models | [论文](https://arxiv.org/abs/2608.05948) | 时间回补；sim-to-real 物理真实性 |
+| 2026-08-09 | DCAS: Decoupling CLI Agent Scaffolding to Internalize Planning across Scaffolds | [论文](https://arxiv.org/abs/2608.06113) | 时间回补；AI Coding 跨 scaffold |
+| 2026-08-09 | AgentExecutor: Partial Code Execution via Agentic Context Generation | [论文](https://arxiv.org/abs/2608.05959) | 时间回补；AI Coding 动态验证 |
+| 2026-08-09 | The Dynamic Window Approach to Collision Avoidance | [论文页](https://publications.ri.cmu.edu/the-dynamic-window-approach-to-collision-avoidance) · [DOI](https://doi.org/10.1109/100.580977) | 经典论文回顾 |
 
 ## 维护检查表
 
