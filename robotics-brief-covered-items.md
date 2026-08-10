@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-09（Asia/Shanghai）
+> 最后更新：2026-08-10（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -15,6 +15,8 @@
 > 2026-08-08 新增 6 条主动态与 1 条经典论文回顾，共 255 条。
 >
 > 2026-08-09 新增 8 条主动态与 1 条经典论文回顾，共 264 条。
+>
+> 2026-08-10 新增 7 条主动态与 1 条经典论文回顾，共 272 条。
 
 ## 已核验条目
 
@@ -284,6 +286,14 @@
 | 2026-08-09 | DCAS: Decoupling CLI Agent Scaffolding to Internalize Planning across Scaffolds | [论文](https://arxiv.org/abs/2608.06113) | 时间回补；AI Coding 跨 scaffold |
 | 2026-08-09 | AgentExecutor: Partial Code Execution via Agentic Context Generation | [论文](https://arxiv.org/abs/2608.05959) | 时间回补；AI Coding 动态验证 |
 | 2026-08-09 | The Dynamic Window Approach to Collision Avoidance | [论文页](https://publications.ri.cmu.edu/the-dynamic-window-approach-to-collision-avoidance) · [DOI](https://doi.org/10.1109/100.580977) | 经典论文回顾 |
+| 2026-08-10 | Prior-SG: Task and Prior Driven Region Segmentation for Scene Graphs in Arbitrarily-Structured Environments | [论文](https://arxiv.org/abs/2608.06170) | 时间回补；8 月 10 日早间尚无新 arXiv 批次 |
+| 2026-08-10 | ATP: Anatomical Torque with Passivity-based Control Framework for Safe Upper-Limb Exoskeleton Assistance | [论文](https://arxiv.org/abs/2608.05723) | 时间回补；安全外骨骼控制 |
+| 2026-08-10 | Observation-Grounded Self-Predictive Reinforcement Learning for Visual Continuous Control / OG-SPR | [论文](https://arxiv.org/abs/2608.05989) | 时间回补；视觉强化学习 |
+| 2026-08-10 | GeniWorld: A Generalizable Interactive World Model for Robotic Manipulation via Visual Actions | [论文](https://arxiv.org/abs/2608.06332) | 时间回补；机器人世界模型 |
+| 2026-08-10 | In-Context VLA: Endowing Vision-Language-Action Models with Language via In-Context Post-Training and Agentic Tool Use | [论文](https://arxiv.org/abs/2608.05738) | 时间回补；VLA 工具调用与结构化上下文 |
+| 2026-08-10 | Escaping the Self-Repair Trap: Improving Test Oracle Generation via Dual-Context Awareness / DCAware | [论文](https://arxiv.org/abs/2608.05917) | 时间回补；AI Coding 测试预言 |
+| 2026-08-10 | JTA: Joint Testability Architecture for Scenario-Based Validation of Safety-Critical Software | [论文](https://arxiv.org/abs/2608.05594) | 时间回补；安全关键机器人软件验证 |
+| 2026-08-10 | VINS-Mono: A Robust and Versatile Monocular Visual-Inertial State Estimator | [论文](https://arxiv.org/abs/1708.03852) · [DOI](https://doi.org/10.1109/TRO.2018.2853729) · [代码](https://github.com/HKUST-Aerial-Robotics/VINS-Mono) | 经典论文回顾 |
 
 ## 维护检查表
 
