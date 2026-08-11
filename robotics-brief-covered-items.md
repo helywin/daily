@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-10（Asia/Shanghai）
+> 最后更新：2026-08-11（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -17,6 +17,8 @@
 > 2026-08-09 新增 8 条主动态与 1 条经典论文回顾，共 264 条。
 >
 > 2026-08-10 新增 7 条主动态与 1 条经典论文回顾，共 272 条。
+>
+> 2026-08-11 新增 8 条主动态与 1 条经典论文回顾，共 281 条。
 
 ## 已核验条目
 
@@ -294,6 +296,15 @@
 | 2026-08-10 | Escaping the Self-Repair Trap: Improving Test Oracle Generation via Dual-Context Awareness / DCAware | [论文](https://arxiv.org/abs/2608.05917) | 时间回补；AI Coding 测试预言 |
 | 2026-08-10 | JTA: Joint Testability Architecture for Scenario-Based Validation of Safety-Critical Software | [论文](https://arxiv.org/abs/2608.05594) | 时间回补；安全关键机器人软件验证 |
 | 2026-08-10 | VINS-Mono: A Robust and Versatile Monocular Visual-Inertial State Estimator | [论文](https://arxiv.org/abs/1708.03852) · [DOI](https://doi.org/10.1109/TRO.2018.2853729) · [代码](https://github.com/HKUST-Aerial-Robotics/VINS-Mono) | 经典论文回顾 |
+| 2026-08-11 | M2-SMap: Memory-Efficient Semantic Mapping with Hierarchical Multi-Model Representation | [论文](https://arxiv.org/abs/2608.07074) | 时间回补；8 月 10 日最新公开批次 |
+| 2026-08-11 | Are Visual Place Recognition Models Recognizing Places or Conditions? Distractor-Augmented Evaluation and Condition Suppression | [论文](https://arxiv.org/abs/2608.06847) | 时间回补；长期 VPR 条件偏置与 DAR |
+| 2026-08-11 | Learning Fault-Tolerant Locomotion with Adaptive Gait Timing | [论文](https://arxiv.org/abs/2608.07328) | 时间回补；IROS 2026；68 kg 四足执行器掉电容错 |
+| 2026-08-11 | Real-time Whole-Body Motion Planning for Mobile Manipulators Carrying Arbitrarily Shaped Payloads via Kinematically-Coupled SVSDF | [论文](https://arxiv.org/abs/2608.07005) | 时间回补；移动操作整机与负载规划 |
+| 2026-08-11 | LyEvO: Lyapunov-Guided Evolutionary Optimization for Safe and Robust Sim-to-Real Policy Learning | [论文](https://arxiv.org/abs/2608.06481) | 时间回补；Lyapunov + SMC + 进化优化 |
+| 2026-08-11 | Beyond Visibility: Real-Time Surface Accessibility Fields from Sparse LiDAR | [论文](https://arxiv.org/abs/2608.06412) | 时间回补；MID360 类稀疏 LiDAR 工具可达性 |
+| 2026-08-11 | TEMPO: Semantic-Action Decoupled RL Post-Training for Vision-Language-Action Models | [论文](https://arxiv.org/abs/2608.07314) | 时间回补；VLA 双时间尺度 RL 后训练 |
+| 2026-08-11 | AgentChaos: Chaos Engineering for Agent Systems via Programmatic Fault Injection | [论文](https://arxiv.org/abs/2608.06790) · [代码与数据](https://github.com/IntelligentDDS/AgentChaos) | 时间回补；ASE 2026；AI Coding/Agent 混沌工程 |
+| 2026-08-11 | LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping | [论文](https://arxiv.org/abs/2007.00258) · [代码](https://github.com/TixiaoShan/LIO-SAM) · [DOI](https://doi.org/10.1109/IROS45743.2020.9341176) | 经典论文回顾 |
 
 ## 维护检查表
 
