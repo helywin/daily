@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-11（Asia/Shanghai）
+> 最后更新：2026-08-12（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -19,6 +19,8 @@
 > 2026-08-10 新增 7 条主动态与 1 条经典论文回顾，共 272 条。
 >
 > 2026-08-11 新增 8 条主动态与 1 条经典论文回顾，共 281 条。
+>
+> 2026-08-12 新增 8 条主动态与 1 条经典论文回顾，共 290 条。
 
 ## 已核验条目
 
@@ -305,6 +307,15 @@
 | 2026-08-11 | TEMPO: Semantic-Action Decoupled RL Post-Training for Vision-Language-Action Models | [论文](https://arxiv.org/abs/2608.07314) | 时间回补；VLA 双时间尺度 RL 后训练 |
 | 2026-08-11 | AgentChaos: Chaos Engineering for Agent Systems via Programmatic Fault Injection | [论文](https://arxiv.org/abs/2608.06790) · [代码与数据](https://github.com/IntelligentDDS/AgentChaos) | 时间回补；ASE 2026；AI Coding/Agent 混沌工程 |
 | 2026-08-11 | LIO-SAM: Tightly-coupled Lidar Inertial Odometry via Smoothing and Mapping | [论文](https://arxiv.org/abs/2007.00258) · [代码](https://github.com/TixiaoShan/LIO-SAM) · [DOI](https://doi.org/10.1109/IROS45743.2020.9341176) | 经典论文回顾 |
+| 2026-08-12 | WRAP: Wasserstein-Robust Adaptive Plug-in for Robot Localization | [论文](https://arxiv.org/abs/2608.09807) | 时间回补；8 月 11 日最新公开批次 |
+| 2026-08-12 | ROEVO: Robust Organized Edge Feature-based Visual Odometry Using RGB-D Cameras | [论文](https://arxiv.org/abs/2608.09112) · [代码](https://github.com/liumingrui814/ROEVO) | 补充回顾：IEEE T-RO 2025 已发表；2026-08-10 新增 arXiv 与公开代码，本期不作为首次发表 |
+| 2026-08-12 | Tether-Inertial Localization for Planetary Drones | [论文](https://arxiv.org/abs/2608.09515) | 时间回补；8 月 11 日最新公开批次 |
+| 2026-08-12 | Graph-Guided Safe Diffuser: Topological Graph Guidance for Safe Diffusion Planning | [论文](https://arxiv.org/abs/2608.09484) | 时间回补；安全扩散规划 |
+| 2026-08-12 | Efficient Real-World Online Reinforcement Learning for Robot Manipulation via Centralized Training and Critic Decomposition | [论文](https://arxiv.org/abs/2608.09762) · [项目页](https://hil-harc.github.io/) | 时间回补；真实机器人在线 RL |
+| 2026-08-12 | RynnValue: Scaling Robotic Value Foundation Models with Temporal Distance | [论文](https://arxiv.org/abs/2608.09853) | 时间回补；机器人价值模型 |
+| 2026-08-12 | XPolicyLab: A Unified Standard and Open Ecosystem for Robot Policy Evaluation and Deployment | [论文](https://arxiv.org/abs/2608.09892) · [代码](https://github.com/XPolicyLab/XPolicyLab) | 时间回补；机器人策略集成基础设施 |
+| 2026-08-12 | OpenCodeReview: Determinism over Non-Determinism for Cost-Effective Agent-Based Code Review | [论文](https://arxiv.org/abs/2608.09290) · [代码](https://github.com/alibaba/open-code-review) | v2 于 2026-08-11 修订；本期按最近24小时更新收录 |
+| 2026-08-12 | FAST-LIO2: Fast Direct LiDAR-inertial Odometry | [论文](https://arxiv.org/abs/2107.06829) · [官方代码](https://github.com/hku-mars/FAST_LIO) | 经典论文回顾 |
 
 ## 维护检查表
 
