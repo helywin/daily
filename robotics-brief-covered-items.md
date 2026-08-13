@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-12（Asia/Shanghai）
+> 最后更新：2026-08-13（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -21,6 +21,8 @@
 > 2026-08-11 新增 8 条主动态与 1 条经典论文回顾，共 281 条。
 >
 > 2026-08-12 新增 8 条主动态与 1 条经典论文回顾，共 290 条。
+>
+> 2026-08-13 新增 8 条主动态与 1 条经典论文回顾，共 299 条。
 
 ## 已核验条目
 
@@ -316,6 +318,15 @@
 | 2026-08-12 | XPolicyLab: A Unified Standard and Open Ecosystem for Robot Policy Evaluation and Deployment | [论文](https://arxiv.org/abs/2608.09892) · [代码](https://github.com/XPolicyLab/XPolicyLab) | 时间回补；机器人策略集成基础设施 |
 | 2026-08-12 | OpenCodeReview: Determinism over Non-Determinism for Cost-Effective Agent-Based Code Review | [论文](https://arxiv.org/abs/2608.09290) · [代码](https://github.com/alibaba/open-code-review) | v2 于 2026-08-11 修订；本期按最近24小时更新收录 |
 | 2026-08-12 | FAST-LIO2: Fast Direct LiDAR-inertial Odometry | [论文](https://arxiv.org/abs/2107.06829) · [官方代码](https://github.com/hku-mars/FAST_LIO) | 经典论文回顾 |
+| 2026-08-13 | Risk-Aware Kinodynamic Motion Planning Under Uncertainty For Safe Navigation on Planetary Environments | [论文](https://arxiv.org/abs/2608.11175) | 时间回补；CVaR 风险感知动力学规划；Leo rover 硬件实验 |
+| 2026-08-13 | Whole-Body Planning for Humanoids Navigating Confined Spaces via Self-Collision Avoidance References | [论文](https://arxiv.org/abs/2608.10220) · [项目页](https://carlosiglezb.github.io/confined-space-wbp-humanoid/) | 时间回补；Unitree G1 狭窄空间全身规划 |
+| 2026-08-13 | Spatiotemporal Agility: Time-Constrained Reinforcement Learning for Vision-Guided Dynamic Quadrupedal Interception | [论文](https://arxiv.org/abs/2608.06907) | 时间回补；时空目标条件四足动态拦截 |
+| 2026-08-13 | Unordered Landmark Visual Navigation | [论文](https://arxiv.org/abs/2608.06833) | 时间回补；无序 RGB 图像拓扑地图与图 belief 定位 |
+| 2026-08-13 | JEPA-WAM: Stage-Level Joint-Embedding Prediction for World-Action Models in Robot Manipulation | [论文](https://arxiv.org/abs/2608.10780) | 时间回补；stage-level semantic future |
+| 2026-08-13 | XCoT-VLA: Executable Chain-of-Thought for Vision-Language-Action Driving | [论文](https://arxiv.org/abs/2608.10976) | 时间回补；2–6 个可执行推理 token 与 flow-matching 轨迹 |
+| 2026-08-13 | SoRoMoX: Fast, Differentiable, and Parallelizable Soft Robot Models | [论文](https://arxiv.org/abs/2608.06650) · [代码](https://github.com/tud-phi/soromox) | 时间回补；JAX/GPU 可微软体机器人模型 |
+| 2026-08-13 | Understanding the Architecture of Coding Agents: An Exploratory Study Using a Research Prototype | [论文](https://arxiv.org/abs/2608.10934) | 时间回补；Ark / ArkBench；Coding Agent 架构研究 |
+| 2026-08-13 | Real-Time Loop Closure in 2D LIDAR SLAM / Cartographer | [论文页](https://research.google/pubs/real-time-loop-closure-in-2d-lidar-slam/) · [代码](https://github.com/cartographer-project/cartographer) · [DOI](https://doi.org/10.1109/ICRA.2016.7487258) | 经典论文回顾 |
 
 ## 维护检查表
 
