@@ -24,7 +24,7 @@
 >
 > 2026-08-13 新增 8 条主动态与 1 条经典论文回顾，共 299 条。
 >
-> 2026-08-14 新增 7 条主动态与 1 条经典论文回顾，共 307 条。
+> 2026-08-14 早间首版新增 7 条主动态与 1 条经典论文回顾，共 307 条；09:32 因 arXiv 8 月 13 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 316 条。早间首版条目保留为历史覆盖记录。
 
 ## 已核验条目
 
@@ -329,14 +329,23 @@
 | 2026-08-13 | SoRoMoX: Fast, Differentiable, and Parallelizable Soft Robot Models | [论文](https://arxiv.org/abs/2608.06650) · [代码](https://github.com/tud-phi/soromox) | 时间回补；JAX/GPU 可微软体机器人模型 |
 | 2026-08-13 | Understanding the Architecture of Coding Agents: An Exploratory Study Using a Research Prototype | [论文](https://arxiv.org/abs/2608.10934) | 时间回补；Ark / ArkBench；Coding Agent 架构研究 |
 | 2026-08-13 | Real-Time Loop Closure in 2D LIDAR SLAM / Cartographer | [论文页](https://research.google/pubs/real-time-loop-closure-in-2d-lidar-slam/) · [代码](https://github.com/cartographer-project/cartographer) · [DOI](https://doi.org/10.1109/ICRA.2016.7487258) | 经典论文回顾 |
-| 2026-08-14 | Multi-Submap Implicit Neural SLAM with Local-to-Global Loop Closure for Large-Scale Scene Reconstruction / MSN-SLAM | [论文](https://arxiv.org/abs/2608.09146) · [代码](https://github.com/dtc111111/MSN-SLAM) | 时间回补；大规模多子图神经 SLAM |
-| 2026-08-14 | Trajectory-Induced Self-Calibration for Hidden-Target Localization Through an Unknown-Pose Range-Bearing Relay | [论文](https://arxiv.org/abs/2608.09464) | 时间回补；未知位姿 range-bearing relay 自校准 |
-| 2026-08-14 | Entanglement-Free Trajectory Planning for Tethered Mobile Robots with a Slack Tether | [论文](https://arxiv.org/abs/2608.09860) | 时间回补；松弛系留线防缠绕规划 |
-| 2026-08-14 | Exact Thrust-Reversal Limits of Bidirectional Propellers under Bounded Motor Inputs | [论文](https://arxiv.org/abs/2608.06991) | 时间回补；双向螺旋桨执行器反转可实现性 |
-| 2026-08-14 | SLIM-0.5B: Learning Action-Grounded Predictive Latents for Robot Manipulation | [论文](https://arxiv.org/abs/2608.09771) | 时间回补；0.5B action-grounded predictive latent |
-| 2026-08-14 | World Tokens: Enhancing Embodied Policies with Training-Time World Modeling | [论文](https://arxiv.org/abs/2608.09730) | 时间回补；训练期世界模型、部署移除 world-model branch |
-| 2026-08-14 | Independent Patch Verification for Coding Agents with a Bidirectional Reconstruct-and-Verify Framework / RETRACE | [论文](https://arxiv.org/abs/2608.08950) | 时间回补；Coding Agent 独立补丁验证 |
-| 2026-08-14 | GMapping / Improved Techniques for Grid Mapping with Rao-Blackwellized Particle Filters | [OpenSLAM](https://openslam-org.github.io/gmapping) · [DOI](https://doi.org/10.1109/TRO.2006.889486) | 经典论文回顾 |
+| 2026-08-14 | Multi-Submap Implicit Neural SLAM with Local-to-Global Loop Closure for Large-Scale Scene Reconstruction / MSN-SLAM | [论文](https://arxiv.org/abs/2608.09146) · [代码](https://github.com/dtc111111/MSN-SLAM) | 早间首版覆盖；大规模多子图神经 SLAM |
+| 2026-08-14 | Trajectory-Induced Self-Calibration for Hidden-Target Localization Through an Unknown-Pose Range-Bearing Relay | [论文](https://arxiv.org/abs/2608.09464) | 早间首版覆盖；未知位姿 range-bearing relay 自校准 |
+| 2026-08-14 | Entanglement-Free Trajectory Planning for Tethered Mobile Robots with a Slack Tether | [论文](https://arxiv.org/abs/2608.09860) | 早间首版覆盖；松弛系留线防缠绕规划 |
+| 2026-08-14 | Exact Thrust-Reversal Limits of Bidirectional Propellers under Bounded Motor Inputs | [论文](https://arxiv.org/abs/2608.06991) | 早间首版覆盖；双向螺旋桨执行器反转可实现性 |
+| 2026-08-14 | SLIM-0.5B: Learning Action-Grounded Predictive Latents for Robot Manipulation | [论文](https://arxiv.org/abs/2608.09771) | 早间首版覆盖；0.5B action-grounded predictive latent |
+| 2026-08-14 | World Tokens: Enhancing Embodied Policies with Training-Time World Modeling | [论文](https://arxiv.org/abs/2608.09730) | 早间首版覆盖；训练期世界模型、部署移除 world-model branch |
+| 2026-08-14 | Independent Patch Verification for Coding Agents with a Bidirectional Reconstruct-and-Verify Framework / RETRACE | [论文](https://arxiv.org/abs/2608.08950) | 早间首版覆盖；Coding Agent 独立补丁验证 |
+| 2026-08-14 | GMapping / Improved Techniques for Grid Mapping with Rao-Blackwellized Particle Filters | [OpenSLAM](https://openslam-org.github.io/gmapping) · [DOI](https://doi.org/10.1109/TRO.2006.889486) | 早间首版经典论文回顾 |
+| 2026-08-14 | Learning Loco-Manipulation From SMPC Demonstrations With Sparse Offline-to-Online RL | [论文](https://arxiv.org/abs/2608.12063) | 09:32 更新版；时间回补；Spot+机械臂与 G1 sim-to-real |
+| 2026-08-14 | ContactIPM: A Structure-Exploiting Interior-Point Solver for Contact-Implicit Trajectory Optimization | [论文](https://arxiv.org/abs/2608.11731) | 09:32 更新版；时间回补；MPCC + Riccati 接触隐式优化 |
+| 2026-08-14 | G0.5: One Autoregressive Stream for Robot Reasoning and Action | [论文](https://arxiv.org/abs/2608.11739) | 09:32 更新版；时间回补；统一 reasoning/action 自回归 VLA |
+| 2026-08-14 | StellaVLA: In-Context Structured Demonstration for Generalizable Vision-Language-Action Models | [论文](https://arxiv.org/abs/2608.11671) | 09:32 更新版；时间回补；单条结构化示范 OOD 适配 |
+| 2026-08-14 | Keep the Future, Drop the Rollout: RIFT for World Action Models | [论文](https://arxiv.org/abs/2608.11521) | 09:32 更新版；v2 于 8 月 13 日 02:41 UTC 修订；rollout-free future cache |
+| 2026-08-14 | Adaptation of Generalist Robot Policies with Minimal Data / MiDAS | [论文](https://arxiv.org/abs/2608.11363) | 09:32 更新版；时间回补；单示范 + 在线 residual RL |
+| 2026-08-14 | Self-Evolving Embodied Agents via Skill-Harness Evolution / SHAPER | [论文](https://arxiv.org/abs/2608.11350) | 09:32 更新版；时间回补；冻结模型、进化 skill+harness |
+| 2026-08-14 | The Devil Is in the Interface: Evaluating How Tool Architecture Shapes Coding Agent Behavior | [论文](https://arxiv.org/abs/2608.11386) | 09:32 更新版；时间回补；Coding Agent 工具架构 |
+| 2026-08-14 | LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain | [论文信息](https://researchwith.stevens.edu/en/publications/lego-loam-lightweight-and-ground-optimized-lidar-odometry-and-map/) · [代码](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM) · [DOI](https://doi.org/10.1109/IROS.2018.8594299) | 09:32 更新版经典论文回顾 |
 
 ## 维护检查表
 
