@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-14（Asia/Shanghai）
+> 最后更新：2026-08-15（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -25,6 +25,8 @@
 > 2026-08-13 新增 8 条主动态与 1 条经典论文回顾，共 299 条。
 >
 > 2026-08-14 早间首版新增 7 条主动态与 1 条经典论文回顾，共 307 条；09:32 因 arXiv 8 月 13 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 316 条。早间首版条目保留为历史覆盖记录。
+>
+> 2026-08-15 新增 8 条主动态与 1 条经典论文回顾，共 325 条。
 
 ## 已核验条目
 
@@ -346,6 +348,15 @@
 | 2026-08-14 | Self-Evolving Embodied Agents via Skill-Harness Evolution / SHAPER | [论文](https://arxiv.org/abs/2608.11350) | 09:32 更新版；时间回补；冻结模型、进化 skill+harness |
 | 2026-08-14 | The Devil Is in the Interface: Evaluating How Tool Architecture Shapes Coding Agent Behavior | [论文](https://arxiv.org/abs/2608.11386) | 09:32 更新版；时间回补；Coding Agent 工具架构 |
 | 2026-08-14 | LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain | [论文信息](https://researchwith.stevens.edu/en/publications/lego-loam-lightweight-and-ground-optimized-lidar-odometry-and-map/) · [代码](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM) · [DOI](https://doi.org/10.1109/IROS.2018.8594299) | 09:32 更新版经典论文回顾 |
+| 2026-08-15 | LifelongCrossNav: Persistent 3D Semantic Memory for Cross-Floor Multi-Object Navigation | [论文](https://arxiv.org/abs/2608.07079) · [项目页](https://flageval-baai.github.io/LifelongCrossNavPage) | 时间回补；跨楼层连续多目标持久 3D 语义记忆 |
+| 2026-08-15 | Vernata: Self-Supervised Learning of LiDAR Point Representations | [论文](https://arxiv.org/abs/2608.06919) · [代码](https://github.com/rai-opensource/vernata) | 时间回补；IROS 2026；多教师 LiDAR 自监督表征 |
+| 2026-08-15 | AutoIntervene: Calibrated Intervention for Action-Chunking Imitation Learning Policies | [论文](https://arxiv.org/abs/2608.07065) · [项目页](https://aus.bot/research/autointervene/) | 时间回补；visual-action support 自动人工接管 |
+| 2026-08-15 | Near-sensor Computing for Rapid Visuotactile Perception | [论文](https://arxiv.org/abs/2608.05725) | 时间回补；0.211 ms 固定重建延迟；近传感器保护反射 |
+| 2026-08-15 | Fast and Accurate: An Adaptive VLA Inference Framework through Environment-aware Model Selection | [论文](https://arxiv.org/abs/2608.06434) | 时间回补；快慢 VLA 完全解耦与环境感知切换 |
+| 2026-08-15 | Hijacking Robots with a Piece of Paper: A Systematic Study of Physical Prompt Injection in VLM-Controlled Robots | [论文](https://arxiv.org/abs/2608.05715) | 时间回补；机器人 VLM 物理 Prompt Injection 安全 |
+| 2026-08-15 | SkillSentry: Reliable Skill Execution for LLM Agents via Runtime Assurance | [论文](https://arxiv.org/abs/2608.09253) | 时间回补；Coding Agent skill 运行时保障 |
+| 2026-08-15 | Plan-and-Avoid: Real-Time Aircraft Trajectory Coordination in a Multi-Agent Environment | [论文](https://arxiv.org/abs/2608.06648) | 时间回补；优先轨迹与单边多机协调 |
+| 2026-08-15 | R3LIVE: A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package | [论文](https://arxiv.org/abs/2109.07982) · [代码](https://github.com/hku-mars/r3live) | 经典论文回顾 |
 
 ## 维护检查表
 
