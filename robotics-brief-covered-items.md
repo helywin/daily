@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-15（Asia/Shanghai）
+> 最后更新：2026-08-16（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -27,6 +27,8 @@
 > 2026-08-14 早间首版新增 7 条主动态与 1 条经典论文回顾，共 307 条；09:32 因 arXiv 8 月 13 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 316 条。早间首版条目保留为历史覆盖记录。
 >
 > 2026-08-15 新增 8 条主动态与 1 条经典论文回顾，共 325 条。
+>
+> 2026-08-16 新增 8 条主动态与 1 条经典论文回顾，共 334 条。
 
 ## 已核验条目
 
@@ -357,6 +359,15 @@
 | 2026-08-15 | SkillSentry: Reliable Skill Execution for LLM Agents via Runtime Assurance | [论文](https://arxiv.org/abs/2608.09253) | 时间回补；Coding Agent skill 运行时保障 |
 | 2026-08-15 | Plan-and-Avoid: Real-Time Aircraft Trajectory Coordination in a Multi-Agent Environment | [论文](https://arxiv.org/abs/2608.06648) | 时间回补；优先轨迹与单边多机协调 |
 | 2026-08-15 | R3LIVE: A Robust, Real-time, RGB-colored, LiDAR-Inertial-Visual tightly-coupled state Estimation and mapping package | [论文](https://arxiv.org/abs/2109.07982) · [代码](https://github.com/hku-mars/r3live) | 经典论文回顾 |
+| 2026-08-16 | ASPIRE-VINS: Adaptive Spline-based Visual-inertial Navigation System With Robust 3D Measurement Residuals | [论文](https://arxiv.org/abs/2608.12840) · [DOI](https://doi.org/10.1109/LRA.2026.3711842) | 补充回顾：RA-L 2026 已接收；8 月 13 日新增 arXiv；自适应连续时间 VINS |
+| 2026-08-16 | ContactGuard: Pre-Contact Execution Monitoring with Action-Conditioned Latent World Models | [论文](https://arxiv.org/abs/2608.13438) | 时间回补；动作条件 latent world model 预接触失败监控 |
+| 2026-08-16 | Excitation-Supervised Closed-Loop Self-Calibration and Target Seeking for an Unknown-Pose Range-Bearing Relay | [论文](https://arxiv.org/abs/2608.12528) · [代码与数据](https://github.com/yashbagla321/excitation-supervised-closed-loop) | 时间回补；2608.09464 同研究线闭环扩展；在线可观性监督与主动激励 |
+| 2026-08-16 | Deliberate Practice: Learning Robot Skills under a Budget | [论文](https://arxiv.org/abs/2608.13415) | 时间回补；budget-optimal 技能练习分配 |
+| 2026-08-16 | Temporal GRPO: Beyond Trajectory-Level Credit in Vision-Language-Action Reinforcement Learning | [论文](https://arxiv.org/abs/2608.13026) | 时间回补；VLA 阶段级信用分配 |
+| 2026-08-16 | DreamX-Phi 1.0: Action-Conditioned Video World Model for Robotic Manipulation | [论文](https://arxiv.org/abs/2608.13489) · [官方仓库](https://github.com/AMAP-ML/DreamX-Phi) | 时间回补；几何动作条件视频世界模型；权重/推理代码待挑战赛后发布 |
+| 2026-08-16 | SAP-Nav: Spatial Semantic Representation Meets Active Perception for Hierarchical Open-Vocabulary Object Navigation | [论文](https://arxiv.org/abs/2608.12707) · [项目页](https://xuetongpei.github.io/SAP-Nav/) | 时间回补；在线空间语义表示 + 主动视角验证 |
+| 2026-08-16 | Refine After Generation: Toward Correct and Concise Patches in LLM-based Program Repair / RECAP | [论文](https://arxiv.org/abs/2608.13292) | 时间回补；Coding Agent/APR 补丁后精炼与最小化 |
+| 2026-08-16 | KISS-ICP: In Defense of Point-to-Point ICP -- Simple, Accurate, and Robust Registration If Done the Right Way | [论文](https://arxiv.org/abs/2209.15397) · [代码](https://github.com/PRBonn/kiss-icp) · [DOI](https://doi.org/10.1109/LRA.2023.3236571) | 经典论文回顾 |
 
 ## 维护检查表
 
