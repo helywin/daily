@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-16（Asia/Shanghai）
+> 最后更新：2026-08-17（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -29,6 +29,8 @@
 > 2026-08-15 新增 8 条主动态与 1 条经典论文回顾，共 325 条。
 >
 > 2026-08-16 新增 8 条主动态与 1 条经典论文回顾，共 334 条。
+>
+> 2026-08-17 新增 8 条主动态与 1 条经典论文回顾，共 343 条。
 
 ## 已核验条目
 
@@ -368,6 +370,16 @@
 | 2026-08-16 | SAP-Nav: Spatial Semantic Representation Meets Active Perception for Hierarchical Open-Vocabulary Object Navigation | [论文](https://arxiv.org/abs/2608.12707) · [项目页](https://xuetongpei.github.io/SAP-Nav/) | 时间回补；在线空间语义表示 + 主动视角验证 |
 | 2026-08-16 | Refine After Generation: Toward Correct and Concise Patches in LLM-based Program Repair / RECAP | [论文](https://arxiv.org/abs/2608.13292) | 时间回补；Coding Agent/APR 补丁后精炼与最小化 |
 | 2026-08-16 | KISS-ICP: In Defense of Point-to-Point ICP -- Simple, Accurate, and Robust Registration If Done the Right Way | [论文](https://arxiv.org/abs/2209.15397) · [代码](https://github.com/PRBonn/kiss-icp) · [DOI](https://doi.org/10.1109/LRA.2023.3236571) | 经典论文回顾 |
+
+| 2026-08-17 | Detection and Ranging of Transient Extrinsic Contacts Based on 6D Dynamic Tactile Sensing / TECDAR | [论文](https://arxiv.org/abs/2608.07075) · [项目页](https://humitlab.github.io/TECDAR/) | 时间回补；7 kHz 6D 动态触觉与外部接触定位 |
+| 2026-08-17 | CrossTracer: Cross-Embodiment Navigation via VLA Model Reasoning and Trace Residuals Adapting | [论文](https://arxiv.org/abs/2608.06688) | 时间回补；统一像素轨迹 + 本体残差适配 |
+| 2026-08-17 | R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim | [论文](https://arxiv.org/abs/2608.06827) | 时间回补；稀疏客户现场采集与行为相关 Real-to-Sim |
+| 2026-08-17 | AtlasVLA: Persistent World-Ego State Modeling for Vision-Language-Action Models | [论文](https://arxiv.org/abs/2608.06729) | 时间回补；持久 World-Ego 双记忆 VLA |
+| 2026-08-17 | Representation Handoffs for OpenArm-Based Laboratory Mobile Manipulation | [论文](https://arxiv.org/abs/2608.07154) | 时间回补；移动操作 representation handoff 与技能接口 |
+| 2026-08-17 | Benchmarking and Reasoning Distillation of Large Language Models for Feedback Controller Design in Complex Dynamical Systems / CoDyControlBench | [论文](https://arxiv.org/abs/2608.07004) | 时间回补；控制器设计 benchmark 与 1.5B reasoning distillation |
+| 2026-08-17 | Online Monitoring and Corrective Steering of Programming Agents / LivePlan | [论文](https://arxiv.org/abs/2608.06701) | 时间回补；Coding Agent 确定性运行时监控与按需 Advisor |
+| 2026-08-17 | Characterizing the Quality Profile of AI-Generated C++ in Production | [论文](https://arxiv.org/abs/2608.06640) | 时间回补；352 万生产变更、AI C++ 质量与性能画像 |
+| 2026-08-17 | Generalized-ICP | [RSS](https://roboticsproceedings.org/rss05/p21.html) · [原始代码](https://github.com/avsegal/gicp) · [现代实现](https://github.com/koide3/small_gicp) | 经典论文回顾 |
 
 ## 维护检查表
 
