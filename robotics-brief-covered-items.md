@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-17（Asia/Shanghai）
+> 最后更新：2026-08-18（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -31,6 +31,8 @@
 > 2026-08-16 新增 8 条主动态与 1 条经典论文回顾，共 334 条。
 >
 > 2026-08-17 新增 8 条主动态与 1 条经典论文回顾，共 343 条。
+>
+> 2026-08-18 新增 8 条主动态与 1 条经典论文回顾，共 352 条。
 
 ## 已核验条目
 
@@ -380,6 +382,16 @@
 | 2026-08-17 | Online Monitoring and Corrective Steering of Programming Agents / LivePlan | [论文](https://arxiv.org/abs/2608.06701) | 时间回补；Coding Agent 确定性运行时监控与按需 Advisor |
 | 2026-08-17 | Characterizing the Quality Profile of AI-Generated C++ in Production | [论文](https://arxiv.org/abs/2608.06640) | 时间回补；352 万生产变更、AI C++ 质量与性能画像 |
 | 2026-08-17 | Generalized-ICP | [RSS](https://roboticsproceedings.org/rss05/p21.html) · [原始代码](https://github.com/avsegal/gicp) · [现代实现](https://github.com/koide3/small_gicp) | 经典论文回顾 |
+
+| 2026-08-18 | Reflex: Enabling Fast and Predictive Vision-Language-Action Models for Reaction-Critical Manipulation / ReflexVLA | [论文](https://arxiv.org/abs/2608.14379) · [项目页](https://reflexvla.github.io/) | 时间回补；反应关键 VLA、显式延迟评测与未来预测 |
+| 2026-08-18 | AgilePE: Autonomous UAV Pursuit-Evasion via Self-Play Reinforcement Learning | [论文](https://arxiv.org/abs/2608.14135) | 时间回补；CTBR 端到端控制、PFSP 与硬件对齐 sim-to-real |
+| 2026-08-18 | PILOT: Privileged Imitation Learning for End-to-End Motion Planning of Autonomous UAVs under Partial Observability | [论文](https://arxiv.org/abs/2608.14082) · [项目页](https://qr-zhang.github.io/PILOT/) | 时间回补；优化控制教师蒸馏、历史深度与结构化轨迹 |
+| 2026-08-18 | AdvDex: Learning Dexterous Manipulation from Human Demonstrations via Joint-Aligned Actions and Adversarial Learning | [论文](https://arxiv.org/abs/2608.14028) | 时间回补；OmniShare、JAAS 跨本体动作对齐与域对抗 |
+| 2026-08-18 | PRM-as-a-Judge 1.5: A Toolkit for Robot Process Assessment | [论文](https://arxiv.org/abs/2608.14284) | 时间回补；机器人过程进度曲线、FNS/DRR/SQS 与 RoboPulse++ |
+| 2026-08-18 | CORAL: Curriculum-Optimized Reward Adaptation for LiDAR-Based Goal-Directed Urban Driving | [论文](https://arxiv.org/abs/2608.14332) | 时间回补；五阶段课程 + stage-aware reward；LiDAR 消融需谨慎解释 |
+| 2026-08-18 | Vero: Can AI Agents Build Formally Verified Software Repositories? | [论文](https://arxiv.org/abs/2608.13522) · [代码与评测](https://github.com/sunblaze-ucb/vero) | 时间回补；多模块 Lean 4 仓库级代码+证明联合生成 |
+| 2026-08-18 | Engineering Reliable Coding Agents: Evaluating and Operating the System Around the Model | [论文](https://arxiv.org/abs/2608.13867) | 时间回补；Coding Agent 系统可靠性、harness/状态/权限/验证 |
+| 2026-08-18 | OKVIS: Keyframe-Based Visual-Inertial SLAM using Nonlinear Optimization | [RSS](https://www.roboticsproceedings.org/rss09/p37.html) · [官方代码](https://github.com/ethz-asl/okvis) | 经典论文回顾 |
 
 ## 维护检查表
 
