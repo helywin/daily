@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-18（Asia/Shanghai）
+> 最后更新：2026-08-19（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -33,6 +33,8 @@
 > 2026-08-17 新增 8 条主动态与 1 条经典论文回顾，共 343 条。
 >
 > 2026-08-18 新增 8 条主动态与 1 条经典论文回顾，共 352 条。
+>
+> 2026-08-19 新增 8 条主动态与 1 条经典论文回顾，共 361 条。
 
 ## 已核验条目
 
@@ -392,6 +394,16 @@
 | 2026-08-18 | Vero: Can AI Agents Build Formally Verified Software Repositories? | [论文](https://arxiv.org/abs/2608.13522) · [代码与评测](https://github.com/sunblaze-ucb/vero) | 时间回补；多模块 Lean 4 仓库级代码+证明联合生成 |
 | 2026-08-18 | Engineering Reliable Coding Agents: Evaluating and Operating the System Around the Model | [论文](https://arxiv.org/abs/2608.13867) | 时间回补；Coding Agent 系统可靠性、harness/状态/权限/验证 |
 | 2026-08-18 | OKVIS: Keyframe-Based Visual-Inertial SLAM using Nonlinear Optimization | [RSS](https://www.roboticsproceedings.org/rss09/p37.html) · [官方代码](https://github.com/ethz-asl/okvis) | 经典论文回顾 |
+
+| 2026-08-19 | Depth-Wise Probing and Pruning of the Planning Token in a Driving Vision-Language-Action Model | [论文](https://arxiv.org/abs/2608.07361) | 时间回补；v1 2026-08-07 |
+| 2026-08-19 | Synthetic LiDAR Data Generation and Deterministic Downsampling for Point Cloud Classification on the Edge | [论文](https://arxiv.org/abs/2608.07106) | 时间回补；v1 2026-08-07 |
+| 2026-08-19 | WNM-3D: A World Navigation Model with 3D Scene Conditioning for Closed-Loop VLN | [论文](https://arxiv.org/abs/2608.07267) | 时间回补；v1 2026-08-07 |
+| 2026-08-19 | C2Dex: Contact-Consistent Reconstruction and Retargeting for Dexterous Manipulation from Monocular Video | [论文](https://arxiv.org/abs/2608.07045) | 时间回补；v1 2026-08-07 |
+| 2026-08-19 | Cross-View Action Consistency for Camera-Robust Vision-Language-Action Policies | [论文](https://arxiv.org/abs/2608.06965) | 时间回补；v1 2026-08-07 |
+| 2026-08-19 | PUSH: Scalable Long-Horizon Planning with Staggered Updates for Lifelong MAPF | [论文](https://arxiv.org/abs/2608.06702) | 时间回补；v1 2026-08-07 |
+| 2026-08-19 | PMCoder: Coupling Planning with Episodic Memory in LLM Agents for Software Issue Resolution | [论文](https://arxiv.org/abs/2608.06811) | 时间回补；AI Coding；v1 2026-08-07 |
+| 2026-08-19 | Scrouting / SuperScout | [论文](https://arxiv.org/abs/2608.04804) | 时间回补；AI Coding；v1 2026-08-05 |
+| 2026-08-19 | IMU Preintegration on Manifold for Efficient Visual-Inertial Maximum-a-Posteriori Estimation | [RSS](https://www.roboticsproceedings.org/rss11/p06.html) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾 |
 
 ## 维护检查表
 
