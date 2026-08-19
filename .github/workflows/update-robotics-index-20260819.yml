@@ -63,3 +63,4 @@ jobs:
           git add robotics-brief-covered-items.md .github/workflows/update-robotics-index-20260819.yml
           git commit -m "docs: update robotics brief coverage index for 2026-08-19"
           git push origin HEAD:master
+# trigger-existing-workflow
