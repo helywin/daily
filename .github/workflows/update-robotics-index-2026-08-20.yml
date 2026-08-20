@@ -1,5 +1,6 @@
 name: Update Robotics Brief Index 2026-08-20
 
+# second push: workflow already exists on the default branch
 on:
   push:
     branches: [master]
