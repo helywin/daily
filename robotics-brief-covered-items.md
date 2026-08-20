@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-19（Asia/Shanghai）
+> 最后更新：2026-08-20（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -35,6 +35,8 @@
 > 2026-08-18 新增 8 条主动态与 1 条经典论文回顾，共 352 条。
 >
 > 2026-08-19 新增 8 条主动态与 1 条经典论文回顾，共 361 条。
+>
+> 2026-08-20 新增 8 条主动态与 1 条经典论文回顾，共 370 条。
 
 ## 已核验条目
 
@@ -355,7 +357,7 @@
 | 2026-08-14 | Adaptation of Generalist Robot Policies with Minimal Data / MiDAS | [论文](https://arxiv.org/abs/2608.11363) | 09:32 更新版；时间回补；单示范 + 在线 residual RL |
 | 2026-08-14 | Self-Evolving Embodied Agents via Skill-Harness Evolution / SHAPER | [论文](https://arxiv.org/abs/2608.11350) | 09:32 更新版；时间回补；冻结模型、进化 skill+harness |
 | 2026-08-14 | The Devil Is in the Interface: Evaluating How Tool Architecture Shapes Coding Agent Behavior | [论文](https://arxiv.org/abs/2608.11386) | 09:32 更新版；时间回补；Coding Agent 工具架构 |
-| 2026-08-14 | LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain | [论文信息](https://researchwith.stevens.edu/en/publications/lego-loam-lightweight-and-ground-optimized-lidar-odometry-and-map/) · [代码](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM) · [DOI](https://doi.org/10.1109/IROS.2018.8594299) | 09:32 更新版经典论文回顾 |
+| 2026-08-14 | LeGO-LOAM: Lightweight and Ground-Optimized Lidar Odometry and Mapping on Variable Terrain | [论文信息](https://researchwith.stevens.edu/en/publications/lego-loam-lightweight-and-ground-optimized-lidar-odometry-and-map/) · [代码](https://github.com/RobustFieldAutonomyLab/LeGO-LOAM) · [DOI](https://doi.org/10.1109/IROS45743.2020.9341176) | 09:32 更新版经典论文回顾 |
 | 2026-08-15 | LifelongCrossNav: Persistent 3D Semantic Memory for Cross-Floor Multi-Object Navigation | [论文](https://arxiv.org/abs/2608.07079) · [项目页](https://flageval-baai.github.io/LifelongCrossNavPage) | 时间回补；跨楼层连续多目标持久 3D 语义记忆 |
 | 2026-08-15 | Vernata: Self-Supervised Learning of LiDAR Point Representations | [论文](https://arxiv.org/abs/2608.06919) · [代码](https://github.com/rai-opensource/vernata) | 时间回补；IROS 2026；多教师 LiDAR 自监督表征 |
 | 2026-08-15 | AutoIntervene: Calibrated Intervention for Action-Chunking Imitation Learning Policies | [论文](https://arxiv.org/abs/2608.07065) · [项目页](https://aus.bot/research/autointervene/) | 时间回补；visual-action support 自动人工接管 |
@@ -404,6 +406,16 @@
 | 2026-08-19 | PMCoder: Coupling Planning with Episodic Memory in LLM Agents for Software Issue Resolution | [论文](https://arxiv.org/abs/2608.06811) | 时间回补；AI Coding；v1 2026-08-07 |
 | 2026-08-19 | Scrouting / SuperScout | [论文](https://arxiv.org/abs/2608.04804) | 时间回补；AI Coding；v1 2026-08-05 |
 | 2026-08-19 | IMU Preintegration on Manifold for Efficient Visual-Inertial Maximum-a-Posteriori Estimation | [RSS](https://www.roboticsproceedings.org/rss11/p06.html) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾 |
+
+| 2026-08-20 | Hydra-0: Action Flow as a Universal Action Representation for Video World Models | [论文](https://arxiv.org/abs/2608.14862) · [项目页](https://nvidia-isaac.github.io/video_to_data/hydra-0/) | 时间回补；v1 2026-08-18；跨本体 action flow 世界模型 |
+| 2026-08-20 | PRISM: A Multi-Modal Industrial Manipulation Dataset | [论文](https://arxiv.org/abs/2608.14769) · [项目页](https://prism-dataset.github.io/) | 时间回补；v1 2026-08-18；工业多模态操作数据 |
+| 2026-08-20 | Jetson-ORB-SLAM3 | [论文](https://arxiv.org/abs/2608.14720) | 时间回补；v1 2026-08-18；Jetson GPU ORB 与 TensorRT 回环 |
+| 2026-08-20 | Effector-Centric NMPC for Aerial Manipulation | [论文](https://arxiv.org/abs/2608.14694) | 时间回补；v1 2026-08-18；100 Hz 可倾转多旋翼末端 NMPC |
+| 2026-08-20 | Agent Lightning v1.0 | [论文](https://arxiv.org/abs/2608.14473) · [代码](https://github.com/microsoft/agent-lightning) | 时间回补；v1 2026-08-18；Harnessed Agentic RL |
+| 2026-08-20 | UniReflex | [论文](https://arxiv.org/abs/2608.14372) · [项目页](https://unireflex.github.io/) | 时间回补；v1 2026-08-18；冻结 VLA + 快速力觉反射 |
+| 2026-08-20 | Degenerate in Whose Frame? An Equivariance Condition for Degeneracy Detection in LiDAR Registration | [论文](https://arxiv.org/abs/2608.15532) | 时间回补；v1 2026-08-16；坐标等变退化子空间 |
+| 2026-08-20 | HP2-SLAM: Adaptive Hybrid ICP for Robust and Efficient LiDAR SLAM | [论文](https://arxiv.org/abs/2608.14996) | 时间回补；v1 2026-08-15；密度/平面性自适应 Hybrid ICP |
+| 2026-08-20 | The Normal Distributions Transform: A New Approach to Laser Scan Matching | [IEEE](https://ieeexplore.ieee.org/document/1249285/) · [ndt_omp](https://github.com/koide3/ndt_omp) | 经典论文回顾；IROS 2003；NDT |
 
 ## 维护检查表
 
