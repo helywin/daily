@@ -36,7 +36,7 @@
 >
 > 2026-08-19 新增 8 条主动态与 1 条经典论文回顾，共 361 条。
 >
-> 2026-08-20 新增 8 条主动态与 1 条经典论文回顾，共 370 条。
+> 2026-08-20 新增 8 条主动态与 1 条经典论文回顾，共 370 条；随后重新核验 arXiv 8 月 19 日公开列表并校正 6 条规范标题/来源，统计数不变。
 
 ## 已核验条目
 
@@ -407,12 +407,12 @@
 | 2026-08-19 | Scrouting / SuperScout | [论文](https://arxiv.org/abs/2608.04804) | 时间回补；AI Coding；v1 2026-08-05 |
 | 2026-08-19 | IMU Preintegration on Manifold for Efficient Visual-Inertial Maximum-a-Posteriori Estimation | [RSS](https://www.roboticsproceedings.org/rss11/p06.html) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾 |
 
-| 2026-08-20 | Hydra-0: Action Flow as a Universal Action Representation for Video World Models | [论文](https://arxiv.org/abs/2608.14862) · [项目页](https://nvidia-isaac.github.io/video_to_data/hydra-0/) | 时间回补；v1 2026-08-18；跨本体 action flow 世界模型 |
-| 2026-08-20 | PRISM: A Multi-Modal Industrial Manipulation Dataset | [论文](https://arxiv.org/abs/2608.14769) · [项目页](https://prism-dataset.github.io/) | 时间回补；v1 2026-08-18；工业多模态操作数据 |
-| 2026-08-20 | Jetson-ORB-SLAM3 | [论文](https://arxiv.org/abs/2608.14720) | 时间回补；v1 2026-08-18；Jetson GPU ORB 与 TensorRT 回环 |
-| 2026-08-20 | Effector-Centric NMPC for Aerial Manipulation | [论文](https://arxiv.org/abs/2608.14694) | 时间回补；v1 2026-08-18；100 Hz 可倾转多旋翼末端 NMPC |
-| 2026-08-20 | Agent Lightning v1.0 | [论文](https://arxiv.org/abs/2608.14473) · [代码](https://github.com/microsoft/agent-lightning) | 时间回补；v1 2026-08-18；Harnessed Agentic RL |
-| 2026-08-20 | UniReflex | [论文](https://arxiv.org/abs/2608.14372) · [项目页](https://unireflex.github.io/) | 时间回补；v1 2026-08-18；冻结 VLA + 快速力觉反射 |
+| 2026-08-20 | Hydra-0: Action Flow for Generalist World Modeling and Control | [论文](https://arxiv.org/abs/2608.18077) · [项目页](https://nvidia-isaac.github.io/video_to_data/hydra-0/) | 时间回补；v1 2026-08-18；跨本体 Action Flow 世界模型；规范来源已复核 |
+| 2026-08-20 | PRISM: Precision and contact-rich Real-world Industrial Skill dataset with Multimodal sensing | [论文](https://arxiv.org/abs/2608.17962) · [项目页](https://tengbo-yu.github.io/PRISM/) | 时间回补；v1 2026-08-18；工业多模态接触操作数据；规范来源已复核 |
+| 2026-08-20 | Jetson-ORB-SLAM3: Accuracy-Preserving GPU Implementation for Edge Computing Devices | [论文](https://arxiv.org/abs/2608.17874) | 时间回补；v1 2026-08-18；Jetson GPU ORB 与 TensorRT 回环；规范来源已复核 |
+| 2026-08-20 | Effector-Centric NMPC of Tiltable-Multirotors for Offset-Free Omnidirectional Aerial Manipulation | [论文](https://arxiv.org/abs/2608.17819) | 时间回补；v1 2026-08-18；100 Hz 可倾转多旋翼末端 NMPC；规范来源已复核 |
+| 2026-08-20 | Agent Lightning v1.0: Towards Harnessed Agentic RL | [论文](https://arxiv.org/abs/2608.17528) · [代码](https://github.com/microsoft/agent-lightning) | 时间回补；v1 2026-08-18；Harnessed Agentic RL；规范来源已复核 |
+| 2026-08-20 | UniReflex: Plug-and-Play Force Control for Pretrained Generative Policies via Fast-Slow Reflex | [论文](https://arxiv.org/abs/2608.17432) | 时间回补；v1 2026-08-18；冻结生成式策略 + 快速力觉反射；规范来源已复核 |
 | 2026-08-20 | Degenerate in Whose Frame? An Equivariance Condition for Degeneracy Detection in LiDAR Registration | [论文](https://arxiv.org/abs/2608.15532) | 时间回补；v1 2026-08-16；坐标等变退化子空间 |
 | 2026-08-20 | HP2-SLAM: Adaptive Hybrid ICP for Robust and Efficient LiDAR SLAM | [论文](https://arxiv.org/abs/2608.14996) | 时间回补；v1 2026-08-15；密度/平面性自适应 Hybrid ICP |
 | 2026-08-20 | The Normal Distributions Transform: A New Approach to Laser Scan Matching | [IEEE](https://ieeexplore.ieee.org/document/1249285/) · [ndt_omp](https://github.com/koide3/ndt_omp) | 经典论文回顾；IROS 2003；NDT |
