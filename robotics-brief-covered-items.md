@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-20（Asia/Shanghai）
+> 最后更新：2026-08-21（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -37,6 +37,8 @@
 > 2026-08-19 新增 8 条主动态与 1 条经典论文回顾，共 361 条。
 >
 > 2026-08-20 新增 8 条主动态与 1 条经典论文回顾，共 370 条；随后重新核验 arXiv 8 月 19 日公开列表并校正 6 条规范标题/来源，统计数不变。
+>
+> 2026-08-21 新增 8 条主动态与 1 条经典论文回顾，共 379 条。
 
 ## 已核验条目
 
@@ -416,6 +418,16 @@
 | 2026-08-20 | Degenerate in Whose Frame? An Equivariance Condition for Degeneracy Detection in LiDAR Registration | [论文](https://arxiv.org/abs/2608.15532) | 时间回补；v1 2026-08-16；坐标等变退化子空间 |
 | 2026-08-20 | HP2-SLAM: Adaptive Hybrid ICP for Robust and Efficient LiDAR SLAM | [论文](https://arxiv.org/abs/2608.14996) | 时间回补；v1 2026-08-15；密度/平面性自适应 Hybrid ICP |
 | 2026-08-20 | The Normal Distributions Transform: A New Approach to Laser Scan Matching | [IEEE](https://ieeexplore.ieee.org/document/1249285/) · [ndt_omp](https://github.com/koide3/ndt_omp) | 经典论文回顾；IROS 2003；NDT |
+
+| 2026-08-21 | DA-WAM: Decision-Aligned Future Latents for Driving World Models | [论文](https://arxiv.org/abs/2608.19085) · [代码](https://github.com/LeapWM/da-wam) | 最近24小时修订；v2 2026-08-20 06:46 UTC；候选特定 future latent |
+| 2026-08-21 | LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding | [论文](https://arxiv.org/abs/2608.19059) · [项目页](https://lt-mem.github.io/) | 时间回补；IROS 2026；多 session SLAM + 对象波动性长期记忆 |
+| 2026-08-21 | Real-Time Control-Constrained DDP for Underactuated Balancing of Legged Robots | [论文](https://arxiv.org/abs/2608.18552) · [DOI](https://doi.org/10.1109/LRA.2026.3723262) | 时间回补；RA-L 2026；APG control-constrained DDP / MPC |
+| 2026-08-21 | Payload Swing Estimation and Damping Without Payload Parameters for Multirotor UAVs | [论文](https://arxiv.org/abs/2608.18625) | 时间回补；IMU+throttle 无载荷参数 EKF 抑摆；实机飞行 |
+| 2026-08-21 | GigaBrain-WBC-0.5: A Behavior World Model for Robust Whole-Body Control with Environment Interaction | [论文](https://arxiv.org/abs/2608.18234) · [项目页](https://shepherd1226.github.io/gigabrain-wbc-0.5/) | 时间回补；人形 whole-body behavior world model 与命令可行性过滤 |
+| 2026-08-21 | ADEPT: Accelerating Dexterity via Pre-Training and Post-Training using Reinforcement Learning | [论文](https://arxiv.org/abs/2608.19182) · [项目页](https://adept-dexterity.github.io/) | 时间回补；通用 reposing 预训练 + 保守 RL 后训练；视觉/触觉真机 |
+| 2026-08-21 | SkillForge: Self-Distilling Agents for Project-Specific Issue Resolution | [论文](https://arxiv.org/abs/2608.18933) · [代码与数据](https://github.com/cslsolow/SkillForge) | 时间回补；主动合成仓库特定 issue 并蒸馏 skills |
+| 2026-08-21 | SemaPLC: A Project-Grounded, Verification-Gated Agent Harness for PLC Code Generation | [论文](https://arxiv.org/abs/2608.18565) · [代码](https://github.com/midea-ai/SemaPLC) | 时间回补；规格/编译/live runtime 三层验证门禁 |
+| 2026-08-21 | ikd-Tree: An Incremental K-D Tree for Robotic Applications | [论文](https://arxiv.org/abs/2102.10808) · [官方代码](https://github.com/hku-mars/ikd-Tree) | 经典论文回顾；增量 k-d tree、box 操作、下采样与局部重平衡 |
 
 ## 维护检查表
 
