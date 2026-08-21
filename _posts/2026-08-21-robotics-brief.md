@@ -11,7 +11,7 @@ tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 
 ## 摘要
 
-截至 2026-08-21 09:00（Asia/Shanghai），arXiv Robotics 最新公开批次为 2026-08-20，共 38 条；Software Engineering 同日共 22 条。本期先核验最近 24 小时：高质量、可完整核验且未进入历史索引的候选不足 5 条，因此按任务规范扩展到最近 7 天。DA-WAM 的 v2 于 2026-08-20 06:46 UTC 修订，仍属于最近 24 小时窗口；其余主动态的 v1 主要提交于 8 月 18–19 日，均明确标为“时间回补”，不把 arXiv 列表日期误写为论文首次发布时间。（[arXiv Robotics](https://arxiv.org/list/cs.RO/recent?show=2000)，[arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent?show=2000)）
+截至 2026-08-21 09:28（Asia/Shanghai），二次核验确认 arXiv Robotics 最新公开批次仍为 2026-08-20，共 38 条；Software Engineering 同日仍为 22 条。本期先核验最近 24 小时：高质量、可完整核验且未进入历史索引的候选不足 5 条，因此按任务规范扩展到最近 7 天。DA-WAM 的 v2 于 2026-08-20 06:46 UTC 修订，仍属于最近 24 小时窗口；其余主动态的 v1 主要提交于 8 月 18–19 日，均明确标为“时间回补”，不把 arXiv 列表日期误写为论文首次发布时间。（[arXiv Robotics](https://arxiv.org/list/cs.RO/recent?show=2000)，[arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent?show=2000)）
 
 今天最值得关注的 SLAM / 长期自主方向是 LT-Mem。它没有把长期语义地图理解成“不断覆盖旧状态”，而是把多 session SLAM、跨 session 物体身份、对象波动性和事件历史统一起来，通过 Live / Delta / Meta 三层记忆保留“现在是什么、发生过什么、这个对象平时有多容易变化”。对于长期巡检机器人，这比只维护最新 3D 地图更接近真正需要的世界状态。
 
