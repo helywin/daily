@@ -2,7 +2,7 @@
 layout: post
 title: "机器人 / SLAM / 控制 / AI Coding 技术深度简报｜2026-08-22"
 date: 2026-08-22 09:00:00 +0800
-description: "8 月 21 日最新公开批次刷新后重做选题：单视频 Real-to-Sim 门操作、风险自适应巡检、触觉世界模型、移动操作 WAM 与时序逻辑 TAMP 成为机器人重点；AI Coding 关注 Repo0 架构演化与 Outcome Monitor。"
+description: "8 月 21 日最新批次中，重点关注 LiDAR 退化感知 LF-GICP、16 线跨传感器注册 CVSD-Reg、Scalix 单目尺度 SLAM、FS-MPC 反馈采样控制，以及机器人数据与 Coding Agent 工程。"
 categories: [机器人技术简报]
 tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 ---
@@ -11,497 +11,550 @@ tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 
 ## 摘要
 
-截至 2026-08-22 09:15（Asia/Shanghai），重新核验后确认 arXiv Robotics 最新公开批次已经刷新到 **2026-08-21，共 37 条**，Software Engineering 同日 **23 条**。今天是周六，最新批次中的高价值论文主要在 8 月 19–20 日提交，因此严格按 24 小时窗口计算仍不足 5 条；本期按任务规范扩大到最近 7 天，并把 8 条主动态全部明确标为“时间回补”。选题前已重新读取 `robotics-brief-covered-items.md`，规范化标题、arXiv ID、项目页与代码仓库联合查重，下面 8 项均未在历史覆盖索引中作为完整动态出现。（[arXiv Robotics](https://arxiv.org/list/cs.RO/recent?show=2000)，[arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent?show=2000)）
+截至 2026-08-22 09:27（Asia/Shanghai），arXiv Robotics 最新公开批次仍为 **2026-08-21，共 37 条**，Software Engineering 同日为 **23 条**。今天是周六，没有新的周末常规批次；本期先按最近 24 小时检查候选，高质量、可完整核验且未进入历史索引的条目不足 5 条，因此严格按任务规范扩大到最近 7 天。最终 8 条主动态的 v1 主要提交于 8 月 18–20 日，全部明确标为“时间回补”，不把 arXiv 列表日期误写成论文首次发布时间。（[arXiv Robotics](https://arxiv.org/list/cs.RO/recent?show=2000)，[arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent?show=2000)）
 
-今天最值得关注的第一条主线是 **Real-to-Sim 开始从“扫描整个客户现场”收敛到“用很少输入重建一个具体可操作对象，再自动产技能数据”**。Video2DoorTraversal 只需要一段真实门的 RGB 视频，就把门重建成带关节参数的 DoorTwin，再用 simulation-in-the-loop agent 自动把门的 articulation 转成技能程序、诊断失败 rollout、生成可执行示范，最后训练轮足移动操作策略。五扇真实门平均成功率 96.57%，结构相似但未见过的门 zero-shot 为 80.95%，全流程平均约 13 秒。这种“单视频客户对象 → 任务级数字孪生 → 自动训练 → 真机交付”比追求一个覆盖所有工厂的完整数字孪生更接近可规模化部署。（[论文](https://arxiv.org/abs/2608.20251)，[项目页](https://video2doortraversal.github.io/)）
+本期最值得优先看的是两条 **LiDAR / SLAM** 工作。LF-GICP 直接指出一个很容易被忽略的问题：在 voxelized GICP 中，协方差正则化会给 Gauss–Newton Hessian 的平移块引入各向同性“信息地板”，导致传统 Hessian eigenvalue 退化判据在隧道里看起来仍然“条件很好”。它绕开正则化后的优化矩阵，直接从 voxel normal 构造 localizability field，并区分真正的信息缺失与只是点分布不均衡；在 KITTI、GEODE、MulRan、HeLiPR 等五套 benchmark、四种 LiDAR 类型上使用同一套冻结配置。更重要的是，作者明确承认直而均匀的隧道沿轴向对 LiDAR-only 仍然不可观，算法只能保护已有弱信息，不能创造不存在的观测。（[论文](https://arxiv.org/abs/2608.19522)）
 
-第二条主线是 **巡检策略不应只输出一条固定路线，而应让风险分布持续改变机器人把时间花在哪里**。SAGE 将实时传感得到的风险场直接作为 ergodic control 的目标分布；在两套 subsea Christmas Tree、五个阀门的模拟任务里，高风险阀门平均每 5.8 秒被重新检查，而固定 A* 路线每个阀门都是 8.1 秒一次。更重要的是新泄漏一旦被发现，行为在下一控制周期就会变化，不需要重新生成离散巡检路线。这对电力、煤矿、化工和设备巡检同样有启发：真正的自主巡检不应只是“把预设点位走一遍”。（[论文](https://arxiv.org/abs/2608.19671)）
+CVSD-Reg 则回答另一个与低线数雷达非常相关的问题：**16 线点云能否从高密度视觉语义中学到更稳定的全局配准描述子，同时推理时完全不需要相机？** 它用冻结 DINOv2 教师向 Point Transformer V3 LiDAR student 蒸馏语义，再通过密度感知 dropout 和跨传感器 correspondence learning 适配注册；在 HeLiPR 的 Ouster-128 与 Velodyne 16-beam 等跨传感器场景中保持高成功率，论文报告稀疏 16 线 Velodyne 的严格 SR@0.5m/1° 为 97.3%。但需要准确理解：这是一项 **global registration / relocalization / loop-closure candidate alignment** 工作，不是 10–20 Hz 的 LIO 前端，因此不能把它包装成“16 线建图退化已经解决”。（[论文](https://arxiv.org/abs/2608.19536)）
 
-第三条主线是 **世界模型开始进入接触和全身移动操作，而不是只预测 RGB**。HiTac-WAM 为每个候选 action chunk 预测接触状态、三维变形和滑移风险，再用预测结果选择动作；执行后把预测触觉当 reference，持续偏离就触发重规划。三个真实接触任务中，世界模型选动作把平均成功率从 31.1% 提升到 61.1%，完整系统达到 72.2%。DECOWAM 则专门处理轮足/四足移动操作的另一个结构性问题：底盘运动会造成相机 ego-motion，而且底盘命令与机械臂动作工作在不同时间尺度，因此把 base、arm 与 camera motion 显式解耦，而不是把所有动作拼成一个向量让模型自己猜。（[HiTac-WAM](https://arxiv.org/abs/2608.19574)，[DECOWAM](https://arxiv.org/abs/2608.20114)）
+Scalix 关注单目 SLAM 的 metric scale。它没有把 foundation depth 当成硬真值，而是同时预测 per-pixel depth uncertainty 和 per-frame scale uncertainty，把每帧 scale 作为独立测量进入 factor graph，再通过多视图数据关联逐步提高一致性。这个思路非常值得多传感器系统借鉴：**学习模型输出必须带置信度，并作为测量进入估计器，而不是直接覆盖几何状态。**（[论文](https://arxiv.org/abs/2608.17553)）
 
-高层任务规划方面，《When Automata Meet Streams》把有限轨迹线性时序逻辑 `LTL_f` 真正编译进 PDDLStream 式 TAMP。重点不是多一个符号 planner，而是把“必须先验证再执行”“在某状态期间永远禁止某动作”“最终必须完成确认步骤”等规则变成自动机和 action guard，使 dynamically generated grasp / pose / trajectory 也必须遵守时序约束。对于工业操作机器人，这比把安全流程只写在 VLM prompt 中可靠得多。（[论文](https://arxiv.org/abs/2608.19453)）
+控制侧，FS-MPC 研究 sampling MPC 在开放环不稳定系统中的根本采样问题。标准 MPPI 沿 open-loop control sequence 采样，预测时域一长，稳定轨迹占比会指数级下降；FS-MPC 改为从反馈闭环 proposal 中采样，并混合 local feedback search 与 global isotropic search。真实 Unitree H1 实验中，标准 MPPI 无法稳定机器人，FS-MPC 则完成行走和接触操作；实现固定使用 8 条 local + 24 条 global sample。它提供了一条很有价值的折中路线：**RL/iLQR 不必取代 MPC，可以只负责给 MPC 一个更稳定、更高价值的采样分布。**（[论文](https://arxiv.org/abs/2608.19443)）
 
-VLA 适配方面，《Fine-Tuning VLAs with Self-Demonstrated Generative Control》指出一个经常被忽略的问题：把基础 VLA 在新机器人上用少量 expert data 微调，虽然新任务变强，却可能把原本的指令跟随和旧技能完全洗掉。作者让 zero-shot VLA 自己产生额外交互 rollout，作为 rehearsal data 与新本体 expert data 混合训练，在真实 ALOHA 与 RoboTwin 上保留旧技能并学习新技能。它更像机器人版“持续学习中的经验回放”，对多型号机器人共享基础模型很有实际意义。（[论文](https://arxiv.org/abs/2608.19490)，[项目页](https://self-supervised-control.pages.dev/)）
+机器人高层规划与数据侧，本期两项工作分别解决“证据不足”和“本体数据不足”。Evidence-Gated TAMP 不允许 VLM 把先验知识直接升级为世界事实：当目标对象是否存在仍不确定时，VLM 只负责提出探索子目标，TAMP 执行主动取证，独立 feasibility gate 再决定继续、继续取证还是停止。RoboEdit 则把 24,197 段人类交互视频自动转换成 174,547 对人类/机器人对齐视频、14,138,307 帧，并覆盖 7 种机器人手/夹爪本体；它说明人类视频真正进入机器人数据飞轮的关键，不是只换外观，而是同时恢复可执行的 3D robot-state supervision。（[Evidence-Gated TAMP](https://arxiv.org/abs/2608.20084)，[RoboEdit](https://arxiv.org/abs/2608.18948)）
 
-AI Coding 侧今天两条工作很互补。Repo0 不从“已有仓库里修一个 Issue”出发，而是研究从自然语言需求直接生成完整仓库：用 Requirement DAG、Component DAG 及其 alignment 作为显式 architecture state，再根据 cohesion/coupling 迭代 split、merge、revise，结构收敛后才进入测试驱动代码生成；在 RepoCraft 六个仓库上，相对最强 repository-planning baseline，Functionality Coverage 最高提升 20.08 个百分点，Pass Rate 最高提升 29.74 个百分点。Outcome Monitors 则解决 Agent 工具链另一端的问题：工具不一定抛异常，它也可能返回格式完全正常但语义错误的数据。Outcome contract 发现异常后保留原结果，并给 Agent 一个说明违反了哪条性质、有哪些公开恢复工具的 receipt，ToolMaze 完成率从 10.9% 提升到 28.1%。两者都说明 Agent 可靠性越来越取决于模型外的结构化状态、合同和运行时反馈。（[Repo0](https://arxiv.org/abs/2608.19854)，[代码](https://github.com/cslsolow/Repo0)，[Outcome Monitors](https://arxiv.org/abs/2608.19303)）
+AI Coding 侧今天更值得看“能力边界”和“文档工程”。SWE-bench Science 提供 119 个任务、98 个科学仓库、20 个科学领域，最强 Agent 的 pass@1 仍低于 50%，失败不只是代码语法，而包括科学抽象理解、错误探索、只做表面修复、系统集成不完整和科学知识不能迁移。另一项对 557 个 agentic coding session、33,097 个 agentic PR 的实证研究发现，Agent 实际阅读最多的并不是经典 API 文档，而是 instruction files 与 working notes；而且“读过文档”并没有自然转化为更强验证行为。因此，Agent-friendly documentation 不应该只是更长的 Markdown，而应该显式连接到可执行检查、版本条件和验证命令。（[SWE-bench Science](https://arxiv.org/abs/2608.19799)，[代码与评测](https://github.com/OpenMOSS/SWE-bench-Science)，[Agent-Friendly Documentation](https://arxiv.org/abs/2608.20195)）
 
-本轮也检查了 OpenAI、Anthropic 与 Meta AI 的近期官方入口。可核验的近期更新里没有一项新的主力通用/代码基础模型发布足以挤掉上述机器人与 AI Coding 条目；Anthropic 8 月 21 日有 CHIVE 行为解释研究，但属于研究更新而非新模型。因此本期不为了固定出现“大模型新闻”而用旧模型消息补位。（[OpenAI News](https://openai.com/news/)，[Anthropic News](https://www.anthropic.com/news)，[Meta AI Blog](https://ai.meta.com/blog/)）
+本轮也检查了 OpenAI、Anthropic、Google DeepMind 与 Meta AI 的近期官方发布入口。当前可核验的新近更新中，没有一项 8 月 21–22 日新发布的主力通用模型、代码模型或机器人基础模型，其技术重要性足以挤掉上述 SLAM、控制与 AI Coding 条目；Anthropic 8 月 21 日的 CHIVE 属于模型行为解释研究而不是新模型。因此本期不为了固定出现“大模型新闻”而用旧发布补位。（[OpenAI News](https://openai.com/news/)，[Anthropic News](https://www.anthropic.com/news)，[Google DeepMind](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/)，[Meta AI](https://ai.meta.com/blog/)）
 
-## 1. Video2DoorTraversal：用一段门的视频做任务级数字孪生，再在仿真里把开门技能练出来
+## 1. LF-GICP：先绕开正则化 Hessian 的“假健康”，再判断隧道到底缺了哪个方向的信息
 
-**时间回补：论文 v1 提交于 2026-08-20 16:46 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.20251) · [项目页](https://video2doortraversal.github.io/)
+**时间回补：论文 v1 提交于 2026-08-20 00:36 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19522)
 
-Video2DoorTraversal 面向轮足/移动操作机器人最典型、也最容易在真实客户现场失效的长时域任务之一：接近门、定位把手、接触、推开、协调底盘与机械臂持续运动、最终让整机穿过门口。它最大的创新不是新的开门 policy，而是把 **单视频 Real-to-Sim-to-Real** 变成完整交付流水线。
-
-### 为什么重要
-
-如果每一个客户现场都要先用扫描仪把门、阀门、柜体等全部高精度扫描，再让工程师手工搭仿真关节、碰撞体、材质和任务脚本，Real-to-Sim 很难规模化。Video2DoorTraversal 的 DoorTwin 只从一段 RGB 视频恢复门的实例几何、外观和 articulation，并直接生成可进入物理仿真的对象。
-
-更进一步，simulation-in-the-loop agent 不是只把数字孪生交给人调参，而是根据门的关节结构生成 parameterized skill program，运行仿真、分析失败、自动修改，再沉淀成功 demonstration。也就是说，现场采集和技能训练之间出现了真正自动化的中间层。
-
-### 算法模块
-
-- 单 RGB 视频重建实例级门几何与可动关节；
-- DoorTwin 转成 simulation-ready articulated asset；
-- Agent 根据 articulation 生成门操作技能程序；
-- 仿真 rollout 失败后进行诊断和迭代修正；
-- 通过 domain randomization 生成大量物理可执行示范；
-- ArticuACT 使用前视与腕部双深度图；
-- robot-centric Plücker ray conditioning 提供相机/机器人几何关系；
-- 辅助 future interaction-state supervision 强化接触阶段；
-- policy 联合输出底盘、机械臂与夹爪动作。
-
-### 传感器与动力学假设
-
-真机平台是 Unitree A2-W + Z1 机械臂，使用两个 RealSense D435，推理运行在 Jetson Orin NX。仿真 expert 以 50 Hz 运行，保留示范以 25 Hz 记录；策略输出 100 步 action chunk，动作包含底盘前进/偏航、6 轴机械臂和夹爪。
-
-方法仍然依赖门属于可由相对简单 articulation 描述的结构。玻璃门、柔性闭门器、隐藏弹簧、复杂摩擦、门框严重变形等都会增大 sim-to-real 差异。RGB 单视频重建也可能在反光、低纹理和遮挡场景下出现几何错误。
-
-### 实时性与真实结果
-
-论文报告五扇真实门累计 **169/175** 次成功，平均 **96.57%**；结构相似但未见过的门 zero-shot 成功率 **80.95%**，从接近、开门到整机穿越平均约 **13 s**。感知与策略推理均在机器人机载运行。
-
-### 鲁棒性、可复现性与风险
-
-项目页已经公开，但代码目前仍标注 coming soon，因此现阶段复现性中等。真正值得关注的是它的系统流程而不是单一成功率：数字孪生若建错 articulation，后续自动训练会非常高效地学到错误技能；因此真实产品需要在 DoorTwin 生成后加入几何/关节范围/碰撞的独立验证。
-
-### 适合谁关注
-
-移动操作机器人、轮足/四足+机械臂、客户现场 Real-to-Sim、门/柜/阀门等铰接机构操作，以及希望降低交付扫描和技能调试成本的团队。
-
-### 工程落地启发
-
-不必一开始做“整座工厂数字孪生”。更可行的路线是按任务创建 **Task Twin**：客户工程师用手机/手持相机围绕一个设备拍 20–60 秒，系统只重建与该技能有关的把手、门板、按钮、阀门和可碰撞区域；仿真 Agent 自动生成/验证技能，最后把通过测试的技能包部署到真机。这比全场景一次性高保真重建更容易形成交付工具链。
-
-## 2. SAGE：巡检路线不应固定，机器人应该按实时风险分布“把时间花在最值得看的地方”
-
-**时间回补：论文 v1 提交于 2026-08-20 06:06 UTC；IROS 2026 AQ2UASIM workshop 接收。** [论文](https://arxiv.org/abs/2608.19671)
-
-SAGE（Semantic and Adaptive Generative Ergodicity）面向海底设施自主巡检，但其核心思想对陆地巡检机器人同样适用：把每个位置当前的风险/信息价值表示成空间分布，然后让机器人长期轨迹的驻留时间分布逼近它，而不是让机器人按固定 waypoint 顺序重复巡航。
+LF-GICP（Parameter-Free Degeneracy-Aware LiDAR Odometry via a Voxel-Normal Localizability Field）直接针对隧道、长走廊、矿井这类场景中的 LiDAR 几何退化。作者的关键观察不是“再换一个 eigenvalue threshold”，而是指出 **voxelized GICP 里常用的 Hessian 本身会掩盖平移退化**。
 
 ### 为什么重要
 
-传统巡检系统经常把自主化理解成“自动把人工规划的点位走一遍”。问题是，一旦某设备刚出现泄漏、温度异常或振动突变，固定巡检表仍然可能要求机器人先去检查几十个低风险点，再回来复查真正重要的设备。
+GICP 对每个 voxel 使用完整 covariance。为了数值稳定，工程实现通常会对 covariance 正则化；但这样每个 correspondence 在三个平移方向都会贡献一定信息量，最终在 Hessian translation block 里形成各向同性 information floor。论文实测中，均匀隧道的 Hessian 条件指标甚至可以和开放道路非常接近。
 
-Ergodic control 的优势在于，它优化的不是“下一条最短路径”，而是**一段时间内机器人在空间中的访问频率是否与信息价值匹配**。风险分布变化，控制目标自然变化，不必显式重新求一条完整 tour。
-
-### 算法模块
-
-- 传感器/语义层生成实时风险分布；
-- 风险场作为目标 spatial distribution；
-- ergodic metric 衡量机器人轨迹时间分布与目标分布的偏差；
-- 控制律持续降低这一偏差；
-- 新异常改变风险场后，下一控制周期立即改变访问行为；
-- 不需要显式离散重规划或人工改巡检表。
-
-### 传感器与动力学假设
-
-论文在 subsea Christmas Tree 仿真中验证，风险输入被假设为可在线获得。真实系统最大的上游风险其实是“风险估计对不对”：热像、气体、声音、视觉缺陷检测如果误报，ergodic controller 会非常勤快地去复查一个错误目标；如果漏报，则再好的控制也不会产生正确优先级。
-
-### 实时性与结果
-
-两套 XT、五个阀门场景中，高风险阀门在 SAGE 下平均每 **5.8 s** 被重新检查，固定 A* tour 则所有阀门固定约 **8.1 s**；新泄漏出现后，SAGE 下一控制周期就改变行为，无需单独 reroute。
-
-### 鲁棒性、可复现性与风险
-
-目前是仿真验证，并非真实水下机器人长期部署，因此不能把结果直接外推到动态障碍、通信丢失或强海流环境。实际产品还需要在 ergodic objective 之外保留能耗、禁区、碰撞和回充等硬约束。
-
-### 适合谁关注
-
-工业巡检、电力/煤矿/化工、油气、长期自主机器人、主动感知和 inspection scheduling 团队。
-
-### 工程落地启发
-
-可以先不改现有导航器：继续使用成熟 SLAM + local planner，只在全局任务层维护一张 `inspection value map`，每个设备根据上次检查时间、异常概率、历史趋势和任务等级动态更新权重。高层用 ergodic / information-aware planner 决定下一段时间去哪，低层仍负责安全到达。
-
-## 3. HiTac-WAM：先预测“如果执行这段动作，触觉会发生什么”，再决定要不要执行
-
-**时间回补：论文 v1 提交于 2026-08-20 02:28 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19574)
-
-HiTac-WAM 把 World Action Model 从视觉未来推向接触未来。它不把触觉当一张额外图像简单拼到 Transformer，而是按照物理依赖把未来触觉拆成三级：**contact state → 3D deformation field → slip risk**。每个候选 action chunk 在真正落到机器人之前，先拥有一条自己的未来触觉轨迹。
-
-### 为什么重要
-
-接触操作的危险在于，等视觉看出“插歪了、滑了、抓空了”时，物体可能已经被推走或连接器已经受力。HiTac-WAM 的思路更像机器人版 predictive check：候选动作先进入触觉世界模型，预测是否会接触、接触后怎么形变、是否会滑，再决定执行哪个动作。
+这意味着很多“看 Hessian 最小特征值是否小于阈值”的退化检测器，在 GICP/VGICP 管线里可能从数学上就被正则化结构污染。对于低线数 LiDAR，这一点尤其值得重视：点少并不一定让 Hessian 明显变坏，因为正则化会把它“托起来”。
 
 ### 算法模块
 
-- action-conditioned tactile forecasting；
-- 第一层预测接触/非接触状态；
-- 第二层预测三维触觉变形场；
-- 第三层预测 slip risk；
-- 下游阶段通过 stop-gradient 接收上游触觉状态，保留物理层次；
-- directed attention 允许 tactile query 读取 video/action context，但防止 video/action query 反向依赖触觉 token；
-- candidate action chunk 依据 tactile forecast + task progress 排序；
-- 执行选中动作时保存对应 tactile forecast；
-- 预测与真实触觉持续偏离时触发 corrective replanning。
-
-### 传感器与系统假设
-
-真实系统使用 IMETA-Y1 机械臂、两个 RealSense D435i、额外 USB 相机与两个 DM-Tac W2 触觉传感器，数据流同步约 30 Hz。它仍要求具体任务和触觉硬件有足够训练数据，不能假设换一款软材料指尖或换一类连接器以后零样本泛化。
-
-### 实时性与结果
-
-触觉预测 mean contact F1 为 **0.921**；层级结构相比 deformation-only predictor 将三维位移 L2 error 降低 **17.6%**，相对 slip-only predictor 将 slip AUPRC 提高 **60.4%**。在芯片抓取、黑板擦除、USB 插入三类真实任务中，baseline DreamZero 平均成功率 **31.1%**，仅用层级触觉预测做 action selection 提升到 **61.1%**，完整系统达到 **72.2%**。
-
-### 鲁棒性、可复现性与风险
-
-方法证明了 tactile future 对 action selection 的价值，但它并非形式化安全模型。触觉预测网络在新材质、新指尖或新的摩擦条件下可能自信地预测错误；真实系统仍需保留力/电流限幅、急停和低层阻抗控制。
-
-训练开销也不可忽略：论文中的世界/触觉模块使用高端 GPU 训练，因此更现实的产品形态是离线训练、端侧只部署较小预测与评分头。
-
-### 适合谁关注
-
-插装、连接器、打磨、擦拭、灵巧手、接触丰富机械臂，以及想在 VLA/扩散策略外增加 predictive tactile watchdog 的团队。
-
-### 工程落地启发
-
-非常适合做成现有策略的旁路层：`policy 生成 4–16 个候选 action chunk → 轻量触觉未来模型预测接触/滑移 → 选择最稳候选 → 实际触觉与预测偏离则减速/回退/重规划`。这样不必立即重训整个 VLA，就能先验证“触觉未来是否真的能减少失败”。
-
-## 4. DECOWAM：移动操作的底盘、机械臂和相机 Ego-Motion 不应该被一个统一向量混在一起
-
-**时间回补：论文 v1 提交于 2026-08-20 14:44 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.20114)
-
-DECOWAM（Decoupled Whole-Body World-Action Model）专门研究腿式/轮足移动操作的结构性难题：固定机械臂的相机通常不动，但移动操作机器人一边走、一边摆臂，相机图像变化同时包含底盘 ego-motion、机械臂运动和真实场景变化；而底盘速度命令和机械臂关节控制又根本不是同一个时间尺度。
-
-### 为什么重要
-
-很多移动操作 VLA 直接把 `base vx/vy/wz + arm joints + gripper` 拼成一个 action vector，然后希望 Transformer 自动学会哪几个维度属于导航、哪几个属于精细操作、哪些图像运动只是相机自己在动。DECOWAM 的结论更符合控制工程：这些因素物理语义不同，就应该在模型接口上显式分开。
-
-### 算法模块
-
-- FastWAM 作为预训练 world-action backbone；
-- 第一阶段整模型适配移动操作数据；
-- 第二阶段冻结大 backbone，只训练 25.95M residual adaptation 参数；
-- privileged future observation 蒸馏成 causal action-equivalent bottleneck；
-- base 与 arm latent 通过 gradient reversal 做因子分离；
-- base velocity 既作为动作目标，也显式条件化 video expert，解释 camera ego-motion；
-- 部署移除 privileged teacher，仅使用当前 RGB、robot state 和语言指令。
-
-### 数据与控制时间尺度
-
-作者同步发布 ARMDOG 数据集：轮足四足平台 + 16 个腿关节 + 6DoF 机械臂 + 夹爪，同步 RGB-D、proprioception、IMU、base state、whole-body command 和语言。质量筛选后的完整 corpus 有 **1,487 episodes、343,550 RGB frames、约 321.3 分钟、15 Hz**。
-
-论文明确指出机械臂动作通常约 **15–30 Hz**，底盘 velocity command 约 **3–5 Hz**。这个差异本身就说明“所有动作统一 20 Hz”并不是天然正确的建模选择。
-
-### 实时性与结果
-
-固定 replay protocol 中，DECOWAM 相比 FastWAM 将 action MSE 降低 **21.7%**，第二阶段只训练 25.95M 参数；真实机器人每种方法进行了 79 次闭环 trial，DECOWAM 在 whole-body coordination 与 base-displacement robustness 上表现最好，任务完成度与最强基线相当。
-
-### 风险
-
-ARMDOG 规模对基础模型训练而言仍然不大，且任务分布明显偏向 pick/place。Base/arm latent 分离也不代表两者真正独立：狭窄空间伸臂、重物搬运、开门都需要强耦合。因此更合理的目标是“接口分开、决策可耦合”，而不是把两个控制器彻底割裂。
-
-### 适合谁关注
-
-轮足/四足+机械臂、移动操作、世界模型、VLA、多速率控制以及希望让同一策略同时管导航和操作的团队。
-
-### 工程落地启发
-
-内部 whole-body action schema 最好从一开始就分层：`base trajectory / torso-lift / arm EE or joint / gripper / timing`。每个 channel 保留自己的采样频率和安全约束，再由上层技能统一协调。这样以后换 WAM、VLA 或传统 planner 时，不需要重新解释一个混合 action vector。
-
-## 5. When Automata Meet Streams：把“必须按顺序做、某些状态绝不能出现”编译进 TAMP，而不是写在 Prompt 里
-
-**时间回补：论文 v1 提交于 2026-08-19 21:12 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19453)
-
-这项工作解决 stream-based Task and Motion Planning 的长期空缺。PDDLStream 类系统可以在规划过程中动态生成抓取姿态、放置位姿和运动轨迹，因此非常适合连续几何世界；但过去它们主要解决“最终能不能到目标”，很难表达复杂的 temporal specification。
-
-### 为什么重要
-
-工业任务里的很多规则不是单个状态约束，而是**时序约束**：
-
-- 必须先读到仪表证据，才允许转阀；
-- 工具伸出期间机器人不得进入某区域；
-- 夹爪抓住危险物后，在放入容器之前必须一直保持锁定；
-- 操作结束后最终必须执行结果验证；
-- 某动作一旦失败，必须先恢复到安全状态才能继续。
-
-把这些规则全部写进 VLM prompt，模型可以“理解”，却没有 planner-level guarantee。
-
-### 算法模块
-
-作者提出 SAM-TD（Synchronous Action Monitoring with Token Destruction）：
-
-- 将任意有限轨迹线性时序逻辑 `LTL_f` 编译成自动机；
-- 把 regressed automaton guard 写入规划 action schema；
-- planning search 中同步更新 automaton state；
-- 所有自动机共享 validity token；
-- 一旦候选 branch 违反 temporal constraint，就销毁 token 并剪枝；
-- 对 stream 后续动态创建的新 pose、grasp、trajectory 仍然有效，不需要预先枚举固定对象集合；
-- 不修改底层 PDDLStream planner 的核心算法。
-
-### 实时性与评测
-
-作者在 Kitchen、Tabletop、ZoneSort 三个 PDDLStream 环境首次展示 stream-based TAMP 下的 `LTL_f` 约束，并在标准离散 PDDL benchmark 上与先进 temporal-constraint compilation 方法保持竞争力。
-
-这不是毫秒级控制器；它工作在高层任务/运动规划阶段。实际执行仍要由运动规划、碰撞检测和实时安全控制保证。
-
-### 鲁棒性与风险
-
-最大风险不是自动机，而是 predicate grounding。如果 VLM/视觉系统错误地把 `door_closed=false`、`valve_verified=true` 写进符号状态，形式化 planner 会非常严谨地执行错误事实。因此 temporal logic 必须与证据来源、置信度和运行时状态机结合。
-
-### 适合谁关注
-
-工业移动操作、TAMP、行为树替代/增强、机器人安全流程、长时域 VLM/VLA Agent。
-
-### 工程落地启发
-
-可以把客户 SOP 编译成三层资产：`skill primitive + LTL_f task contract + sensor evidence predicate`。VLM 负责从用户任务选择/组合技能，TAMP 负责几何可行性，自动机负责“流程不能乱”。这样真正危险的顺序关系不再依赖大模型是否记得 prompt。
-
-## 6. Self-Demonstrated Generative Control：新机器人微调 VLA 时，让旧模型自己生成 Rehearsal，减少灾难性遗忘
-
-**时间回补：论文 v1 提交于 2026-08-19 23:02 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19490) · [项目页](https://self-supervised-control.pages.dev/)
-
-这项工作研究 VLA 从预训练本体迁移到新机器人时非常现实的问题：即使硬件差异不大，zero-shot 性能也会显著下降；但如果拿新机器人的 expert data 做 SFT，又很容易让模型只会新任务，把预训练阶段学到的其它指令和行为先验洗掉。
-
-### 为什么重要
-
-企业部署 VLA 时不可能每换一种机械臂/夹爪，就重新为所有历史技能采一遍专家数据。如果为了把“抓杯子”适配到新本体，结果“放杯子、推物体、遵循语言变化”等旧能力全部退化，那么基础模型的价值就被大幅削弱。
-
-作者的核心做法很简单：**让 zero-shot VLA 在目标机器人/仿真里自己做它原本会的任务，把这些 interaction rollout 当作 rehearsal data，再与新任务 expert data 一起微调。**
-
-### 算法模块
-
-- 预训练 VLA zero-shot 部署到目标 embodiment；
-- 对旧技能/多样语言生成 self-demonstrated rollout；
-- 新技能仍使用少量 expert demonstration；
-- 两类数据混合做 fine-tuning；
-- 训练目标同时维持旧行为分布和新任务适配；
-- 在真实 ALOHA 与 RoboTwin 评估 instruction following、旧技能保留和新技能学习。
-
-### 传感器、动作与实时性
-
-真实实验使用 ALOHA 双臂，每臂 7 DoF，以 π0.5 为基础模型；action chunk 长度 `H=50`、动作维数 `D=32`，实际执行时每次先 open-loop 执行约 25 个动作，再重新查询策略。真机控制/采集大致在 30–50 Hz 范围。
-
-### 结果与解释
-
-论文展示了非常明显的遗忘：只对 expert “pick” 做微调后，原本的 “place” 能力可降到 **0%**；加入模型自生成的 place rehearsal 后可以恢复到约 **55%**，不需要额外 place expert demonstration。接触更复杂的双臂齿轮插装中，使用 self-demonstrated generative control 后成功率从约 **30% 提升到 90%**。
-
-这些结果不能理解成“自生成数据永远比专家好”，而应理解为：**目标本体上的模型自己 rollout，可以提供非常便宜的行为保持数据**。
-
-### 风险
-
-self-demonstration 最大风险是把旧模型的错误强化进去。如果 zero-shot policy 在某技能上本来就很差，盲目回放只会固化错误。因此必须给自生成轨迹做成功检测、动作安全过滤和多样性控制，最好只把通过任务验证的 rollout 放入 rehearsal buffer。
-
-### 适合谁关注
-
-VLA post-training、多型号机器人共用基础模型、客户现场快速适配、持续学习和小数据 fine-tuning 团队。
-
-### 工程落地启发
-
-新型号机器人上线前可以先自动跑一套“基础技能体检”：旧 VLA 在隔离工位执行 20–50 个已有技能，成功轨迹自动进入 rehearsal pool；之后再加客户新任务 expert data 微调。每次发布都必须同时回归旧技能，而不是只检查新任务是否提升。
-
-## 7. Repo0：从零生成仓库时，Architecture 不能只在第一轮 Plan 里出现一次
-
-**时间回补：论文 v1 提交于 2026-08-20 10:03 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19854) · [代码与数据](https://github.com/cslsolow/Repo0)
-
-Repo0 研究的不是常见 SWE-bench 式“给一个现有仓库修 Issue”，而是 Zero-to-All Code Generation：输入只有高层自然语言需求，Agent 必须自己建立仓库结构、模块边界、接口、测试和实现。
-
-### 突破性工程价值
-
-很多 Vibe Coding / App Builder 的问题是，模型第一轮先写一个 architecture plan，随后不断加需求和修 bug，目录结构却再也不会被正式重新审视。最终 repository 变成“代码能跑，但模块边界已经完全不符合最初设计”。
-
-Repo0 把 architecture 变成**持续演化的显式状态**，不是一次性文本。
-
-### 算法模块
-
-- 从 `README.req` / 自然语言需求提取 Requirement DAG；
-- 建立 Component DAG；
-- 保存 requirement ↔ component alignment；
-- 根据 cohesion 发现应该 split 的组件；
-- 根据 coupling 发现可能 merge 的组件；
-- LLM 负责解释/生成新的职责边界，但结构动作受指标约束；
-- 重复 split / merge 直到结构收敛；
-- 最后再做 boundary-preserving revise；
-- 收敛后的架构指导完整代码与测试生成。
-
-### 结果
-
-RepoCraft 六个真实仓库、GPT-5 mini 与 DeepSeek V3.2 设置下，Repo0 在所有配置中获得最高 Functionality Coverage 和 Pass Rate；相对最强 repository-planning baseline RPG，Functionality Coverage 最高 **+20.08 个百分点**，Pass Rate 最高 **+29.74 个百分点**。
-
-### 是否适合真实研发流程
-
-值得作为“新项目 Agent”的 architecture layer，但不应直接拥有无限写权限。结构演化需要配合：
-
-- architecture diff；
-- API compatibility check；
-- dependency cycle check；
-- migration plan；
-- test coverage；
-- security/static analysis；
-- 人类批准或受控 merge gate。
-
-### 权限、安全与可验证性风险
-
- cohesion/coupling 指标不是产品架构的全部。一个在指标上“更模块化”的结构可能破坏性能、稳定 ABI 或部署方式。Repo0 生成的仓库也仍需要独立测试和安全验证，不能因为 Dual-DAG 收敛就认为设计正确。
-
-### 适合谁关注
-
-Vibe coding、内部 App Factory、从 PRD 生成项目、Coding Agent orchestration、自动架构演化。
-
-### 工程落地启发
-
-内部 Coding Agent 可以把 architecture 作为 versioned artifact：`requirements graph / component graph / public interfaces / data ownership / runtime dependencies`。每次需求跨模块以后，先让 Agent 提交 architecture patch，再生成代码 patch；CI 可以同时检查“代码测试是否过”和“架构约束有没有被悄悄破坏”。
-
-## 8. Outcome Monitors：工具“没报错”不代表结果可信，Agent 需要独立的结果合同
-
-**时间回补：论文 v1 提交于 2026-08-19 17:35 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19303)
-
-Outcome Monitors 解决 Agent 工具链中比显式异常更危险的一类失败：**silent tool failure**。超时、HTTP 500 很容易让 Agent 知道“工具失败了”；真正麻烦的是返回 JSON schema 完全正确，但值已经错误，例如缓存了过期页面、价格出现不可能负数、测试接口返回旧 revision 结果。
-
-### 突破性工程价值
-
-LLM 很擅长读取结构化工具结果，但这反过来会让“格式正确”变成过强信任信号。Outcome Monitor 不要求主 Agent 自己猜结果是否合理，而是从 task-disjoint traces 或公开 schema 中建立 outcome contract，然后在工具返回后独立检查。
-
-### 算法与系统结构
-
-- 为工具结果建立 outcome contract；
-- contract 可以来自历史轨迹统计或公开 schema；
-- 工具调用后先保留原始返回，避免监控器篡改事实；
-- 发现违反 contract 时生成非强制 receipt；
-- receipt 明确哪条性质被违反；
-- 同时列出当前允许使用的 public recovery tools；
-- Agent 自己决定是否重试、换工具、重新检索或中止；
-- detection 与 recovery 分离，monitor 不直接替 Agent 执行高权限操作。
-
-### 结果
-
-在预先冻结、注入故障的 ToolMaze 中，Outcome Monitors 将四种模型、两家 provider 的完成率从 **10.9% 提升到 28.1%**，并在第三套模型上复现；tau-bench retail 两个 tier 分别提高 **14.0** 和 **12.0** 个百分点。消融显示，只告诉 Agent “结果可疑”还不够：去掉 receipt 里的 recovery-tool list 后收益消失，恢复可用工具列表后性能也恢复。
-
-但它也暴露了明确边界：换到合同词表之外的新型 incident，检测覆盖率下降到约 **46%**。所以监控器只有在“能识别问题”时才有帮助。
-
-### 是否适合真实研发流程
-
-非常适合 Coding Agent、机器人后台 Agent、数据查询 Agent。软件研发里可以先覆盖：
-
-- 当前 git revision 是否符合预期；
-- test result 是否对应最新构建；
-- 文件修改时间与工作树状态是否一致；
-- dependency resolver 是否返回空/过期索引；
-- benchmark 指标是否在物理/历史合理范围；
-- build tool 声称成功但产物是否真实存在。
-
-### 权限、安全与可验证性风险
-
-Outcome contract 本身也可能写错。过严会大量误报，过松会漏掉异常。Recovery tool list 还是一种“行动提示”，必须只列出当前权限允许、安全且可审计的工具，不能因为检测异常就给 Agent 临时开放更高权限 shell 或生产环境操作。
-
-### 适合谁关注
-
-Codex/Claude Code/OpenHands、自建工具 Agent、机器人运维 Agent、需要处理多个不可靠外部 API 的系统。
-
-### 工程落地启发
-
-建议把 tool wrapper 从“返回 JSON”升级成：
+LF-GICP 在 voxel covariance 被正则化之前，从局部地图的 voxel normal 构造：
 
 ```text
-raw_result
-schema_valid
-semantic_contract_checks
-source_revision / timestamp
-anomaly_receipt
-allowed_recovery_tools
+M = Σ ρ_v n_v n_v^T
 ```
 
-主 Agent 可以自由推理，但工具结果是否满足基本物理/版本/数据合同由确定性代码或独立轻量模型检查。这样不会把所有可靠性都压在主 LLM 的上下文里。
+其中 `n_v` 是 voxel 主法向，`ρ_v` 是平面性权重。然后使用两个统计量：
+
+- `f0 = λ_min(M) / tr(M)`：判断法向分布是否具有强方向性、是否存在弱轴；
+- `λ0 = λ_min(M) / |V|`：判断弱轴是真正“没有信息”，还是只是信息被大量点稀释。
+
+只有二者都表明 genuine information absence 时，系统才触发 Fisher-information correspondence weighting，把更多权重放给确实能约束弱轴的少数 correspondence。时间上再使用约 2 秒 trailing median + hysteresis，避免瞬时遮挡造成状态抖动。
+
+### 传感器与几何假设
+
+论文覆盖 16、64、128 线旋转雷达、Livox 等多种传感器，并明确区分“检测退化”和“修复不可观”。如果是一条完全均匀、无限长的直隧道，沿隧道轴向根本没有几何信息，那么任何 LiDAR-only reweighting 都不能凭空恢复该方向。
+
+作者甚至专门把这一点作为 scope：soft weighting 只能保留仍然存在的弱信号，不能创造 null-space 中不存在的信息。这对工程判断很重要——**检测出退化以后，真正的下一步应该是让 IMU、轮速、RTK、反光标志或其他 LiDAR 接管弱方向。**
+
+### 实时性
+
+localizability field 本身每帧只需要一次小规模 `3×3` eigen decomposition，论文称为微秒级；端到端吞吐取决于扫描密度：64 线 KITTI/MulRan 约 **15–20 Hz**，完整 128 线 HeLiPR 约 **5 Hz**。作者明确说明当前未优化实现整体约比 KISS-ICP 慢 2 倍，贡献重点是准确性与自动退化处理，而不是速度。
+
+### 鲁棒性、可复现性与风险
+
+“Parameter-Free”需要准确理解：不是绝对没有常数，而是所有 gating constants 只通过两段短 calibration trace 按固定规则得到，之后在五个 benchmark、四类传感器上冻结，不再针对场地手调。
+
+当前 arXiv 页面没有稳定公开官方代码，因此可复现性暂评中等。另一个风险是它仍属于 LiDAR-only odometry，没有 loop closure、IMU 或全局约束；长期纯隧道轴向仍会漂。
+
+### 适合谁关注
+
+长走廊、矿井、隧道、地下空间、16 线 LiDAR、GICP/VGICP/LIO 前端，以及目前依赖固定 Hessian threshold 做退化判断的团队。
+
+### 工程落地启发
+
+最值得先移植的不是整套 LF-GICP，而是 **localizability field + weak-axis output**。现有 LIO-SAM/ESKF 可以继续使用原 scan-to-map，只额外输出：
+
+```text
+weak_axis
+localizability_score
+information_absence_confidence
+```
+
+然后在融合层动态调节 LiDAR measurement covariance，并把弱方向交给轮速、RTK、反光标志或其他 LiDAR。这样可以直接验证“退化检测是否更可信”，而不用一次性替换整个定位栈。
+
+## 2. CVSD-Reg：训练时借视觉语义，部署时只靠 LiDAR，16 线也能做跨传感器全局注册
+
+**时间回补：论文 v1 提交于 2026-08-20 01:17 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19536)
+
+CVSD-Reg（Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration）针对 global point-cloud registration 对点密度、扫描模式、视角和传感器型号高度敏感的问题。核心思路是：**高分辨率视觉基础模型只在训练阶段当老师，部署阶段完全不需要相机。**
+
+### 为什么重要
+
+传统几何描述子很容易把“同一个地方由不同雷达扫描”看成不同几何分布。尤其 128 线 Ouster 和 16 线 Velodyne 的点数、垂直角分辨率和采样模式差异巨大，单纯比较局部 geometry descriptor 很容易失效。
+
+CVSD-Reg 尝试把 DINOv2 的高层视觉语义压进 LiDAR representation，让点云特征更多表达“这是什么结构/区域”，少依赖“这里恰好采到了多少点”。
+
+### 算法模块
+
+第一阶段是跨模态预训练：
+
+- 冻结 DINOv2 vision teacher；
+- Point Transformer V3 作为 LiDAR student；
+- contrastive distillation 对齐视觉/点云语义；
+- spherical-manifold alignment 保留 teacher embedding 的角度几何；
+- self-supervised InfoNCE 提高同场景一致性；
+- soft `SE(3)` invariance 增强视角变化鲁棒性。
+
+第二阶段再进入 registration：
+
+- correspondence learning；
+- density-aware point-dropout augmentation；
+- end-to-end pose optimization；
+- 同一个 checkpoint 同时处理 single-sensor 与 zero-shot cross-sensor registration。
+
+### 传感器假设
+
+训练阶段需要 camera-LiDAR 对齐数据来获得视觉 teacher supervision，但推理阶段完全 camera-free。论文在 HeLiPR 中覆盖 Ouster-128、Velodyne 16-beam、Livox Avia、Aeva FMCW 等不同 LiDAR。
+
+需要特别强调：这是 **global registration**。它更适合作为 loop closure geometric verification、跨 session relocalization、跨 LiDAR 地图对齐，不是用来替代每帧 LIO 的高频 scan-to-map 前端。
+
+### 结果与实时性
+
+严格 `SR@0.5m/1°` 下，论文报告 KITTI **97.7%**、nuScenes **99.0%**、HeLiPR **99.3%**；其中稀疏 **16-beam Velodyne 为 97.3%**。相对几何 global registration baseline，最高提升达 44.0 个百分点，而且无需推理时相机或后处理 ICP。
+
+公开摘要和 HTML 当前没有给出值得安全引用的统一端到端毫秒延迟，因此本期不人为补一个“实时 FPS”。
+
+### 鲁棒性、可复现性与风险
+
+最大的风险是语义 teacher bias。视觉基础模型在夜间、强反光、雨雪、工业重复结构上的错误，会在训练阶段被蒸馏进 LiDAR descriptor。其次，global registration 成功率高不代表 local odometry 在长走廊里就不退化。
+
+当前未见稳定官方代码链接，可复现性暂评中等偏低。
+
+### 适合谁关注
+
+16 线雷达回环、跨型号 LiDAR 地图对齐、长期巡检 relocalization、多机器人地图合并和 place recognition 后的几何验证。
+
+### 工程落地启发
+
+可以把它放在现有 Scan Context / VPR 之后：
+
+```text
+描述子召回候选子图
+        ↓
+CVSD-Reg 类跨传感器 global registration
+        ↓
+TEASER++ / GICP 二次几何验收
+        ↓
+通过后才加入 pose graph loop factor
+```
+
+这样低线数 LiDAR 不必承担“从头局部搜索”，而是只在候选已经合理时做鲁棒对齐。
+
+## 3. Scalix：单目 Foundation Depth 不应直接给尺度，而应带着不确定度进入因子图
+
+**时间回补：论文 v1 提交于 2026-08-18 09:14 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.17553)
+
+Scalix 是一套 uncertainty-aware scale-consistent monocular SLAM。它想解决的不是“单目深度网络能不能输出 metric depth”，而是一个更工程化的问题：**网络每一帧的尺度都会有误差，而且不同场景下可信度不同，SLAM 应该怎样利用而不是盲信？**
+
+### 为什么重要
+
+今天很多 geometric foundation model 可以从单张 RGB 输出很漂亮的深度，但这些深度常有两个问题：pixel depth 有局部噪声，整帧还有 scale drift。直接把深度写进 landmark 或地图，很容易把神经网络误差变成强几何约束。
+
+Scalix 同时建模：
+
+- per-pixel depth uncertainty；
+- per-frame scale uncertainty。
+
+然后把每帧 scale prediction 当作带协方差的独立 measurement 进入 factor graph，多视图 tracking/association 会在后续观测中持续纠正尺度。
+
+### 算法模块
+
+- monocular keypoint / landmark SLAM 前端；
+- learned depth network；
+- pixel-level depth uncertainty；
+- frame-level scale uncertainty；
+- local factor-graph optimization；
+- marginalization 后把旧信息压成 relative pose-scale constraint；
+- 全局 pose graph / loop closure 继续维护尺度一致性。
+
+### 传感器假设
+
+只需要单目相机，但 learned depth 的 domain generalization 仍然决定绝对尺度质量。玻璃、反光、极端视角和模型未覆盖场景可能导致 scale measurement 明显偏置。
+
+另一方面，单目 learned scale 不等于物理上新增了一个绝对传感器；如果模型发生系统性 OOD，factor graph 只能依靠 uncertainty 把它降权，不能保证自动修复错误均值。
+
+### 实时性
+
+论文实现采用前后端双线程。公开 runtime 分解为：keypoint matching **20 ms**，单目网络 inference **79 ms**（只在部分帧触发），landmark initialization **5 ms**，backend optimization **59 ms**。作者将其定义为 CPU real-time SLAM。
+
+### 鲁棒性、可复现性与风险
+
+代码当前计划在论文 acceptance 后发布，因此还不是开箱可复现状态。最值得复现的其实是 uncertainty interface：如果自己的深度模型没有可靠 calibration，给出的 uncertainty 可能只是网络“自信度”，未必和真实误差单调对应。
+
+### 适合谁关注
+
+单目 SLAM、小型无人机、低成本视觉定位、foundation-depth 辅助几何，以及任何希望把 learned perception 安全接入状态估计器的团队。
+
+### 工程落地启发
+
+这个思想可以直接推广到 LiDAR / 视觉融合：学习模块永远输出 `measurement + covariance/confidence + timestamp + source`，不要直接修改 estimator state。比如 learned ground、semantic normal、monocular depth、动态点概率，都先变成可独立开关和统计一致性检查的 measurement factor。
+
+## 4. FS-MPC：别让 MPPI 在不稳定系统里盲抽样，用反馈策略先把样本拉回“能活着”的区域
+
+**时间回补：论文 v1 提交于 2026-08-19 20:56 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19443)
+
+Hybrid Feedback Sampling for Sample-Efficient Model Predictive Control 提出 FS-MPC。它从理论和实验上讨论 sampling-based MPC 在 open-loop unstable system 上为什么会迅速失效：预测时域越长，随机 perturbation 产生的绝大多数 rollout 都会离开稳定流形，想靠增加样本补回来，样本量会随 horizon 急剧增长。
+
+### 为什么重要
+
+MPPI 很适合 GPU 并行，也容易处理非凸 cost，但在 humanoid、dexterous manipulation 等强不稳定系统里，随机 control sequence 很容易在前几步就把机器人推倒。此时“再多采一点”不是好解决方案，因为大部分样本本身就是无效的。
+
+FS-MPC 的核心不是抛弃 sampling，而是**让反馈控制器成为 proposal distribution**。
+
+### 算法模块
+
+- local sampler 从当前 feedback policy 附近采样；
+- global sampler 保留较大范围 isotropic exploration；
+- 根据系统稳定性与计算预算混合两类样本；
+- 对 differentiable / linearizable dynamics，可以用 iLQR 类局部反馈；
+- 对 contact discontinuity 明显的任务，可以用 PPO/RL policy 作为 feedback proposal；
+- MPC 仍然在线对候选进行 cost evaluation，不把最终控制权完全交给反馈策略。
+
+论文真实机器人设置固定为 **8 条 local + 24 条 global，共 32 条 sample**。
+
+### 动力学与传感器假设
+
+FS-MPC 需要一个“至少基本稳定”的 feedback policy。这个反馈器可以不最优，但如果它本身把状态引向错误区域，local sampling 也会被带偏，因此保留 global sampler 很重要。
+
+真实 Unitree H1 实验使用 proprioception + 外部 Vicon 获得状态，并在 MuJoCo MPC 框架生成 reference，最终下发 joint-position command。因此当前结果还不能直接视为完全机载、无外部定位的生产方案。
+
+### 实时性与结果
+
+仿真中，论文报告相对标准 MPPI 累计 cost 改善 **43.4%**。真实 H1 行走实验中，MPPI 无法稳定机器人；iLQR tracking error 为 `0.93±1.00 m`，FS-MPC 为 `0.70±0.66 m`。接触操作任务里，MPPI 同样出现不稳定 crash，而 FS-MPC 可以完成任务。
+
+论文没有给出一个适用于所有任务的统一控制 Hz，因此工程复现时应自己测 P50/P95/P99 solve time，而不是只看样本数。
+
+### 鲁棒性、可复现性与风险
+
+最大的工程风险是 feedback policy 和真实 state estimator 的耦合。论文也指出 MoCap state estimation 与通信延迟会造成 noisy contact state。若本体状态估计、足接触或负载模型不准，local proposal 仍可能偏离真实稳定域。
+
+### 适合谁关注
+
+MPPI、MPC、四足/人形 whole-body control、接触丰富操作、已有 RL policy 但仍希望保留在线优化和约束验收的团队。
+
+### 工程落地启发
+
+如果已有一个 RL locomotion policy，不一定直接让它成为最终控制器。可以先让它只产生 MPC proposal：
+
+```text
+RL / iLQR 稳定反馈
+        ↓
+生成局部高价值样本
+        +
+少量全局探索样本
+        ↓
+MPC cost / constraints 重新打分
+        ↓
+执行首个控制量
+```
+
+这比“RL 或 MPC 二选一”更容易逐步上线。
+
+## 5. Evidence-Gated TAMP：VLM 说“应该有”不算事实，机器人必须先去看一眼再规划
+
+**时间回补：论文 v1 提交于 2026-08-20 14:17 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.20084)
+
+Evidence-Gated Task and Motion Planning with Vision-Language Models 针对部分可观测环境里的长时域操作。VLM 很擅长根据常识补全任务，例如“做某道菜应该需要某种器具”，但真实工作台上该对象可能被遮挡，也可能根本不存在。
+
+### 为什么重要
+
+如果把 VLM prior 直接当成 world state，任务规划器会生成一个语义合理、物理上却没有对象支撑的计划。机器人接下来可能不断去错误位置寻找、重复抓取，甚至把别的物体误当目标。
+
+论文提出 EAFG（Evidence Acquisition and Feasibility Gating），核心原则是：**先把语言假设变成待验证假设，再让机器人主动收集证据。**
+
+### 算法模块
+
+- VLM 根据任务和当前观察提出 exploratory subgoal；
+- TAMP 负责把“去哪里看、怎么移动、怎么操作”变成几何可执行动作；
+- 新视觉证据更新 world state；
+- feasibility gate 决定三种结果：继续任务规划、继续取证、或停止；
+- 对确认不存在的必要对象，系统允许明确 halt，而不是无限尝试。
+
+### 传感器与规划假设
+
+方法依赖视觉感知能够在换视角后提供足够证据，也依赖 TAMP 对抓取、位姿和碰撞有合理几何模型。VLM 不再拥有最终事实裁决权，但底层 perception 错误仍然可能让 evidence 本身不可靠。
+
+论文主要在烹饪/物体使用不确定任务中验证，离复杂工业现场还有明显距离；当前也未公开可直接复现的官方代码。
+
+### 实时性与鲁棒性
+
+这属于高层任务规划，不进入毫秒级控制环。其价值更多是减少“错误先验导致的重复操作”和让任务系统有一个正式的 `insufficient evidence / impossible` 状态。
+
+### 适合谁关注
+
+VLM/VLA 高层任务规划、工业移动操作、巡检读表/找设备、部分可观测 TAMP 和需要严格任务权限边界的团队。
+
+### 工程落地启发
+
+建议给机器人世界状态的每个事实增加 provenance：
+
+```text
+fact
+source = camera / map / operator / database / model_prior
+confidence
+observed_at
+expires_at
+```
+
+其中 `model_prior` 永远不能直接触发危险动作；必须先通过传感器证据或受认证数据库提升为可执行事实。
+
+## 6. RoboEdit：人类视频不只做视觉预训练，把它编辑成机器人视频并同步恢复 3D 动作监督
+
+**时间回补：论文 v1 提交于 2026-08-19 14:15 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.18948)
+
+RoboEdit 解决机器人数据扩展里一个长期痛点：网上和数据集中有大量人类操作视频，但机器人 policy 真正需要的不只是“看到人怎么做”，而是与目标机器人本体对齐的动作状态。
+
+### 为什么重要
+
+单纯把人类手替换成机器人外观，只能增加视觉数据；如果没有对应的机器人 wrist / finger / gripper trajectory，这些视频很难进入 action learning。反过来，直接做人手 kinematic retargeting，又会受遮挡、深度和本体结构差异影响。
+
+RoboEdit 将视频编辑和 3D state recovery 放在同一流水线中。
+
+### 算法与数据模块
+
+- RoboEdit-ADC 自动从 RGB 视频重建 hand-object interaction；
+- 跨本体 retarget 生成目标机器人运动；
+- 几何/物理 refinement 提高交互合理性；
+- RoboEdit-Trans 通过 cross-embodiment adaptation 保持时序一致性；
+- 3D Robot-State Decoder 为每帧恢复目标机器人 hand state；
+- 输出 paired human/robot video + 结构化 3D supervision。
+
+RoboEdit-14M 来自 **24,197** 段人类交互 clip，最终形成 **174,547** 对人类/机器人视频、**14,138,307** 帧，按 30 FPS 约 **130.91 小时**，覆盖 Ability、Allegro、Unitree Dex3、Inspire、Panda gripper、SCHUNK SVH、XHand 七类 embodiment。
+
+### 传感器与本体假设
+
+源数据主要是 RGB 视频，因此深度、接触和遮挡仍需模型推断；最终 edited video 的“看起来合理”不等于真实物理一定成立。真正进入机器人训练时，3D state、joint limit、collision、contact 与 force-closure 都需要二次约束。
+
+### 实时性与可复现性
+
+这是一套离线数据生产 pipeline，不是在线控制器。论文展示了四个 YCB-object 任务的模拟和真实机器人部署结果，说明恢复的 3D state 可以服务下游控制，但不能把 14M 帧等价为 14M 条真实真机 trajectory。
+
+当前 arXiv 页面未稳定给出官方代码仓库，本期只使用论文原始链接。
+
+### 风险
+
+最大风险是 synthetic bias：若 hand-object reconstruction 或 retargeting 错误，系统会批量制造“外观连贯、动作标签却偏”的数据。大规模生成前必须建立小规模真实对照集，对 object pose、contact、EE trajectory 和成功率做验收。
+
+### 适合谁关注
+
+机器人数据平台、灵巧手、跨本体 VLA、模仿学习、人类视频预训练和希望降低遥操作采集成本的团队。
+
+### 工程落地启发
+
+内部数据资产应该把“原始视频”和“派生机器人数据”分层保存，并记录 lineage：
+
+`source_clip → reconstruction_version → retarget_version → embodiment → 3D state → physics checks → downstream eval`
+
+这样未来算法升级时可以重新生成，而不是把合成标签永久当真值。
+
+## 7. SWE-bench Science：科学代码里“测试通过”更难，因为错误可能改变科学结论本身
+
+**时间回补：论文 v1 提交于 2026-08-20 08:53 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.19799) · [代码与评测](https://github.com/OpenMOSS/SWE-bench-Science)
+
+SWE-bench Science 把 Coding Agent 从常规 Web/工具库问题带到科学软件。benchmark 包含 **119 个任务、98 个 GitHub 仓库、20 个科学领域**，并把任务分为 Issue-driven、Expert-exploratory 和 Engineering-integration 三类。
+
+### 为什么重要
+
+科学软件的 bug 不只是“页面错了”或“接口挂了”。一个数值边界、单位、离散化、随机种子、拟合假设出错，可能让代码正常运行、测试甚至通过，但最终科学结果本身错误。
+
+论文中最强配置 Claude Code + Opus-5（max）的 pass@1 仍然 **低于 50%**，说明通用 Coding Agent 距离可靠科学软件工程还有明显距离。
+
+### 主要失败机制
+
+作者归纳四类高频失败：
+
+- scientific knowledge / abstraction 不足；
+- 搜索方向错误，只做表面修复；
+- repair coverage 不完整，缺少系统集成；
+- 科学知识只对当前例子有效，无法泛化到真实边界情况。
+
+更有意思的是，额外科学知识不是越多越好：与问题真正对齐的 guidance 能提高平均效果和 token efficiency；错误或半相关知识则会形成 anchoring，让 Agent 更坚定地沿错误方向走。
+
+### 是否适合真实研发流程
+
+非常适合涉及 SLAM、优化、仿真、控制、数值算法的团队参考。机器人代码本质上也是“科学软件 + 实时系统”：一个矩阵维度、坐标系、单位或随机采样错误，经常不会直接编译失败。
+
+### 权限、安全与可验证性风险
+
+Agent 的 Validator 不能只执行已有 unit tests。对数值/算法仓库至少还应加入：
+
+- 固定随机种子和 benchmark data；
+- 数值 tolerance 与 unit check；
+- conservation / invariant；
+- known-good trajectory / output；
+- performance regression；
+- 环境、依赖、GPU/CPU 版本锁定。
+
+### 工程落地启发
+
+对 SLAM/C++ 仓库，可以建立自己的 `SWE-bench-Robotics`：从真实历史 issue 中筛选时间同步、坐标系、Eigen 数值、点云退化、线程安全和实时性能问题，让 Agent 的验收不仅是“测试绿了”，还要复现原始 rosbag / benchmark 指标。
+
+## 8. Agent-Friendly Documentation：Agent 实际最常看的是 instruction 和 working notes，而不是 API 文档
+
+**时间回补：论文 v1 提交于 2026-08-20 15:51 UTC；此前未进入去重索引。** [论文](https://arxiv.org/abs/2608.20195)
+
+《From Agent Behaviour to Agent-Friendly Documentation》不是提出一个新 Coding Agent，而是用真实轨迹回答一个很基础的问题：**Coding Agent 到底怎样使用技术文档？**
+
+### 为什么重要
+
+很多团队正在专门写 `AGENTS.md`、skills、README、架构文档，希望 Agent “读完就更可靠”。但此前几乎没有大规模行为数据证明 Agent 什么时候读、读什么、读完以后是否真的验证。
+
+作者分析两个公开数据源：557 个 SWE-chat agentic session，共 **94,813** 个开发事件、**3,033** 次文档交互；以及 AIDev 中 **33,097** 个 agentic PR、**690,260** 个文件级变更记录。
+
+### 关键发现
+
+Agent 的文档交互里，instruction files 与 working notes 占 **60.5%**，经典 technical documentation 约 10.6%，API references 只有 1.3%。
+
+更值得警惕的是，没有观察到明确稳定的“读文档 → 执行文档要求的验证”序列；文档 consultation 反而与更少 immediate testing 相关。70.2% 的文档阅读是 Agent 自发触发，而 failure-driven 只有 7.5%；在同时改代码和文档的多 commit PR 中，代码比文档更早被触碰约 4.7 倍。
+
+### 突破性工程价值
+
+它不意味着“不要写文档”，而是提醒我们：**Agent-friendly 不能只靠文档内容本身。** 如果一条规则真的重要，例如“修改滤波器后必须跑 EuRoC”和“改协议后必须执行兼容性测试”，最好让 harness 直接执行或强制验证，而不是只写在 README 里期待 Agent 记住。
+
+### 是否适合真实研发流程
+
+非常适合。建议把文档拆成三类：
+
+- 解释性文档：帮助 Agent 理解架构；
+- 执行性 contract：明确命令、输入、输出、失败标准；
+- harness gate：关键规则直接由 CI / Agent runtime 强制。
+
+真正不可违反的要求应该尽量从自然语言迁到可执行 contract。
+
+### 权限、安全与可验证性风险
+
+`AGENTS.md` / skill 文件本身也属于供应链输入。Agent 如果无条件服从仓库内文档，恶意 instruction 可以诱导读 secret、执行网络命令或绕过验证。因此文档应该有来源、作用域和权限等级，高权限动作仍由独立工具策略控制。
+
+### 工程落地启发
+
+可以把项目文档里的关键句逐步编译成机器可验证规则，例如：
+
+```text
+修改 src/slam/**
+    -> 必须运行 benchmark_euroc
+修改 protocol/**
+    -> 必须运行 compatibility_tests
+修改 safety/**
+    -> 必须由独立 reviewer / validator 通过
+```
+
+让 Markdown 负责解释“为什么”，让 harness 负责保证“真的做了”。
 
 ## 经典论文回顾
 
-### TEASER / TEASER++：把“回环候选里大多数对应都是错的”当作正常输入，而不是异常情况
+### TEASER / TEASER++：当对应关系里 99% 都是错的，仍然能做可证的全局点云注册
 
-**发表时间与历史位置：** TEASER《Fast and Certifiable Point Cloud Registration》于 2020 年公开并发表于 IEEE Transactions on Robotics；其前身工作在 RSS 2019 已提出针对极高 outlier correspondence 的鲁棒配准。TEASER++ 是对应的快速、可认证实现。（[论文](https://arxiv.org/abs/2001.07715)，[官方代码](https://github.com/MIT-SPARK/TEASER-plusplus)）
+**发表时间与历史位置：** Heng Yang、Jingnan Shi、Luca Carlone 的《TEASER: Fast and Certifiable Point Cloud Registration》于 **2020 年 1 月**首次公开，后发表于 IEEE Transactions on Robotics。TEASER/TEASER++ 代表了一条与 ICP 完全不同的思路：不假设初值已经很近，而是专门解决含极高比例错误 correspondence 的 **global registration**。（[论文](https://arxiv.org/abs/2001.07715)，[官方代码](https://github.com/MIT-SPARK/TEASER-plusplus)）
 
 ### 核心问题
 
-局部 ICP 假设初值已经比较好；真正的 global registration / loop closure verification 则经常面对完全不同的问题：feature matcher 给出几百甚至上千对 correspondence，其中绝大多数都可能是错误对应。
+经典局部 ICP/GICP 要求初值已经落在正确 basin；如果回环候选、跨 session 地图或跨传感器匹配初值差几十米/几十度，直接 ICP 很容易收敛到错误局部最优。
 
-RANSAC 在极高 outlier rate 下需要极多随机试验才能抽到纯内点最小集，而普通 least squares 会直接被错误对应拉崩。TEASER 的目标是在**大量错误 correspondence**存在时仍求出可靠的 3D scale / rotation / translation，并尽可能提供全局最优性认证。
+另一方面，feature matching 得到的 correspondence 中可能绝大多数都是错的。TEASER 研究的问题是：**在 outlier correspondence 极多时，是否仍能获得有全局最优保证或可认证的刚体变换？**
 
 ### 关键数学思想
 
-TEASER 首先使用 Truncated Least Squares（TLS）截断大残差，使极端 outlier 不再无限拉动解；再利用 Translation-Invariant Measurements（TIMs）和问题结构，将原始配准拆成 scale、rotation、translation 子问题。
+TEASER 使用 Truncated Least Squares（TLS）构造对 outlier 不敏感的目标，并通过图论结构将 `scale / rotation / translation` 解耦：
 
-- scale 与部分 translation 可以用 adaptive voting 高效求解；
-- rotation 使用鲁棒非凸优化/松弛；
-- TEASER 原版利用 SDP 获得 tight relaxation；
-- TEASER++ 使用 GNC 等更高效求解并提供认证机制；
-- correspondence graph / maximum clique 可以在优化前删除大量互相不一致的匹配。
+- scale 与逐维 translation 可以通过 adaptive voting 求解；
+- correspondence compatibility graph + maximum clique 大幅剔除不可能同时成立的匹配；
+- rotation 子问题可以通过 semidefinite relaxation 获得紧松弛；
+- TEASER++ 用 Graduated Non-Convexity（GNC）替代昂贵 SDP 主求解，并用 Douglas–Rachford splitting 做快速 optimality certification。
 
-原论文展示了在 **超过 99% outlier** 的极端 correspondence 条件下仍保持鲁棒的能力。
+它不是简单“鲁棒核更重”，而是把鲁棒全局注册写成具有可分析结构的优化问题。
 
-### 传感器与假设
+### 传感器与几何假设
 
-TEASER++ 不负责 LiDAR 点级时间戳、运动畸变或 LiDAR-IMU 融合。它的输入是两组 3D 点和候选 correspondence，因此上限仍然由前面的 keypoint / descriptor / matcher 决定。
+TEASER++ 不绑定 LiDAR 型号，本质输入是两组 3D correspondence 和噪声 bound。真正决定成败的是前端是否还能产生一小部分真实 correspondence，以及 noise bound 是否合理。
 
-它适合“初值未知、对应很脏”的低频全局问题，不适合替代每帧高频 odometry。长走廊里如果两片点云本身缺少可区分结构，再可认证的优化器也无法创造不存在的几何信息。
+如果场景完全重复、描述子给出的 correspondence 没有任何真实内点，任何鲁棒优化器都不能恢复正确 pose。
 
 ### 当年为什么重要
 
-TEASER 把 global registration 从“希望 RANSAC 恰好抽中一组正确匹配”推进到有明确鲁棒目标、可验证结果的优化框架。这对 SLAM 回环、多 session 地图对齐、跨传感器配准和对象 6D pose 很重要。
+论文报告在极端条件下可以容忍 **超过 99% outlier correspondence**，TEASER++ 还能把求解压到毫秒级。它使“先做粗 descriptor matching，再做强鲁棒全局几何验证”成为可实际使用的 loop-closure / object registration 方案，而不必把错误候选直接交给 ICP。
 
 ### 今天仍然有效的思想
 
-1. **Global registration 与 local registration 应分工。** 全局层抗大比例 outlier，局部层做高精度收敛。
-2. **Correspondence 必须被视为不可信输入。** Descriptor 相似不等于可以直接写入 pose graph。
-3. **学习前端最好有独立几何 verifier。** 模型召回候选，传统 solver 验证是否真的存在刚体一致性。
-4. **认证/一致性比单个匹配分数更适合安全相关全局约束。**
+第一，global registration 与 local registration 应该分工：TEASER++ 找 basin，GICP/ICP 做最终精配准。
 
-### 已被后续扩展的部分
+第二，outlier rejection 最好使用结构一致性，而不是只给 residual 加一个 M-estimator。
 
-现代系统会使用学习式 descriptor、cross-sensor features、Quatro、FGR、GNC 和端到端 registration 网络增强前端。近期 CVSD-Reg 一类方法甚至可以训练期借用视觉语义、推理期只用 LiDAR。学习前端显著增强了 correspondence quality，但并没有消除“独立几何验证”的价值。
+第三，回环进入 pose graph 前应该有一个独立、严格的几何验收层。
+
+第四，算法不仅要给一个解，还要尽量回答“这个解是否可信/可认证”。
+
+### 已经被后续方法扩展的部分
+
+今天的 learned global descriptors、foundation features 和跨模态 registration 可以生成比 2020 年更好的 correspondence；GPU registration、SE(3) Transformer、diffusion matching 也提供了新的全局搜索方式。
+
+但 learned matcher 的 confidence 仍不等于几何正确，所以 TEASER++ 这种 model-independent verifier 依然有价值。它也不适合替代每帧高速 odometry，因为 global robust solve 的职责不同。
 
 ### 公开代码、数据与可复现性
 
-`MIT-SPARK/TEASER-plusplus` 提供 C++、Python、MATLAB 接口，采用 MIT License，可复现性高。官方仓库也提供与 3DSmoothNet 等 descriptor 组合的示例，很适合作为 global registration baseline。
+官方 `MIT-SPARK/TEASER-plusplus` 仓库仍公开，C++ 实现采用 MIT License，并提供 Python binding 和点云 registration 示例。论文、代码、算法结构均公开，可复现性高。
 
 ### 对当前工程项目的重新解读
 
-对于低线数 / 多 LiDAR 地图系统，更建议把 TEASER++ 放在**低频全局层**：
+对低线数 / 多 LiDAR 的长期地图，可以把全局定位链路设计成：
 
 ```text
-Scan Context / VPR / learned descriptor 召回候选
-                    ↓
-       correspondence generation
-                    ↓
-          TEASER++ robust solve
-                    ↓
-    GICP / NDT 小范围局部精配准
-                    ↓
-   pose graph consistency / switchable factor
+Scan Context / VPR / learned descriptor
+            ↓
+候选子图 correspondence
+            ↓
+TEASER++ 全局鲁棒几何验证
+            ↓
+GICP / Hybrid ICP 局部精配准
+            ↓
+退化 / covariance / consistency 检查
+            ↓
+通过后才加入 pose graph
 ```
 
-高频 LIO 不受影响，而全局回环多一道真正独立的几何验证。尤其未来尝试跨 16 线 / MID360 / 不同 session 的学习式 global registration 时，TEASER++ 可以用来判断性能提升究竟来自 descriptor，还是后端 solver 放宽了错误约束。
+特别是 16 线 LiDAR，局部点少时不要期望单次 ICP 从很差初值自己找回来；先用强全局候选和 robust registration 把初值拉进正确 basin，再让局部几何优化发挥作用，通常更符合系统职责分工。
 
 ## 今日结论
 
-今天最新批次最清楚的变化是：**机器人系统正在把“现场采集、世界模型、任务合同、持续学习”做成可以组合的工程模块，而不是把全部能力塞进单一端到端模型。**
+今天最值得重视的不是某一个“最强 SLAM”，而是 **退化检测、全局注册、学习测量和传感器融合正在被重新分层**。LF-GICP 说明正则化后的优化 Hessian 可能并不是一个可信的退化观测；CVSD-Reg 说明低线数雷达在全局配准层可以借训练期视觉语义获得更强跨传感器特征；Scalix 则提醒 learned geometry 必须带不确定度进入 estimator；TEASER++ 从经典角度给出最后一道独立鲁棒几何验证。
 
-Video2DoorTraversal 的意义不只是开门，而是把一个客户现场对象用单视频变成任务级数字孪生，再让 Agent 自动生产仿真技能数据；SAGE 则让巡检任务本身变成随风险实时变化的分布，而不是固定 waypoint；这两条都直接影响机器人交付模式——未来交付工具链会越来越像“数据/环境编译器”，而不只是现场调参数。
+对 16 线 LiDAR 的实际建图定位，我认为这四条能组合成一条比“继续换 LIO”更清晰的路线：**局部 LIO 负责高频连续状态，LF-GICP 类 field 输出退化方向；全局 CVSD-Reg/Scan Context 负责找回环候选；TEASER++ 做强鲁棒全局验收；轮速、RTK、反光标志和其他 LiDAR 专门补局部弱方向。** 每个模块职责都可单独 A/B，而不是把所有希望压在一个前端上。
 
-HiTac-WAM 与 DECOWAM 则说明 world-action model 正在从固定机械臂 RGB 视频走向真实系统结构。前者明确建模接触、变形和滑移，后者把 base、arm、camera ego-motion 与不同控制频率分开表达。真正可部署的机器人基础模型不会消灭低层结构，反而会越来越尊重物理接口和时间尺度。
+控制侧，FS-MPC 也体现同一原则：反馈 policy 和 sampling MPC 不需要互相取代。让稳定反馈负责把 sampling distribution 拉进有意义的区域，MPC 再负责在线比较与优化，通常比在开放环不稳定系统里纯随机搜索更高效。
 
-SAM-TD 和 Self-Demonstrated VLA 从另外两侧补齐长期运行：一边把 SOP 的先后顺序、禁止状态和最终验证变成形式化 task contract；另一边解决新本体微调时旧能力被洗掉。对工业机器人来说，这比“某个新 backbone 多几个百分点”更接近长期维护问题。
-
-AI Coding 的 Repo0 与 Outcome Monitors 也呈现同样趋势：Agent 能力正在从“模型会不会写”转向**系统有没有显式架构状态、工具结果合同、独立验证和恢复接口**。一个可靠 Agent 平台最终会比一个聊天式编码助手更像传统工程系统：状态可审计、错误可定位、权限有边界、每次完成都有证据。
+机器人基础模型和 Coding Agent 侧则继续向“结构化外部证据”靠拢。Evidence-Gated TAMP 要求 VLM 的常识先经过现实世界证据；RoboEdit 给大规模人类视频补上结构化 3D robot state；SWE-bench Science 和文档行为研究则共同说明 Coding Agent 不能只靠更多上下文——科学/工程事实需要可执行验证，关键规则最终应该进入 harness 而不是停留在自然语言文档。
 
 ## 最值得深入研究或尝试复现的方向
 
-1. **Task-Twin 交付 PoC。** 选一个真实巡检操作任务，例如开柜门/拨开关/转阀门；只用手机视频或手持 RGB-D 重建该对象的 articulation 与碰撞体，再让仿真脚本自动产生示范。验收重点不是图像重建 PSNR，而是“从现场采集到真机第一次成功需要多少人工小时”。
+1. **16 线 LiDAR 退化健康度层。** 保留现有 LIO-SAM，额外实现 voxel-normal localizability field，输出弱方向和 confidence；在长走廊、大平面、坡道、急转弯数据上与当前 Hessian eigenvalue 判据做 A/B，并记录哪一个指标更早、更稳定地预测漂移。
 
-2. **风险自适应巡检层。** 不改现有 SLAM 与导航，在任务层给每个设备维护 `risk / last_seen / anomaly_probability / inspection_cost`，比较固定巡检表与 information/ergodic scheduling 的异常发现延迟、总路程和回充次数。先从仿真和历史报警日志回放开始。
+2. **回环链升级为“召回 + 全局注册 + 独立验收”。** Scan Context / learned descriptor 只负责召回候选；CVSD-Reg 类模型做跨传感器初始 pose；TEASER++ 或 robust GICP 再做几何验证。重点测 16 线对 64/128 线历史地图的跨传感器 relocalization 成功率和误闭环率。
 
-3. **Whole-body 多速率 Action Schema。** 对移动操作机器人明确拆分 `base 3–10 Hz / arm 15–50 Hz / force-reflex 200–1000 Hz / task 0.2–2 Hz`，让模型只在对应层输出目标。再逐步加入 DECOWAM 式 base/arm latent 或 HiTac-WAM 式触觉预测，避免一开始训练一个包办所有频率的大模型。
-
-4. **Coding Agent Outcome Contract。** 给现有工具层增加 revision、timestamp、artifact-exists、test-freshness、range-check 等确定性合同。只要工具返回“格式正常但违反合同”，就生成带 recovery tool 的 receipt；统计一个月 silent failure 数量和 Agent 的自动恢复成功率。
+3. **反馈策略引导 MPPI。** 在现有机器狗/无人机 MPC 中保留少量全局随机样本，同时用稳定 tracking policy 产生局部 proposal。比较纯 MPPI、纯 feedback、FS-MPC 的 P95 solve time、失败率和对模型误差的敏感度。
 
 ## 参考资料
 
-1. [Video2DoorTraversal](https://arxiv.org/abs/2608.20251) · [项目页](https://video2doortraversal.github.io/)
-2. [SAGE: Ergodic Control for Autonomous and Adaptive Inspection of Subsea Infrastructure](https://arxiv.org/abs/2608.19671)
-3. [HiTac-WAM](https://arxiv.org/abs/2608.19574)
-4. [DECOWAM](https://arxiv.org/abs/2608.20114)
-5. [When Automata Meet Streams](https://arxiv.org/abs/2608.19453)
-6. [Fine-Tuning VLAs with Self-Demonstrated Generative Control](https://arxiv.org/abs/2608.19490) · [项目页](https://self-supervised-control.pages.dev/)
-7. [Repo0](https://arxiv.org/abs/2608.19854) · [代码与数据](https://github.com/cslsolow/Repo0)
-8. [Outcome Monitors](https://arxiv.org/abs/2608.19303)
-9. [TEASER: Fast and Certifiable Point Cloud Registration](https://arxiv.org/abs/2001.07715) · [TEASER++](https://github.com/MIT-SPARK/TEASER-plusplus)
-10. [arXiv Robotics 最新列表](https://arxiv.org/list/cs.RO/recent?show=2000) · [arXiv Software Engineering 最新列表](https://arxiv.org/list/cs.SE/recent?show=2000)
+1. [LF-GICP: Parameter-Free Degeneracy-Aware LiDAR Odometry via a Voxel-Normal Localizability Field](https://arxiv.org/abs/2608.19522)
+2. [CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration](https://arxiv.org/abs/2608.19536)
+3. [Scalix: Uncertainty-Aware Scale-Consistent Monocular SLAM](https://arxiv.org/abs/2608.17553)
+4. [Hybrid Feedback Sampling for Sample-Efficient Model Predictive Control](https://arxiv.org/abs/2608.19443)
+5. [Evidence-Gated Task and Motion Planning with Vision-Language Models](https://arxiv.org/abs/2608.20084)
+6. [RoboEdit: Turning Human Manipulation Videos into Scalable Robot Experience](https://arxiv.org/abs/2608.18948)
+7. [SWE-bench Science](https://arxiv.org/abs/2608.19799) · [代码与评测](https://github.com/OpenMOSS/SWE-bench-Science)
+8. [From Agent Behaviour to Agent-Friendly Documentation](https://arxiv.org/abs/2608.20195)
+9. [TEASER: Fast and Certifiable Point Cloud Registration](https://arxiv.org/abs/2001.07715) · [TEASER++ 官方代码](https://github.com/MIT-SPARK/TEASER-plusplus)
+10. [arXiv Robotics](https://arxiv.org/list/cs.RO/recent?show=2000) · [arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent?show=2000)
+11. [OpenAI News](https://openai.com/news/) · [Anthropic News](https://www.anthropic.com/news) · [Google DeepMind](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/) · [Meta AI](https://ai.meta.com/blog/)
