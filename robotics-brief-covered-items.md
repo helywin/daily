@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-21（Asia/Shanghai）
+> 最后更新：2026-08-22（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -39,6 +39,8 @@
 > 2026-08-20 新增 8 条主动态与 1 条经典论文回顾，共 370 条；随后重新核验 arXiv 8 月 19 日公开列表并校正 6 条规范标题/来源，统计数不变。
 >
 > 2026-08-21 新增 8 条主动态与 1 条经典论文回顾，共 379 条。
+>
+> 2026-08-22 新增 8 条主动态与 1 条经典论文回顾，共 388 条。
 
 ## 已核验条目
 
@@ -428,6 +430,16 @@
 | 2026-08-21 | SkillForge: Self-Distilling Agents for Project-Specific Issue Resolution | [论文](https://arxiv.org/abs/2608.18933) · [代码与数据](https://github.com/cslsolow/SkillForge) | 时间回补；主动合成仓库特定 issue 并蒸馏 skills |
 | 2026-08-21 | SemaPLC: A Project-Grounded, Verification-Gated Agent Harness for PLC Code Generation | [论文](https://arxiv.org/abs/2608.18565) · [代码](https://github.com/midea-ai/SemaPLC) | 时间回补；规格/编译/live runtime 三层验证门禁 |
 | 2026-08-21 | ikd-Tree: An Incremental K-D Tree for Robotic Applications | [论文](https://arxiv.org/abs/2102.10808) · [官方代码](https://github.com/hku-mars/ikd-Tree) | 经典论文回顾；增量 k-d tree、box 操作、下采样与局部重平衡 |
+
+| 2026-08-22 | LF-GICP: Parameter-Free Degeneracy-Aware LiDAR Odometry via a Voxel-Normal Localizability Field | [论文](https://arxiv.org/abs/2608.19522) | 时间回补；v1 2026-08-20；LiDAR 退化可观性场与 Fisher-information correspondence weighting |
+| 2026-08-22 | CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration | [论文](https://arxiv.org/abs/2608.19536) | 时间回补；v1 2026-08-20；跨传感器全局配准；16-beam Velodyne |
+| 2026-08-22 | Scalix: Uncertainty-Aware Scale-Consistent Monocular SLAM | [论文](https://arxiv.org/abs/2608.17553) | 时间回补；v1 2026-08-18；单目 metric scale + per-frame scale uncertainty 因子图 |
+| 2026-08-22 | Hybrid Feedback Sampling for Sample-Efficient Model Predictive Control / FS-MPC | [论文](https://arxiv.org/abs/2608.19443) | 时间回补；v1 2026-08-19；feedback-conditioned sampling MPC；真实 humanoid 验证 |
+| 2026-08-22 | Evidence-Gated Task and Motion Planning with Vision-Language Models | [论文](https://arxiv.org/abs/2608.20084) | 时间回补；v1 2026-08-20；VLM 主动证据获取 + TAMP feasibility gate |
+| 2026-08-22 | RoboEdit: Turning Human Manipulation Videos into Scalable Robot Experience | [论文](https://arxiv.org/abs/2608.18948) | 时间回补；v1 2026-08-19；RoboEdit-14M、人类视频跨本体机器人数据 |
+| 2026-08-22 | SWE-bench Science: Can Coding Agents Resolve Engineering Tasks in Science? | [论文](https://arxiv.org/abs/2608.19799) · [代码与评测](https://github.com/OpenMOSS/SWE-bench-Science) | 时间回补；119 任务/98 科学仓库/20 领域；科学软件 Coding Agent |
+| 2026-08-22 | From Agent Behaviour to Agent-Friendly Documentation: An Empirical Study of How Coding Agents Discover, Read, and Write Technical Documentation | [论文](https://arxiv.org/abs/2608.20195) | 时间回补；Coding Agent 文档行为实证研究 |
+| 2026-08-22 | TEASER / TEASER++: Fast and Certifiable Point Cloud Registration | [论文](https://arxiv.org/abs/2001.07715) · [官方代码](https://github.com/MIT-SPARK/TEASER-plusplus) | 经典论文回顾；TLS robust global registration 与 certifiable outlier rejection |
 
 ## 维护检查表
 
