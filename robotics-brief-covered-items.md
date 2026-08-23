@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-22（Asia/Shanghai）
+> 最后更新：2026-08-23（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -41,6 +41,8 @@
 > 2026-08-21 新增 8 条主动态与 1 条经典论文回顾，共 379 条。
 >
 > 2026-08-22 新增 8 条主动态与 1 条经典论文回顾，共 388 条。
+>
+> 2026-08-23 新增 8 条主动态与 1 条经典论文回顾，共 397 条。
 
 ## 已核验条目
 
@@ -440,6 +442,16 @@
 | 2026-08-22 | SWE-bench Science: Can Coding Agents Resolve Engineering Tasks in Science? | [论文](https://arxiv.org/abs/2608.19799) · [代码与评测](https://github.com/OpenMOSS/SWE-bench-Science) | 时间回补；119 任务/98 科学仓库/20 领域；科学软件 Coding Agent |
 | 2026-08-22 | From Agent Behaviour to Agent-Friendly Documentation: An Empirical Study of How Coding Agents Discover, Read, and Write Technical Documentation | [论文](https://arxiv.org/abs/2608.20195) | 时间回补；Coding Agent 文档行为实证研究 |
 | 2026-08-22 | TEASER / TEASER++: Fast and Certifiable Point Cloud Registration | [论文](https://arxiv.org/abs/2001.07715) · [官方代码](https://github.com/MIT-SPARK/TEASER-plusplus) | 经典论文回顾；TLS robust global registration 与 certifiable outlier rejection |
+
+| 2026-08-23 | Evaluation of Monocular SLAM Systems on High-Altitude Nadir UAV Footage | [论文](https://arxiv.org/abs/2608.18632) | 时间回补；v1 2026-08-19；高空俯视单目 SLAM 评测；无 IMU/GNSS |
+| 2026-08-23 | Multimodal Trajectory Planning for Surface Vehicles using Turning Circle-based Control Barrier Functions | [论文](https://arxiv.org/abs/2608.19537) | 时间回补；v1 2026-08-20；TC-CBF + MPC 左/右多模态避障 |
+| 2026-08-23 | Learning the Right Abstraction: Neural Reduced Dynamics for Complex Robot Control | [论文](https://arxiv.org/abs/2608.19375) | 时间回补；v1 2026-08-19；control-relevant neural reduced dynamics；高保真仿真加速 |
+| 2026-08-23 | Video2DoorTraversal: Push Door Traversal via Simulated Door Twins | [论文](https://arxiv.org/abs/2608.20251) · [项目页](https://video2doortraversal.github.io/) | 时间回补；v1 2026-08-20；单视频 DoorTwin + Sim-to-Real 移动操作 |
+| 2026-08-23 | DECOWAM: Decoupled Whole-Body World-Action Model for Legged Mobile Manipulation | [论文](https://arxiv.org/abs/2608.20114) | 时间回补；v1 2026-08-20；base/arm/ego-motion 解耦 WAM + ARMDOG 实机数据 |
+| 2026-08-23 | HiTac-WAM: A Hierarchical Tactile World Action Model for Contact-Rich Robot Manipulation | [论文](https://arxiv.org/abs/2608.19574) | 时间回补；v1 2026-08-20；接触→形变→滑移层级触觉未来与闭环重规划 |
+| 2026-08-23 | Repo0: Design-Driven Zero-to-All Code Generation | [论文](https://arxiv.org/abs/2608.19854) · [代码与数据](https://github.com/cslsolow/Repo0) | 时间回补；v1 2026-08-20；Dual-DAG 架构演化 + TDD |
+| 2026-08-23 | Outcome Monitors: Recovery Affordances for Silent Tool Failures | [论文](https://arxiv.org/abs/2608.19303) | 时间回补；v1 2026-08-19；outcome contract + recovery affordance |
+| 2026-08-23 | Scan Context: Egocentric Spatial Descriptor for Place Recognition Within 3D Point Cloud Map | [DOI](https://doi.org/10.1109/IROS.2018.8593953) · [官方代码](https://github.com/SignalImageCV/scancontext) · [Scan Context++](https://github.com/gisbi-kim/scancontext_tro) | 经典论文回顾；IROS 2018；LiDAR place recognition / loop closure |
 
 ## 维护检查表
 
