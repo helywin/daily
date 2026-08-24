@@ -1,0 +1,67 @@
+name: Robotics index 2026-08-24
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '_automation/robotics-index-2026-08-24.trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    if: github.event.head_commit.message == 'chore: run robotics index update 2026-08-24'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update coverage index
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('robotics-brief-covered-items.md')
+          text = path.read_text(encoding='utf-8')
+
+          if 'DART-S: Reachability-Audited Active-Suspension Preconditioning for Off-Road Vehicle Jumps' in text:
+              raise SystemExit('2026-08-24 entries already present; refusing duplicate append')
+
+          old_header = '> 最后更新：2026-08-23（Asia/Shanghai）'
+          new_header = '> 最后更新：2026-08-24（Asia/Shanghai）'
+          if old_header not in text:
+              raise SystemExit('expected header not found')
+          text = text.replace(old_header, new_header, 1)
+
+          old_stat = '> 2026-08-23 新增 8 条主动态与 1 条经典论文回顾，共 397 条。'
+          new_stat = old_stat + '\n>\n> 2026-08-24 新增 8 条主动态与 1 条经典论文回顾，共 406 条。'
+          if old_stat not in text:
+              raise SystemExit('expected 2026-08-23 statistic not found')
+          text = text.replace(old_stat, new_stat, 1)
+
+          rows = '''| 2026-08-24 | DART-S: Reachability-Audited Active-Suspension Preconditioning for Off-Road Vehicle Jumps | [论文](https://arxiv.org/abs/2608.20275) · [代码](https://github.com/MeridianCAS/DART-S) | 时间回补；主动悬架起跳前预调 + 可达性审计 |
+| 2026-08-24 | Fine-Tuning VLAs with Self-Demonstrated Generative Control for Multi-Task Manipulation | [论文](https://arxiv.org/abs/2608.19490) · [项目页](https://self-supervised-control.pages.dev/) | 时间回补；目标本体自示范缓解微调遗忘 |
+| 2026-08-24 | When Automata Meet Streams: Temporal Logic Compilation for Stream-Based Robotics Task and Motion Planning | [论文](https://arxiv.org/abs/2608.19453) | 时间回补；SAM-TD；LTLf 编译进 stream-based TAMP |
+| 2026-08-24 | SCAPE: Scenario-Conditioned Simulation-Augmented Policy Evaluation | [论文](https://arxiv.org/abs/2608.19425) | 时间回补；场景条件化 sim-real 策略评测 + conformal uncertainty |
+| 2026-08-24 | What Matters for Latent Actions in Robot Learning | [论文](https://arxiv.org/abs/2608.19613) · [项目页](https://carldegio.github.io/latent_action.github.io/) | 时间回补；41 项 latent-action 设计统一实证研究 |
+| 2026-08-24 | OrthoSkillVLA: Continual Skill Learning via Gradient-Informed Skill Subspace Adaptation | [论文](https://arxiv.org/abs/2608.19589) | 时间回补；VLA 无 demonstration replay 持续技能学习 |
+| 2026-08-24 | PRAXIS: Graph-Grounded Tacit Knowledge for Domain Code Generation | [论文](https://arxiv.org/abs/2608.19784) | 时间回补；依赖图上的项目隐性知识 |
+| 2026-08-24 | BreakGuard: Towards Detecting Dependency Breaking Changes with LLM-Generated Tests | [论文](https://arxiv.org/abs/2608.20167) | 时间回补；LLM 生成依赖升级破坏性差分测试 |
+| 2026-08-24 | A Method for Registration of 3-D Shapes / Iterative Closest Point (ICP) | [DOI](https://doi.org/10.1109/34.121791) · [公开 PDF](https://graphics.stanford.edu/courses/cs348a-21-winter/Handouts/Besl92.pdf) · [PCL](https://pointclouds.org/documentation/classpcl_1_1_iterative_closest_point.html) | 经典论文回顾；ICP 1992 |'''
+
+          marker = '\n## 维护检查表'
+          if marker not in text:
+              raise SystemExit('maintenance checklist marker not found')
+          text = text.replace(marker, '\n' + rows + '\n\n## 维护检查表', 1)
+          path.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit index
+        shell: bash
+        run: |
+          git config user.name 'robotics-brief-bot'
+          git config user.email 'robotics-brief-bot@users.noreply.github.com'
+          git add robotics-brief-covered-items.md
+          git commit -m 'docs: update robotics brief coverage index for 2026-08-24'
+          git push origin HEAD:master
