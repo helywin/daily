@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-23（Asia/Shanghai）
+> 最后更新：2026-08-24（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -43,6 +43,8 @@
 > 2026-08-22 新增 8 条主动态与 1 条经典论文回顾，共 388 条。
 >
 > 2026-08-23 新增 8 条主动态与 1 条经典论文回顾，共 397 条。
+>
+> 2026-08-24 新增 8 条主动态与 1 条经典论文回顾，共 406 条。
 
 ## 已核验条目
 
@@ -382,7 +384,6 @@
 | 2026-08-16 | SAP-Nav: Spatial Semantic Representation Meets Active Perception for Hierarchical Open-Vocabulary Object Navigation | [论文](https://arxiv.org/abs/2608.12707) · [项目页](https://xuetongpei.github.io/SAP-Nav/) | 时间回补；在线空间语义表示 + 主动视角验证 |
 | 2026-08-16 | Refine After Generation: Toward Correct and Concise Patches in LLM-based Program Repair / RECAP | [论文](https://arxiv.org/abs/2608.13292) | 时间回补；Coding Agent/APR 补丁后精炼与最小化 |
 | 2026-08-16 | KISS-ICP: In Defense of Point-to-Point ICP -- Simple, Accurate, and Robust Registration If Done the Right Way | [论文](https://arxiv.org/abs/2209.15397) · [代码](https://github.com/PRBonn/kiss-icp) · [DOI](https://doi.org/10.1109/LRA.2023.3236571) | 经典论文回顾 |
-
 | 2026-08-17 | Detection and Ranging of Transient Extrinsic Contacts Based on 6D Dynamic Tactile Sensing / TECDAR | [论文](https://arxiv.org/abs/2608.07075) · [项目页](https://humitlab.github.io/TECDAR/) | 时间回补；7 kHz 6D 动态触觉与外部接触定位 |
 | 2026-08-17 | CrossTracer: Cross-Embodiment Navigation via VLA Model Reasoning and Trace Residuals Adapting | [论文](https://arxiv.org/abs/2608.06688) | 时间回补；统一像素轨迹 + 本体残差适配 |
 | 2026-08-17 | R2S-EGO: Dual-Proxy Refinement for Sparse-Capture Real-to-Sim | [论文](https://arxiv.org/abs/2608.06827) | 时间回补；稀疏客户现场采集与行为相关 Real-to-Sim |
@@ -392,7 +393,6 @@
 | 2026-08-17 | Online Monitoring and Corrective Steering of Programming Agents / LivePlan | [论文](https://arxiv.org/abs/2608.06701) | 时间回补；Coding Agent 确定性运行时监控与按需 Advisor |
 | 2026-08-17 | Characterizing the Quality Profile of AI-Generated C++ in Production | [论文](https://arxiv.org/abs/2608.06640) | 时间回补；352 万生产变更、AI C++ 质量与性能画像 |
 | 2026-08-17 | Generalized-ICP | [RSS](https://roboticsproceedings.org/rss05/p21.html) · [原始代码](https://github.com/avsegal/gicp) · [现代实现](https://github.com/koide3/small_gicp) | 经典论文回顾 |
-
 | 2026-08-18 | Reflex: Enabling Fast and Predictive Vision-Language-Action Models for Reaction-Critical Manipulation / ReflexVLA | [论文](https://arxiv.org/abs/2608.14379) · [项目页](https://reflexvla.github.io/) | 时间回补；反应关键 VLA、显式延迟评测与未来预测 |
 | 2026-08-18 | AgilePE: Autonomous UAV Pursuit-Evasion via Self-Play Reinforcement Learning | [论文](https://arxiv.org/abs/2608.14135) | 时间回补；CTBR 端到端控制、PFSP 与硬件对齐 sim-to-real |
 | 2026-08-18 | PILOT: Privileged Imitation Learning for End-to-End Motion Planning of Autonomous UAVs under Partial Observability | [论文](https://arxiv.org/abs/2608.14082) · [项目页](https://qr-zhang.github.io/PILOT/) | 时间回补；优化控制教师蒸馏、历史深度与结构化轨迹 |
@@ -402,7 +402,6 @@
 | 2026-08-18 | Vero: Can AI Agents Build Formally Verified Software Repositories? | [论文](https://arxiv.org/abs/2608.13522) · [代码与评测](https://github.com/sunblaze-ucb/vero) | 时间回补；多模块 Lean 4 仓库级代码+证明联合生成 |
 | 2026-08-18 | Engineering Reliable Coding Agents: Evaluating and Operating the System Around the Model | [论文](https://arxiv.org/abs/2608.13867) | 时间回补；Coding Agent 系统可靠性、harness/状态/权限/验证 |
 | 2026-08-18 | OKVIS: Keyframe-Based Visual-Inertial SLAM using Nonlinear Optimization | [RSS](https://www.roboticsproceedings.org/rss09/p37.html) · [官方代码](https://github.com/ethz-asl/okvis) | 经典论文回顾 |
-
 | 2026-08-19 | Depth-Wise Probing and Pruning of the Planning Token in a Driving Vision-Language-Action Model | [论文](https://arxiv.org/abs/2608.07361) | 时间回补；v1 2026-08-07 |
 | 2026-08-19 | Synthetic LiDAR Data Generation and Deterministic Downsampling for Point Cloud Classification on the Edge | [论文](https://arxiv.org/abs/2608.07106) | 时间回补；v1 2026-08-07 |
 | 2026-08-19 | WNM-3D: A World Navigation Model with 3D Scene Conditioning for Closed-Loop VLN | [论文](https://arxiv.org/abs/2608.07267) | 时间回补；v1 2026-08-07 |
@@ -412,7 +411,6 @@
 | 2026-08-19 | PMCoder: Coupling Planning with Episodic Memory in LLM Agents for Software Issue Resolution | [论文](https://arxiv.org/abs/2608.06811) | 时间回补；AI Coding；v1 2026-08-07 |
 | 2026-08-19 | Scrouting / SuperScout | [论文](https://arxiv.org/abs/2608.04804) | 时间回补；AI Coding；v1 2026-08-05 |
 | 2026-08-19 | IMU Preintegration on Manifold for Efficient Visual-Inertial Maximum-a-Posteriori Estimation | [RSS](https://www.roboticsproceedings.org/rss11/p06.html) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾 |
-
 | 2026-08-20 | Hydra-0: Action Flow for Generalist World Modeling and Control | [论文](https://arxiv.org/abs/2608.18077) · [项目页](https://nvidia-isaac.github.io/video_to_data/hydra-0/) | 时间回补；v1 2026-08-18；跨本体 Action Flow 世界模型；规范来源已复核 |
 | 2026-08-20 | PRISM: Precision and contact-rich Real-world Industrial Skill dataset with Multimodal sensing | [论文](https://arxiv.org/abs/2608.17962) · [项目页](https://tengbo-yu.github.io/PRISM/) | 时间回补；v1 2026-08-18；工业多模态接触操作数据；规范来源已复核 |
 | 2026-08-20 | Jetson-ORB-SLAM3: Accuracy-Preserving GPU Implementation for Edge Computing Devices | [论文](https://arxiv.org/abs/2608.17874) | 时间回补；v1 2026-08-18；Jetson GPU ORB 与 TensorRT 回环；规范来源已复核 |
@@ -422,7 +420,6 @@
 | 2026-08-20 | Degenerate in Whose Frame? An Equivariance Condition for Degeneracy Detection in LiDAR Registration | [论文](https://arxiv.org/abs/2608.15532) | 时间回补；v1 2026-08-16；坐标等变退化子空间 |
 | 2026-08-20 | HP2-SLAM: Adaptive Hybrid ICP for Robust and Efficient LiDAR SLAM | [论文](https://arxiv.org/abs/2608.14996) | 时间回补；v1 2026-08-15；密度/平面性自适应 Hybrid ICP |
 | 2026-08-20 | The Normal Distributions Transform: A New Approach to Laser Scan Matching | [IEEE](https://ieeexplore.ieee.org/document/1249285/) · [ndt_omp](https://github.com/koide3/ndt_omp) | 经典论文回顾；IROS 2003；NDT |
-
 | 2026-08-21 | DA-WAM: Decision-Aligned Future Latents for Driving World Models | [论文](https://arxiv.org/abs/2608.19085) · [代码](https://github.com/LeapWM/da-wam) | 最近24小时修订；v2 2026-08-20 06:46 UTC；候选特定 future latent |
 | 2026-08-21 | LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding | [论文](https://arxiv.org/abs/2608.19059) · [项目页](https://lt-mem.github.io/) | 时间回补；IROS 2026；多 session SLAM + 对象波动性长期记忆 |
 | 2026-08-21 | Real-Time Control-Constrained DDP for Underactuated Balancing of Legged Robots | [论文](https://arxiv.org/abs/2608.18552) · [DOI](https://doi.org/10.1109/LRA.2026.3723262) | 时间回补；RA-L 2026；APG control-constrained DDP / MPC |
@@ -432,7 +429,6 @@
 | 2026-08-21 | SkillForge: Self-Distilling Agents for Project-Specific Issue Resolution | [论文](https://arxiv.org/abs/2608.18933) · [代码与数据](https://github.com/cslsolow/SkillForge) | 时间回补；主动合成仓库特定 issue 并蒸馏 skills |
 | 2026-08-21 | SemaPLC: A Project-Grounded, Verification-Gated Agent Harness for PLC Code Generation | [论文](https://arxiv.org/abs/2608.18565) · [代码](https://github.com/midea-ai/SemaPLC) | 时间回补；规格/编译/live runtime 三层验证门禁 |
 | 2026-08-21 | ikd-Tree: An Incremental K-D Tree for Robotic Applications | [论文](https://arxiv.org/abs/2102.10808) · [官方代码](https://github.com/hku-mars/ikd-Tree) | 经典论文回顾；增量 k-d tree、box 操作、下采样与局部重平衡 |
-
 | 2026-08-22 | LF-GICP: Parameter-Free Degeneracy-Aware LiDAR Odometry via a Voxel-Normal Localizability Field | [论文](https://arxiv.org/abs/2608.19522) | 时间回补；v1 2026-08-20；LiDAR 退化可观性场与 Fisher-information correspondence weighting |
 | 2026-08-22 | CVSD-Reg: Cross-Modal Visual Semantic Prior Distillation for Robust LiDAR Registration | [论文](https://arxiv.org/abs/2608.19536) | 时间回补；v1 2026-08-20；跨传感器全局配准；16-beam Velodyne |
 | 2026-08-22 | Scalix: Uncertainty-Aware Scale-Consistent Monocular SLAM | [论文](https://arxiv.org/abs/2608.17553) | 时间回补；v1 2026-08-18；单目 metric scale + per-frame scale uncertainty 因子图 |
@@ -442,7 +438,6 @@
 | 2026-08-22 | SWE-bench Science: Can Coding Agents Resolve Engineering Tasks in Science? | [论文](https://arxiv.org/abs/2608.19799) · [代码与评测](https://github.com/OpenMOSS/SWE-bench-Science) | 时间回补；119 任务/98 科学仓库/20 领域；科学软件 Coding Agent |
 | 2026-08-22 | From Agent Behaviour to Agent-Friendly Documentation: An Empirical Study of How Coding Agents Discover, Read, and Write Technical Documentation | [论文](https://arxiv.org/abs/2608.20195) | 时间回补；Coding Agent 文档行为实证研究 |
 | 2026-08-22 | TEASER / TEASER++: Fast and Certifiable Point Cloud Registration | [论文](https://arxiv.org/abs/2001.07715) · [官方代码](https://github.com/MIT-SPARK/TEASER-plusplus) | 经典论文回顾；TLS robust global registration 与 certifiable outlier rejection |
-
 | 2026-08-23 | Evaluation of Monocular SLAM Systems on High-Altitude Nadir UAV Footage | [论文](https://arxiv.org/abs/2608.18632) | 时间回补；v1 2026-08-19；高空俯视单目 SLAM 评测；无 IMU/GNSS |
 | 2026-08-23 | Multimodal Trajectory Planning for Surface Vehicles using Turning Circle-based Control Barrier Functions | [论文](https://arxiv.org/abs/2608.19537) | 时间回补；v1 2026-08-20；TC-CBF + MPC 左/右多模态避障 |
 | 2026-08-23 | Learning the Right Abstraction: Neural Reduced Dynamics for Complex Robot Control | [论文](https://arxiv.org/abs/2608.19375) | 时间回补；v1 2026-08-19；control-relevant neural reduced dynamics；高保真仿真加速 |
@@ -452,6 +447,15 @@
 | 2026-08-23 | Repo0: Design-Driven Zero-to-All Code Generation | [论文](https://arxiv.org/abs/2608.19854) · [代码与数据](https://github.com/cslsolow/Repo0) | 时间回补；v1 2026-08-20；Dual-DAG 架构演化 + TDD |
 | 2026-08-23 | Outcome Monitors: Recovery Affordances for Silent Tool Failures | [论文](https://arxiv.org/abs/2608.19303) | 时间回补；v1 2026-08-19；outcome contract + recovery affordance |
 | 2026-08-23 | Scan Context: Egocentric Spatial Descriptor for Place Recognition Within 3D Point Cloud Map | [DOI](https://doi.org/10.1109/IROS.2018.8593953) · [官方代码](https://github.com/SignalImageCV/scancontext) · [Scan Context++](https://github.com/gisbi-kim/scancontext_tro) | 经典论文回顾；IROS 2018；LiDAR place recognition / loop closure |
+| 2026-08-24 | DART-S: Reachability-Audited Active-Suspension Preconditioning for Off-Road Vehicle Jumps | [论文](https://arxiv.org/abs/2608.20275) · [代码](https://github.com/MeridianCAS/DART-S) | 时间回补；主动悬架起跳前预调 + 可达性审计 |
+| 2026-08-24 | Fine-Tuning VLAs with Self-Demonstrated Generative Control for Multi-Task Manipulation | [论文](https://arxiv.org/abs/2608.19490) · [项目页](https://self-supervised-control.pages.dev/) | 时间回补；目标本体自示范缓解微调遗忘 |
+| 2026-08-24 | When Automata Meet Streams: Temporal Logic Compilation for Stream-Based Robotics Task and Motion Planning | [论文](https://arxiv.org/abs/2608.19453) | 时间回补；SAM-TD；LTLf 编译进 stream-based TAMP |
+| 2026-08-24 | SCAPE: Scenario-Conditioned Simulation-Augmented Policy Evaluation | [论文](https://arxiv.org/abs/2608.19425) | 时间回补；场景条件化 sim-real 策略评测 + conformal uncertainty |
+| 2026-08-24 | What Matters for Latent Actions in Robot Learning | [论文](https://arxiv.org/abs/2608.19613) · [项目页](https://carldegio.github.io/latent_action.github.io/) | 时间回补；41 项 latent-action 设计统一实证研究 |
+| 2026-08-24 | OrthoSkillVLA: Continual Skill Learning via Gradient-Informed Skill Subspace Adaptation | [论文](https://arxiv.org/abs/2608.19589) | 时间回补；VLA 无 demonstration replay 持续技能学习 |
+| 2026-08-24 | PRAXIS: Graph-Grounded Tacit Knowledge for Domain Code Generation | [论文](https://arxiv.org/abs/2608.19784) | 时间回补；依赖图上的项目隐性知识 |
+| 2026-08-24 | BreakGuard: Towards Detecting Dependency Breaking Changes with LLM-Generated Tests | [论文](https://arxiv.org/abs/2608.20167) | 时间回补；LLM 生成依赖升级破坏性差分测试 |
+| 2026-08-24 | A Method for Registration of 3-D Shapes / Iterative Closest Point (ICP) | [DOI](https://doi.org/10.1109/34.121791) · [公开 PDF](https://graphics.stanford.edu/courses/cs348a-21-winter/Handouts/Besl92.pdf) · [PCL](https://pointclouds.org/documentation/classpcl_1_1_iterative_closest_point.html) | 经典论文回顾；ICP 1992 |
 
 ## 维护检查表
 
