@@ -11,13 +11,13 @@ tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 
 ## 摘要
 
-截至 2026-08-25 09:36（Asia/Shanghai），arXiv Robotics 最新公开批次为 2026-08-24，共 37 条；Software Engineering 同日批次共 30 条。选题前已读取 `robotics-brief-covered-items.md`，当前索引截至 8 月 24 日共 406 条。本期使用规范化标题、arXiv ID、论文页与项目页联合查重，最终选择 8 条此前未完整覆盖的主动态。由于这些工作的 arXiv v1 原始提交时间主要为 8 月 20–21 日，虽然进入 8 月 24 日最新公开批次，本期仍统一标注“时间回补”，不把它们包装成 8 月 25 日新投稿。（[arXiv Robotics](https://arxiv.org/list/cs.RO/recent)，[arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent)）
+截至 2026-08-25 09:59（Asia/Shanghai），arXiv Robotics 最新公开批次为 2026-08-24，共 37 条；Software Engineering 同日批次共 30 条。本轮开始时已读取 `robotics-brief-covered-items.md`；索引已经包含今日 8 条主动态与 1 条经典论文回顾，共 415 条。本次对同日候选继续使用规范化标题、arXiv ID、论文页与项目页做幂等复核，没有重复追加相同记录。由于这些工作的 arXiv v1 原始提交时间主要为 8 月 20–21 日，虽然进入 8 月 24 日最新公开批次，本期仍统一标注“时间回补”，不把它们包装成 8 月 25 日新投稿。（[arXiv Robotics](https://arxiv.org/list/cs.RO/recent)，[arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent)）
 
-今天最值得关注的技术主线有四条。第一，机器人控制正在从“纯模型”和“纯学习”两端向结构化融合收敛：NeSAM 用可微 Bekker-Wong 土壤力学提供可解释的轮土作用，再用 Transformer residual 补模型缺口；SRL-MPC 则让 RL 只负责在线调 MPC 参数，真正执行的控制仍来自显式 HOCBF-MPC。第二，学习式局部规划开始直接输出控制器可执行轨迹，而不是神经网络后面再挂一个昂贵优化器：Neural-Primitive 在 MID360 + Jetson Orin NX 实机上平均规划仅 3.68 ms，网络内存低于 1.5 MiB。
+今天最值得关注的技术主线有四条。第一，机器人控制正在从“纯模型”和“纯学习”两端向结构化融合收敛：NeSAM 用可微 Bekker-Wong 土壤力学提供可解释的轮土作用，再用 Transformer residual 补模型缺口；SRL-MPC 则让 RL 只负责在线调 MPC 参数，真正执行的控制仍来自显式 HOCBF-MPC。第二，学习式局部规划开始直接输出控制器可执行轨迹，而不是神经网络后面再挂一个昂贵优化器：Neural-Primitive 在 MID360 + Jetson Orin NX 实机上平均规划仅 3.68 ms，模型占用约 1.38 MiB。
 
 第三，安全层开始明确承认“状态估计会错”。Measurement-Robust CBF 不再假设安全过滤器拿到真实状态：它把估计误差集合直接纳入 CBF，学习版 NMR-CBF 在 12D 四旋翼数值实验中每步约 0.57 ms，并在 Unitree Go2 上面对最高约 18% 的里程计距离低估和额外 15 cm 偏置仍保持 10/10 安全通过。第四，VLA 和 Coding Agent 都在把自然语言的模糊性压缩到结构化约束：Logic-VLA 用 Signal Temporal Logic 在推理时指定时空安全要求；Artic 则把自然语言工作流“编译”为显式读写 artifact、约束 gate 和控制转移的可执行工作流。
 
-大模型官方发布方面，本次核验到 OpenAI 于 8 月 25 日发布 GPT-5.6 在 Kiro 中可用的生态集成更新；由于 GPT-5.6 模型本身已在历史索引中覆盖，这不是新的基础模型发布，因此不作为完整主动态重复报道。（[OpenAI 官方](https://openai.com/index/gpt-5-6-in-kiro/)）
+大模型官方发布方面，本次核验到 OpenAI 于 8 月 24 日发布 GPT-5.6 在 Kiro 中可用的生态集成更新；由于 GPT-5.6 模型本身已在历史索引中覆盖，这不是新的基础模型发布，因此不作为完整主动态重复报道。（[OpenAI 官方](https://openai.com/index/gpt-5-6-in-kiro/)）
 
 ## 1. NeSAM：把可微土壤力学和 Transformer residual 放进同一个越野动力学预测器
 
@@ -133,7 +133,7 @@ Neural-Primitive 的目标非常明确：学习式无人机局部规划不能只
 
 ### 实时性与实机结果
 
-论文报告桌面计算低于 1 ms，真实机载飞行平均规划时间 3.68±0.77 ms，中位数 3.43 ms，范围约 2.71–5.94 ms；网络内存需求低于 1.5 MiB。真实测试包括浓密植被和狭窄空间，最窄通道低于 0.8 m，而机体直径约 0.3 m，并实现零微调 sim-to-real 部署。
+论文报告桌面计算低于 1 ms，真实机载飞行平均规划时间 3.68±0.77 ms，中位数 3.43 ms，范围约 2.71–5.94 ms；模型占用约 1.38 MiB。真实测试包括浓密植被和狭窄空间，最窄通道低于 0.8 m，而机体直径约 0.3 m，并实现零微调 sim-to-real 部署。
 
 ### 鲁棒性、可复现性与风险
 
