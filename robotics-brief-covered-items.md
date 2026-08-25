@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-24（Asia/Shanghai）
+> 最后更新：2026-08-25（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -45,6 +45,8 @@
 > 2026-08-23 新增 8 条主动态与 1 条经典论文回顾，共 397 条。
 >
 > 2026-08-24 新增 8 条主动态与 1 条经典论文回顾，共 406 条。
+>
+> 2026-08-25 新增 8 条主动态与 1 条经典论文回顾，共 415 条。
 
 ## 已核验条目
 
@@ -456,6 +458,15 @@
 | 2026-08-24 | PRAXIS: Graph-Grounded Tacit Knowledge for Domain Code Generation | [论文](https://arxiv.org/abs/2608.19784) | 时间回补；依赖图上的项目隐性知识 |
 | 2026-08-24 | BreakGuard: Towards Detecting Dependency Breaking Changes with LLM-Generated Tests | [论文](https://arxiv.org/abs/2608.20167) | 时间回补；LLM 生成依赖升级破坏性差分测试 |
 | 2026-08-24 | A Method for Registration of 3-D Shapes / Iterative Closest Point (ICP) | [DOI](https://doi.org/10.1109/34.121791) · [公开 PDF](https://graphics.stanford.edu/courses/cs348a-21-winter/Handouts/Besl92.pdf) · [PCL](https://pointclouds.org/documentation/classpcl_1_1_iterative_closest_point.html) | 经典论文回顾；ICP 1992 |
+| 2026-08-25 | NeSAM: Neuro-Symbolic Kinodynamics with Soil Adaptation for Off-Road Mobility | [论文](https://arxiv.org/abs/2608.21330) | 时间回补；可微 Bekker-Wong + Transformer residual + 在线土壤 EKF |
+| 2026-08-25 | SRL-MPC: Shape-Aware Reinforcement Learned Model Predictive Control | [论文](https://arxiv.org/abs/2608.21175) · [项目页](https://hanruihua.github.io/srl_mpc_project/) | 时间回补；shape-aware HOCBF-MPC + RL 参数适配 |
+| 2026-08-25 | FF-MPCC: High-speed Agile Formation Flight with Model Predictive Contouring Control | [论文](https://arxiv.org/abs/2608.21056) | 时间回补；高速无人机编队 MPCC |
+| 2026-08-25 | Neural-Primitive: An Efficient End-to-end Local Planner with Primitive-based Imitation Learning for Autonomous Flight | [论文](https://arxiv.org/abs/2608.20948) · [项目页](https://zhitaoliu.github.io/neural-primitive/) | 时间回补；MID360 + Jetson Orin NX；3.68 ms 直接轨迹生成 |
+| 2026-08-25 | IMU-Free Body-Frame State Estimation with Sparse Scene Flow for Quadcopters | [论文](https://arxiv.org/abs/2608.20891) | 时间回补；双目 scene flow + thrust command 的无 IMU 机体系状态估计 |
+| 2026-08-25 | Logic-VLA: A Temporal Logic Conditioned Vision-Language-Action Model | [论文](https://arxiv.org/abs/2608.20556) | 时间回补；STL 条件 VLA 与时空约束 |
+| 2026-08-25 | Learning-Based Measurement-Robust Control Barrier Functions for Obstacle Avoidance under State Estimation Error | [论文](https://arxiv.org/abs/2608.20467) | 时间回补；定位误差集合进入 CBF；Go2 实机 |
+| 2026-08-25 | Natural-Language Workflows Are Not Software Yet: Artifact-Driven Compilation for Reliable Agent Execution | [论文](https://arxiv.org/abs/2608.21341) | 时间回补；Artic；artifact-driven workflow 编译与验证 |
+| 2026-08-25 | MPPI: Aggressive Driving with Model Predictive Path Integral Control / Information Theoretic Model Predictive Control | [ICRA 2016 DOI](https://doi.org/10.1109/ICRA.2016.7487277) · [信息论论文](https://arxiv.org/abs/1707.02342) · [MPPI-Generic](https://github.com/ACDSLab/MPPI-Generic) | 经典论文回顾；sampling-based MPC / path integral control |
 
 ## 维护检查表
 
