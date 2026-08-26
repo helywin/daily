@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-25（Asia/Shanghai）
+> 最后更新：2026-08-26（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -47,6 +47,8 @@
 > 2026-08-24 新增 8 条主动态与 1 条经典论文回顾，共 406 条。
 >
 > 2026-08-25 新增 8 条主动态与 1 条经典论文回顾，共 415 条。
+>
+> 2026-08-26 新增 8 条主动态与 1 条经典论文回顾，共 424 条。
 
 ## 已核验条目
 
@@ -467,6 +469,16 @@
 | 2026-08-25 | Learning-Based Measurement-Robust Control Barrier Functions for Obstacle Avoidance under State Estimation Error | [论文](https://arxiv.org/abs/2608.20467) | 时间回补；定位误差集合进入 CBF；Go2 实机 |
 | 2026-08-25 | Natural-Language Workflows Are Not Software Yet: Artifact-Driven Compilation for Reliable Agent Execution | [论文](https://arxiv.org/abs/2608.21341) | 时间回补；Artic；artifact-driven workflow 编译与验证 |
 | 2026-08-25 | MPPI: Aggressive Driving with Model Predictive Path Integral Control / Information Theoretic Model Predictive Control | [ICRA 2016 DOI](https://doi.org/10.1109/ICRA.2016.7487277) · [信息论论文](https://arxiv.org/abs/1707.02342) · [MPPI-Generic](https://github.com/ACDSLab/MPPI-Generic) | 经典论文回顾；sampling-based MPC / path integral control |
+
+| 2026-08-26 | SuperMap: A Spatio-Temporal SLAM System for Visual-Language Navigation | [论文](https://arxiv.org/abs/2608.22896) · [项目页](https://superodometry.com/supermap) · [代码](https://github.com/superxslam/SuperMap) | 时间回补；4D 时空对象记忆 + 高频几何 SLAM + 异步开放词汇感知 |
+| 2026-08-26 | CSymPlan: Certified Symbolic Planning and Control for High-DOF Manipulators | [论文](https://arxiv.org/abs/2608.22983) | 时间回补；Franka FR3；认证 reach-avoid 符号策略与在线合成 |
+| 2026-08-26 | Privileged Critic Training Enables Sensor-Free Thruster Fault Adaptation in End-to-End RL / RAFT | [论文](https://arxiv.org/abs/2608.22976) | 时间回补；privileged critic + recurrent actor；无专用故障传感器部署 |
+| 2026-08-26 | Reward-Free Continual Adaptation for Resilient Space Robots | [论文](https://arxiv.org/abs/2608.23452) | 时间回补；仅更新 latent world-model transition；部署期无 reward 适应 |
+| 2026-08-26 | Think Only When Needed: Prompt-Authority Control for Selective Slow-Path Intervention in Vision-Language-Action Manipulation / TOWN-VLA | [论文](https://arxiv.org/abs/2608.23224) | 时间回补；VLA prompt authority gate；PiPER 实机 |
+| 2026-08-26 | Pointing-VLA: Typed Spatial Grounding Interfaces for Vision-Language-Action Manipulation | [论文](https://arxiv.org/abs/2608.23138) | 时间回补；类型化 Point/OFG/Trajectory hidden-state 空间接口 |
+| 2026-08-26 | DPIAgent: Divide, Protocol, Isolate for Agentic Reproduction Test Generation | [论文](https://arxiv.org/abs/2608.23341) | 时间回补；复现测试的阶段拆分、handoff protocol 与工具隔离 |
+| 2026-08-26 | From Natural Language Policies to Executable Obligations: A Verification Harness for Dependable In-Car LLM Agents / AgentGuardUtil | [论文](https://arxiv.org/abs/2608.23282) | 时间回补；自然语言 policy 编译为 typed executable obligations |
+| 2026-08-26 | Efficient Surfel-Based SLAM using 3D Laser Range Data in Urban Environments / SuMa | [RSS](https://m.roboticsproceedings.org/rss14/p16.html) · [代码](https://github.com/jbehley/SuMa) · [DOI](https://doi.org/10.15607/RSS.2018.XIV.016) | 经典论文回顾；RSS 2018；Surfel + projective association + loop closure |
 
 ## 维护检查表
 
