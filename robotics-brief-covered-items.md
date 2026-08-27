@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-26（Asia/Shanghai）
+> 最后更新：2026-08-27（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -49,6 +49,8 @@
 > 2026-08-25 新增 8 条主动态与 1 条经典论文回顾，共 415 条。
 >
 > 2026-08-26 新增 8 条主动态与 1 条经典论文回顾，共 424 条。
+>
+> 2026-08-27 新增 8 条主动态与 1 条经典论文回顾，共 433 条。
 
 ## 已核验条目
 
@@ -479,6 +481,16 @@
 | 2026-08-26 | DPIAgent: Divide, Protocol, Isolate for Agentic Reproduction Test Generation | [论文](https://arxiv.org/abs/2608.23341) | 时间回补；复现测试的阶段拆分、handoff protocol 与工具隔离 |
 | 2026-08-26 | From Natural Language Policies to Executable Obligations: A Verification Harness for Dependable In-Car LLM Agents / AgentGuardUtil | [论文](https://arxiv.org/abs/2608.23282) | 时间回补；自然语言 policy 编译为 typed executable obligations |
 | 2026-08-26 | Efficient Surfel-Based SLAM using 3D Laser Range Data in Urban Environments / SuMa | [RSS](https://m.roboticsproceedings.org/rss14/p16.html) · [代码](https://github.com/jbehley/SuMa) · [DOI](https://doi.org/10.15607/RSS.2018.XIV.016) | 经典论文回顾；RSS 2018；Surfel + projective association + loop closure |
+
+| 2026-08-27 | Safety-aware Model Predictive Path Integral Control with Signal Temporal Logic | [论文](https://arxiv.org/abs/2608.23972) · [项目页](https://zhaoy37.github.io/safety-aware-stl-mppi/) | 时间回补；v1 2026-08-25；STL→time-varying CBF→MPPI 安全时序规划 |
+| 2026-08-27 | Trusted Polytopic Action Sets for Fast Planning in Underactuated Systems | [论文](https://arxiv.org/abs/2608.24019) · [代码](https://github.com/akshay5312/paamp_underactuated) | 时间回补；欠驱动可信凸动作集；PAS-RRT；L-CSS 2026 |
+| 2026-08-27 | CARO: Contact-Agnostic Residual Observation for Zero-Shot Robust Quadruped Locomotion | [论文](https://arxiv.org/abs/2608.24217) | 时间回补；fixed-base Euler-Lagrange residual observer + RL；DeepRobotics Lite3 真机 |
+| 2026-08-27 | Learning to Act While Waiting: RL Finetuning of Generalist Robot Policies Under Inference Latency / ARLI | [论文](https://arxiv.org/abs/2608.23831) · [项目页](https://async-rl-intermediate-information.github.io/) | 最近24小时修订；v2 2026-08-26；VLA 异步推理延迟下 RL 状态增强 |
+| 2026-08-27 | Event-Based Motion Estimation via Oriented Distance Fields | [论文](https://arxiv.org/abs/2608.24223) | 时间回补；事件相机 ODF；per-event 亚微秒级 2DoF 运动估计 |
+| 2026-08-27 | Do Robotic World Models Really Follow Actions? Diagnosing and Aligning Action-Conditioned Generation for Policy Learning / WorldEcho + WorldSync | [论文](https://arxiv.org/abs/2608.24885) | 时间回补；off-expert action-following 诊断与 world-model action alignment |
+| 2026-08-27 | DeepRepoQA: Code Repository Question Answering with Deep Agent Exploration | [论文](https://arxiv.org/abs/2608.24221) · [代码](https://github.com/peng-weihan/DeepRepoQA) | 时间回补；MCTS 多跳仓库探索；SWE-QA 15 仓库/720 QA |
+| 2026-08-27 | SWE Refactor Bench: Can Coding Agents Complete a Long-Horizon, Whole-Repository Stack Migration? | [论文](https://arxiv.org/abs/2608.23564) · [代码与评测](https://github.com/Einsia/SWE-Refactor-Bench) | 时间回补；20 个整仓迁移；Migration Audit + Behavioural + Agentic Verification |
+| 2026-08-27 | RRT* / Sampling-based Algorithms for Optimal Motion Planning | [论文](https://arxiv.org/abs/1105.1186) · [RSS 2010](https://roboticsproceedings.org/rss06/p34.html) · [OMPL](https://ompl.kavrakilab.org/classompl_1_1geometric_1_1RRTstar.html) | 经典论文回顾；PRM*/RRT* 渐近最优 sampling-based planning |
 
 ## 维护检查表
 
