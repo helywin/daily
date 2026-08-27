@@ -16,7 +16,6 @@ concurrency:
 
 jobs:
   index-update:
-    if: ${{ github.event_name == 'push' && github.event.head_commit.message == 'chore: run robotics brief index update for 2026-08-27' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
