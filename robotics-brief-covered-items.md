@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-27（Asia/Shanghai）
+> 最后更新：2026-08-28（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -51,6 +51,8 @@
 > 2026-08-26 新增 8 条主动态与 1 条经典论文回顾，共 424 条。
 >
 > 2026-08-27 新增 8 条主动态与 1 条经典论文回顾，共 433 条。
+>
+> 2026-08-28 新增 8 条主动态与 1 条经典论文回顾，共 442 条。
 
 ## 已核验条目
 
@@ -491,6 +493,16 @@
 | 2026-08-27 | DeepRepoQA: Code Repository Question Answering with Deep Agent Exploration | [论文](https://arxiv.org/abs/2608.24221) · [代码](https://github.com/peng-weihan/DeepRepoQA) | 时间回补；MCTS 多跳仓库探索；SWE-QA 15 仓库/720 QA |
 | 2026-08-27 | SWE Refactor Bench: Can Coding Agents Complete a Long-Horizon, Whole-Repository Stack Migration? | [论文](https://arxiv.org/abs/2608.23564) · [代码与评测](https://github.com/Einsia/SWE-Refactor-Bench) | 时间回补；20 个整仓迁移；Migration Audit + Behavioural + Agentic Verification |
 | 2026-08-27 | RRT* / Sampling-based Algorithms for Optimal Motion Planning | [论文](https://arxiv.org/abs/1105.1186) · [RSS 2010](https://roboticsproceedings.org/rss06/p34.html) · [OMPL](https://ompl.kavrakilab.org/classompl_1_1geometric_1_1RRTstar.html) | 经典论文回顾；PRM*/RRT* 渐近最优 sampling-based planning |
+
+| 2026-08-28 | Extending Ground-Constraint LiDAR-IMU Calibration to Tilted Surfaces in a Continuous-Time Framework | [论文](https://arxiv.org/abs/2608.25135) · [代码](https://github.com/vkorotkine/licalib_tilted_ground) | 时间回补；连续时间 LiDAR-IMU 斜坡地面约束标定 |
+| 2026-08-28 | SUPER ODOMETRY 2.0: Resilient Odometry via Hierarchical Adaptation | [论文](https://arxiv.org/abs/2608.25427) · [DOI](https://doi.org/10.1126/scirobotics.adv1818) · [代码](https://github.com/superxslam/SuperOdom) | 补充回顾；Science Robotics 2025，2026-08-26 首次 arXiv 公开 |
+| 2026-08-28 | RAEM: Robust Autonomous Exploration for Multi-Floor Environments with a Quadruped Robot | [论文](https://arxiv.org/abs/2608.25366) | 时间回补；多楼层四足探索、局部 tomography 与 elevation topology |
+| 2026-08-28 | Towards safe and optimal flight: Viability Kernel MPC for Fully Actuated Multirotor | [论文](https://arxiv.org/abs/2608.25459) | 时间回补；viability terminal constraint 与 safe abort MPC |
+| 2026-08-28 | LAC: Linear and Angular Compliance for Humanoid Whole-body Control | [论文](https://arxiv.org/abs/2608.25405) · [项目页](https://lac-humanoid.github.io/) | 时间回补；G1 全身线性/角向柔顺控制 |
+| 2026-08-28 | LM-X: Explainable Action Modeling with Progress, Event, and Uncertainty Prediction for Generalist Robot Manipulation | [论文](https://arxiv.org/abs/2608.25757) | 时间回补；RTG/ETG/heteroscedastic action uncertainty |
+| 2026-08-28 | From General Agents to RCA Experts: A Self-Evolving Harness for Root Cause Analysis | [论文](https://arxiv.org/abs/2608.25661) | 时间回补；OpsHarness、自进化 RCA harness 与双门验证 |
+| 2026-08-28 | XRepoTest: Benchmarking Multilingual Repository-Level Unit Test Generation for Large Language Models | [论文](https://arxiv.org/abs/2608.25939) · [代码](https://github.com/solis-team/XRepoTest) | 时间回补；五语言 repository-level 测试生成与 Invocation Rate |
+| 2026-08-28 | M-LOAM / Robust Odometry and Mapping for Multi-LiDAR Systems with Online Extrinsic Calibration | [论文](https://arxiv.org/abs/2010.14294) · [代码](https://github.com/gogojjh/M-LOAM) · [DOI](https://doi.org/10.1109/TRO.2021.3078287) | 经典论文回顾；多 LiDAR 在线外参、滑窗里程计与联合建图 |
 
 ## 维护检查表
 
