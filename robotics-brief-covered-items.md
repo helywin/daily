@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-28（Asia/Shanghai）
+> 最后更新：2026-08-29（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -53,6 +53,8 @@
 > 2026-08-27 新增 8 条主动态与 1 条经典论文回顾，共 433 条。
 >
 > 2026-08-28 新增 8 条主动态与 1 条经典论文回顾，共 442 条。
+>
+> 2026-08-29 新增 8 条主动态与 1 条经典论文回顾，共 451 条。
 
 ## 已核验条目
 
@@ -503,6 +505,16 @@
 | 2026-08-28 | From General Agents to RCA Experts: A Self-Evolving Harness for Root Cause Analysis | [论文](https://arxiv.org/abs/2608.25661) | 时间回补；OpsHarness、自进化 RCA harness 与双门验证 |
 | 2026-08-28 | XRepoTest: Benchmarking Multilingual Repository-Level Unit Test Generation for Large Language Models | [论文](https://arxiv.org/abs/2608.25939) · [代码](https://github.com/solis-team/XRepoTest) | 时间回补；五语言 repository-level 测试生成与 Invocation Rate |
 | 2026-08-28 | M-LOAM / Robust Odometry and Mapping for Multi-LiDAR Systems with Online Extrinsic Calibration | [论文](https://arxiv.org/abs/2010.14294) · [代码](https://github.com/gogojjh/M-LOAM) · [DOI](https://doi.org/10.1109/TRO.2021.3078287) | 经典论文回顾；多 LiDAR 在线外参、滑窗里程计与联合建图 |
+
+| 2026-08-29 | Online Joint Calibration of Steering Offset and Planar LiDAR Extrinsics for Wheeled Mobile Robots | [论文](https://arxiv.org/abs/2608.26789) | 时间回补；WMR 在线联合估计转向零偏与平面 LiDAR 外参。 |
+| 2026-08-29 | Contact-Aided Factor-Graph Localization for Underwater Sampling | [论文](https://arxiv.org/abs/2608.26932) | 时间回补；将机械接触作为高置信定位因子。 |
+| 2026-08-29 | Dispersive Forward Tree Search for Optimal Control: Coverage, Complexity, and Computation | [论文](https://arxiv.org/abs/2608.26314) | 时间回补；DFT*，传播式近最优动力学规划与并行实现。 |
+| 2026-08-29 | SOLO: Stable Omni-terrain Long-Horizon Perceptive Humanoid Locomotion | [论文](https://arxiv.org/abs/2608.26583) | 时间回补；查询式地形重建与轨迹感知蒸馏。 |
+| 2026-08-29 | Rapid On-Robot Learning for Dynamic Manipulation Skills: Robot Juggling | [论文](https://arxiv.org/abs/2608.26800) | 时间回补；局部真机学习与 Mutually Reachable Set。 |
+| 2026-08-29 | RTNav: Towards Real-Time Zero-Shot Object Navigation | [论文](https://arxiv.org/abs/2608.26496) | 时间回补；异步、墙钟时间感知的零样本目标导航。 |
+| 2026-08-29 | DeepRepro: State-Aware Subplanning for Paper-to-Code Reproduction in Evolving Repositories | [论文](https://arxiv.org/abs/2608.26557) | 时间回补；基于实时仓库状态的动态子规划。 |
+| 2026-08-29 | FaultLens: Learning Compact Behavioral Test Suites for Generated Operational Programs | [论文](https://arxiv.org/abs/2608.26746) | 时间回补；从历史执行证据学习紧凑行为测试集。 |
+| 2026-08-29 | Unified Temporal and Spatial Calibration for Multi-Sensor Systems (Kalibr) | [DOI](https://doi.org/10.1109/IROS.2013.6696514) | 经典论文回顾；联合时空标定与连续时间批估计。 |
 
 ## 维护检查表
 
