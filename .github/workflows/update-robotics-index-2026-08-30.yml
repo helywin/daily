@@ -1,0 +1,59 @@
+name: Update robotics brief index 2026-08-30
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/update-robotics-index-2026-08-30.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Update coverage index
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('robotics-brief-covered-items.md')
+          s = p.read_text(encoding='utf-8')
+          rows = '''| 2026-08-30 | CGS-SLAM: Collaborative Gaussian Splatting based SLAM for Multi-Agent Reconstruction | [论文](https://arxiv.org/abs/2608.26868) | 时间回补；v1 2026-08-27；RGB+IMU 多智能体 3DGS SLAM、低带宽子图协同。 |
+          | 2026-08-30 | FlashVLA: Streaming Action Decoding for Fast and Asynchronous VLA Inference | [论文](https://arxiv.org/abs/2608.27384) | 时间回补；v1 2026-08-27；流式 action buffer、chunk-wise causal attention、单 GPU 30Hz+。 |
+          | 2026-08-30 | Arrive and Survive: Scaling Safe Goal-Conditioned Policy Learning from One-Bit Failure Signals / Safe-CRL | [论文](https://arxiv.org/abs/2608.26571) · [代码](https://github.com/RomainLITUD/safe-crl) | 时间回补；v1 2026-08-27；failure termination 下 survival-mass 修正的安全对比强化学习。 |
+          | 2026-08-30 | GRAFT: Grounded and Efficient Online Reinforcement Adaptation for Fine-Grained Robot Manipulation | [论文](https://arxiv.org/abs/2608.27079) | 时间回补；v1 2026-08-27；region visual anchor + 高效在线 VLA 适配。 |
+          | 2026-08-30 | Riemann-1.0: An Embodied World Action Model for Physical AI | [论文](https://arxiv.org/abs/2608.27033) | 时间回补；v1 2026-08-27；统一因果自回归 policy/world simulator，20万小时以上 embodied data。 |
+          | 2026-08-30 | FLARE: A Failure-Aware Framework for Autonomous Correction and Recovery in Visual-Language Robotic Manipulation | [论文](https://arxiv.org/abs/2608.26645) | 时间回补；v1 2026-08-27；Retry + object-centric Reset skill；CVPR 2026。 |
+          | 2026-08-30 | SWE-Prime: Fewer Trajectories, Better Performance | [论文](https://arxiv.org/abs/2608.27449) | 时间回补；v1 2026-08-27；trajectory/segment 两级 SFT 数据筛选。 |
+          | 2026-08-30 | When Tool Outputs Become Commands: Separating Action Induction from Runtime Authorization in Tool-Augmented LLM Agents / SARA | [论文](https://arxiv.org/abs/2608.27146) | 时间回补；v1 2026-08-27；tool-output action provenance 与 runtime authorization 分离。 |
+          | 2026-08-30 | D* Lite | [AAAI](https://aaai.org/papers/00476-aaai02-072-d-lite/) · [CMU](https://publications.ri.cmu.edu/d-lite) | 经典论文回顾；AAAI 2002；增量启发式重规划与搜索状态复用。 |'''
+          key = '| 2026-08-30 | CGS-SLAM:'
+          if key not in s:
+              marker = '\n## 维护检查表\n'
+              if marker not in s:
+                  raise SystemExit('maintenance marker missing')
+              s = s.replace(marker, '\n' + rows + '\n' + marker, 1)
+          s = s.replace('> 最后更新：2026-08-29（Asia/Shanghai）', '> 最后更新：2026-08-30（Asia/Shanghai）', 1)
+          summary = '> 2026-08-30 新增 8 条主动态与 1 条经典论文回顾，共 460 条。'
+          if summary not in s:
+              anchor = '> 2026-08-29 新增 8 条主动态与 1 条经典论文回顾，共 451 条。'
+              if anchor not in s:
+                  raise SystemExit('summary anchor missing')
+              s = s.replace(anchor, anchor + '\n>\n' + summary, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit index and remove one-shot workflow
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add robotics-brief-covered-items.md
+          git rm .github/workflows/update-robotics-index-2026-08-30.yml
+          git commit -m "docs: update robotics brief coverage index for 2026-08-30"
+          git push origin master
