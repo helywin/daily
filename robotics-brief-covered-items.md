@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-29（Asia/Shanghai）
+> 最后更新：2026-08-30（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -55,6 +55,8 @@
 > 2026-08-28 新增 8 条主动态与 1 条经典论文回顾，共 442 条。
 >
 > 2026-08-29 新增 8 条主动态与 1 条经典论文回顾，共 451 条。
+>
+> 2026-08-30 新增 8 条主动态与 1 条经典论文回顾，共 460 条。
 
 ## 已核验条目
 
@@ -515,6 +517,16 @@
 | 2026-08-29 | DeepRepro: State-Aware Subplanning for Paper-to-Code Reproduction in Evolving Repositories | [论文](https://arxiv.org/abs/2608.26557) | 时间回补；基于实时仓库状态的动态子规划。 |
 | 2026-08-29 | FaultLens: Learning Compact Behavioral Test Suites for Generated Operational Programs | [论文](https://arxiv.org/abs/2608.26746) | 时间回补；从历史执行证据学习紧凑行为测试集。 |
 | 2026-08-29 | Unified Temporal and Spatial Calibration for Multi-Sensor Systems (Kalibr) | [DOI](https://doi.org/10.1109/IROS.2013.6696514) | 经典论文回顾；联合时空标定与连续时间批估计。 |
+
+| 2026-08-30 | CGS-SLAM: Collaborative Gaussian Splatting based SLAM for Multi-Agent Reconstruction | [论文](https://arxiv.org/abs/2608.26868) | 时间回补；v1 2026-08-27；RGB+IMU 多智能体 3DGS SLAM、低带宽子图协同。 |
+| 2026-08-30 | FlashVLA: Streaming Action Decoding for Fast and Asynchronous VLA Inference | [论文](https://arxiv.org/abs/2608.27384) | 时间回补；v1 2026-08-27；流式 action buffer、chunk-wise causal attention、单 GPU 30Hz+。 |
+| 2026-08-30 | Arrive and Survive: Scaling Safe Goal-Conditioned Policy Learning from One-Bit Failure Signals / Safe-CRL | [论文](https://arxiv.org/abs/2608.26571) · [代码](https://github.com/RomainLITUD/safe-crl) | 时间回补；v1 2026-08-27；failure termination 下 survival-mass 修正的安全对比强化学习。 |
+| 2026-08-30 | GRAFT: Grounded and Efficient Online Reinforcement Adaptation for Fine-Grained Robot Manipulation | [论文](https://arxiv.org/abs/2608.27079) | 时间回补；v1 2026-08-27；region visual anchor + 高效在线 VLA 适配。 |
+| 2026-08-30 | Riemann-1.0: An Embodied World Action Model for Physical AI | [论文](https://arxiv.org/abs/2608.27033) | 时间回补；v1 2026-08-27；统一因果自回归 policy/world simulator，20万小时以上 embodied data。 |
+| 2026-08-30 | FLARE: A Failure-Aware Framework for Autonomous Correction and Recovery in Visual-Language Robotic Manipulation | [论文](https://arxiv.org/abs/2608.26645) | 时间回补；v1 2026-08-27；Retry + object-centric Reset skill；CVPR 2026。 |
+| 2026-08-30 | SWE-Prime: Fewer Trajectories, Better Performance | [论文](https://arxiv.org/abs/2608.27449) | 时间回补；v1 2026-08-27；trajectory/segment 两级 SFT 数据筛选。 |
+| 2026-08-30 | When Tool Outputs Become Commands: Separating Action Induction from Runtime Authorization in Tool-Augmented LLM Agents / SARA | [论文](https://arxiv.org/abs/2608.27146) | 时间回补；v1 2026-08-27；tool-output action provenance 与 runtime authorization 分离。 |
+| 2026-08-30 | D* Lite | [AAAI](https://aaai.org/papers/00476-aaai02-072-d-lite/) · [CMU](https://publications.ri.cmu.edu/d-lite) | 经典论文回顾；AAAI 2002；增量启发式重规划与搜索状态复用。 |
 
 ## 维护检查表
 
