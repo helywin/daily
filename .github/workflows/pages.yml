@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: master
-          fetch-depth: 2
+          fetch-depth: 3
       - name: Update coverage index
         shell: python
         run: |
@@ -36,15 +36,18 @@ jobs:
               if prev not in t:
                   raise RuntimeError("previous summary marker not found")
               t = t.replace(prev, prev + "\n>\n" + today, 1)
-          rows = """| 2026-08-31 | ESRP: Embodied Scene Rearrangement Planning | [论文](https://arxiv.org/abs/2608.27371) · [项目页](https://pie-lab.cn/ESRP/) · [代码](https://github.com/BIT-PIE/ESRP) | 时间回补；v1 2026-08-27；RA-L 2026；第一视角部分可观场景重排规划。 |
-| 2026-08-31 | Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning | [论文](https://arxiv.org/abs/2608.26622) | 时间回补；v1 2026-08-27；RSS 2026；温度耦合黏弹力估计与长期抓持补偿。 |
-| 2026-08-31 | Dynamic Haven Selection for Multi-Agent Pickup and Delivery in Constrained Warehouses / A-sharp | [论文](https://arxiv.org/abs/2608.26939) | 时间回补；v1 2026-08-27；受限仓库 MAPD、动态 Haven 与 SIPP。 |
-| 2026-08-31 | Decoupling Planning and Control for Instructable Agents / Instruct-to-Act | [论文](https://arxiv.org/abs/2608.26788) · [项目页](https://zinengtang.github.io/instruct-to-act/) | 时间回补；v1 2026-08-27；COLM 2026；低频 VLM planner + 高频 world-model controller。 |
-| 2026-08-31 | TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes | [论文](https://arxiv.org/abs/2608.26578) · [项目页](https://john-liua.github.io/TrapVLA/) | 时间回补；v1 2026-08-27；VLA 隐藏配置失败模式与供应链安全评测。 |
-| 2026-08-31 | Pass the Bucket: Efficient, Robust, Local Load Balancing for Teams of Heterogeneous Robots | [论文](https://arxiv.org/abs/2608.27085) | 时间回补；v1 2026-08-27；去中心化异构机器人局部负载平衡。 |
-| 2026-08-31 | Zero-Shot Self-Orchestration with Ledger-Based Control for Improved LLM Coding Performance | [论文](https://arxiv.org/abs/2608.26480) | 时间回补；v1 2026-08-27；AI Coding；manager-worker + 共享文件 Ledger。 |
-| 2026-08-31 | Safety Does Not Compose: Non-Decaying Loop State for Autonomous LLM Agents / LoopHarness | [论文](https://arxiv.org/abs/2608.27141) | 时间回补；v2 2026-08-28；跨迭代持久非衰减安全状态与不可逆动作仲裁。 |
-| 2026-08-31 | ElasticFusion: Dense SLAM Without A Pose Graph | [RSS](https://www.roboticsproceedings.org/rss11/p01.html) · [代码](https://github.com/mp3guy/ElasticFusion) · [DOI](https://doi.org/10.15607/RSS.2015.XI.001) | 经典论文回顾；RSS 2015；surfel frame-to-model tracking、非刚性地图回环修正。 |"""
+          row_lines = [
+              "| 2026-08-31 | ESRP: Embodied Scene Rearrangement Planning | [论文](https://arxiv.org/abs/2608.27371) · [项目页](https://pie-lab.cn/ESRP/) · [代码](https://github.com/BIT-PIE/ESRP) | 时间回补；v1 2026-08-27；RA-L 2026；第一视角部分可观场景重排规划。 |",
+              "| 2026-08-31 | Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning | [论文](https://arxiv.org/abs/2608.26622) | 时间回补；v1 2026-08-27；RSS 2026；温度耦合黏弹力估计与长期抓持补偿。 |",
+              "| 2026-08-31 | Dynamic Haven Selection for Multi-Agent Pickup and Delivery in Constrained Warehouses / A-sharp | [论文](https://arxiv.org/abs/2608.26939) | 时间回补；v1 2026-08-27；受限仓库 MAPD、动态 Haven 与 SIPP。 |",
+              "| 2026-08-31 | Decoupling Planning and Control for Instructable Agents / Instruct-to-Act | [论文](https://arxiv.org/abs/2608.26788) · [项目页](https://zinengtang.github.io/instruct-to-act/) | 时间回补；v1 2026-08-27；COLM 2026；低频 VLM planner + 高频 world-model controller。 |",
+              "| 2026-08-31 | TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes | [论文](https://arxiv.org/abs/2608.26578) · [项目页](https://john-liua.github.io/TrapVLA/) | 时间回补；v1 2026-08-27；VLA 隐藏配置失败模式与供应链安全评测。 |",
+              "| 2026-08-31 | Pass the Bucket: Efficient, Robust, Local Load Balancing for Teams of Heterogeneous Robots | [论文](https://arxiv.org/abs/2608.27085) | 时间回补；v1 2026-08-27；去中心化异构机器人局部负载平衡。 |",
+              "| 2026-08-31 | Zero-Shot Self-Orchestration with Ledger-Based Control for Improved LLM Coding Performance | [论文](https://arxiv.org/abs/2608.26480) | 时间回补；v1 2026-08-27；AI Coding；manager-worker + 共享文件 Ledger。 |",
+              "| 2026-08-31 | Safety Does Not Compose: Non-Decaying Loop State for Autonomous LLM Agents / LoopHarness | [论文](https://arxiv.org/abs/2608.27141) | 时间回补；v2 2026-08-28；跨迭代持久非衰减安全状态与不可逆动作仲裁。 |",
+              "| 2026-08-31 | ElasticFusion: Dense SLAM Without A Pose Graph | [RSS](https://www.roboticsproceedings.org/rss11/p01.html) · [代码](https://github.com/mp3guy/ElasticFusion) · [DOI](https://doi.org/10.15607/RSS.2015.XI.001) | 经典论文回顾；RSS 2015；surfel frame-to-model tracking、非刚性地图回环修正。 |",
+          ]
+          rows = "\n".join(row_lines)
           if "| 2026-08-31 |" not in t:
               marker = "\n## 维护检查表"
               if marker not in t:
@@ -56,7 +59,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git show HEAD^:.github/workflows/pages.yml > .github/workflows/pages.yml
+          git show 0df6b5e353cc96d44cc63544157d0e5fd1483372:.github/workflows/pages.yml > .github/workflows/pages.yml
           git add robotics-brief-covered-items.md .github/workflows/pages.yml
           if git diff --cached --quiet; then
             echo "No index changes needed"
