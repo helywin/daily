@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-30（Asia/Shanghai）
+> 最后更新：2026-08-31（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -57,6 +57,8 @@
 > 2026-08-29 新增 8 条主动态与 1 条经典论文回顾，共 451 条。
 >
 > 2026-08-30 新增 8 条主动态与 1 条经典论文回顾，共 460 条。
+>
+> 2026-08-31 新增 8 条主动态与 1 条经典论文回顾，共 469 条。
 
 ## 已核验条目
 
@@ -527,6 +529,16 @@
 | 2026-08-30 | SWE-Prime: Fewer Trajectories, Better Performance | [论文](https://arxiv.org/abs/2608.27449) | 时间回补；v1 2026-08-27；trajectory/segment 两级 SFT 数据筛选。 |
 | 2026-08-30 | When Tool Outputs Become Commands: Separating Action Induction from Runtime Authorization in Tool-Augmented LLM Agents / SARA | [论文](https://arxiv.org/abs/2608.27146) | 时间回补；v1 2026-08-27；tool-output action provenance 与 runtime authorization 分离。 |
 | 2026-08-30 | D* Lite | [AAAI](https://aaai.org/papers/00476-aaai02-072-d-lite/) · [CMU](https://publications.ri.cmu.edu/d-lite) | 经典论文回顾；AAAI 2002；增量启发式重规划与搜索状态复用。 |
+
+| 2026-08-31 | ESRP: Embodied Scene Rearrangement Planning | [论文](https://arxiv.org/abs/2608.27371) · [项目页](https://pie-lab.cn/ESRP/) · [代码](https://github.com/BIT-PIE/ESRP) | 时间回补；v1 2026-08-27；RA-L 2026；第一视角部分可观场景重排规划。 |
+| 2026-08-31 | Relaxation-Aware Multimodal Sensing of Soft Gripper Driven by Structure-Perception-Learning | [论文](https://arxiv.org/abs/2608.26622) | 时间回补；v1 2026-08-27；RSS 2026；温度耦合黏弹力估计与长期抓持补偿。 |
+| 2026-08-31 | Dynamic Haven Selection for Multi-Agent Pickup and Delivery in Constrained Warehouses / A-sharp | [论文](https://arxiv.org/abs/2608.26939) | 时间回补；v1 2026-08-27；受限仓库 MAPD、动态 Haven 与 SIPP。 |
+| 2026-08-31 | Decoupling Planning and Control for Instructable Agents / Instruct-to-Act | [论文](https://arxiv.org/abs/2608.26788) · [项目页](https://zinengtang.github.io/instruct-to-act/) | 时间回补；v1 2026-08-27；COLM 2026；低频 VLM planner + 高频 world-model controller。 |
+| 2026-08-31 | TrapVLA: Trapping Vision-Language-Action Models in Configured Failure Modes | [论文](https://arxiv.org/abs/2608.26578) · [项目页](https://john-liua.github.io/TrapVLA/) | 时间回补；v1 2026-08-27；VLA 隐藏配置失败模式与供应链安全评测。 |
+| 2026-08-31 | Pass the Bucket: Efficient, Robust, Local Load Balancing for Teams of Heterogeneous Robots | [论文](https://arxiv.org/abs/2608.27085) | 时间回补；v1 2026-08-27；去中心化异构机器人局部负载平衡。 |
+| 2026-08-31 | Zero-Shot Self-Orchestration with Ledger-Based Control for Improved LLM Coding Performance | [论文](https://arxiv.org/abs/2608.26480) | 时间回补；v1 2026-08-27；AI Coding；manager-worker + 共享文件 Ledger。 |
+| 2026-08-31 | Safety Does Not Compose: Non-Decaying Loop State for Autonomous LLM Agents / LoopHarness | [论文](https://arxiv.org/abs/2608.27141) | 时间回补；v2 2026-08-28；跨迭代持久非衰减安全状态与不可逆动作仲裁。 |
+| 2026-08-31 | ElasticFusion: Dense SLAM Without A Pose Graph | [RSS](https://www.roboticsproceedings.org/rss11/p01.html) · [代码](https://github.com/mp3guy/ElasticFusion) · [DOI](https://doi.org/10.15607/RSS.2015.XI.001) | 经典论文回顾；RSS 2015；surfel frame-to-model tracking、非刚性地图回环修正。 |
 
 ## 维护检查表
 
