@@ -22,34 +22,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 3
       - name: Update robotics brief coverage index
+        env:
+          ROWS_B64: fCAyMDI2LTA5LTAxIHwgT25lIHllYXIgaW4gYSBmb3Jlc3Q6IEFuYWx5emluZyB0aGUgY2hhbGxlbmdlcyBvZiBhdXRvbm9tb3VzIG5hdmlnYXRpb24gaW4gc3ViYXJjdGljIGVudmlyb25tZW50cyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI3NjI4KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDgtMjfvvJvkuIDlubTkuprlr5LluKbmo67mnpfjgIE2NCBrbeOAgei3qOWto+iKgiBTTEFNL+WumuS9jeivhOa1iyB8CnwgMjAyNi0wOS0wMSB8IERpc3RyaWJ1dGVkIE1vZGVsLUJhc2VkIERpZmZ1c2lvbjogRmluaXRlIEhvcml6b24gQ29udHJhY3Rpb24gdW5kZXIgQm91bmRlZCBEZWxheSB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI3Njg1KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDgtMjfvvJvluKbpgJrkv6Hlu7bov5/nmoTliIbluIPlvI8gc2FtcGxpbmcgTVBDIHwKfCAyMDI2LTA5LTAxIHwgQ29udGFjdC1HdWlkZWQgRXhwbG9yYXRpb24gZm9yIE5vbi1QcmVoZW5zaWxlIExvY29tYW5pcHVsYXRpb24gd2l0aCBNdWx0aS1Dcml0aWMgUkwgfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOC4yODE0MCkgwrcgW+mhueebrumhtV0oaHR0cHM6Ly90b2xvbWVpcy5naXRodWIuaW8vY29udGFjdC1ndWlkZWQtZXhwLykgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA4LTI477yb5o6l6Kem5byV5a+85o6i57SiICsgTXVsdGktQ3JpdGljIFJM77yb55yf5a6e5Zub6Laz56e75Yqo5pON5L2cIHwKfCAyMDI2LTA5LTAxIHwgUGFuZWxTaGllbGQ6IFZlcmlmaWFibGUgQ2xvc2VkLUxvb3AgU2FmZSBQbGFubmluZyBmb3IgUm9ib3RpYyBJbmR1c3RyaWFsIFBhbmVsIE9wZXJhdGlvbiB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI4MzA1KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDgtMjjvvJvor7TmmI7kuabor4Hmja4gKyBMVEwgKyBTYWZldHkgRlNNICsgY291bnRlcmV4YW1wbGUgcmVwYWlyIHwKfCAyMDI2LTA5LTAxIHwgU1RFR05hdjogU3BhdGlvLVRlbXBvcmFsIEV2ZW50IEdyYXBoIFJlYXNvbmluZyBmb3IgTXVsdGltb2RhbCBMaWZlbG9uZyBPYmplY3QgTmF2aWdhdGlvbiB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI4Mjc5KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDgtMjjvvJt0cmFpbmluZy1mcmVlIOaXtuepuuS6i+S7tuWbvumVv+acn+ivreS5ieWvvOiIqiB8CnwgMjAyNi0wOS0wMSB8IEJleW9uZCBEYXRhIFNjYWxpbmc6IFJlcHJlc2VudGF0aW9uLUNlbnRyaWMgQ29udGludWVkIFByZS10cmFpbmluZyBmb3IgVmlzaW9uLUxhbmd1YWdlLUFjdGlvbiBNb2RlbHMgLyBWTEFjdCB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI3NTUwKSDCtyBb6aG555uu6aG1XShodHRwczovL3N0YXJ2bGEuZ2l0aHViLmlvL1ZMQWN0LykgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA4LTI377yb6Leo5pys5L2T5Yqo5L2c6KGo56S6IGNvbnRpbnVlZCBwcmUtdHJhaW5pbmfvvJvmqKHlnosv5p2D6YeNL+a1geeoi+WFrOW8gCB8CnwgMjAyNi0wOS0wMSB8IExvb3BBcmVuYTogQmVuY2htYXJraW5nIE1vZGVscyBhcyBSdW50aW1lIENvbnRyb2xsZXJzIGZvciBMb29wIEVuZ2luZWVyaW5nIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDguMjgyODEpIMK3IFvku6PnoIFdKGh0dHBzOi8vZ2l0aHViLmNvbS9BTUFQLU1ML0xvb3BBcmVuYSkgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA4LTI477yb5Zu65a6aIFdvcmtlcuOAgeivhOa1i+mVv+acnyBDb2RpbmcgQWdlbnQgQ29udHJvbGxlciB8CnwgMjAyNi0wOS0wMSB8IG9wZW5KaXV3ZW46IEJleW9uZCBTdGF0aWMgSGFybmVzc2VzIGZvciBMb25nLUhvcml6b24gQ29kaW5nIEFnZW50cyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI3OTY5KSDCtyBbR2l0SHViXShodHRwczovL2dpdGh1Yi5jb20vb3BlbkppdXdlbi1haSkgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA4LTI477yb5Y+v57uE5ZCI5LiO6L+Q6KGM5pe26Ieq6YCC5bqUIENvZGluZyBBZ2VudCBoYXJuZXNzIHwKfCAyMDI2LTA5LTAxIHwgVm94ZWxpemVkIEdJQ1AgZm9yIEZhc3QgYW5kIEFjY3VyYXRlIDNEIFBvaW50IENsb3VkIFJlZ2lzdHJhdGlvbiB8IFtET0ldKGh0dHBzOi8vZG9pLm9yZy8xMC4xMTA5L0lDUkE0ODUwNi4yMDIxLjk1NjA4MzUpIMK3IFtmYXN0X2dpY3BdKGh0dHBzOi8vZ2l0aHViLmNvbS9rb2lkZTMvZmFzdF9naWNwKSDCtyBbc21hbGxfZ2ljcF0oaHR0cHM6Ly9naXRodWIuY29tL2tvaWRlMy9zbWFsbF9naWNwKSB8IOe7j+WFuOiuuuaWh+Wbnumhvu+8m0lDUkEgMjAyMe+8m1ZveGVsaXplZCBHSUNQIC8g5bGA6YOo6auY5pav57uf6K6h5Zyw5Zu+IHw=
         run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          p = Path('robotics-brief-covered-items.md')
-          s = p.read_text(encoding='utf-8')
-          if '| 2026-09-01 | One year in a forest:' not in s:
-              s = s.replace('> 最后更新：2026-08-31（Asia/Shanghai）', '> 最后更新：2026-09-01（Asia/Shanghai）', 1)
-              old = '> 2026-08-31 新增 8 条主动态与 1 条经典论文回顾，共 469 条。'
-              new = old + '\n>\n> 2026-09-01 新增 8 条主动态与 1 条经典论文回顾，共 478 条。'
-              s = s.replace(old, new, 1)
-              rows = '''| 2026-09-01 | One year in a forest: Analyzing the challenges of autonomous navigation in subarctic environments | [论文](https://arxiv.org/abs/2608.27628) | 时间回补；v1 2026-08-27；一年亚寒带森林、64 km、跨季节 SLAM/定位评测 |
-| 2026-09-01 | Distributed Model-Based Diffusion: Finite Horizon Contraction under Bounded Delay | [论文](https://arxiv.org/abs/2608.27685) | 时间回补；v1 2026-08-27；带通信延迟的分布式 sampling MPC |
-| 2026-09-01 | Contact-Guided Exploration for Non-Prehensile Locomanipulation with Multi-Critic RL | [论文](https://arxiv.org/abs/2608.28140) · [项目页](https://tolomeis.github.io/contact-guided-exp/) | 时间回补；v1 2026-08-28；接触引导探索 + Multi-Critic RL；真实四足移动操作 |
-| 2026-09-01 | PanelShield: Verifiable Closed-Loop Safe Planning for Robotic Industrial Panel Operation | [论文](https://arxiv.org/abs/2608.28305) | 时间回补；v1 2026-08-28；说明书证据 + LTL + Safety FSM + counterexample repair |
-| 2026-09-01 | STEGNav: Spatio-Temporal Event Graph Reasoning for Multimodal Lifelong Object Navigation | [论文](https://arxiv.org/abs/2608.28279) | 时间回补；v1 2026-08-28；training-free 时空事件图长期语义导航 |
-| 2026-09-01 | Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models / VLAct | [论文](https://arxiv.org/abs/2608.27550) · [项目页](https://starvla.github.io/VLAct/) | 时间回补；v1 2026-08-27；跨本体动作表示 continued pre-training；模型/权重/流程公开 |
-| 2026-09-01 | LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering | [论文](https://arxiv.org/abs/2608.28281) · [代码](https://github.com/AMAP-ML/LoopArena) | 时间回补；v1 2026-08-28；固定 Worker、评测长期 Coding Agent Controller |
-| 2026-09-01 | openJiuwen: Beyond Static Harnesses for Long-Horizon Coding Agents | [论文](https://arxiv.org/abs/2608.27969) · [GitHub](https://github.com/openJiuwen-ai) | 时间回补；v1 2026-08-28；可组合与运行时自适应 Coding Agent harness |
-| 2026-09-01 | Voxelized GICP for Fast and Accurate 3D Point Cloud Registration | [DOI](https://doi.org/10.1109/ICRA48506.2021.9560835) · [fast_gicp](https://github.com/koide3/fast_gicp) · [small_gicp](https://github.com/koide3/small_gicp) | 经典论文回顾；ICRA 2021；Voxelized GICP / 局部高斯统计地图 |'''
-              marker = '\n## 维护检查表'
-              if marker not in s:
-                  raise SystemExit('maintenance checklist marker not found')
-              s = s.replace(marker, '\n' + rows + '\n' + marker, 1)
-              p.write_text(s, encoding='utf-8')
-          PY
-          git checkout HEAD^ -- .github/workflows/pages.yml
+          echo "$ROWS_B64" | base64 -d > /tmp/robotics_rows.txt
+          python3 -c "from pathlib import Path; p=Path('robotics-brief-covered-items.md'); s=p.read_text(encoding='utf-8'); present='| 2026-09-01 | One year in a forest:' in s; rows=Path('/tmp/robotics_rows.txt').read_text(encoding='utf-8'); s=s if present else s.replace('> 最后更新：2026-08-31（Asia/Shanghai）','> 最后更新：2026-09-01（Asia/Shanghai）',1).replace('> 2026-08-31 新增 8 条主动态与 1 条经典论文回顾，共 469 条。','> 2026-08-31 新增 8 条主动态与 1 条经典论文回顾，共 469 条。\n>\n> 2026-09-01 新增 8 条主动态与 1 条经典论文回顾，共 478 条。',1).replace('\n## 维护检查表','\n'+rows+'\n## 维护检查表',1); p.write_text(s,encoding='utf-8')"
+          git checkout HEAD~2 -- .github/workflows/pages.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add robotics-brief-covered-items.md .github/workflows/pages.yml
