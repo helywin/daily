@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-08-31（Asia/Shanghai）
+> 最后更新：2026-09-01（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -59,6 +59,8 @@
 > 2026-08-30 新增 8 条主动态与 1 条经典论文回顾，共 460 条。
 >
 > 2026-08-31 新增 8 条主动态与 1 条经典论文回顾，共 469 条。
+>
+> 2026-09-01 新增 8 条主动态与 1 条经典论文回顾，共 478 条。
 
 ## 已核验条目
 
@@ -540,6 +542,15 @@
 | 2026-08-31 | Safety Does Not Compose: Non-Decaying Loop State for Autonomous LLM Agents / LoopHarness | [论文](https://arxiv.org/abs/2608.27141) | 时间回补；v2 2026-08-28；跨迭代持久非衰减安全状态与不可逆动作仲裁。 |
 | 2026-08-31 | ElasticFusion: Dense SLAM Without A Pose Graph | [RSS](https://www.roboticsproceedings.org/rss11/p01.html) · [代码](https://github.com/mp3guy/ElasticFusion) · [DOI](https://doi.org/10.15607/RSS.2015.XI.001) | 经典论文回顾；RSS 2015；surfel frame-to-model tracking、非刚性地图回环修正。 |
 
+| 2026-09-01 | One year in a forest: Analyzing the challenges of autonomous navigation in subarctic environments | [论文](https://arxiv.org/abs/2608.27628) | 时间回补；v1 2026-08-27；一年亚寒带森林、64 km、跨季节 SLAM/定位评测 |
+| 2026-09-01 | Distributed Model-Based Diffusion: Finite Horizon Contraction under Bounded Delay | [论文](https://arxiv.org/abs/2608.27685) | 时间回补；v1 2026-08-27；带通信延迟的分布式 sampling MPC |
+| 2026-09-01 | Contact-Guided Exploration for Non-Prehensile Locomanipulation with Multi-Critic RL | [论文](https://arxiv.org/abs/2608.28140) · [项目页](https://tolomeis.github.io/contact-guided-exp/) | 时间回补；v1 2026-08-28；接触引导探索 + Multi-Critic RL；真实四足移动操作 |
+| 2026-09-01 | PanelShield: Verifiable Closed-Loop Safe Planning for Robotic Industrial Panel Operation | [论文](https://arxiv.org/abs/2608.28305) | 时间回补；v1 2026-08-28；说明书证据 + LTL + Safety FSM + counterexample repair |
+| 2026-09-01 | STEGNav: Spatio-Temporal Event Graph Reasoning for Multimodal Lifelong Object Navigation | [论文](https://arxiv.org/abs/2608.28279) | 时间回补；v1 2026-08-28；training-free 时空事件图长期语义导航 |
+| 2026-09-01 | Beyond Data Scaling: Representation-Centric Continued Pre-training for Vision-Language-Action Models / VLAct | [论文](https://arxiv.org/abs/2608.27550) · [项目页](https://starvla.github.io/VLAct/) | 时间回补；v1 2026-08-27；跨本体动作表示 continued pre-training；模型/权重/流程公开 |
+| 2026-09-01 | LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering | [论文](https://arxiv.org/abs/2608.28281) · [代码](https://github.com/AMAP-ML/LoopArena) | 时间回补；v1 2026-08-28；固定 Worker、评测长期 Coding Agent Controller |
+| 2026-09-01 | openJiuwen: Beyond Static Harnesses for Long-Horizon Coding Agents | [论文](https://arxiv.org/abs/2608.27969) · [GitHub](https://github.com/openJiuwen-ai) | 时间回补；v1 2026-08-28；可组合与运行时自适应 Coding Agent harness |
+| 2026-09-01 | Voxelized GICP for Fast and Accurate 3D Point Cloud Registration | [DOI](https://doi.org/10.1109/ICRA48506.2021.9560835) · [fast_gicp](https://github.com/koide3/fast_gicp) · [small_gicp](https://github.com/koide3/small_gicp) | 经典论文回顾；ICRA 2021；Voxelized GICP / 局部高斯统计地图 |
 ## 维护检查表
 
 生成每日简报前：
