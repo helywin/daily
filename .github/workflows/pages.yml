@@ -1,13 +1,12 @@
-name: Update robotics brief coverage index 2026-09-02
+name: Deploy Jekyll site to Pages
 
 on:
   push:
     branches: ["master"]
-    paths:
-      - ".github/workflows/pages.yml"
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -16,42 +15,28 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update-robotics-index:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-          fetch-depth: 2
-      - name: Update coverage index
-        env:
-          ROWS_B64: "fCAyMDI2LTA5LTAyIHwgRmFpbHVyZSBvciBEcmlmdD8gRXZhbHVhdGluZyBNb25vY3VsYXIgU0xBTSB1bmRlciBTeW50aGV0aWMgYW5kIFJlYWwtV29ybGQgQ29ycnVwdGlvbnMgfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOC4zMDY5MCkgwrcgW+WunumqjOS7k+W6k10oaHR0cHM6Ly9naXRodWIuY29tL2FiaGF5dGhvbWFzL21hc3Rlcl90aGVzaXNfdnNsYW1sYWJfcm9idXN0bmVzcykgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA4LTMx77yb5Y2V55uuIFNMQU0g5ZCI5oiQL+ecn+WunumAgOWMluS4iyBmYWlsdXJlIOS4jiBzdXN0YWluZWQgZHJpZnQg5YiG56a76K+E5rWL44CCIHwKfCAyMDI2LTA5LTAyIHwgQSBTbGlkaW5nIFdpbmRvdyBGaWx0ZXIgb24gdGhlIEdhbGlsZWFuIEdyb3VwIGZvciBDb25zaXN0ZW50IEFpZGVkIEluZXJ0aWFsIE5hdmlnYXRpb24gd2l0aCBVbmtub3duIE1lYXN1cmVtZW50IERlbGF5cyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI5NTE0KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDgtMzDvvJvmnKrnn6Xlm7rlrpogYWlkaW5nIGRlbGF5IOeahOWPr+ingua1i+aAp+S4jua7keeql+S4gOiHtOiejeWQiOOAgiB8CnwgMjAyNi0wOS0wMiB8IEh5ZHJhOiBBIE5hdmlnYXRpb24gV29ybGQgQWN0aW9uIE1vZGVsIHdpdGggRGlzY3JldGUgTGF0ZW50IFBsYW5uaW5nIGFuZCBDb250aW51b3VzIEZsb3ctTWF0Y2hpbmcgRXhlY3V0aW9uIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDguMjg5OTUpIMK3IFvpobnnm67pobVdKGh0dHBzOi8vcm9ib3RpeHguZ2l0aHViLmlvL2h5ZHJhLykgwrcgW+adg+mHjV0oaHR0cHM6Ly9odWdnaW5nZmFjZS5jby9taG5hemVyaS9IeWRyYSkgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA4LTI577yb56a75pWj5r2c56m66Ze06KeE5YiSICsgRmxvdyBNYXRjaGluZyDov57nu63ovajov7nvvJvnnJ/lrp7mnLrlmajkurrjgIIgfAp8IDIwMjYtMDktMDIgfCBMQVJDOiBMYXp5IEFkYXB0aXZlIFJlYWNoYWJpbGl0eSBDZXJ0aWZpY2F0aW9uIG9mIFJvYm90IE1hbmlwdWxhdG9yIFRyYWplY3RvcmllcyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI5NzY3KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDgtMzDvvJvmnLrmorDoh4Lov57nu63ml7bpl7TlpJbpg6jpmpznoo0gY2xlYXJhbmNlIOiHqumAguW6lOWPr+i+vuaAp+iupOivgeOAgiB8CnwgMjAyNi0wOS0wMiB8IEdlbmVyYWxpemFibGUgTXVsdGktQWdlbnQgUGxhbm5pbmcgZnJvbSBTaWduYWwgVGVtcG9yYWwgTG9naWMgU3BlY2lmaWNhdGlvbnMgdmlhIERpZmZ1c2lvbiB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI5NDkwKSDCtyBb6aG555uu6aG1XShodHRwczovL3d3dy5qZWFwcGVuLmNvbS9kaWZmLW1hLXN0bC8pIMK3IFvku6PnoIHku5PlupNdKGh0dHBzOi8vZ2l0aHViLmNvbS9qZWFwcGVuL2RpZmYtbWEtc3RsKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDgtMzDvvJtTVEwgZ3JhZGllbnQtZ3VpZGVkIGRpZmZ1c2lvbu+8m+W8guaehOWkmuacuuWZqOS6uuinhOWIku+8m1JBLUwgMjAyNuOAgiB8CnwgMjAyNi0wOS0wMiB8IENvc3QtRWZmZWN0aXZlIFJlcG9zaXRvcnkgRXhwbG9yYXRpb24gZm9yIEFnZW50aWMgSXNzdWUgTG9jYWxpemF0aW9uIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDguMjk2NzUpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOC0zMO+8m1JlYWQtb25seSBTY291dCDnmoTmiJDmnKwv5a6a5L2N6LSo6YeP5p2D6KGh77ybSXNzdWVMb2MtQmVuY2jjgIIgfAp8IDIwMjYtMDktMDIgfCBGbG93Q2hlY2s6IEhlbHBpbmcgRW5kLVVzZXJzIFNwZWNpZnkgYW5kIFZlcmlmeSBJbnRlbnQgaW4gVmliZS1Db2RlZCBXZWIgQXBwcyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA4LjI4ODgwKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDgtMjjvvJtVSSDkv6Hmga/mtYHnuqbmnZ/nvJbor5HkuLrnoa7lrprmgKcgQ29kZVFM77ybTE1QTCAnMjbjgIIgfAp8IDIwMjYtMDktMDIgfCBDbGF1ZGUgRmFibGUgNS4xIHwgW+WumOaWueWPkeW4g10oaHR0cHM6Ly93d3cuYW50aHJvcGljLmNvbS9jbGF1ZGUvZmFibGUpIHwgMjAyNi0wOS0wMSDmraPlvI/lj5HluIPvvJvplb/ml7YgQ29kaW5nL0tub3dsZWRnZSBBZ2VudO+8m0FQSSBjbGF1ZGUtZmFibGUtNS0x44CCIHwKfCAyMDI2LTA5LTAyIHwgRGlyZWN0IFNwYXJzZSBPZG9tZXRyeSAoRFNPKSB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8xNjA3LjAyNTY1KSDCtyBb5a6Y5pa55Luj56CBXShodHRwczovL2dpdGh1Yi5jb20vSmFrb2JFbmdlbC9kc28pIHwg57uP5YW46K665paH5Zue6aG+77ybMjAxNu+8m+eogOeWj+ebtOaOpeazleOAgeiBlOWQiOWFieW6puagh+WumuS4jua7keeql+S8mOWMluOAgiB8Cg=="
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import os, base64
-          path = Path("robotics-brief-covered-items.md")
-          text = path.read_text(encoding="utf-8")
-          text = text.replace("> 最后更新：2026-09-01（Asia/Shanghai）", "> 最后更新：2026-09-02（Asia/Shanghai）")
-          old = "> 2026-09-01 新增 8 条主动态与 1 条经典论文回顾，共 478 条。\n"
-          new = old + ">\n> 2026-09-02 新增 8 条主动态与 1 条经典论文回顾，共 487 条。\n"
-          if "2026-09-02 新增 8 条主动态" not in text:
-              if old not in text:
-                  raise SystemExit("history anchor missing")
-              text = text.replace(old, new, 1)
-          rows = base64.b64decode(os.environ["ROWS_B64"]).decode("utf-8")
-          if "2608.30690" not in text:
-              marker = "## 维护检查表"
-              if marker not in text:
-                  raise SystemExit("maintenance marker missing")
-              text = text.replace(marker, rows + "\n" + marker, 1)
-          path.write_text(text, encoding="utf-8")
-          PY
-      - name: Restore Pages workflow and commit index
-        run: |
-          git show HEAD^:.github/workflows/pages.yml > .github/workflows/pages.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add robotics-brief-covered-items.md .github/workflows/pages.yml
-          git commit -m "docs: update robotics brief coverage index for 2026-09-02"
-          git push
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

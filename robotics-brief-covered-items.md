@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-01（Asia/Shanghai）
+> 最后更新：2026-09-02（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -61,6 +61,8 @@
 > 2026-08-31 新增 8 条主动态与 1 条经典论文回顾，共 469 条。
 >
 > 2026-09-01 新增 8 条主动态与 1 条经典论文回顾，共 478 条。
+>
+> 2026-09-02 新增 8 条主动态与 1 条经典论文回顾，共 487 条。
 
 ## 已核验条目
 
@@ -551,6 +553,16 @@
 | 2026-09-01 | LoopArena: Benchmarking Models as Runtime Controllers for Loop Engineering | [论文](https://arxiv.org/abs/2608.28281) · [代码](https://github.com/AMAP-ML/LoopArena) | 时间回补；v1 2026-08-28；固定 Worker、评测长期 Coding Agent Controller |
 | 2026-09-01 | openJiuwen: Beyond Static Harnesses for Long-Horizon Coding Agents | [论文](https://arxiv.org/abs/2608.27969) · [GitHub](https://github.com/openJiuwen-ai) | 时间回补；v1 2026-08-28；可组合与运行时自适应 Coding Agent harness |
 | 2026-09-01 | Voxelized GICP for Fast and Accurate 3D Point Cloud Registration | [DOI](https://doi.org/10.1109/ICRA48506.2021.9560835) · [fast_gicp](https://github.com/koide3/fast_gicp) · [small_gicp](https://github.com/koide3/small_gicp) | 经典论文回顾；ICRA 2021；Voxelized GICP / 局部高斯统计地图 |
+| 2026-09-02 | Failure or Drift? Evaluating Monocular SLAM under Synthetic and Real-World Corruptions | [论文](https://arxiv.org/abs/2608.30690) · [实验仓库](https://github.com/abhaythomas/master_thesis_vslamlab_robustness) | 时间回补；v1 2026-08-31；单目 SLAM 合成/真实退化下 failure 与 sustained drift 分离评测。 |
+| 2026-09-02 | A Sliding Window Filter on the Galilean Group for Consistent Aided Inertial Navigation with Unknown Measurement Delays | [论文](https://arxiv.org/abs/2608.29514) | 时间回补；v1 2026-08-30；未知固定 aiding delay 的可观测性与滑窗一致融合。 |
+| 2026-09-02 | Hydra: A Navigation World Action Model with Discrete Latent Planning and Continuous Flow-Matching Execution | [论文](https://arxiv.org/abs/2608.28995) · [项目页](https://robotixx.github.io/hydra/) · [权重](https://huggingface.co/mhnazeri/Hydra) | 时间回补；v1 2026-08-29；离散潜空间规划 + Flow Matching 连续轨迹；真实机器人。 |
+| 2026-09-02 | LARC: Lazy Adaptive Reachability Certification of Robot Manipulator Trajectories | [论文](https://arxiv.org/abs/2608.29767) | 时间回补；v1 2026-08-30；机械臂连续时间外部障碍 clearance 自适应可达性认证。 |
+| 2026-09-02 | Generalizable Multi-Agent Planning from Signal Temporal Logic Specifications via Diffusion | [论文](https://arxiv.org/abs/2608.29490) · [项目页](https://www.jeappen.com/diff-ma-stl/) · [代码仓库](https://github.com/jeappen/diff-ma-stl) | 时间回补；v1 2026-08-30；STL gradient-guided diffusion；异构多机器人规划；RA-L 2026。 |
+| 2026-09-02 | Cost-Effective Repository Exploration for Agentic Issue Localization | [论文](https://arxiv.org/abs/2608.29675) | 时间回补；v1 2026-08-30；Read-only Scout 的成本/定位质量权衡；IssueLoc-Bench。 |
+| 2026-09-02 | FlowCheck: Helping End-Users Specify and Verify Intent in Vibe-Coded Web Apps | [论文](https://arxiv.org/abs/2608.28880) | 时间回补；v1 2026-08-28；UI 信息流约束编译为确定性 CodeQL；LMPL '26。 |
+| 2026-09-02 | Claude Fable 5.1 | [官方发布](https://www.anthropic.com/claude/fable) | 2026-09-01 正式发布；长时 Coding/Knowledge Agent；API claude-fable-5-1。 |
+| 2026-09-02 | Direct Sparse Odometry (DSO) | [论文](https://arxiv.org/abs/1607.02565) · [官方代码](https://github.com/JakobEngel/dso) | 经典论文回顾；2016；稀疏直接法、联合光度标定与滑窗优化。 |
+
 ## 维护检查表
 
 生成每日简报前：
