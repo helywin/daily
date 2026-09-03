@@ -1,0 +1,55 @@
+name: update-robotics-index-2026-09-03
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/update-robotics-index-2026-09-03.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Update coverage index with optimistic SHA guard
+        env:
+          EXPECTED_SHA: 1a189308f4109b2481a06ef6711dfd511ed03404
+          ENTRIES_B64: fCAyMDI2LTA5LTAzIHwgUGFyYWxsZWwgUmVmZXJlbmNlLUNlbnRyaWMgQ29udGludW91cy1UaW1lIFJlbGF0aXZlIExvY2FsaXphdGlvbiB3aXRoIEF1Z21lbnRlZCBDbGFtcGVkIE5vbi1Vbmlmb3JtIEItU3BsaW5lcyAvIENULVJJTyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjAyLjIyMDA2KSB8IOacgOi/kTI05bCP5pe25a6e6LSo5pu05paw77ybdjEgMjAyNi0wMi0yNe+8jHY0IDIwMjYtMDktMDLvvJvlpJrmnLrlmajkurrov57nu63ml7bpl7Tnm7jlr7nmg6/mgKfph4znqIvorqHjgIHlvILmraXop4LmtYvkuI7lnKjnur/ml7bpkp/lgY/lt67jgIIgfAp8IDIwMjYtMDktMDMgfCBBZGFwdGl2ZSBEZXB0aC1NYXAtR3VpZGVkIEJ1bmRsZSBBZGp1c3RtZW50IGZvciBDb3JyZXNwb25kZW5jZS1GcmVlIE11bHRpLVZpZXcgUG9pbnQgQ2xvdWQgUmVnaXN0cmF0aW9uIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDEwODkpIMK3IFvku6PnoIFdKGh0dHBzOi8vZ2l0aHViLmNvbS9ZaXJhblpob3UtUm9ib3RpY3MvQURNLUJBKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDHvvJvoh6rpgILlupTlpJrlsYIgMi41RCDmt7HluqblnLDlm77jgIHml6DmmL7lvI8gY29ycmVzcG9uZGVuY2Ug5aSa6KeG5Zu+54K55LqRIEJB44CCIHwKfCAyMDI2LTA5LTAzIHwgQWNjZWxlcmF0aW5nIFJlaW5mb3JjZW1lbnQgTGVhcm5pbmcgdmlhIE1QQyBTb2x2ZXItR3JhZGllbnQgR3VpZGFuY2UgZm9yIFdlaWdodHMtdmFyeWluZyBNUEMgLyBTRy1STCB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjAxMDYxKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDHvvJtQUE8g5Zyo57q/6LCDIE5NUEMg5p2D6YeN77yMc29sdmVyIHNlbnNpdGl2aXR5IOS7heS9nOi+heWKqeair+W6pu+8m+WtpuS5oOetlueVpeWcqOmrmOS/neecn+WFqOWwuuWvuOi1m+i9puS7v+ecn+mqjOivgeOAgiB8CnwgMjAyNi0wOS0wMyB8IFByb3hQSTogUHJveGltYWwgUHJpb3IgSW5qZWN0aW9uIGZvciBTYW1wbGluZy1CYXNlZCBNUEMgdW5kZXIgTGVhcm5lZC1QcmlvciBNaXNtYXRjaCB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjAwOTQxKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDHvvJvkv53mjIEgTVBQSSBub21pbmFsLWNlbnRlcmVkIHNhbXBsaW5n77yM5bCGIGxlYXJuZWQgcHJpb3Ig5L2c5Li6IHNvZnQgcHJveGltYWwgY29zdO+8m+ecn+WuniBGUjMg6aqM6K+BIE9PRCDnm67moIfliIfmjaLjgIIgfAp8IDIwMjYtMDktMDMgfCBGYWNldC0wOiBBIFJvYm90aWMgRm91bmRhdGlvbiBNb2RlbCBmb3IgQ29udGFjdC1SaWNoIFByZWNpc2UgTWFuaXB1bGF0aW9uIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDE1OTYpIMK3IFvpobnnm67pobVdKGh0dHBzOi8vcGluZS1sYWItbnR1LmdpdGh1Yi5pby9mYWNldC0wLykgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA5LTAx77ybTWFudUZhY2V0LTFL44CBYWN0aW9uLXdyZW5jaCBwcm9wb3NhbOOAgeaOpeinpueyvuWvhuijhemFjeS4juWkmumAn+eOh+aOp+WItuOAgiB8CnwgMjAyNi0wOS0wMyB8IEtub3dpbmcgV2hlbiB0byBTdG9wOiBBZGFwdGl2ZSBBY3Rpb24gQ2h1bmtpbmcgdmlhIEludGVybmFsIENyb3NzLUF0dGVudGlvbiBEeW5hbWljcyBpbiBWTEFzIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDA5MDgpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0wMe+8m+WIqeeUqCBjcm9zcy1hdHRlbnRpb24gZW50cm9weSBwbGF0ZWF1IOWBmiB0cmFpbmluZy1mcmVlIGFjdGlvbiBjaHVuayDliqjmgIHmiKrmlq3vvJvnnJ/lrp7lj4zoh4Lpqozor4HjgIIgfAp8IDIwMjYtMDktMDMgfCBIYXJuZXNzRGV2OiBDYW4gTExNcyBDcmVhdGUgYW5kIEV2b2x2ZSBUaGVpciBPd24gQWdlbnQgSGFybmVzcz8gfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4wMTQzNykgwrcgW+mhueebrumhtV0oaHR0cHM6Ly9zZWxmLWRldmVsb3BpbmctYWdlbnRzLmdpdGh1Yi5pby8pIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0wMe+8m+ivhOa1iyBBZ2VudCDliJvlu7ov5ryU5YyWIHJ1bm5hYmxlIGhhcm5lc3Mg55qEIGhlbGQtb3V0IOazm+WMluS4juaIkOacrO+8jOaatOmcsuiHqui/m+WMluWbnuW9kumjjumZqeOAgiB8CnwgMjAyNi0wOS0wMyB8IEdlbWluaSAzLjggRmxhc2ggfCBb5qih5Z6L5Y2hXShodHRwczovL2RlZXBtaW5kLmdvb2dsZS9tb2RlbHMvbW9kZWwtY2FyZHMvZ2VtaW5pLTMtOC1mbGFzaC8pIMK3IFvmqKHlnovpobVdKGh0dHBzOi8vZGVlcG1pbmQuZ29vZ2xlL21vZGVscy9nZW1pbmkvZmxhc2gvKSB8IDIwMjYtMDktMDIg5a6Y5pa55Y+R5biD77yb6Z2i5ZCRIHNvZnR3YXJlIGVuZ2luZWVyaW5n44CBbG9uZy1ob3Jpem9uIGtub3dsZWRnZSB3b3JrIOS4jiBhZ2VudGljIGV4ZWN1dGlvbu+8mzFNIGNvbnRleHQgLyA2NEsgb3V0cHV044CCIHwKfCAyMDI2LTA5LTAzIHwgQnVuZGxlIEFkanVzdG1lbnQg4oCUIEEgTW9kZXJuIFN5bnRoZXNpcyB8IFtET0ldKGh0dHBzOi8vZG9pLm9yZy8xMC4xMDA3LzMtNTQwLTQ0NDgwLTdfMjEpIMK3IFtDZXJlcyBCQSDmlZnnqItdKGh0dHBzOi8vY2VyZXMtc29sdmVyLnJlYWR0aGVkb2NzLmlvL2xhdGVzdC9ubmxzX3R1dG9yaWFsLmh0bWwjYnVuZGxlLWFkanVzdG1lbnQpIHwg57uP5YW46K665paH5Zue6aG+77ybMjAwMO+8m+iBlOWQiOe7k+aehC/kvY3lp7/kvJjljJbjgIFTY2h1ciBDb21wbGVtZW5044CBR2F1Z2UvT2JzZXJ2YWJpbGl0eSDkuI7psoHmo5IgQkHjgIIgfA==
+        run: |
+          set -euo pipefail
+          current_sha="$(git hash-object robotics-brief-covered-items.md)"
+          if [ "$current_sha" != "$EXPECTED_SHA" ]; then
+            echo "Index SHA changed: expected $EXPECTED_SHA got $current_sha" >&2
+            exit 41
+          fi
+          python - <<'PY'
+          import os, base64
+          from pathlib import Path
+          p = Path('robotics-brief-covered-items.md')
+          text = p.read_text(encoding='utf-8')
+          text = text.replace('> 最后更新：2026-09-02（Asia/Shanghai）', '> 最后更新：2026-09-03（Asia/Shanghai）', 1)
+          anchor = '> 2026-09-02 新增 8 条主动态与 1 条经典论文回顾，共 487 条。\n'
+          history = '> 2026-09-03 新增 8 条主动态与 1 条经典论文回顾，共 496 条。\n'
+          if history not in text:
+              if anchor not in text:
+                  raise SystemExit('history anchor missing')
+              text = text.replace(anchor, anchor + '>\n' + history, 1)
+          entries = base64.b64decode(os.environ['ENTRIES_B64']).decode('utf-8')
+          marker = '\n## 维护检查表'
+          if '| 2026-09-03 | Gemini 3.8 Flash |' not in text:
+              if marker not in text:
+                  raise SystemExit('maintenance marker missing')
+              text = text.replace(marker, '\n\n' + entries + '\n' + marker, 1)
+          p.write_text(text, encoding='utf-8')
+          PY
+          rm -f .github/workflows/update-robotics-index-2026-09-03.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add robotics-brief-covered-items.md .github/workflows/update-robotics-index-2026-09-03.yml
+          git commit -m "docs: update robotics brief coverage index for 2026-09-03"
+          git push
