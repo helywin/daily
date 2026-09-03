@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-02（Asia/Shanghai）
+> 最后更新：2026-09-03（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -63,6 +63,8 @@
 > 2026-09-01 新增 8 条主动态与 1 条经典论文回顾，共 478 条。
 >
 > 2026-09-02 新增 8 条主动态与 1 条经典论文回顾，共 487 条。
+>
+> 2026-09-03 新增 8 条主动态与 1 条经典论文回顾，共 496 条。
 
 ## 已核验条目
 
@@ -562,6 +564,17 @@
 | 2026-09-02 | FlowCheck: Helping End-Users Specify and Verify Intent in Vibe-Coded Web Apps | [论文](https://arxiv.org/abs/2608.28880) | 时间回补；v1 2026-08-28；UI 信息流约束编译为确定性 CodeQL；LMPL '26。 |
 | 2026-09-02 | Claude Fable 5.1 | [官方发布](https://www.anthropic.com/claude/fable) | 2026-09-01 正式发布；长时 Coding/Knowledge Agent；API claude-fable-5-1。 |
 | 2026-09-02 | Direct Sparse Odometry (DSO) | [论文](https://arxiv.org/abs/1607.02565) · [官方代码](https://github.com/JakobEngel/dso) | 经典论文回顾；2016；稀疏直接法、联合光度标定与滑窗优化。 |
+
+
+| 2026-09-03 | Parallel Reference-Centric Continuous-Time Relative Localization with Augmented Clamped Non-Uniform B-Splines / CT-RIO | [论文](https://arxiv.org/abs/2602.22006) | 最近24小时实质更新；v1 2026-02-25，v4 2026-09-02；多机器人连续时间相对惯性里程计、异步观测与在线时钟偏差。 |
+| 2026-09-03 | Adaptive Depth-Map-Guided Bundle Adjustment for Correspondence-Free Multi-View Point Cloud Registration | [论文](https://arxiv.org/abs/2609.01089) · [代码](https://github.com/YiranZhou-Robotics/ADM-BA) | 时间回补；v1 2026-09-01；自适应多层 2.5D 深度地图、无显式 correspondence 多视图点云 BA。 |
+| 2026-09-03 | Accelerating Reinforcement Learning via MPC Solver-Gradient Guidance for Weights-varying MPC / SG-RL | [论文](https://arxiv.org/abs/2609.01061) | 时间回补；v1 2026-09-01；PPO 在线调 NMPC 权重，solver sensitivity 仅作辅助梯度；学习策略在高保真全尺寸赛车仿真验证。 |
+| 2026-09-03 | ProxPI: Proximal Prior Injection for Sampling-Based MPC under Learned-Prior Mismatch | [论文](https://arxiv.org/abs/2609.00941) | 时间回补；v1 2026-09-01；保持 MPPI nominal-centered sampling，将 learned prior 作为 soft proximal cost；真实 FR3 验证 OOD 目标切换。 |
+| 2026-09-03 | Facet-0: A Robotic Foundation Model for Contact-Rich Precise Manipulation | [论文](https://arxiv.org/abs/2609.01596) · [项目页](https://pine-lab-ntu.github.io/facet-0/) | 时间回补；v1 2026-09-01；ManuFacet-1K、action-wrench proposal、接触精密装配与多速率控制。 |
+| 2026-09-03 | Knowing When to Stop: Adaptive Action Chunking via Internal Cross-Attention Dynamics in VLAs | [论文](https://arxiv.org/abs/2609.00908) | 时间回补；v1 2026-09-01；利用 cross-attention entropy plateau 做 training-free action chunk 动态截断；真实双臂验证。 |
+| 2026-09-03 | HarnessDev: Can LLMs Create and Evolve Their Own Agent Harness? | [论文](https://arxiv.org/abs/2609.01437) · [项目页](https://self-developing-agents.github.io/) | 时间回补；v1 2026-09-01；评测 Agent 创建/演化 runnable harness 的 held-out 泛化与成本，暴露自进化回归风险。 |
+| 2026-09-03 | Gemini 3.8 Flash | [模型卡](https://deepmind.google/models/model-cards/gemini-3-8-flash/) · [模型页](https://deepmind.google/models/gemini/flash/) | 2026-09-02 官方发布；面向 software engineering、long-horizon knowledge work 与 agentic execution；1M context / 64K output。 |
+| 2026-09-03 | Bundle Adjustment — A Modern Synthesis | [DOI](https://doi.org/10.1007/3-540-44480-7_21) · [Ceres BA 教程](https://ceres-solver.readthedocs.io/latest/nnls_tutorial.html#bundle-adjustment) | 经典论文回顾；2000；联合结构/位姿优化、Schur Complement、Gauge/Observability 与鲁棒 BA。 |
 
 ## 维护检查表
 
