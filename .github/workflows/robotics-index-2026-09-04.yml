@@ -1,0 +1,62 @@
+name: robotics-index-2026-09-04
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/robotics-index-2026-09-04.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    if: contains(github.event.head_commit.message, 'chore: run robotics index updater 2026-09-04')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Update robotics coverage index
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('robotics-brief-covered-items.md')
+          s = p.read_text(encoding='utf-8')
+
+          old_date = '> 最后更新：2026-09-03（Asia/Shanghai）'
+          new_date = '> 最后更新：2026-09-04（Asia/Shanghai）'
+          assert old_date in s, 'last-update marker not found'
+          s = s.replace(old_date, new_date, 1)
+
+          old_hist = '> 2026-09-03 新增 8 条主动态与 1 条经典论文回顾，共 496 条。'
+          new_hist = old_hist + '\n>\n> 2026-09-04 新增 8 条主动态与 1 条经典论文回顾，共 505 条。'
+          assert old_hist in s, 'history marker not found'
+          s = s.replace(old_hist, new_hist, 1)
+
+          rows = '''| 2026-09-04 | FOCUS: Foot Observation Confidence for Robust Humanoid Proprioceptive Odometry | [论文](https://arxiv.org/abs/2609.02222) |  |
+          | 2026-09-04 | Real-Time Dynamics-Based Torque-Sampling MPPI for Compliant and Force Aware Manipulation | [论文](https://arxiv.org/abs/2609.02020) | IROS 2026 |
+          | 2026-09-04 | Humanoid Safe Stop via Learned Stoppability Value | [论文](https://arxiv.org/abs/2609.02358) · [项目页](https://junfeng-long.github.io/safestop/) |  |
+          | 2026-09-04 | World-Model-Augmented Visual Locomotion for Humanoids on Foothold-Constrained Terrain | [论文](https://arxiv.org/abs/2609.02542) |  |
+          | 2026-09-04 | MS-MEM: Multi-Skill Manipulation-Enhanced Mapping via Uncertainty- and Disturbance-Aware Action Selection | [论文](https://arxiv.org/abs/2609.02493) |  |
+          | 2026-09-04 | HINT: Human-Intent Inception for Long-Horizon Robot Manipulation | [论文](https://arxiv.org/abs/2609.02653) · [项目页](https://robot-hint.github.io/) |  |
+          | 2026-09-04 | Harness Engineering in LLM Tool Use via Agent-Native Reusable Tool Primitives | [论文](https://arxiv.org/abs/2609.01736) |  |
+          | 2026-09-04 | GPT-6 Astra | [官方模型](https://developers.openai.com/api/docs/models/gpt-6-astra) · [安全说明](https://openai.com/index/safety-overview-gpt-6-astra/) | 2026-09-03 正式发布 |
+          | 2026-09-04 | Contact-Aided Invariant Extended Kalman Filtering for Robot State Estimation | [DOI](https://doi.org/10.1177/0278364919894385) · [代码](https://github.com/RossHartley/invariant-ekf) | 经典论文回顾；RSS 2018 / IJRR 2020 |'''
+          rows = '\n'.join(line.strip() for line in rows.splitlines())
+          marker = '\n## 维护检查表'
+          assert marker in s, 'maintenance heading not found'
+          assert '2609.02222' not in s, 'today rows already exist'
+          s = s.replace(marker, '\n' + rows + '\n\n## 维护检查表', 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+          rm .github/workflows/robotics-index-2026-09-04.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add robotics-brief-covered-items.md .github/workflows/robotics-index-2026-09-04.yml
+          git commit -m 'docs: update robotics brief coverage index for 2026-09-04'
+          git push origin HEAD:master
