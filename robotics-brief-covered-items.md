@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-03（Asia/Shanghai）
+> 最后更新：2026-09-04（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -65,6 +65,8 @@
 > 2026-09-02 新增 8 条主动态与 1 条经典论文回顾，共 487 条。
 >
 > 2026-09-03 新增 8 条主动态与 1 条经典论文回顾，共 496 条。
+>
+> 2026-09-04 新增 8 条主动态与 1 条经典论文回顾，共 505 条。
 
 ## 已核验条目
 
@@ -575,6 +577,16 @@
 | 2026-09-03 | HarnessDev: Can LLMs Create and Evolve Their Own Agent Harness? | [论文](https://arxiv.org/abs/2609.01437) · [项目页](https://self-developing-agents.github.io/) | 时间回补；v1 2026-09-01；评测 Agent 创建/演化 runnable harness 的 held-out 泛化与成本，暴露自进化回归风险。 |
 | 2026-09-03 | Gemini 3.8 Flash | [模型卡](https://deepmind.google/models/model-cards/gemini-3-8-flash/) · [模型页](https://deepmind.google/models/gemini/flash/) | 2026-09-02 官方发布；面向 software engineering、long-horizon knowledge work 与 agentic execution；1M context / 64K output。 |
 | 2026-09-03 | Bundle Adjustment — A Modern Synthesis | [DOI](https://doi.org/10.1007/3-540-44480-7_21) · [Ceres BA 教程](https://ceres-solver.readthedocs.io/latest/nnls_tutorial.html#bundle-adjustment) | 经典论文回顾；2000；联合结构/位姿优化、Schur Complement、Gauge/Observability 与鲁棒 BA。 |
+
+| 2026-09-04 | FOCUS: Foot Observation Confidence for Robust Humanoid Proprioceptive Odometry | [论文](https://arxiv.org/abs/2609.02222) |  |
+| 2026-09-04 | Real-Time Dynamics-Based Torque-Sampling MPPI for Compliant and Force Aware Manipulation | [论文](https://arxiv.org/abs/2609.02020) | IROS 2026 |
+| 2026-09-04 | Humanoid Safe Stop via Learned Stoppability Value | [论文](https://arxiv.org/abs/2609.02358) · [项目页](https://junfeng-long.github.io/safestop/) |  |
+| 2026-09-04 | World-Model-Augmented Visual Locomotion for Humanoids on Foothold-Constrained Terrain | [论文](https://arxiv.org/abs/2609.02542) |  |
+| 2026-09-04 | MS-MEM: Multi-Skill Manipulation-Enhanced Mapping via Uncertainty- and Disturbance-Aware Action Selection | [论文](https://arxiv.org/abs/2609.02493) |  |
+| 2026-09-04 | HINT: Human-Intent Inception for Long-Horizon Robot Manipulation | [论文](https://arxiv.org/abs/2609.02653) · [项目页](https://robot-hint.github.io/) |  |
+| 2026-09-04 | Harness Engineering in LLM Tool Use via Agent-Native Reusable Tool Primitives | [论文](https://arxiv.org/abs/2609.01736) |  |
+| 2026-09-04 | GPT-6 Astra | [官方模型](https://developers.openai.com/api/docs/models/gpt-6-astra) · [安全说明](https://openai.com/index/safety-overview-gpt-6-astra/) | 2026-09-03 正式发布 |
+| 2026-09-04 | Contact-Aided Invariant Extended Kalman Filtering for Robot State Estimation | [DOI](https://doi.org/10.1177/0278364919894385) · [代码](https://github.com/RossHartley/invariant-ekf) | 经典论文回顾；RSS 2018 / IJRR 2020 |
 
 ## 维护检查表
 
