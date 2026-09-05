@@ -19,11 +19,34 @@ jobs:
       - name: Update coverage index
         shell: bash
         run: |
-          python -c 'from pathlib import Path; import base64; p=Path("robotics-brief-covered-items.md"); s=p.read_text(); old="> 最后更新：2026-09-04（Asia/Shanghai）"; new="> 最后更新：2026-09-05（Asia/Shanghai）"; anchor="> 2026-09-04 新增 8 条主动态与 1 条经典论文回顾，共 505 条。"; count=anchor+"\n>\n> 2026-09-05 新增 8 条主动态与 1 条经典论文回顾，共 514 条。"; rows=base64.b64decode("fCAyMDI2LTA5LTA1IHwgVFJhSUwtT2RvbTogVGlnaHRseSBDb3VwbGVkIENvbnRpbnVvdXMgVGltZSBSYWRhci1JTVUtTGlEQVIgT2RvbWV0cnkgd2l0aCBBZGFwdGl2ZSBEb3BwbGVyIFdlaWdodGluZyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjAzNTYxKSDCtyBb5Luj56CB5LiO5pWw5o2uXShodHRwczovL2dpdGh1Yi5jb20vQ2hpeXVuTm9oL1RSYUlMLU9kb20pIHwg5pe26Ze05Zue6KGl77yb5pa55ZCR57qnIExpREFSIOmAgOWMluiviuarr+S4qiDoh6rpgILlupQgUmFkYXIgRG9wcGxlciDmnYPph43vvJtSQS1MIDIwMjYgfAp8IDIwMjYtMDktMDUgfCBGb2xsb3dpbmcgYSBVbmlxdWUgUGF0aDogQSBGYXN0IENlcnRpZmllciBBcHBsaWVkIHRvIE91dGxpZXItUm9idXN0IFBvc2UgUmVnaXN0cmF0aW9uIC8gQ1AtQ2VydCB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjAzMjIyKSB8IOaXtumXtOWbnuihpe+8m0NlbnRyYWwtUGF0aCBDZXJ0aWZpZXLvvJvpspzmo5LkvY3lp7/pgYjlhobmnIDkvJjmgKforqTor4EgfAp8IDIwMjYtMDktMDUgfCBSZWFsLVRpbWUgU2hhcGUgQ29udHJvbCBvZiBNdWx0aS1TZWdtZW50IFNvZnQgUm9ib3RpYyBBcm1zIFVzaW5nIEtvb3BtYW4gT3BlcmF0b3JzIHdpdGggR2xvYmFsIGFuZCBMb2NhbCBPYnNlcnZhYmxlcyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjAzMTc1KSB8IOaXtumXtOWbnuihpe+8m0tvb3BtYW4tTVBD77yb5aSa5q616L2v6IeC5pW05b2i5o6n5Yi2IHwKfCAyMDI2LTA5LTA1IHwgUHJlZGljdGl2ZSBab25vdG9wZSBSZWR1Y3Rpb246IFByZWNpc2UgUnVudGltZSBNb25pdG9yaW5nIHVuZGVyIFVuY2VydGFpbnR5IHwgW+iul+WHsl0oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDM2OTkpIHwg5pe26Ze05Zue6KGl77yb5Yqo5oCBIHpvbm90b3BlIHJlZHVjdGlvbu+8m1Jhc3BiZXJyeSBQaSA1IHJ1bnRpbWUgbW9uaXRvcmluZyB8CnwgMjAyNi0wOS0wNSB8IFIyUy1FdmFsOiBSb2JvdCBFdmFsdWF0aW9uIHdpdGggUmVhbC10by1TaW0gQ2FsaWJyYXRpb24gdmlhIFZpc2lvbi1MYW5ndWFnZSBNb2RlbHMgfCBb6K665paHXSghttps://arxiv.org/abs/2609.03276) · [项目页](https://r2s-eval.github.io/) | 时间回补；Real-to-Sim 校准 + VLM preference policy ranking |
-| 2026-09-05 | WISE: World-model-guided Imagination Scheduling for Efficient Post-training of Vision-Language-Action Models | [论文](https://arxiv.org/abs/2609.03681) | 时间回补；按需 bounded imagination；GPU computation 约降 80% |
-| 2026-09-05 | Requirements After the First Edit: Mining Late Requirement Emergence and Rework in Real-World Coding-Agent Sessions | [论文](https://arxiv.org/abs/2609.03028) | 时间回补；3,553 SWE-chat sessions；late requirement 与约 2× code invalidation |
-| 2026-09-05 | Formalizing Fermat's Last Theorem with Claude | [官方研究](https://www.anthropic.com/research/formalizing-fermats-last-theorem) · [Lean 证明](https://github.com/anthropics/fermats-last-theorem) | 2026-09-04 官方更新；11 天多 Agent + Prove2Me DAG + Lean/nanoda 独立验证 |
-| 2026-09-05 | Object Modeling by Registration of Multiple Range Images / Chen–Medioni Point-to-Plane Registration | [ICRA 论文](https://graphics.stanford.edu/~smr/ICP/comparison/chen-medioni-align-rob91.pdf) · [DOI](https://doi.org/10.1016/0262-8856(92)90066-C) | 经典论文回顾；ICRA 1991 / Image and Vision Computing 1992；point-to-plane registration |".encode()).decode(); marker="\n## 维护检查表"; assert old in s; assert anchor in s; assert marker in s; assert "2609.03561" not in s; s=s.replace(old,new,1).replace(anchor,count,1).replace(marker,"\n"+rows+"\n"+marker,1); p.write_text(s)'
+          cat > /tmp/update_index.py <<'PY'
+          from pathlib import Path
+          p = Path("robotics-brief-covered-items.md")
+          s = p.read_text()
+          old = "> 最后更新：2026-09-04（Asia/Shanghai）"
+          new = "> 最后更新：2026-09-05（Asia/Shanghai）"
+          anchor = "> 2026-09-04 新增 8 条主动态与 1 条经典论文回顾，共 505 条。"
+          count = anchor + "\n>\n> 2026-09-05 新增 8 条主动态与 1 条经典论文回顾，共 514 条。"
+          rows = """| 2026-09-05 | TRaIL-Odom: Tightly Coupled Continuous Time Radar-IMU-LiDAR Odometry with Adaptive Doppler Weighting | [论文](https://arxiv.org/abs/2609.03561) · [代码与数据](https://github.com/ChiyunNoh/TRaIL-Odom) | 时间回补；方向级 LiDAR 退化诊断 + 自适应 Radar Doppler 权重；RA-L 2026 |
+          | 2026-09-05 | Following a Unique Path: A Fast Certifier Applied to Outlier-Robust Pose Registration / CP-Cert | [论文](https://arxiv.org/abs/2609.03222) | 时间回补；Central-Path Certifier；鲁棒位姿配准最优性认证 |
+          | 2026-09-05 | Real-Time Shape Control of Multi-Segment Soft Robotic Arms Using Koopman Operators with Global and Local Observables | [论文](https://arxiv.org/abs/2609.03175) | 时间回补；Koopman-MPC；多段软臂整形控制 |
+          | 2026-09-05 | Predictive Zonotope Reduction: Precise Runtime Monitoring under Uncertainty | [论文](https://arxiv.org/abs/2609.03699) | 时间回补；动态 zonotope reduction；Raspberry Pi 5 runtime monitoring |
+          | 2026-09-05 | R2S-Eval: Robot Evaluation with Real-to-Sim Calibration via Vision-Language Models | [论文](https://arxiv.org/abs/2609.03276) · [项目页](https://r2s-eval.github.io/) | 时间回补；Real-to-Sim 校准 + VLM preference policy ranking |
+          | 2026-09-05 | WISE: World-model-guided Imagination Scheduling for Efficient Post-training of Vision-Language-Action Models | [论文](https://arxiv.org/abs/2609.03681) | 时间回补；按需 bounded imagination；GPU computation 约降 80% |
+          | 2026-09-05 | Requirements After the First Edit: Mining Late Requirement Emergence and Rework in Real-World Coding-Agent Sessions | [论文](https://arxiv.org/abs/2609.03028) | 时间回补；3,553 SWE-chat sessions；late requirement 与约 2× code invalidation |
+          | 2026-09-05 | Formalizing Fermat's Last Theorem with Claude | [官方研究](https://www.anthropic.com/research/formalizing-fermats-last-theorem) · [Lean 证明](https://github.com/anthropics/fermats-last-theorem) | 2026-09-04 官方更新；11 天多 Agent + Prove2Me DAG + Lean/nanoda 独立验证 |
+          | 2026-09-05 | Object Modeling by Registration of Multiple Range Images / Chen–Medioni Point-to-Plane Registration | [ICRA 论文](https://graphics.stanford.edu/~smr/ICP/comparison/chen-medioni-align-rob91.pdf) · [DOI](https://doi.org/10.1016/0262-8856(92)90066-C) | 经典论文回顾；ICRA 1991 / Image and Vision Computing 1992；point-to-plane registration |"""
+          marker = "\n## 维护检查表"
+          assert old in s
+          assert anchor in s
+          assert marker in s
+          assert "2609.03561" not in s
+          s = s.replace(old, new, 1)
+          s = s.replace(anchor, count, 1)
+          s = s.replace(marker, "\n" + rows + "\n" + marker, 1)
+          p.write_text(s)
+          PY
+          python /tmp/update_index.py
           rm .github/workflows/update-robotics-index-2026-09-05.yml
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
