@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-04（Asia/Shanghai）
+> 最后更新：2026-09-05（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -67,6 +67,8 @@
 > 2026-09-03 新增 8 条主动态与 1 条经典论文回顾，共 496 条。
 >
 > 2026-09-04 新增 8 条主动态与 1 条经典论文回顾，共 505 条。
+>
+> 2026-09-05 新增 8 条主动态与 1 条经典论文回顾，共 514 条。
 
 ## 已核验条目
 
@@ -587,6 +589,16 @@
 | 2026-09-04 | Harness Engineering in LLM Tool Use via Agent-Native Reusable Tool Primitives | [论文](https://arxiv.org/abs/2609.01736) |  |
 | 2026-09-04 | GPT-6 Astra | [官方模型](https://developers.openai.com/api/docs/models/gpt-6-astra) · [安全说明](https://openai.com/index/safety-overview-gpt-6-astra/) | 2026-09-03 正式发布 |
 | 2026-09-04 | Contact-Aided Invariant Extended Kalman Filtering for Robot State Estimation | [DOI](https://doi.org/10.1177/0278364919894385) · [代码](https://github.com/RossHartley/invariant-ekf) | 经典论文回顾；RSS 2018 / IJRR 2020 |
+
+| 2026-09-05 | TRaIL-Odom: Tightly Coupled Continuous Time Radar-IMU-LiDAR Odometry with Adaptive Doppler Weighting | [论文](https://arxiv.org/abs/2609.03561) · [代码与数据](https://github.com/ChiyunNoh/TRaIL-Odom) | 时间回补；方向级 LiDAR 退化诊断 + 自适应 Radar Doppler 权重；RA-L 2026 |
+| 2026-09-05 | Following a Unique Path: A Fast Certifier Applied to Outlier-Robust Pose Registration / CP-Cert | [论文](https://arxiv.org/abs/2609.03222) | 时间回补；Central-Path Certifier；鲁棒位姿配准最优性认证 |
+| 2026-09-05 | Real-Time Shape Control of Multi-Segment Soft Robotic Arms Using Koopman Operators with Global and Local Observables | [论文](https://arxiv.org/abs/2609.03175) | 时间回补；Koopman-MPC；多段软臂整形控制 |
+| 2026-09-05 | Predictive Zonotope Reduction: Precise Runtime Monitoring under Uncertainty | [论文](https://arxiv.org/abs/2609.03699) | 时间回补；动态 zonotope reduction；Raspberry Pi 5 runtime monitoring |
+| 2026-09-05 | R2S-Eval: Robot Evaluation with Real-to-Sim Calibration via Vision-Language Models | [论文](https://arxiv.org/abs/2609.03276) · [项目页](https://r2s-eval.github.io/) | 时间回补；Real-to-Sim 校准 + VLM preference policy ranking |
+| 2026-09-05 | WISE: World-model-guided Imagination Scheduling for Efficient Post-training of Vision-Language-Action Models | [论文](https://arxiv.org/abs/2609.03681) | 时间回补；按需 bounded imagination；GPU computation 约降 80% |
+| 2026-09-05 | Requirements After the First Edit: Mining Late Requirement Emergence and Rework in Real-World Coding-Agent Sessions | [论文](https://arxiv.org/abs/2609.03028) | 时间回补；3,553 SWE-chat sessions；late requirement 与约 2× code invalidation |
+| 2026-09-05 | Formalizing Fermat's Last Theorem with Claude | [官方研究](https://www.anthropic.com/research/formalizing-fermats-last-theorem) · [Lean 证明](https://github.com/anthropics/fermats-last-theorem) | 2026-09-04 官方更新；11 天多 Agent + Prove2Me DAG + Lean/nanoda 独立验证 |
+| 2026-09-05 | Object Modeling by Registration of Multiple Range Images / Chen–Medioni Point-to-Plane Registration | [ICRA 论文](https://graphics.stanford.edu/~smr/ICP/comparison/chen-medioni-align-rob91.pdf) · [DOI](https://doi.org/10.1016/0262-8856(92)90066-C) | 经典论文回顾；ICRA 1991 / Image and Vision Computing 1992；point-to-plane registration |
 
 ## 维护检查表
 
