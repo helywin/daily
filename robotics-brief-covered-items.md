@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-05（Asia/Shanghai）
+> 最后更新：2026-09-06（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -69,6 +69,8 @@
 > 2026-09-04 新增 8 条主动态与 1 条经典论文回顾，共 505 条。
 >
 > 2026-09-05 新增 8 条主动态与 1 条经典论文回顾，共 514 条。
+>
+> 2026-09-06 新增 8 条主动态与 1 条经典论文回顾，共 523 条。
 
 ## 已核验条目
 
@@ -599,6 +601,16 @@
 | 2026-09-05 | Requirements After the First Edit: Mining Late Requirement Emergence and Rework in Real-World Coding-Agent Sessions | [论文](https://arxiv.org/abs/2609.03028) | 时间回补；3,553 SWE-chat sessions；late requirement 与约 2× code invalidation |
 | 2026-09-05 | Formalizing Fermat's Last Theorem with Claude | [官方研究](https://www.anthropic.com/research/formalizing-fermats-last-theorem) · [Lean 证明](https://github.com/anthropics/fermats-last-theorem) | 2026-09-04 官方更新；11 天多 Agent + Prove2Me DAG + Lean/nanoda 独立验证 |
 | 2026-09-05 | Object Modeling by Registration of Multiple Range Images / Chen–Medioni Point-to-Plane Registration | [ICRA 论文](https://graphics.stanford.edu/~smr/ICP/comparison/chen-medioni-align-rob91.pdf) · [DOI](https://doi.org/10.1016/0262-8856(92)90066-C) | 经典论文回顾；ICRA 1991 / Image and Vision Computing 1992；point-to-plane registration |
+
+| 2026-09-06 | AutoCompass: Accurate Visual Localization on Public Maps by Learning from Weak Labels | [论文](https://arxiv.org/abs/2609.02798) | 时间回补；ECCV 2026 |
+| 2026-09-06 | Sensing Which Modality Matters: Evidence-Gated Regularization for Robust VLA Policies | [论文](https://arxiv.org/abs/2609.03142) | 时间回补；多模态 VLA 鲁棒性 |
+| 2026-09-06 | FWBC-VLA: Force-Aware Whole-Body Compensation for Contact-Rich Loco-Manipulation | [论文](https://arxiv.org/abs/2609.03889) | 时间回补；接触力感知移动操作 |
+| 2026-09-06 | MulDP: Multimodal Diffusion Policy for Autonomous Quadruped Parkour Navigation across Complex Terrains | [论文](https://arxiv.org/abs/2609.03984) | 时间回补；IROS 2026 |
+| 2026-09-06 | Scaling Bimanual Household Manipulation from 1,500 hours of Demonstrations to On-Policy Corrections | [论文](https://arxiv.org/abs/2609.03591) | 时间回补；XR-2 / 1500h 双臂数据 |
+| 2026-09-06 | Toward Physically Grounded JEPA World Models for Goal-Conditioned Robotic Planning | [论文](https://arxiv.org/abs/2609.03565) | 时间回补；IROS 2026 PWMS Workshop |
+| 2026-09-06 | SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents | [论文](https://arxiv.org/abs/2609.04167) | 时间回补；Review constraint benchmark |
+| 2026-09-06 | PatchBench: Evaluating AI Agents for Vulnerability Patching | [论文](https://arxiv.org/abs/2609.04075) | 时间回补；漏洞修复 Agent 评测 |
+| 2026-09-06 | RMA: Rapid Motor Adaptation for Legged Robots | [论文](https://arxiv.org/abs/2107.04034) | 经典论文回顾；RSS 2021 |
 
 ## 维护检查表
 
