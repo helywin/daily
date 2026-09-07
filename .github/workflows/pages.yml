@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -15,46 +15,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update-index:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: master
-          fetch-depth: 0
-      - name: Update coverage index
-        env:
-          ROWS_B64: "fCAyMDI2LTA5LTA3IHwgRmFpbEJlbmNoOiBIb3cgUmVsaWFibGUgYXJlIFZMTXMgYXQgSnVkZ2luZyBSb2JvdCBUYXNrIFN1Y2Nlc3M/IHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDM2MTEpIHwg5pe26Ze05Zue6KGl77ybVkxNIOacuuWZqOS6uuWksei0peWIpOWumiBiZW5jaG1hcmvvvJsyLDE5NyBhdHRlbXB0cyAvIDE0IHNvdXJjZXMgfAp8IDIwMjYtMDktMDcgfCBMb2NhbCBQYXRoIFBsYW5uaW5nIGFuZCBPYnN0YWNsZSBBdm9pZGFuY2UgZm9yIGFuIE9tbmljb3B0ZXIgUGxhdGZvcm0gfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4wMzYzMCkgfCDml7bpl7Tlm57ooaXvvJs2RC1EV0HvvJswLjIgcyDmnKzlnLDop4TliJLlvqrnjq/vvJtJQ1VBUyAyMDI2IHwKfCAyMDI2LTA5LTA3IHwgTUlORVJWQTogSG93IFNtYWxsIENhbiBhIE1hbmlwdWxhdGlvbiBQb2xpY3kgQmUgYW5kIFN0aWxsIFNvbHZlIExJQkVSTz8gfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4wMzcxNSkgfCDml7bpl7Tlm57ooaXvvJswLjU0TSDlj4LmlbDmj63npLogTElCRVJPIGNhcGFjaXR5IGZsb29yIOS4juWfuuWHhuiEhuW8seaApyB8CnwgMjAyNi0wOS0wNyB8IFJvdWdoU2Vuc2U6IExpZ2h0d2VpZ2h0IFRlcnJhaW4tSW5kdWNlZCBSb3ZlciBWaWJyYXRpb24gUHJlZGljdGlvbiBVc2luZyBQb2ludCBDbG91ZHMgYW5kIElNVSBGZWVkYmFjayB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjAzNzIwKSB8IOaXtumXtOWbnuihpe+8m1NMQU0g54K55LqRICsgSU1VICsgUkxTIOWcqOe6v+aMr+WKqC/pgJrooYzku6Pku7fkvLDorqEgfAp8IDIwMjYtMDktMDcgfCBBIGNvbXBhcmF0aXZlIHN0dWR5IG9uIHRoZSBhY2N1cmFjeSAmIHJlcGVhdGFiaWxpdHkgb2YgbW9iaWxlIHJvYm90aWMgcGxhdGZvcm1zIGZvciB0aGUgZGVsaXZlcnkgb2YgcHJlY2lzaW9uIE5ERSBtZWFzdXJlbWVudCB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjAzNzk0KSB8IOaXtumXtOWbnuihpe+8m+S6lOexu+WVhuS4muenu+WKqOW5s+WPsOWumuS9jeeyvuW6pi/lj6/moIflrprmgKflrp7mtYsgfAp8IDIwMjYtMDktMDcgfCBHSUZUOiBHdWlkZWQgSW50ZXJtZWRpYXRlIEZlYXR1cmUgVHJhaW5pbmcgdmlhIEFjdGlvbi1PcmllbnRlZCBTdHJ1Y3R1cmFsIFN1cGVydmlzaW9uIGZvciBSb2JvdGljIE1hbmlwdWxhdGlvbiB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjA0MTkzKSB8IOaXtumXtOWbnuihpe+8m2dlb21ldHJ5L2FmZm9yZGFuY2UvZ29hbCDnu5PmnoTnm5HnnaPnvJPop6MgYWN0aW9uLXN1ZmZpY2llbmN5IGdhcCB8CnwgMjAyNi0wOS0wNyB8IFJlZnVzaW5nIHRoZSBJbXBvc3NpYmxlOiBBIFRheG9ub215IGFuZCBCZW5jaG1hcmsgZm9yIENvZGUgSGFsbHVjaW5hdGlvbiBpbiBMYXJnZSBMYW5ndWFnZSBNb2RlbHMgfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4wMzI2NykgfCDml7bpl7Tlm57ooaXvvJtBSSBDb2Rpbmcg5LiN5Y+v5ruh6Laz5Lu75Yqh5LiOIGdyb3VuZGVkbmVzcy9yZWZ1c2FsIGJlbmNobWFyayB8CnwgMjAyNi0wOS0wNyB8IFdoZW4gTW9kZWxzIEVkaXQgVG9vIE11Y2g6IE9uIHRoZSBGaWRlbGl0eSBvZiBNaW5pbWFsIENvZGUgRWRpdHMgfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4wNDA2MSkgfCDml7bpl7Tlm57ooaXvvJtFTU5MUCAyMDI277yb5pyA5bCP6KGl5LiB5LiOIG92ZXItZWRpdGluZyDln7rlh4YgfAp8IDIwMjYtMDktMDcgfCBUcmFqZWN0b3J5IG1vZGlmaWNhdGlvbiBjb25zaWRlcmluZyBkeW5hbWljIGNvbnN0cmFpbnRzIG9mIGF1dG9ub21vdXMgcm9ib3RzIC8gVGltZWQgRWxhc3RpYyBCYW5kIHwgW1RVIERvcnRtdW5kXShodHRwczovL3JzdC5ldGl0LnR1LWRvcnRtdW5kLmRlL2VuL3Jlc2VhcmNoL3JvYm90aWNzL29ubGluZS10cmFqZWN0b3J5LW9wdGltaXphdGlvbi1iYXNlZC1vbi10aW1lZC1lbGFzdGljLWJhbi8pIMK3IFvku6PnoIFdKGh0dHBzOi8vZ2l0aHViLmNvbS9yc3QtdHUtZG9ydG11bmQvdGViX2xvY2FsX3BsYW5uZXIpIHwg57uP5YW46K665paH5Zue6aG+77ybUk9CT1RJSyAyMDEy77yb5pe26Ze05pi+5byP5bGA6YOo6L2o6L+55LyY5YyW5LiOIGtpbm9keW5hbWljIGNvbnN0cmFpbnRzIHw="
-        run: |
-          python - <<'PY'
-          import base64
-          from pathlib import Path
-          p = Path('robotics-brief-covered-items.md')
-          s = p.read_text(encoding='utf-8')
-          s = s.replace('> 最后更新：2026-09-06（Asia/Shanghai）', '> 最后更新：2026-09-07（Asia/Shanghai）', 1)
-          if '2026-09-07 新增 8 条主动态与 1 条经典论文回顾，共 532 条。' not in s:
-              old = '> 2026-09-06 新增 8 条主动态与 1 条经典论文回顾，共 523 条。\n\n## 已核验条目'
-              new = '> 2026-09-06 新增 8 条主动态与 1 条经典论文回顾，共 523 条。\n>\n> 2026-09-07 新增 8 条主动态与 1 条经典论文回顾，共 532 条。\n\n## 已核验条目'
-              assert old in s
-              s = s.replace(old, new, 1)
-          if '| 2026-09-07 | FailBench:' not in s:
-              rows = base64.b64decode(__import__('os').environ['ROWS_B64']).decode('utf-8')
-              marker = '\n## 维护检查表'
-              assert marker in s
-              s = s.replace(marker, '\n\n' + rows + '\n' + marker, 1)
-          p.write_text(s, encoding='utf-8')
-          PY
-      - name: Restore workflow files and commit index
-        run: |
-          git show HEAD^:.github/workflows/pages.yml > .github/workflows/pages.yml
-          rm -f .github/workflows/update-robotics-index.yml
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add robotics-brief-covered-items.md .github/workflows/pages.yml .github/workflows/update-robotics-index.yml
-          git commit -m "docs: update robotics brief coverage index for 2026-09-07"
-          git push origin master
-
   build:
     runs-on: ubuntu-latest
     steps:

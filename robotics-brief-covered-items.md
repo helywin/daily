@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-06（Asia/Shanghai）
+> 最后更新：2026-09-07（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -71,6 +71,8 @@
 > 2026-09-05 新增 8 条主动态与 1 条经典论文回顾，共 514 条。
 >
 > 2026-09-06 新增 8 条主动态与 1 条经典论文回顾，共 523 条。
+>
+> 2026-09-07 新增 8 条主动态与 1 条经典论文回顾，共 532 条。
 
 ## 已核验条目
 
@@ -611,6 +613,17 @@
 | 2026-09-06 | SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents | [论文](https://arxiv.org/abs/2609.04167) | 时间回补；Review constraint benchmark |
 | 2026-09-06 | PatchBench: Evaluating AI Agents for Vulnerability Patching | [论文](https://arxiv.org/abs/2609.04075) | 时间回补；漏洞修复 Agent 评测 |
 | 2026-09-06 | RMA: Rapid Motor Adaptation for Legged Robots | [论文](https://arxiv.org/abs/2107.04034) | 经典论文回顾；RSS 2021 |
+
+
+| 2026-09-07 | FailBench: How Reliable are VLMs at Judging Robot Task Success? | [论文](https://arxiv.org/abs/2609.03611) | 时间回补；VLM 机器人失败判定 benchmark；2,197 attempts / 14 sources |
+| 2026-09-07 | Local Path Planning and Obstacle Avoidance for an Omnicopter Platform | [论文](https://arxiv.org/abs/2609.03630) | 时间回补；6D-DWA；0.2 s 本地规划循环；ICUAS 2026 |
+| 2026-09-07 | MINERVA: How Small Can a Manipulation Policy Be and Still Solve LIBERO? | [论文](https://arxiv.org/abs/2609.03715) | 时间回补；0.54M 参数揭示 LIBERO capacity floor 与基准脆弱性 |
+| 2026-09-07 | RoughSense: Lightweight Terrain-Induced Rover Vibration Prediction Using Point Clouds and IMU Feedback | [论文](https://arxiv.org/abs/2609.03720) | 时间回补；SLAM 点云 + IMU + RLS 在线振动/通行代价估计 |
+| 2026-09-07 | A comparative study on the accuracy & repeatability of mobile robotic platforms for the delivery of precision NDE measurement | [论文](https://arxiv.org/abs/2609.03794) | 时间回补；五类商业移动平台定位精度/可标定性实测 |
+| 2026-09-07 | GIFT: Guided Intermediate Feature Training via Action-Oriented Structural Supervision for Robotic Manipulation | [论文](https://arxiv.org/abs/2609.04193) | 时间回补；geometry/affordance/goal 结构监督缓解 action-sufficiency gap |
+| 2026-09-07 | Refusing the Impossible: A Taxonomy and Benchmark for Code Hallucination in Large Language Models | [论文](https://arxiv.org/abs/2609.03267) | 时间回补；AI Coding 不可满足任务与 groundedness/refusal benchmark |
+| 2026-09-07 | When Models Edit Too Much: On the Fidelity of Minimal Code Edits | [论文](https://arxiv.org/abs/2609.04061) | 时间回补；EMNLP 2026；最小补丁与 over-editing 基准 |
+| 2026-09-07 | Trajectory modification considering dynamic constraints of autonomous robots / Timed Elastic Band | [TU Dortmund](https://rst.etit.tu-dortmund.de/en/research/robotics/online-trajectory-optimization-based-on-timed-elastic-ban/) · [代码](https://github.com/rst-tu-dortmund/teb_local_planner) | 经典论文回顾；ROBOTIK 2012；时间显式局部轨迹优化与 kinodynamic constraints |
 
 ## 维护检查表
 
