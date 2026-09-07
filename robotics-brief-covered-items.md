@@ -72,7 +72,7 @@
 >
 > 2026-09-06 新增 8 条主动态与 1 条经典论文回顾，共 523 条。
 >
-> 2026-09-07 新增 8 条主动态与 1 条经典论文回顾，共 532 条。
+> 2026-09-07 早间首版新增 8 条主动态与 1 条经典论文回顾，共 532 条；09:57 因 arXiv Robotics 9 月 7 日最新公开批次刷新，更新同日文章并追加 8 条主动态，累计共 540 条。早间首版条目保留为历史覆盖记录。
 
 ## 已核验条目
 
@@ -624,6 +624,15 @@
 | 2026-09-07 | Refusing the Impossible: A Taxonomy and Benchmark for Code Hallucination in Large Language Models | [论文](https://arxiv.org/abs/2609.03267) | 时间回补；AI Coding 不可满足任务与 groundedness/refusal benchmark |
 | 2026-09-07 | When Models Edit Too Much: On the Fidelity of Minimal Code Edits | [论文](https://arxiv.org/abs/2609.04061) | 时间回补；EMNLP 2026；最小补丁与 over-editing 基准 |
 | 2026-09-07 | Trajectory modification considering dynamic constraints of autonomous robots / Timed Elastic Band | [TU Dortmund](https://rst.etit.tu-dortmund.de/en/research/robotics/online-trajectory-optimization-based-on-timed-elastic-ban/) · [代码](https://github.com/rst-tu-dortmund/teb_local_planner) | 经典论文回顾；ROBOTIK 2012；时间显式局部轨迹优化与 kinodynamic constraints |
+
+| 2026-09-07 | FIRE-LIVWO: Robust LiDAR-Inertial-Visual-Wheel Odometry via Failure-Immune mmWave Radar Enhancement | [论文](https://arxiv.org/abs/2609.05325) · [代码](https://github.com/KJ-Falloutlast/FIRE-LIVWO) | 09:57 更新版；时间回补；IROS 2026；烟尘/几何退化下 Radar-LiDAR-Visual-Wheel 自适应融合 |
+| 2026-09-07 | Risk-Aware Optimal Control with Rulebooks | [论文](https://arxiv.org/abs/2609.05199) | 09:57 更新版；时间回补；风险阈值 Rulebook + anytime lexicographic branch-and-bound certified gaps |
+| 2026-09-07 | Open-Set 3D Scene Graphs for Field Robotics: An Outdoor Case Study | [论文](https://arxiv.org/abs/2609.04607) | 09:57 更新版；时间回补；T-Field Robotics；户外 open-set 3DSG 语义/导航/一致性负结果 |
+| 2026-09-07 | VLA-Precision: Asymmetric Co-Bootstrapping for Efficient Real-World Online RL of Vision-Language-Action Models | [论文](https://arxiv.org/abs/2609.04355) · [项目页](https://vla-precision.github.io/) | 09:57 更新版；时间回补；真实在线 RL；9 项精密化学操作；ACoB/ACoB-Stream |
+| 2026-09-07 | FailureSpot: Label-Efficient Timestamp-Level Failure Detection for Vision-Language-Action Models | [论文](https://arxiv.org/abs/2609.04277) | 09:57 更新版；时间回补；VLA timestamp-level failure watchdog；弱监督 + active learning |
+| 2026-09-07 | TacPAC: Tactile Prediction and Real-Time Action Correction in World-Action Models for Contact-Rich Manipulation | [论文](https://arxiv.org/abs/2609.05266) · [代码](https://github.com/LogosRoboticsGroup/TacPAC) | 09:57 更新版；时间回补；触觉预测与缓存动作实时纠偏；五项真机任务 |
+| 2026-09-07 | Continual Field-Adaptive Models for Post-Deployment Physical AI / CFAM | [论文](https://arxiv.org/abs/2609.04552) · [技术说明](https://skylarklabs.ai/use-cases/cfam-stack-overview.html) | 09:57 更新版；时间回补；Frozen Cortex + Capsule Field；gradient-free 现场持续学习 |
+| 2026-09-07 | Large Language Models and Language Server Protocol: a match made in context / Eiffel-tools | [论文](https://arxiv.org/abs/2609.03086) · [代码](https://github.com/alschena/eiffel-tools) | 09:57 更新版；时间回补；LSP 项目上下文 + static verifier；AI Coding |
 
 ## 维护检查表
 
