@@ -1,0 +1,65 @@
+name: Update Robotics Brief Index 2026-09-07
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Update coverage index
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('robotics-brief-covered-items.md')
+          s = p.read_text(encoding='utf-8')
+
+          old_header = '> 最后更新：2026-09-06（Asia/Shanghai）'
+          new_header = '> 最后更新：2026-09-07（Asia/Shanghai）'
+          assert old_header in s or new_header in s
+          s = s.replace(old_header, new_header, 1)
+
+          old_tail = '> 2026-09-06 新增 8 条主动态与 1 条经典论文回顾，共 523 条。\n\n## 已核验条目'
+          new_tail = '> 2026-09-06 新增 8 条主动态与 1 条经典论文回顾，共 523 条。\n>\n> 2026-09-07 新增 8 条主动态与 1 条经典论文回顾，共 532 条。\n\n## 已核验条目'
+          if '2026-09-07 新增 8 条主动态与 1 条经典论文回顾，共 532 条。' not in s:
+              assert old_tail in s
+              s = s.replace(old_tail, new_tail, 1)
+
+          rows = r'''
+| 2026-09-07 | FailBench: How Reliable are VLMs at Judging Robot Task Success? | [论文](https://arxiv.org/abs/2609.03611) | 时间回补；VLM 机器人失败判定 benchmark；2,197 attempts / 14 sources |
+| 2026-09-07 | Local Path Planning and Obstacle Avoidance for an Omnicopter Platform | [论文](https://arxiv.org/abs/2609.03630) | 时间回补；6D-DWA；0.2 s 本地规划循环；ICUAS 2026 |
+| 2026-09-07 | MINERVA: How Small Can a Manipulation Policy Be and Still Solve LIBERO? | [论文](https://arxiv.org/abs/2609.03715) | 时间回补；0.54M 参数揭示 LIBERO capacity floor 与基准脆弱性 |
+| 2026-09-07 | RoughSense: Lightweight Terrain-Induced Rover Vibration Prediction Using Point Clouds and IMU Feedback | [论文](https://arxiv.org/abs/2609.03720) | 时间回补；SLAM 点云 + IMU + RLS 在线振动/通行代价估计 |
+| 2026-09-07 | A comparative study on the accuracy & repeatability of mobile robotic platforms for the delivery of precision NDE measurement | [论文](https://arxiv.org/abs/2609.03794) | 时间回补；五类商业移动平台定位精度/可标定性实测 |
+| 2026-09-07 | GIFT: Guided Intermediate Feature Training via Action-Oriented Structural Supervision for Robotic Manipulation | [论文](https://arxiv.org/abs/2609.04193) | 时间回补；geometry/affordance/goal 结构监督缓解 action-sufficiency gap |
+| 2026-09-07 | Refusing the Impossible: A Taxonomy and Benchmark for Code Hallucination in Large Language Models | [论文](https://arxiv.org/abs/2609.03267) | 时间回补；AI Coding 不可满足任务与 groundedness/refusal benchmark |
+| 2026-09-07 | When Models Edit Too Much: On the Fidelity of Minimal Code Edits | [论文](https://arxiv.org/abs/2609.04061) | 时间回补；EMNLP 2026；最小补丁与 over-editing 基准 |
+| 2026-09-07 | Trajectory modification considering dynamic constraints of autonomous robots / Timed Elastic Band | [TU Dortmund](https://rst.etit.tu-dortmund.de/en/research/robotics/online-trajectory-optimization-based-on-timed-elastic-ban/) · [代码](https://github.com/rst-tu-dortmund/teb_local_planner) | 经典论文回顾；ROBOTIK 2012；时间显式局部轨迹优化与 kinodynamic constraints |
+'''.strip('\n')
+
+          if '| 2026-09-07 | FailBench:' not in s:
+              marker = '\n## 维护检查表'
+              assert marker in s
+              s = s.replace(marker, '\n\n' + rows + '\n' + marker, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit index and remove one-shot workflow
+        shell: bash
+        run: |
+          rm -f .github/workflows/update-robotics-index.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add robotics-brief-covered-items.md .github/workflows/update-robotics-index.yml
+          git commit -m "docs: update robotics brief coverage index for 2026-09-07"
+          git push origin master
