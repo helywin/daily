@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-07（Asia/Shanghai）
+> 最后更新：2026-09-08（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -73,6 +73,8 @@
 > 2026-09-06 新增 8 条主动态与 1 条经典论文回顾，共 523 条。
 >
 > 2026-09-07 早间首版新增 8 条主动态与 1 条经典论文回顾，共 532 条；09:57 因 arXiv Robotics 9 月 7 日最新公开批次刷新，更新同日文章并追加 8 条主动态，累计共 540 条。早间首版条目保留为历史覆盖记录。
+>
+> 2026-09-08 新增 8 条主动态与 1 条经典论文回顾，共 549 条。
 
 ## 已核验条目
 
@@ -633,6 +635,16 @@
 | 2026-09-07 | TacPAC: Tactile Prediction and Real-Time Action Correction in World-Action Models for Contact-Rich Manipulation | [论文](https://arxiv.org/abs/2609.05266) · [代码](https://github.com/LogosRoboticsGroup/TacPAC) | 09:57 更新版；时间回补；触觉预测与缓存动作实时纠偏；五项真机任务 |
 | 2026-09-07 | Continual Field-Adaptive Models for Post-Deployment Physical AI / CFAM | [论文](https://arxiv.org/abs/2609.04552) · [技术说明](https://skylarklabs.ai/use-cases/cfam-stack-overview.html) | 09:57 更新版；时间回补；Frozen Cortex + Capsule Field；gradient-free 现场持续学习 |
 | 2026-09-07 | Large Language Models and Language Server Protocol: a match made in context / Eiffel-tools | [论文](https://arxiv.org/abs/2609.03086) · [代码](https://github.com/alschena/eiffel-tools) | 09:57 更新版；时间回补；LSP 项目上下文 + static verifier；AI Coding |
+
+| 2026-09-08 | NavArena: Automated Construction of Goal-Oriented Navigation Benchmarks from 3D Gaussian Splatting Reconstructions | [论文](https://arxiv.org/abs/2609.04602) | 时间回补；v1 2026-09-04；3DGS→occupancy/语义目标/闭环导航基准 |
+| 2026-09-08 | Scalable Edge-assisted Fusion and Path Prediction for Connected Autonomous Vehicles / Conductor | [论文](https://arxiv.org/abs/2609.04364) | 时间回补；v1 2026-09-03；AoI 约束的边缘协同感知与轨迹预测 |
+| 2026-09-08 | Achieving Asymptotic Near-Optimality Without δ-Similarity | [论文](https://arxiv.org/abs/2609.04464) | 时间回补；v1 2026-09-03；kinodynamic sampling planner 的 crowding-out / retention 理论边界 |
+| 2026-09-08 | Dressing in Motion: A Human Motion-Aware Diffusion Policy for Robot-Assisted Dressing | [论文](https://arxiv.org/abs/2609.04759) | 时间回补；v1 2026-09-04；动态人体运动感知的 diffusion 穿衣策略 |
+| 2026-09-08 | Reasoning Without Inference Cost: Latent Semantic Scaffolding for Robot VLA Policies | [论文](https://arxiv.org/abs/2609.04893) | 时间回补；v1 2026-09-04；训练期物理语义对齐、部署零新增推理成本 |
+| 2026-09-08 | Same Trajectory, Contradictory Rewards (ROBORMBENCH): Paraphrase Fragility in Vision Language Reward Models | [论文](https://arxiv.org/abs/2609.05401) | 时间回补；v1 2026-09-04；VLM reward 的 paraphrase invariance / metamorphic regression |
+| 2026-09-08 | Dynamic Adaptation of the LLM Context for Generating Routines with Coupled Semantics | [论文](https://arxiv.org/abs/2609.04570) | 时间回补；v1 2026-09-03；execution trace 驱动的动态 Coding Agent context |
+| 2026-09-08 | Same Request, Different Answer: Quantization Amplifies Cache-Induced Divergence in LLM Serving | [论文](https://arxiv.org/abs/2609.04748) | 时间回补；v1 2026-09-04；prefix cache × 量化导致 Agent trajectory 可复现性分叉 |
+| 2026-09-08 | Asymptotically Optimal Sampling-based Kinodynamic Planning / Stable Sparse-RRT (SST, SST*) | [论文](https://arxiv.org/abs/1407.2896) · [DOI](https://doi.org/10.1177/0278364915614386) · [OMPL](https://ompl.kavrakilab.org/core/classompl_1_1control_1_1SST.html) | 经典论文回顾；IJRR 2016；无 BVP steering 的稀疏 kinodynamic planning |
 
 ## 维护检查表
 
