@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-08（Asia/Shanghai）
+> 最后更新：2026-09-09（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -75,6 +75,8 @@
 > 2026-09-07 早间首版新增 8 条主动态与 1 条经典论文回顾，共 532 条；09:57 因 arXiv Robotics 9 月 7 日最新公开批次刷新，更新同日文章并追加 8 条主动态，累计共 540 条。早间首版条目保留为历史覆盖记录。
 >
 > 2026-09-08 新增 8 条主动态与 1 条经典论文回顾，共 549 条。
+>
+> 2026-09-09 新增 8 条主动态与 1 条经典论文回顾，共 558 条。
 
 ## 已核验条目
 
@@ -645,6 +647,16 @@
 | 2026-09-08 | Dynamic Adaptation of the LLM Context for Generating Routines with Coupled Semantics | [论文](https://arxiv.org/abs/2609.04570) | 时间回补；v1 2026-09-03；execution trace 驱动的动态 Coding Agent context |
 | 2026-09-08 | Same Request, Different Answer: Quantization Amplifies Cache-Induced Divergence in LLM Serving | [论文](https://arxiv.org/abs/2609.04748) | 时间回补；v1 2026-09-04；prefix cache × 量化导致 Agent trajectory 可复现性分叉 |
 | 2026-09-08 | Asymptotically Optimal Sampling-based Kinodynamic Planning / Stable Sparse-RRT (SST, SST*) | [论文](https://arxiv.org/abs/1407.2896) · [DOI](https://doi.org/10.1177/0278364915614386) · [OMPL](https://ompl.kavrakilab.org/core/classompl_1_1control_1_1SST.html) | 经典论文回顾；IJRR 2016；无 BVP steering 的稀疏 kinodynamic planning |
+
+| 2026-09-09 | AquaBEV: Monocular Underwater BEV Occupancy with 3D Sonar Supervision | [论文](https://arxiv.org/abs/2609.04411) | 时间回补；v1 2026-09-03；训练期 3D sonar 几何监督、部署期单目 BEV occupancy |
+| 2026-09-09 | Human-Human & Human-Robot Interaction Transformer (H2INT) for Robot Navigation in Dense and Uncertain Crowds | [论文](https://arxiv.org/abs/2609.05300) | 时间回补；v1 2026-09-04；隐式 pedestrian responsiveness 推断、两阶段交互 Transformer、真机稀疏观测部署 |
+| 2026-09-09 | APEX-RBD: Mixed-Precision Exploration Framework for Hardware-Efficient Robot Dynamics Accelerator Design | [论文](https://arxiv.org/abs/2609.05161) | 时间回补；v1 2026-09-04；刚体动力学 mixed-precision accelerator、trajectory-error surrogate 与 area/power 优化 |
+| 2026-09-09 | One Diffusion Model, Two Roles: Guided Trajectory Planning and Safety-Critical Scenario Generation in Closed-Loop Simulation | [论文](https://arxiv.org/abs/2609.04921) | 时间回补；v1 2026-09-04；SSDS + DAPSE；同一 diffusion prior 同时做规划与长尾压力场景生成 |
+| 2026-09-09 | HaptiNet: Networked Haptic Robots Enable Physical Co-presence in Geographically-Unconstrained Rehabilitation | [论文](https://arxiv.org/abs/2609.04799) | 时间回补；v1 2026-09-04；网络触觉机器人、学习式时延补偿与约 4000 km 跨城链路验证 |
+| 2026-09-09 | LIBERO-RECOVER: Beyond Task Success Towards Failure Recovery in Robotic Manipulation Models | [论文](https://arxiv.org/abs/2609.05178) · [项目页](https://liulin815.github.io/LIBERO-Recovery/) | 时间回补；v1 2026-09-04；1000+ 失败恢复场景、四级 recovery benchmark |
+| 2026-09-09 | Research acceleration: The view inside OpenAI | [官方研究](https://openai.com/index/research-acceleration-view-inside-openai/) | 时间回补；2026-09-06；Coding Agent 在 AI 研发中的并行佣用、agent-workday 与人工干预数据 |
+| 2026-09-09 | Better Understanding, Better Fixes? A Study of Hallucination in LLM-based Automated Program Repair | [论文](https://arxiv.org/abs/2609.04909) | 时间回补；v1 2026-09-04；APR 中间理解与 repair hallucination、因果定位/修复策略错误 |
+| 2026-09-09 | CHOMP: Gradient Optimization Techniques for Efficient Motion Planning / Covariant Hamiltonian Optimization for Motion Planning | [ICRA 2009](https://publications.ri.cmu.edu/chomp-gradient-optimization-techniques-for-efficient-motion-planning) · [IJRR DOI](https://doi.org/10.1177/0278364913488805) · [MoveIt](https://github.com/moveit/moveit/tree/master/moveit_planners/chomp) | 经典论文回顾；ICRA 2009 / IJRR 2013；协变函数梯度轨迹优化、平滑与障碍代价 |
 
 ## 维护检查表
 
