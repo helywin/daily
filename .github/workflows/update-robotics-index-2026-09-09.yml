@@ -1,0 +1,63 @@
+name: Update Robotics Brief Index 2026-09-09
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-robotics-index-2026-09-09.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Update coverage index and remove one-shot workflow
+        env:
+          ROWS_B64: "fCAyMDI2LTA5LTA5IHwgQXF1YUJFVjogTW9ub2N1bGFyIFVuZGVyd2F0ZXIgQkVWIE9jY3VwYW5jeSB3aXRoIDNEIFNvbmFyIFN1cGVydmlzaW9uIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDQ0MTEpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0wM++8m+iuree7g+acnyAzRCBzb25hciDlh6DkvZXnm5HnnaPjgIHpg6jnvbLmnJ/ljZXnm64gQkVWIG9jY3VwYW5jeSB8CnwgMjAyNi0wOS0wOSB8IEh1bWFuLUh1bWFuICYgSHVtYW4tUm9ib3QgSW50ZXJhY3Rpb24gVHJhbnNmb3JtZXIgKEgySU5UKSBmb3IgUm9ib3QgTmF2aWdhdGlvbiBpbiBEZW5zZSBhbmQgVW5jZXJ0YWluIENyb3dkcyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjA1MzAwKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDTvvJvpmpDlvI8gcGVkZXN0cmlhbiByZXNwb25zaXZlbmVzcyDmjqjmlq3jgIHkuKTpmLbmrrXkuqTkupIgVHJhbnNmb3JtZXLjgIHnnJ/mnLrnqIDnlo/op4LmtYvpg6jnvbIgfAp8IDIwMjYtMDktMDkgfCBBUEVYLVJCRDogTWl4ZWQtUHJlY2lzaW9uIEV4cGxvcmF0aW9uIEZyYW1ld29yayBmb3IgSGFyZHdhcmUtRWZmaWNpZW50IFJvYm90IER5bmFtaWNzIEFjY2VsZXJhdG9yIERlc2lnbiB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjA1MTYxKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDTvvJvliJrkvZPliqjlipvlraYgbWl4ZWQtcHJlY2lzaW9uIGFjY2VsZXJhdG9y44CBdHJhamVjdG9yeS1lcnJvciBzdXJyb2dhdGUg5LiOIGFyZWEvcG93ZXIg5LyY5YyWIHwKfCAyMDI2LTA5LTA5IHwgT25lIERpZmZ1c2lvbiBNb2RlbCwgVHdvIFJvbGVzOiBHdWlkZWQgVHJhamVjdG9yeSBQbGFubmluZyBhbmQgU2FmZXR5LUNyaXRpY2FsIFNjZW5hcmlvIEdlbmVyYXRpb24gaW4gQ2xvc2VkLUxvb3AgU2ltdWxhdGlvbiB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjA0OTIxKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDTvvJtTU0RTICsgREFQU0XvvJvlkIzkuIAgZGlmZnVzaW9uIHByaW9yIOWQjOaXtuWBmuinhOWIkuS4jumVv+WwvuWOi+WKm+WcuuaZr+eUn+aIkCB8CnwgMjAyNi0wOS0wOSB8IEhhcHRpTmV0OiBOZXR3b3JrZWQgSGFwdGljIFJvYm90cyBFbmFibGUgUGh5c2ljYWwgQ28tcHJlc2VuY2UgaW4gR2VvZ3JhcGhpY2FsbHktVW5jb25zdHJhaW5lZCBSZWhhYmlsaXRhdGlvbiB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjA0Nzk5KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDTvvJvnvZHnu5zop6bop4nmnLrlmajkurrjgIHlrabkuaDlvI/ml7blu7booaXlgb/kuI7nuqYgNDAwMCBrbSDot6jln47pk77ot6/pqozor4EgfAp8IDIwMjYtMDktMDkgfCBMSUJFUk8tUkVDT1ZFUjogQmV5b25kIFRhc2sgU3VjY2VzcyBUb3dhcmRzIEZhaWx1cmUgUmVjb3ZlcnkgaW4gUm9ib3RpYyBNYW5pcHVsYXRpb24gTW9kZWxzIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDUxNzgpIMK3IFvpobnnm67pobVdKGh0dHBzOi8vbGl1bGluODE1LmdpdGh1Yi5pby9MSUJFUk8tUmVjb3ZlcnkvKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDTvvJsxMDAwKyDlpLHotKXmgaLlpI3lnLrmma/jgIHlm5vnuqcgcmVjb3ZlcnkgYmVuY2htYXJrIHwKfCAyMDI2LTA5LTA5IHwgUmVzZWFyY2ggYWNjZWxlcmF0aW9uOiBUaGUgdmlldyBpbnNpZGUgT3BlbkFJIHwgW+WumOaWueeglOeptl0oaHR0cHM6Ly9vcGVuYWkuY29tL2luZGV4L3Jlc2VhcmNoLWFjY2VsZXJhdGlvbi12aWV3LWluc2lkZS1vcGVuYWkvKSB8IOaXtumXtOWbnuihpe+8mzIwMjYtMDktMDbvvJtDb2RpbmcgQWdlbnQg5ZyoIEFJIOeglOWPkeS4reeahOW5tuihjOS9o+eUqOOAgWFnZW50LXdvcmtkYXkg5LiO5Lq65bel5bmy6aKE5pWw5o2uIHwKfCAyMDI2LTA5LTA5IHwgQmV0dGVyIFVuZGVyc3RhbmRpbmcsIEJldHRlciBGaXhlcz8gQSBTdHVkeSBvZiBIYWxsdWNpbmF0aW9uIGluIExMTS1iYXNlZCBBdXRvbWF0ZWQgUHJvZ3JhbSBSZXBhaXIgfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4wNDkwOSkgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA5LTA077ybQVBSIOS4remXtOeQhuino+S4jiByZXBhaXIgaGFsbHVjaW5hdGlvbuOAgeWboOaenOWumuS9jS/kv67lpI3nrZbnlaXplJnor68gfAp8IDIwMjYtMDktMDkgfCBDSE9NUDogR3JhZGllbnQgT3B0aW1pemF0aW9uIFRlY2huaXF1ZXMgZm9yIEVmZmljaWVudCBNb3Rpb24gUGxhbm5pbmcgLyBDb3ZhcmlhbnQgSGFtaWx0b25pYW4gT3B0aW1pemF0aW9uIGZvciBNb3Rpb24gUGxhbm5pbmcgfCBbSUNSQSAyMDA5XShodHRwczovL3B1YmxpY2F0aW9ucy5yaS5jbXUuZWR1L2Nob21wLWdyYWRpZW50LW9wdGltaXphdGlvbi10ZWNobmlxdWVzLWZvci1lZmZpY2llbnQtbW90aW9uLXBsYW5uaW5nKSDCtyBbSUpSUiBET0ldKGh0dHBzOi8vZG9pLm9yZy8xMC4xMTc3LzAyNzgzNjQ5MTM0ODg4MDUpIMK3IFtNb3ZlSXRdKGh0dHBzOi8vZ2l0aHViLmNvbS9tb3ZlaXQvbW92ZWl0L3RyZWUvbWFzdGVyL21vdmVpdF9wbGFubmVycy9jaG9tcCkgfCDnu4/lhbjorrrmloflm57pob7vvJtJQ1JBIDIwMDkgLyBJSlJSIDIwMTPvvJvljY/lj5jlh73mlbDmoq/luqbovajov7nkvJjljJbjgIHlubPmu5HkuI7pmpznoo3ku6Pku7cgfAo="
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import base64, os
+
+          p = Path('robotics-brief-covered-items.md')
+          s = p.read_text(encoding='utf-8')
+          rows = base64.b64decode(os.environ['ROWS_B64']).decode('utf-8')
+
+          old_date = '> 最后更新：2026-09-08（Asia/Shanghai）'
+          new_date = '> 最后更新：2026-09-09（Asia/Shanghai）'
+          old_stat = '> 2026-09-08 新增 8 条主动态与 1 条经典论文回顾，共 549 条。'
+          new_stat = '> 2026-09-09 新增 8 条主动态与 1 条经典论文回顾，共 558 条。'
+          checklist = '\n## 维护检查表\n'
+
+          assert old_date in s, 'expected old header date not found'
+          assert old_stat in s, 'expected 2026-09-08 stats line not found'
+          assert checklist in s, 'maintenance checklist not found'
+          assert '2609.04411' not in s, 'AquaBEV already indexed'
+          assert '2609.05300' not in s, 'H2INT already indexed'
+          assert '2609.05161' not in s, 'APEX-RBD already indexed'
+          assert '2609.04921' not in s, 'diffusion planner already indexed'
+          assert '2609.04799' not in s, 'HaptiNet already indexed'
+          assert '2609.05178' not in s, 'LIBERO-RECOVER already indexed'
+          assert 'research-acceleration-view-inside-openai' not in s, 'OpenAI research acceleration already indexed'
+          assert '2609.04909' not in s, 'APR hallucination already indexed'
+          assert 'CHOMP: Gradient Optimization Techniques' not in s, 'CHOMP already indexed'
+
+          s = s.replace(old_date, new_date, 1)
+          s = s.replace(old_stat, old_stat + '\n>\n' + new_stat, 1)
+          s = s.replace(checklist, '\n' + rows + checklist, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add robotics-brief-covered-items.md
+          git rm .github/workflows/update-robotics-index-2026-09-09.yml
+          git commit -m "docs: update robotics brief coverage index for 2026-09-09"
+          git push origin HEAD:master
