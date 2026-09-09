@@ -1,0 +1,35 @@
+name: Fix Robotics Brief Index 2026-09-09
+
+on:
+  push:
+    paths:
+      - '.github/workflows/fix-robotics-index-2026-09-09.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Fix index typo and clean workflow
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('robotics-brief-covered-items.md')
+          s = p.read_text(encoding='utf-8')
+          old = 'Coding Agent 在 AI 研发中的并行佣用、agent-workday 与人工干预数据'
+          new = 'Coding Agent 在 AI 研发中的并行使用、agent-workday 与人工干预数据'
+          assert old in s, 'target typo not found'
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add robotics-brief-covered-items.md
+          git rm .github/workflows/fix-robotics-index-2026-09-09.yml
+          git commit -m "docs: correct robotics brief coverage index for 2026-09-09"
+          git push origin HEAD:master
