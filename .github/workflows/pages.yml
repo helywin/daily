@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -15,57 +15,6 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  update-index:
-    if: github.event_name == 'push' && github.event.head_commit.message == 'chore: trigger robotics index update 2026-09-10'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Update robotics coverage index and restore workflow
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import base64
-
-          index_path = Path('robotics-brief-covered-items.md')
-          text = index_path.read_text(encoding='utf-8')
-
-          text = text.replace(
-              '> 最后更新：2026-09-09（Asia/Shanghai）',
-              '> 最后更新：2026-09-10（Asia/Shanghai）',
-              1,
-          )
-
-          old_tail = '> 2026-09-09 新增 8 条主动态与 1 条经典论文回顾，共 558 条。\n\n## 已核验条目'
-          new_history = '> 2026-09-09 新增 8 条主动态与 1 条经典论文回顾，共 558 条。\n>\n> 2026-09-10 新增 8 条主动态与 1 条经典论文回顾，共 567 条。\n\n## 已核验条目'
-          if '> 2026-09-10 新增 8 条主动态与 1 条经典论文回顾，共 567 条。' not in text:
-              if old_tail not in text:
-                  raise SystemExit('history anchor not found')
-              text = text.replace(old_tail, new_history, 1)
-
-          rows = base64.b64decode('fCAyMDI2LTA5LTEwIHwgRnVuY3Rpb25hbC1TTEFNOiBJbnRlcmFjdGlvbi1Bd2FyZSBNYXBwaW5nIHdpdGggT25saW5lIEZ1bmN0aW9uYWwgU2NlbmUgR3JhcGhzIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDc0OTcpIMK3IFvku6PnoIFdKGh0dHBzOi8vZ2l0aHViLmNvbS9IYmVsaWVmMTk5OC9GdW5jdGlvbmFsLVNMQU0tQ29STF8yMDI2KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDfvvJvlnKjnur/lip/og73lnLrmma/lm77jgIFhbmNob3Ita2V5ZnJhbWUg6IqC54K557u05oqk5LiO5Yqf6IO95ouT5omR6L6F5Yqp5Zue546vIHwKfCAyMDI2LTA5LTEwIHwgUmV0aGlua2luZyBMZWFybmVkIE9jY3VwYW5jeSBpbiBBdXRvbm9tb3VzIEFjdGl2ZSBNYXBwaW5nIHdpdGggT2JzZXJ2YXRpb24tR2F0ZWQgRmlsdGVyaW5nIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDkwNjkpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0wOO+8m+S4u+WKqOW7uuWbvuS4remihOa1iyBvY2N1cGFuY3kg5LiO5a6J5YWo5Yeg5L2V6Kej6ICm44CBb2JzZXJ2YXRpb24tZ2F0ZWQgZmlsdGVyaW5nIHwKfCAyMDI2LTA5LTEwIHwgT25saW5lLCBSZWFjaGFiaWxpdHktQXdhcmUsIFNhbXBsaW5nLUJhc2VkIE1vdGlvbiBQbGFubmluZyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjA5MDczKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDjvvJvlnKjnur8gaW50ZXJ2YWwgcmVhY2hhYmlsaXR5ICsgc2FtcGxpbmcgTVBD44CB5qih5Z6L6LWb6L2m55yf5py65a6J5YWo6aqM6K+BIHwKfCAyMDI2LTA5LTEwIHwgUEdNVDogUGVyY2VwdGl2ZSBHZW5lcmFsIE1vdGlvbiBUcmFja2luZyBmb3IgSHVtYW5vaWQgUm9ib3RzIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDg1MTEpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0wOO+8m21vdGlvbi1jb25kaXRpb25lZCB0ZXJyYWluIGdsaW1wc2Vz44CBdGVycmFpbi1hd2FyZSB0cmFja2luZyByZWxheGF0aW9u44CBRzEg55yf5py6IHwKfCAyMDI2LTA5LTEwIHwgUHJveHkgUG9saWN5IFN0ZWVyaW5nIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDkxNDgpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0wOO+8m+WPjCBQcm94eSB2ZWxvY2l0eSByZXNpZHVhbCDmjqjnkIbml7bpgILphY3lhrvnu5MgVkxBIHwKfCAyMDI2LTA5LTEwIHwgVEFOR086IEh1bWFub2lkIE5hdmlnYXRpb24gaW4gQ2x1dHRlcmVkIEVudmlyb25tZW50cyB3aXRoIGEgV2hvbGUtQm9keSBWaXNpb24tTGFuZ3VhZ2UtQWN0aW9uIE1vZGVsIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMDkxNTgpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0wOO+8mzI5LURvRiDlhajouqsgVkxB44CB5Lu/55yf6K6t57uD44CBVW5pdHJlZSBHMSDpm7bmoLfmnKznnJ/mnLogfAp8IDIwMjYtMDktMTAgfCBBdXRob3JpdHkgSXMgTm90IGEgU3RyaW5nOiBBIENhcGFiaWxpdHktU2NvcGVkIEhhcm5lc3MgZm9yIFByb21wdC1JbmplY3Rpb24tUmVzaXN0YW50IENvZGluZyBBZ2VudHMgLyBDYXBTY29wZSB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjA4MzcxKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMDjvvJvmqKHlnovkuIrkuIvmloflpJYgdHlwZWQgY2FwYWJpbGl0eeOAgeWtkCBBZ2VudCDmnYPpmZDpmpTnprvkuI7pl7TmjqXmj5DnpLrms6jlhaXpmLLmiqQgfAp8IDIwMjYtMDktMTAgfCBFeGVjQ3JpdGljOiBMZWFybiB0byBUZXN0LCBUZXN0IHRvIEltcHJvdmUgZm9yIENvZGluZyBBZ2VudHMgfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4wOTEzMykgwrcgW+S7o+eggV0oaHR0cHM6Ly9naXRodWIuY29tL01TUi1PcmNoYXJkL2V4ZWNjcml0aWMpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0wOO+8m1Rlc3QvUmVwYWlyIOWIhuadg+OAgWZhaWwtY2xvc2VkIOa1i+ivleWGu+e7k+S4juinkuiJsuWMluWQjuiuree7gyB8CnwgMjAyNi0wOS0xMCB8IE9jdG9NYXA6IEFuIEVmZmljaWVudCBQcm9iYWJpbGlzdGljIDNEIE1hcHBpbmcgRnJhbWV3b3JrIEJhc2VkIG9uIE9jdHJlZXMgfCBb6aG555uu6aG1XShodHRwczovL29jdG9tYXAuZ2l0aHViLmlvLykgwrcgW+S7o+eggV0oaHR0cHM6Ly9naXRodWIuY29tL09jdG9NYXAvb2N0b21hcCkgwrcgW0RPSV0oaHR0cHM6Ly9kb2kub3JnLzEwLjEwMDcvczEwNTE0LTAxMi05MzIxLTApIHwg57uP5YW46K665paH5Zue6aG+77ybQXV0b25vbW91cyBSb2JvdHMgMjAxM++8m+amgueOh+WFq+WPieagkeOAgW9jY3VwaWVkL2ZyZWUvdW5rbm93biDkuI7lpJrliIbovqjnjocgM0Qgb2NjdXBhbmN5IHwK').decode('utf-8')
-          if '| 2026-09-10 | Functional-SLAM:' not in text:
-              marker = '\n## 维护检查表\n'
-              if marker not in text:
-                  raise SystemExit('maintenance marker not found')
-              text = text.replace(marker, '\n' + rows + '\n## 维护检查表\n', 1)
-
-          index_path.write_text(text, encoding='utf-8')
-
-          original_workflow = base64.b64decode('bmFtZTogRGVwbG95IEpla3lsbCBzaXRlIHRvIFBhZ2VzCgpvbjoKICBwdXNoOgogICAgYnJhbmNoZXM6IFsibWFzdGVyIl0KICB3b3JrZmxvd19kaXNwYXRjaDoKCnBlcm1pc3Npb25zOgogIGNvbnRlbnRzOiByZWFkCiAgcGFnZXM6IHdyaXRlCiAgaWQtdG9rZW46IHdyaXRlCgpjb25jdXJyZW5jeToKICBncm91cDogcGFnZXMKICBjYW5jZWwtaW4tcHJvZ3Jlc3M6IGZhbHNlCgpqb2JzOgogIGJ1aWxkOgogICAgcnVucy1vbjogdWJ1bnR1LWxhdGVzdAogICAgc3RlcHM6CiAgICAgIC0gbmFtZTogQ2hlY2tvdXQKICAgICAgICB1c2VzOiBhY3Rpb25zL2NoZWNrb3V0QHY0CiAgICAgIC0gbmFtZTogU2V0dXAgUGFnZXMKICAgICAgICB1c2VzOiBhY3Rpb25zL2NvbmZpZ3VyZS1wYWdlc0B2NQogICAgICAtIG5hbWU6IEJ1aWxkIHdpdGggSmVreWxsCiAgICAgICAgdXNlczogYWN0aW9ucy9qZWt5bGwtYnVpbGQtcGFnZXNAdjEKICAgICAgICB3aXRoOgogICAgICAgICAgc291cmNlOiAuLwogICAgICAgICAgZGVzdGluYXRpb246IC4vX3NpdGUKICAgICAgLSBuYW1lOiBVcGxvYWQgYXJ0aWZhY3QKICAgICAgICB1c2VzOiBhY3Rpb25zL3VwbG9hZC1wYWdlcy1hcnRpZmFjdEB2MwoKICBkZXBsb3k6CiAgICBlbnZpcm9ubWVudDoKICAgICAgbmFtZTogZ2l0aHViLXBhZ2VzCiAgICAgIHVybDogJHt7IHN0ZXBzLmRlcGxveW1lbnQub3V0cHV0cy5wYWdlX3VybCB9fQogICAgcnVucy1vbjogdWJ1bnR1LWxhdGVzdAogICAgbmVlZHM6IGJ1aWxkCiAgICBzdGVwczoKICAgICAgLSBuYW1lOiBEZXBsb3kgdG8gR2l0SHViIFBhZ2VzCiAgICAgICAgaWQ6IGRlcGxveW1lbnQKICAgICAgICB1c2VzOiBhY3Rpb25zL2RlcGxveS1wYWdlc0B2NAo=')
-          Path('.github/workflows/pages.yml').write_bytes(original_workflow)
-          PY
-
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add robotics-brief-covered-items.md .github/workflows/pages.yml
-          git diff --cached --quiet && exit 0
-          git commit -m "docs: update robotics brief coverage index for 2026-09-10"
-          git push
-
   build:
     runs-on: ubuntu-latest
     steps:
