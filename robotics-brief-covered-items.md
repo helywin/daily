@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-09（Asia/Shanghai）
+> 最后更新：2026-09-10（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -77,6 +77,8 @@
 > 2026-09-08 新增 8 条主动态与 1 条经典论文回顾，共 549 条。
 >
 > 2026-09-09 新增 8 条主动态与 1 条经典论文回顾，共 558 条。
+>
+> 2026-09-10 新增 8 条主动态与 1 条经典论文回顾，共 567 条。
 
 ## 已核验条目
 
@@ -657,6 +659,16 @@
 | 2026-09-09 | Research acceleration: The view inside OpenAI | [官方研究](https://openai.com/index/research-acceleration-view-inside-openai/) | 时间回补；2026-09-06；Coding Agent 在 AI 研发中的并行使用、agent-workday 与人工干预数据 |
 | 2026-09-09 | Better Understanding, Better Fixes? A Study of Hallucination in LLM-based Automated Program Repair | [论文](https://arxiv.org/abs/2609.04909) | 时间回补；v1 2026-09-04；APR 中间理解与 repair hallucination、因果定位/修复策略错误 |
 | 2026-09-09 | CHOMP: Gradient Optimization Techniques for Efficient Motion Planning / Covariant Hamiltonian Optimization for Motion Planning | [ICRA 2009](https://publications.ri.cmu.edu/chomp-gradient-optimization-techniques-for-efficient-motion-planning) · [IJRR DOI](https://doi.org/10.1177/0278364913488805) · [MoveIt](https://github.com/moveit/moveit/tree/master/moveit_planners/chomp) | 经典论文回顾；ICRA 2009 / IJRR 2013；协变函数梯度轨迹优化、平滑与障碍代价 |
+
+| 2026-09-10 | Functional-SLAM: Interaction-Aware Mapping with Online Functional Scene Graphs | [论文](https://arxiv.org/abs/2609.07497) · [代码](https://github.com/Hbelief1998/Functional-SLAM-CoRL_2026) | 时间回补；v1 2026-09-07；在线功能场景图、anchor-keyframe 节点维护与功能拓扑辅助回环 |
+| 2026-09-10 | Rethinking Learned Occupancy in Autonomous Active Mapping with Observation-Gated Filtering | [论文](https://arxiv.org/abs/2609.09069) | 时间回补；v1 2026-09-08；主动建图中预测 occupancy 与安全几何解耦、observation-gated filtering |
+| 2026-09-10 | Online, Reachability-Aware, Sampling-Based Motion Planning | [论文](https://arxiv.org/abs/2609.09073) | 时间回补；v1 2026-09-08；在线 interval reachability + sampling MPC、模型赛车真机安全验证 |
+| 2026-09-10 | PGMT: Perceptive General Motion Tracking for Humanoid Robots | [论文](https://arxiv.org/abs/2609.08511) | 时间回补；v1 2026-09-08；motion-conditioned terrain glimpses、terrain-aware tracking relaxation、G1 真机 |
+| 2026-09-10 | Proxy Policy Steering | [论文](https://arxiv.org/abs/2609.09148) | 时间回补；v1 2026-09-08；双 Proxy velocity residual 推理时适配冻结 VLA |
+| 2026-09-10 | TANGO: Humanoid Navigation in Cluttered Environments with a Whole-Body Vision-Language-Action Model | [论文](https://arxiv.org/abs/2609.09158) | 时间回补；v1 2026-09-08；29-DoF 全身 VLA、仿真训练、Unitree G1 零样本真机 |
+| 2026-09-10 | Authority Is Not a String: A Capability-Scoped Harness for Prompt-Injection-Resistant Coding Agents / CapScope | [论文](https://arxiv.org/abs/2609.08371) | 时间回补；v1 2026-09-08；模型上下文外 typed capability、子 Agent 权限隔离与间接提示注入防护 |
+| 2026-09-10 | ExecCritic: Learn to Test, Test to Improve for Coding Agents | [论文](https://arxiv.org/abs/2609.09133) · [代码](https://github.com/MSR-Orchard/execcritic) | 时间回补；v1 2026-09-08；Test/Repair 分权、fail-closed 测试冻结与角色化后训练 |
+| 2026-09-10 | OctoMap: An Efficient Probabilistic 3D Mapping Framework Based on Octrees | [项目页](https://octomap.github.io/) · [代码](https://github.com/OctoMap/octomap) · [DOI](https://doi.org/10.1007/s10514-012-9321-0) | 经典论文回顾；Autonomous Robots 2013；概率八叉树、occupied/free/unknown 与多分辨率 3D occupancy |
 
 ## 维护检查表
 
