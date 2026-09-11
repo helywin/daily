@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-10（Asia/Shanghai）
+> 最后更新：2026-09-11（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -79,6 +79,8 @@
 > 2026-09-09 新增 8 条主动态与 1 条经典论文回顾，共 558 条。
 >
 > 2026-09-10 新增 8 条主动态与 1 条经典论文回顾，共 567 条。
+>
+> 2026-09-11 新增 8 条主动态与 1 条经典论文回顾，共 576 条。
 
 ## 已核验条目
 
@@ -669,6 +671,16 @@
 | 2026-09-10 | Authority Is Not a String: A Capability-Scoped Harness for Prompt-Injection-Resistant Coding Agents / CapScope | [论文](https://arxiv.org/abs/2609.08371) | 时间回补；v1 2026-09-08；模型上下文外 typed capability、子 Agent 权限隔离与间接提示注入防护 |
 | 2026-09-10 | ExecCritic: Learn to Test, Test to Improve for Coding Agents | [论文](https://arxiv.org/abs/2609.09133) · [代码](https://github.com/MSR-Orchard/execcritic) | 时间回补；v1 2026-09-08；Test/Repair 分权、fail-closed 测试冻结与角色化后训练 |
 | 2026-09-10 | OctoMap: An Efficient Probabilistic 3D Mapping Framework Based on Octrees | [项目页](https://octomap.github.io/) · [代码](https://github.com/OctoMap/octomap) · [DOI](https://doi.org/10.1007/s10514-012-9321-0) | 经典论文回顾；Autonomous Robots 2013；概率八叉树、occupied/free/unknown 与多分辨率 3D occupancy |
+
+| 2026-09-11 | Odometer-Agnostic Drift Correction Using OpenStreetMap Lane Geometry | [论文](https://arxiv.org/abs/2609.10336) · [代码](https://github.com/Joaquinecc/icp_trajectory_alignment_osm) | 时间回补；OSM 车道几何 + trimmed SE(2) ICP；odometer-agnostic 纠漂 |
+| 2026-09-11 | AccelMPC: High-Rate, Low-Power FPGA-Accelerated Model Predictive Control for Tiny Drones | [论文](https://arxiv.org/abs/2609.09380) · [硬件](https://github.com/A2R-Lab/Crazyflie_FPGA_Deck) · [求解器](https://github.com/A2R-Lab/ADMM_FPGA) | 时间回补；35 g Crazyflie；1 kHz FPGA MPC |
+| 2026-09-11 | Actuator Dynamics Curricula for Narrow-Viability Tasks in Legged Robot Learning | [论文](https://arxiv.org/abs/2609.09492) | 时间回补；执行器刚度/阻尼 curriculum 扩大早期 viability；Spot 真机 |
+| 2026-09-11 | Identifying Habit, Physics, and Nuisance in Robot World Models | [论文](https://arxiv.org/abs/2609.09210) | 时间回补；结构因果拆分 operator habit / shared physics / observation nuisance |
+| 2026-09-11 | JEPA Policy: Diffusion-Free Imitation Learning via Paired Action and Future Representation Prediction | [论文](https://arxiv.org/abs/2609.09630) · [代码](https://github.com/jiejie567/JEPA-Policy) | 时间回补；action chunk + future representation 成对监督；低延迟模仿学习 |
+| 2026-09-11 | What Symmetry Buys a Learned Motion Planner | [论文](https://arxiv.org/abs/2609.10033) | 时间回补；start-goal canonical frame 消去 5 个 SE(3) 自由度 |
+| 2026-09-11 | Beyond Repository Boundaries: Cross-Repository Graph Retrieval for Code Generation / CrossCoder | [论文](https://arxiv.org/abs/2609.09987) | 时间回补；跨仓库/外部依赖知识图谱检索；VersionExec |
+| 2026-09-11 | If It's Not Buggy, Don't Fix It: On the Dynamics of Iterative Bug-fixing with LLMs | [论文](https://arxiv.org/abs/2609.10123) | 时间回补；自动修复 damage rate 与 pseudo-bug-fixing cycle；停止条件 |
+| 2026-09-11 | LQR-Trees: Feedback Motion Planning via Sums-of-Squares Verification | [DOI](https://doi.org/10.1177/0278364910369189) | 经典论文回顾；IJRR 2010；LQR + SOS verified funnels / feedback motion planning |
 
 ## 维护检查表
 
