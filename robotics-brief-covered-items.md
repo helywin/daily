@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-11（Asia/Shanghai）
+> 最后更新：2026-09-12（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -81,6 +81,8 @@
 > 2026-09-10 新增 8 条主动态与 1 条经典论文回顾，共 567 条。
 >
 > 2026-09-11 新增 8 条主动态与 1 条经典论文回顾，共 576 条。
+>
+> 2026-09-12 新增 8 条主动态与 1 条经典论文回顾，共 585 条。
 
 ## 已核验条目
 
@@ -681,6 +683,17 @@
 | 2026-09-11 | Beyond Repository Boundaries: Cross-Repository Graph Retrieval for Code Generation / CrossCoder | [论文](https://arxiv.org/abs/2609.09987) | 时间回补；跨仓库/外部依赖知识图谱检索；VersionExec |
 | 2026-09-11 | If It's Not Buggy, Don't Fix It: On the Dynamics of Iterative Bug-fixing with LLMs | [论文](https://arxiv.org/abs/2609.10123) | 时间回补；自动修复 damage rate 与 pseudo-bug-fixing cycle；停止条件 |
 | 2026-09-11 | LQR-Trees: Feedback Motion Planning via Sums-of-Squares Verification | [DOI](https://doi.org/10.1177/0278364910369189) | 经典论文回顾；IJRR 2010；LQR + SOS verified funnels / feedback motion planning |
+
+
+| 2026-09-12 | RIDE: Relocalization-Informed Depth Estimation with 3D Gaussian Splatting | [论文](https://arxiv.org/abs/2609.11079) | 时间回补；v1 2026-09-10；复用 PnP-RANSAC 2D-3D inlier 作为 metric depth 锚点，3DGS 重定位几何辅助稠密深度。 |
+| 2026-09-12 | ActSafeGuard: Differentiable and Training-Aligned Constraint Enforcement for Flow-Matching Policies | [论文](https://arxiv.org/abs/2609.11697) | 时间回补；v1 2026-09-10；可微 ray-scaling 硬动作可行域，与 flow-matching 训练对齐。 |
+| 2026-09-12 | Contact-Aware Incremental Model Predictive Control for an Underactuated Aerial Manipulator | [论文](https://arxiv.org/abs/2609.11661) | 时间回补；v1 2026-09-10；NMPC + whole-body INDI；欠驱动四旋翼真实接触书写与法向力跟踪。 |
+| 2026-09-12 | CAP: Continuously Adaptive Perception-Blind Humanoid Locomotion via Learned Denoising | [论文](https://arxiv.org/abs/2609.11553) | 时间回补；v1 2026-09-10；CoRL 2026；连续感知退化下 learned denoising + proprioceptive co-active encoder；Unitree G1。 |
+| 2026-09-12 | Planning along Differentiable Charts of Constraint Manifolds with General-Purpose IK Solvers | [论文](https://arxiv.org/abs/2609.10905) | 时间回补；v1 2026-09-09；inverse function theorem 从 FK Jacobian 恢复 analytic IK chart 梯度；RB-Y1 真机。 |
+| 2026-09-12 | IMLE-VLA: Fast Single-Step Action Generation for Vision-Language-Action Policies | [论文](https://arxiv.org/abs/2609.10915) · [项目页](https://kianhk6.github.io/IMLE-VLA/) | 时间回补；v1 2026-09-10；IROS 2026；cIMLE 单步动作头，π0.5 15 Hz→55 Hz。 |
+| 2026-09-12 | Ecdysis: Efficient and Effective Training of Runtime Harnesses for LLM Agents | [论文](https://arxiv.org/abs/2609.11677) | 时间回补；v1 2026-09-10；跨任务 failure aggregation 区分模型偶发错误与 harness 系统性缺陷。 |
+| 2026-09-12 | ChurnBench: A Drift-Aware Benchmark Demonstrating That Refresh Scheduling, Not Cache Age, Governs Staleness in Agentic AI | [论文](https://arxiv.org/abs/2609.11515) · [代码与数据](https://github.com/vsingh45/churnbench) | 时间回补；v1 2026-09-10；Agent 数据新鲜度 benchmark；TTL / refresh schedule 主导 freshness error。 |
+| 2026-09-12 | Task Space Regions / CBiRRT | [ICRA 2009](https://publications.ri.cmu.edu/manipulation-planning-on-constraint-manifolds) · [IJRR 2011 DOI](https://doi.org/10.1177/0278364910396389) | 经典论文回顾；约束流形采样、Task Space Region、CBiRRT/CBiRRT2。 |
 
 ## 维护检查表
 
