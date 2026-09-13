@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-12（Asia/Shanghai）
+> 最后更新：2026-09-13（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -83,6 +83,8 @@
 > 2026-09-11 新增 8 条主动态与 1 条经典论文回顾，共 576 条。
 >
 > 2026-09-12 新增 8 条主动态与 1 条经典论文回顾，共 585 条。
+>
+> 2026-09-13 新增 8 条主动态与 1 条经典论文回顾，共 594 条。
 
 ## 已核验条目
 
@@ -694,6 +696,17 @@
 | 2026-09-12 | Ecdysis: Efficient and Effective Training of Runtime Harnesses for LLM Agents | [论文](https://arxiv.org/abs/2609.11677) | 时间回补；v1 2026-09-10；跨任务 failure aggregation 区分模型偶发错误与 harness 系统性缺陷。 |
 | 2026-09-12 | ChurnBench: A Drift-Aware Benchmark Demonstrating That Refresh Scheduling, Not Cache Age, Governs Staleness in Agentic AI | [论文](https://arxiv.org/abs/2609.11515) · [代码与数据](https://github.com/vsingh45/churnbench) | 时间回补；v1 2026-09-10；Agent 数据新鲜度 benchmark；TTL / refresh schedule 主导 freshness error。 |
 | 2026-09-12 | Task Space Regions / CBiRRT | [ICRA 2009](https://publications.ri.cmu.edu/manipulation-planning-on-constraint-manifolds) · [IJRR 2011 DOI](https://doi.org/10.1177/0278364910396389) | 经典论文回顾；约束流形采样、Task Space Region、CBiRRT/CBiRRT2。 |
+
+
+| 2026-09-13 | Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAP for robotized harvesting | [论文](https://arxiv.org/abs/2609.11766) · [HLoc-GLOMAP](https://github.com/pablovela5620/hloc-glomap) | 时间回补；v1 2026-09-10；单目 RGB + HLoc/GLOMAP 离线多视图重建遮挡番茄几何。 |
+| 2026-09-13 | Aerodynamic Prior-Free Coordinated Trajectory Generation and Tracking Control for a Tail-Sitter UAV | [论文](https://arxiv.org/abs/2609.11698) · [代码](https://github.com/SYSU-HILAB/AP-PnC) | 时间回补；v1 2026-09-10；协调飞行 differential flatness + 在线气动参数 NMPC，无需机体专属气动辨识。 |
+| 2026-09-13 | SwarmNxt: Open-source Software-Hardware Platform for Fast and Agile Aerial Swarms | [论文](https://arxiv.org/abs/2609.11382) · [代码](https://github.com/lis-epfl/swarm-nxt) · [文档](https://lis-epfl.github.io/swarm-nxt/) | 时间回补；v1 2026-09-10；ROS 2 多机域隔离、Ansible fleet orchestration、机载深度/规划/MPC 真机无人机群平台。 |
+| 2026-09-13 | ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations | [论文](https://arxiv.org/abs/2609.10918) | 时间回补；v1 2026-09-10；TOB 目标-障碍-背景结构表示；真实温室障碍感知 diffusion manipulation。 |
+| 2026-09-13 | FARM: Reading Failure Signals from the Internal Predictive States of a Frozen Robotic World Model | [论文](https://arxiv.org/abs/2609.11445) | 时间回补；v1 2026-09-10；冻结 world-model latent + 33,985 参数 readout 做在线失败风险监控。 |
+| 2026-09-13 | Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection | [论文](https://arxiv.org/abs/2609.11225) | 时间回补；v1 2026-09-10；确定性导航栈 + Agent 任务编排/记忆/治理式自进化；四足巡检闭环。 |
+| 2026-09-13 | Engineering Reliable Commit Gates for Agentic AI: Cost-Aware Verification Portfolios under Common-Mode Data Failures | [论文](https://arxiv.org/abs/2609.10969) | 时间回补；v1 2026-09-10；独立证据源、校准验证组合与原子 commit-time guard。 |
+| 2026-09-13 | GPT-Live-1 | [官方发布](https://openai.com/index/introducing-gpt-live-1-in-the-api/) | 时间回补；2026-09-10 API 正式发布；full-duplex voice model，可委派深度推理与工具调用给后端模型。 |
+| 2026-09-13 | Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing | [DOI](https://doi.org/10.1177/0278364906072768) · [CMU](https://publications.ri.cmu.edu/square-root-sam-simultaneous-localization-and-mapping-via-square-root-information-smoothing) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾；IJRR 2006；square-root information smoothing、稀疏因子化、变量排序与 factor-graph SLAM。 |
 
 ## 维护检查表
 
