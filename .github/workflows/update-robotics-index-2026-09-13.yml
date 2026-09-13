@@ -17,14 +17,57 @@ jobs:
         with:
           fetch-depth: 0
       - name: Update coverage index
-        env:
-          UPDATE_SCRIPT_B64: "ZnJvbSBwYXRobGliIGltcG9ydCBQYXRoCgpwID0gUGF0aCgicm9ib3RpY3MtYnJpZWYtY292ZXJlZC1pdGVtcy5tZCIpCnMgPSBwLnJlYWRfdGV4dChlbmNvZGluZz0idXRmLTgiKQoKb2xkID0gIj4g5pyA5ZCO5pu05paw77yaMjAyNi0wOS0xMu+8iEFzaWEvU2hhbmdoYWnvvIkiCm5ldyA9ICI+IOacgOWQjuabtOaWsO+8mjIwMjYtMDktMTPvvIhBc2lhL1NoYW5naGFp77yJIgppZiBvbGQgbm90IGluIHM6CiAgICByYWlzZSBTeXN0ZW1FeGl0KCJleHBlY3RlZCBvbGQgaGVhZGVyIG5vdCBmb3VuZCIpCnMgPSBzLnJlcGxhY2Uob2xkLCBuZXcsIDEpCgpoaXN0ID0gIj4gMjAyNi0wOS0xMiDmlrDlop4gOCDmnaHkuLvliqjmgIHkuI4gMSDmnaHnu4/lhbjorrrmloflm57pob7vvIzlhbEgNTg1IOadoeOAgiIKaGlzdF9uZXcgPSBoaXN0ICsgIlxuPlxuPiAyMDI2LTA5LTEzIOaWsOWiniA4IOadoeS4u+WKqOaAgeS4jiAxIOadoee7j+WFuOiuuuaWh+Wbnumhvu+8jOWFsSA1OTQg5p2h44CCIgppZiBoaXN0IG5vdCBpbiBzOgogICAgcmFpc2UgU3lzdGVtRXhpdCgiZXhwZWN0ZWQgaGlzdG9yeSBsaW5lIG5vdCBmb3VuZCIpCnMgPSBzLnJlcGxhY2UoaGlzdCwgaGlzdF9uZXcsIDEpCgppZHMgPSBbCiAgICAiMjYwOS4xMTc2NiIsIjI2MDkuMTE2OTgiLCIyNjA5LjExMzgyIiwiMjYwOS4xMDkxOCIsCiAgICAiMjYwOS4xMTQ0NSIsIjI2MDkuMTEyMjUiLCIyNjA5LjEwOTY5IgpdCmZvciBhaWQgaW4gaWRzOgogICAgaWYgYWlkIGluIHM6CiAgICAgICAgcmFpc2UgU3lzdGVtRXhpdChmImR1cGxpY2F0ZSBhclhpdiBpZCBhbHJlYWR5IHByZXNlbnQ6IHthaWR9IikKaWYgIkdQVC1MaXZlLTEiIGluIHM6CiAgICByYWlzZSBTeXN0ZW1FeGl0KCJkdXBsaWNhdGUgR1BULUxpdmUtMSBhbHJlYWR5IHByZXNlbnQiKQppZiAiU3F1YXJlIFJvb3QgU0FNIiBpbiBzOgogICAgcmFpc2UgU3lzdGVtRXhpdCgiZHVwbGljYXRlIFNxdWFyZSBSb290IFNBTSBhbHJlYWR5IHByZXNlbnQiKQoKcm93cyA9ICcnJwp8IDIwMjYtMDktMTMgfCBWaXN1YWwtU0xBTSBmb3IgdGhlIGRldGVjdGlvbiBvZiBoaWRkZW4gdG9tYXRvZXMgaW4gZ3JlZW5ob3VzZXMgYnkgSGllcmFyY2hpY2FsIExvY2FsaXphdGlvbiBhbmQgR0xPTUFQIGZvciByb2JvdGl6ZWQgaGFydmVzdGluZyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjExNzY2KSDCtyBbSExvYy1HTE9NQVBdKGh0dHBzOi8vZ2l0aHViLmNvbS9wYWJsb3ZlbGE1NjIwL2hsb2MtZ2xvbWFwKSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMTDvvJvljZXnm64gUkdCICsgSExvYy9HTE9NQVAg56a757q/5aSa6KeG5Zu+6YeN5bu66YGu5oyh55Wq6IyE5Yeg5L2V44CCIHwKfCAyMDI2LTA5LTEzIHwgQWVyb2R5bmFtaWMgUHJpb3ItRnJlZSBDb29yZGluYXRlZCBUcmFqZWN0b3J5IEdlbmVyYXRpb24gYW5kIFRyYWNraW5nIENvbnRyb2wgZm9yIGEgVGFpbC1TaXR0ZXIgVUFWIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMTE2OTgpIMK3IFvku6PnoIFdKGh0dHBzOi8vZ2l0aHViLmNvbS9TWVNVLUhJTEFCL0FQLVBuQykgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA5LTEw77yb5Y2P6LCD6aOe6KGMIGRpZmZlcmVudGlhbCBmbGF0bmVzcyArIOWcqOe6v+awlOWKqOWPguaVsCBOTVBD77yb5peg6ZyA5py65L2T5LiT5bGe5rCU5Yqo6L6o6K+G44CCIHwKfCAyMDI2LTA5LTEzIHwgU3dhcm1OeHQ6IE9wZW4tc291cmNlIFNvZnR3YXJlLUhhcmR3YXJlIFBsYXRmb3JtIGZvciBGYXN0IGFuZCBBZ2lsZSBBZXJpYWwgU3dhcm1zIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMTEzODIpIMK3IFvku6PnoIFdKGh0dHBzOi8vZ2l0aHViLmNvbS9saXMtZXBmbC9zd2FybS1ueHQpIMK3IFvmlofmoaNdKGh0dHBzOi8vbGlzLWVwZmwuZ2l0aHViLmlvL3N3YXJtLW54dC8pIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0xMO+8m1JPUyAyIOWkmuacuuWfn+malOemu+OAgUFuc2libGUgZmxlZXQgb3JjaGVzdHJhdGlvbuOAgeacuui9ovea3seW6pi/op4TliJIvTVBDIOecn+acuuaXoOS6uuacuue+pOW5s+WPsOOAgiB8CnwgMjAyNi0wOS0xMyB8IE9ic3RhRGlmZjogR2VuZXJhbGl6YWJsZSBEaWZmdXNpb24gUG9saWN5IExlYXJuaW5nIHZpYSBPYnN0YWNsZS1hd2FyZSBSZXByZXNlbnRhdGlvbnMgfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4xMDkxOCkgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA5LTEw77ybVE9CIOebruaghy3pmpznoo0t6IOM5pmv57uT5p6E6KGo56S677yb55yf5a6e5rip5a6k6Zqc56KN5oSf55+lIGRpZmZ1c2lvbiBtYW5pcHVsYXRpb27jgIIgfAp8IDIwMjYtMDktMTMgfCBGQVJNOiBSZWFkaW5nIEZhaWx1cmUgU2lnbmFscyBmcm9tIHRoZSBJbnRlcm5hbCBQcmVkaWN0aXZlIFN0YXRlcyBvZiBhIEZyb3plbiBSb2JvdGljIFdvcmxkIE1vZGVsIHwgW+iuuuaWh10oaHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzI2MDkuMTE0NDUpIHwg5pe26Ze05Zue6KGl77ybdjEgMjAyNi0wOS0xMO+8m+WGu+e7kyB3b3JsZC1tb2RlbCBsYXRlbnQgKyAzMyw5ODUg5Y+C5pWwIHJlYWRvdXQg5YGa5Zyo57q/5aSx6LSl6aOO6Zmp55uR5o6n44CCIHwKfCAyMDI2LTA5LTEzIHwgSGFybmVzcyBSb2JvdGljIE9TOiBBIFVuaWZpZWQgRW1ib2RpZWQtQWdlbnQgUnVudGltZSBmb3IgQ2xvc2VkLUxvb3AgUXVhZHJ1cGVkIEluc3BlY3Rpb24gfCBb6K665paHXShodHRwczovL2FyeGl2Lm9yZy9hYnMvMjYwOS4xMTIyNSkgfCDml7bpl7Tlm57ooaXvvJt2MSAyMDI2LTA5LTEw77yb56Gu5a6a5oCn5a+86Iiq5qCIICsgQWdlbnQg5Lu75Yqh57yW5o6SL+iusOW/hi/msrvnkIblvI/oh6rov5vljJbvvJvkvY/lroXlm5votrPlt6Hmo4Dpl63njq/jgIIgfAp8IDIwMjYtMDktMTMgfCBFbmdpbmVlcmluZyBSZWxpYWJsZSBDb21taXQgR2F0ZXMgZm9yIEFnZW50aWMgQUk6IENvc3QtQXdhcmUgVmVyaWZpY2F0aW9uIFBvcnRmb2xpb3MgdW5kZXIgQ29tbW9uLU1vZGUgRGF0YSBGYWlsdXJlcyB8IFvorrrmloddKGh0dHBzOi8vYXJ4aXYub3JnL2Ficy8yNjA5LjEwOTY5KSB8IOaXtumXtOWbnuihpe+8m3YxIDIwMjYtMDktMTDvvJvni6znq4vor4Hmja7mupDjgIHmoKHlh4bpqozor4Hnu4TlkIjkuI7ljp/lrZAgY29tbWl0LXRpbWUgZ3VhcmTjgIIgfAp8IDIwMjYtMDktMTMgfCBHUFQtTGl2ZS0xIHwgW+WumOaWueWPkeW4g10oaHR0cHM6Ly9vcGVuYWkuY29tL2luZGV4L2ludHJvZHVjaW5nLWdwdC1saXZlLTEtaW4tdGhlLWFwaS8pIHwg5pe26Ze05Zue6KGl77ybMjAyNi0wOS0xMCBBUEkg5q2j5byP5Y+R5biD77ybZnVsbC1kdXBsZXggdm9pY2UgbW9kZWzvvIzlj6/lp5TmtL7mt7HluqbmjqjnkIbkuI7lt6XlhbfosIPnlKjnu5nlkI7nq6/mqKHlnovjgIIgfAp8IDIwMjYtMDktMTMgfCBTcXVhcmUgUm9vdCBTQU06IFNpbXVsdGFuZW91cyBMb2NhbGl6YXRpb24gYW5kIE1hcHBpbmcgdmlhIFNxdWFyZSBSb290IEluZm9ybWF0aW9uIFNtb290aGluZyB8IFtET0ldKGh0dHBzOi8vZG9pLm9yZy8xMC4xMTc3LzAyNzgzNjQ5MDYwNzI3NjgpIMK3IFtDTVVdKGh0dHBzOi8vcHVibGljYXRpb25zLnJpLmNtdS5lZHUvc3F1YXJlLXJvb3Qtc2FtLXNpbXVsdGFuZW91cy1sb2NhbGl6YXRpb24tYW5kLW1hcHBpbmctdmlhLXNxdWFyZS1yb290LWluZm9ybWF0aW9uLXNtb290aGluZykgwrcgW0dUU0FNXShodHRwczovL2dpdGh1Yi5jb20vYm9yZ2xhYi9ndHNhbSkgfCDnu4/lhbjorrrmloflm57pob7vvJtJSlJSIDIwMDbvvJtzcXVhcmUtcm9vdCBpbmZvcm1hdGlvbiBzbW9vdGhpbmfjgIHnqIDnlo/lm6DlrZDljJbjgIHlj5jph4/mjpLluo/kuI4gZmFjdG9yLWdyYXBoIFNMQU3jgIIgfAonJycKbWFya2VyID0gIlxuIyMg57u05oqk5qOA5p+l6KGoXG4iCmlmIG1hcmtlciBub3QgaW4gczoKICAgIHJhaXNlIFN5c3RlbUV4aXQoIm1haW50ZW5hbmNlIG1hcmtlciBtaXNzaW5nIikKcyA9IHMucmVwbGFjZShtYXJrZXIsICJcbiIgKyByb3dzLnN0cmlwKCkgKyAiXG5cbiMjIOe7tOaKpOajgOafpeihqFxuIiwgMSkKcC53cml0ZV90ZXh0KHMsIGVuY29kaW5nPSJ1dGYtOCIpCg=="
-        run: python -c "import base64,os; exec(base64.b64decode(os.environ['UPDATE_SCRIPT_B64']).decode())"
-      - name: Commit index and remove temporary workflow
+        shell: bash
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          p = Path("robotics-brief-covered-items.md")
+          s = p.read_text(encoding="utf-8")
+
+          old = "> 最后更新：2026-09-12（Asia/Shanghai）"
+          new = "> 最后更新：2026-09-13（Asia/Shanghai）"
+          if old not in s:
+              raise SystemExit("expected 2026-09-12 header not found")
+          s = s.replace(old, new, 1)
+
+          hist = "> 2026-09-12 新增 8 条主动态与 1 条经典论文回顾，共 585 条。"
+          hist_new = hist + "\n>\n> 2026-09-13 新增 8 条主动态与 1 条经典论文回顾，共 594 条。"
+          if hist not in s:
+              raise SystemExit("expected 2026-09-12 history line not found")
+          s = s.replace(hist, hist_new, 1)
+
+          ids = ["2609.11766", "2609.11698", "2609.11382", "2609.10918", "2609.11445", "2609.11225", "2609.10969"]
+          for aid in ids:
+              if aid in s:
+                  raise SystemExit(f"duplicate arXiv id already present: {aid}")
+          if "GPT-Live-1" in s:
+              raise SystemExit("duplicate GPT-Live-1 already present")
+          if "Square Root SAM" in s:
+              raise SystemExit("duplicate Square Root SAM already present")
+
+          rows = r'''
+          | 2026-09-13 | Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAP for robotized harvesting | [论文](https://arxiv.org/abs/2609.11766) · [HLoc-GLOMAP](https://github.com/pablovela5620/hloc-glomap) | 时间回补；v1 2026-09-10；单目 RGB + HLoc/GLOMAP 离线多视图重建遮挡番茄几何。 |
+          | 2026-09-13 | Aerodynamic Prior-Free Coordinated Trajectory Generation and Tracking Control for a Tail-Sitter UAV | [论文](https://arxiv.org/abs/2609.11698) · [代码](https://github.com/SYSU-HILAB/AP-PnC) | 时间回补；v1 2026-09-10；协调飞行 differential flatness + 在线气动参数 NMPC，无需机体专属气动辨识。 |
+          | 2026-09-13 | SwarmNxt: Open-source Software-Hardware Platform for Fast and Agile Aerial Swarms | [论文](https://arxiv.org/abs/2609.11382) · [代码](https://github.com/lis-epfl/swarm-nxt) · [文档](https://lis-epfl.github.io/swarm-nxt/) | 时间回补；v1 2026-09-10；ROS 2 多机域隔离、Ansible fleet orchestration、机载深度/规划/MPC 真机无人机群平台。 |
+          | 2026-09-13 | ObstaDiff: Generalizable Diffusion Policy Learning via Obstacle-aware Representations | [论文](https://arxiv.org/abs/2609.10918) | 时间回补；v1 2026-09-10；TOB 目标-障碍-背景结构表示；真实温室障碍感知 diffusion manipulation。 |
+          | 2026-09-13 | FARM: Reading Failure Signals from the Internal Predictive States of a Frozen Robotic World Model | [论文](https://arxiv.org/abs/2609.11445) | 时间回补；v1 2026-09-10；冻结 world-model latent + 33,985 参数 readout 做在线失败风险监控。 |
+          | 2026-09-13 | Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection | [论文](https://arxiv.org/abs/2609.11225) | 时间回补；v1 2026-09-10；确定性导航栈 + Agent 任务编排/记忆/治理式自进化；四足巡检闭环。 |
+          | 2026-09-13 | Engineering Reliable Commit Gates for Agentic AI: Cost-Aware Verification Portfolios under Common-Mode Data Failures | [论文](https://arxiv.org/abs/2609.10969) | 时间回补；v1 2026-09-10；独立证据源、校准验证组合与原子 commit-time guard。 |
+          | 2026-09-13 | GPT-Live-1 | [官方发布](https://openai.com/index/introducing-gpt-live-1-in-the-api/) | 时间回补；2026-09-10 API 正式发布；full-duplex voice model，可委派深度推理与工具调用给后端模型。 |
+          | 2026-09-13 | Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing | [DOI](https://doi.org/10.1177/0278364906072768) · [CMU](https://publications.ri.cmu.edu/square-root-sam-simultaneous-localization-and-mapping-via-square-root-information-smoothing) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾；IJRR 2006；square-root information smoothing、稀疏因子化、变量排序与 factor-graph SLAM。 |
+          '''
+          rows = "\n".join(line.strip() for line in rows.strip().splitlines())
+          marker = "\n## 维护检查表\n"
+          if marker not in s:
+              raise SystemExit("maintenance marker missing")
+          s = s.replace(marker, "\n\n" + rows + "\n\n## 维护检查表\n", 1)
+          p.write_text(s, encoding="utf-8")
+          PY
+      - name: Commit index
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add robotics-brief-covered-items.md
-          git rm .github/workflows/update-robotics-index-2026-09-13.yml
           git commit -m "docs: update robotics brief coverage index for 2026-09-13"
           git push
