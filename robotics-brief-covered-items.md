@@ -86,7 +86,7 @@
 >
 > 2026-09-13 新增 8 条主动态与 1 条经典论文回顾，共 594 条。
 >
-> 2026-09-14 新增 8 条主动态与 1 条经典论文回顾，共 603 条。
+> 2026-09-14 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 606 条。
 
 ## 已核验条目
 
@@ -719,6 +719,10 @@
 | 2026-09-14 | RCL: A Retrieval-Confidence Layer for Detecting Insufficient Context in Enterprise Retrieval-Augmented Code Generation | [论文](https://arxiv.org/abs/2609.11023) | 时间回补；v1 2026-09-10；以 call-graph structural coverage + novelty 检测企业私有代码检索是否足够。 |
 | 2026-09-14 | Can AI Remediate Backend Failures Safely? GuardedAct with Blast-Radius-Aware Sandboxing | [论文](https://arxiv.org/abs/2609.11264) | 时间回补；v1 2026-09-10；digital-twin sandbox、blast-radius 估计与 rollback-confidence gate。 |
 | 2026-09-14 | A Frontier-Based Approach for Autonomous Exploration | [DOI](https://doi.org/10.1109/CIRA.1997.613851) | 经典论文回顾；Yamauchi，IEEE CIRA 1997；以 Free-Unknown frontier 驱动自主探索。 |
+
+| 2026-09-14 | 社区精选：双 Agent Maker/Reviewer + 原始需求独立审查 | [文章](https://have-been.com/en/posts/claude-code-codex-together) | 社区精选；开发者实战文章；2026-09-11 |
+| 2026-09-14 | 社区精选：Front-Load 四阶段 AI Coding Workflow | [文章](https://codex.danielvaughan.com/2026/09/06/front-load-human-review-phased-coding-agent-workflow-codex-cli/) | 社区精选；2026-09-06，2026-09-10 更新 |
+| 2026-09-14 | 社区精选：Human-owned Design Checkpoint 后再交给 Agent 实现 | [Reddit](https://www.reddit.com/r/developersIndia/comments/1w9w2jh/i_am_done_with_the_everydays_work_using_just/) | 社区精选；社区经验；2026-09-07 |
 
 ## 维护检查表
 
