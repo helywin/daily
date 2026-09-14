@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-13（Asia/Shanghai）
+> 最后更新：2026-09-14（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -85,6 +85,8 @@
 > 2026-09-12 新增 8 条主动态与 1 条经典论文回顾，共 585 条。
 >
 > 2026-09-13 新增 8 条主动态与 1 条经典论文回顾，共 594 条。
+>
+> 2026-09-14 新增 8 条主动态与 1 条经典论文回顾，共 603 条。
 
 ## 已核验条目
 
@@ -707,6 +709,16 @@
 | 2026-09-13 | Engineering Reliable Commit Gates for Agentic AI: Cost-Aware Verification Portfolios under Common-Mode Data Failures | [论文](https://arxiv.org/abs/2609.10969) | 时间回补；v1 2026-09-10；独立证据源、校准验证组合与原子 commit-time guard。 |
 | 2026-09-13 | GPT-Live-1 | [官方发布](https://openai.com/index/introducing-gpt-live-1-in-the-api/) | 时间回补；2026-09-10 API 正式发布；full-duplex voice model，可委派深度推理与工具调用给后端模型。 |
 | 2026-09-13 | Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing | [DOI](https://doi.org/10.1177/0278364906072768) · [CMU](https://publications.ri.cmu.edu/square-root-sam-simultaneous-localization-and-mapping-via-square-root-information-smoothing) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾；IJRR 2006；square-root information smoothing、稀疏因子化、变量排序与 factor-graph SLAM。 |
+
+| 2026-09-14 | GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation | [论文](https://arxiv.org/abs/2609.10756) · [项目页](https://phi-lab-rice.github.io/GRADE/) | 时间回补；v1 2026-09-09；4D mmWave radar metric depth + latent diffusion，在真实烟雾下维持稠密深度。 |
+| 2026-09-14 | Rapid Learning of Dexterous In-Hand Pen Writing through Real-Time Jacobian Estimation | [论文](https://arxiv.org/abs/2609.11775) · [项目页](https://srl-ethz.github.io/rapid-dexterous-writing/) | 时间回补；v1 2026-09-10；真实机器人在线 task Jacobian 估计，约 18 s 初始化，无 RL/IL 预训练。 |
+| 2026-09-14 | Safety-aware Skill Adaptation for Reinforcement Learning in Dynamic Environments (Dist-GPRL) | [论文](https://arxiv.org/abs/2609.11433) | 时间回补；v1 2026-09-10；局部 via-point window + GP covariance + HAP 安全子空间与动态距离场。 |
+| 2026-09-14 | Testing Between the Test Cases: Proving End-to-End Steering in Conditions You Never Drove | [论文](https://arxiv.org/abs/2609.10951) · [数据](https://huggingface.co/datasets/AD-Assurance-Lab/steering-verification-captures) | 时间回补；v1 2026-09-10；用 bound propagation 验证离散测试条件之间的连续视觉扰动区间。 |
+| 2026-09-14 | UniMPA: A Unified Memory-Prediction-Action Model via Action-Grounded Transition Modeling | [论文](https://arxiv.org/abs/2609.11875) · [项目页](https://JiuTian-VL.github.io/UniMPA-page/) | 时间回补；v1 2026-09-10；World Expert + Visual-Action Memory + Prototype-Biased Flow，强调 transition realizability。 |
+| 2026-09-14 | 2AM: Grounding Agent-Side Memory as Guidance for Steerable Action Models in Long-Horizon Manipulation | [论文](https://arxiv.org/abs/2609.11308) | 时间回补；v1 2026-09-10；长期记忆仅驻留 Agent，RGB Action Model 保持 episodically stateless，通过语言与 2D hint steer。 |
+| 2026-09-14 | RCL: A Retrieval-Confidence Layer for Detecting Insufficient Context in Enterprise Retrieval-Augmented Code Generation | [论文](https://arxiv.org/abs/2609.11023) | 时间回补；v1 2026-09-10；以 call-graph structural coverage + novelty 检测企业私有代码检索是否足够。 |
+| 2026-09-14 | Can AI Remediate Backend Failures Safely? GuardedAct with Blast-Radius-Aware Sandboxing | [论文](https://arxiv.org/abs/2609.11264) | 时间回补；v1 2026-09-10；digital-twin sandbox、blast-radius 估计与 rollback-confidence gate。 |
+| 2026-09-14 | A Frontier-Based Approach for Autonomous Exploration | [DOI](https://doi.org/10.1109/CIRA.1997.613851) | 经典论文回顾；Yamauchi，IEEE CIRA 1997；以 Free-Unknown frontier 驱动自主探索。 |
 
 ## 维护检查表
 
