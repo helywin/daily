@@ -2,7 +2,7 @@
 layout: post
 title: "机器人 / SLAM / 控制 / AI Coding 技术深度简报｜2026-09-14"
 date: 2026-09-14 09:00:00 +0800
-description: "本期关注恶劣视觉条件下雷达稠密深度、实时雅可比灵巧手控制、安全技能适配、端到端控制形式验证、VLA 记忆与世界模型、企业代码检索可信度和 Agent 生产变更沙箱。"
+description: "本期关注恶劣视觉条件下雷达稠密深度、实时雅可比灵巧手控制、安全技能适配、VLA 记忆与世界模型、AI Coding 社区实战技巧和 Agent 生产变更沙箱。"
 categories: [机器人技术简报]
 tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 ---
@@ -602,6 +602,48 @@ Progressive rollout
 ```
 
 “能回滚”与“知道会影响多大范围”应该成为 Agent 自动化的基础元数据。
+
+## 社区 / 社交平台 · Vibe Coding / AI 编程技巧精选
+
+### 1. 双 Agent 不要“同题双跑”：Maker / Reviewer 分工，Reviewer 必须看原始需求
+
+**来源：2026-09-11 开发者实战文章。**
+
+一篇近期 Claude Code + Codex 联合工作流文章给出的高价值经验是：不要让两个 Agent 都完整做一遍同一任务，而是让一方执行、一方用 fresh context 独立审查。Reviewer 不应只读执行 Agent 的总结，而要同时读取**原始需求、实际改动和检查结果**，否则很容易继承执行者自己的 framing。
+
+并行时按真实文件路径划分 ownership；不同 worktree 只能隔离工作区，不能自动避免两个 Agent 同时改同一文件后的覆盖或冲突。共享文件应采用“先写、后审”的串行流程。
+
+**今天可以直接用：** handoff 固定为 `Goal / Decisions / Do not change / Files changed / Checks run / Still open`，并把原始 brief 一起交给 Reviewer。
+
+**边界：** 这是个人开发者工作流经验，不是严格 benchmark；第二个 Agent 会增加 token / 额度消耗，只有真正承担独立验证职责时才值得。
+
+[原文：Claude Code and Codex Together: How to Split the Work](https://have-been.com/en/posts/claude-code-codex-together)
+
+### 2. Front-load：Research → Plan → Task → Implementation，聊天可丢，Artifact 不能丢
+
+**来源：2026-09-06，2026-09-10 更新的 Codex 工作流文章。**
+
+这篇文章最值得借鉴的原则是：上游研究和架构假设一旦错了，Agent 会在后续实现中把错误不断放大，因此人工注意力应前置，而不是等几小时代码生成后再靠 patch 补救。
+
+推荐把流程固定成 `Research（只读探索）→ Plan（持久架构文档）→ Task（Goal / Dependencies / Paths / Acceptance / Validation）→ Implementation（Fresh Session）`。真正持久的状态是 **Task Registry + Append-only Activity Log + Git State**，不是聊天历史；`AGENTS.md / CLAUDE.md` 也更适合只保留经过真实失败证明必要的短规则。
+
+**今天可以直接用：** 建 `research.md`、`plan.md`、`tasks/TASK-xxx.md` 和 `activity.log`；每个 Task 必须带验收命令，新任务尽量从 fresh session 开始。
+
+**边界：** 具体 CLI 命令会随版本变化；应复用的是“前置验证 + Artifact 化 + Fresh Session”的结构。
+
+[原文：Front-Load or Fail — The Four-Phase Coding Agent Workflow](https://codex.danielvaughan.com/2026/09/06/front-load-human-review-phased-coding-agent-workflow-codex-cli/)
+
+### 3. 社区高赞经验：架构、边界和 Edge Cases 先由人想清楚，再把 Implementation 交给 Agent
+
+**来源：2026-09-07 Reddit 高热度讨论；属于社区经验。**
+
+讨论中最值得保留的一条实践是 **Human-owned Design Checkpoint**：在 Agent 获得写权限前，先由人把 architecture、关键接口、edge cases、trade-offs 和 definition of done 想清楚。之后可以高强度让 Agent 写代码，但 review 要回到原始需求和设计 artifact，而不是只问“测试是不是绿了”。
+
+**今天可以直接用：** 在写权限前确认一份很短的 `DESIGN.md`，至少包含 `Goal / Non-goals / Architecture / Key interfaces / Edge cases / Trade-offs / Definition of done`。
+
+**边界：** 这是社区个人经验，不是控制变量实验；更适合作为保持系统理解和审查能力的工作习惯。
+
+[Reddit 讨论：I am done with the everyday’s work using just claude/codex](https://www.reddit.com/r/developersIndia/comments/1w9w2jh/i_am_done_with_the_everydays_work_using_just/)
 
 ## 经典论文回顾
 
