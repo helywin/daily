@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-14（Asia/Shanghai）
+> 最后更新：2026-09-15（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -87,6 +87,8 @@
 > 2026-09-13 新增 8 条主动态与 1 条经典论文回顾，共 594 条。
 >
 > 2026-09-14 早间首版新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 606 条；随后因 arXiv 9 月 14 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 615 条。早间首版条目保留为历史覆盖记录。
+>
+> 2026-09-15 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 627 条。
 
 ## 已核验条目
 
@@ -587,7 +589,6 @@
 | 2026-09-02 | Claude Fable 5.1 | [官方发布](https://www.anthropic.com/claude/fable) | 2026-09-01 正式发布；长时 Coding/Knowledge Agent；API claude-fable-5-1。 |
 | 2026-09-02 | Direct Sparse Odometry (DSO) | [论文](https://arxiv.org/abs/1607.02565) · [官方代码](https://github.com/JakobEngel/dso) | 经典论文回顾；2016；稀疏直接法、联合光度标定与滑窗优化。 |
 
-
 | 2026-09-03 | Parallel Reference-Centric Continuous-Time Relative Localization with Augmented Clamped Non-Uniform B-Splines / CT-RIO | [论文](https://arxiv.org/abs/2602.22006) | 最近24小时实质更新；v1 2026-02-25，v4 2026-09-02；多机器人连续时间相对惯性里程计、异步观测与在线时钟偏差。 |
 | 2026-09-03 | Adaptive Depth-Map-Guided Bundle Adjustment for Correspondence-Free Multi-View Point Cloud Registration | [论文](https://arxiv.org/abs/2609.01089) · [代码](https://github.com/YiranZhou-Robotics/ADM-BA) | 时间回补；v1 2026-09-01；自适应多层 2.5D 深度地图、无显式 correspondence 多视图点云 BA。 |
 | 2026-09-03 | Accelerating Reinforcement Learning via MPC Solver-Gradient Guidance for Weights-varying MPC / SG-RL | [论文](https://arxiv.org/abs/2609.01061) | 时间回补；v1 2026-09-01；PPO 在线调 NMPC 权重，solver sensitivity 仅作辅助梯度；学习策略在高保真全尺寸赛车仿真验证。 |
@@ -627,7 +628,6 @@
 | 2026-09-06 | SWE-Gate: Passing Functional Tests Is Not Enough for Software Engineering Agents | [论文](https://arxiv.org/abs/2609.04167) | 时间回补；Review constraint benchmark |
 | 2026-09-06 | PatchBench: Evaluating AI Agents for Vulnerability Patching | [论文](https://arxiv.org/abs/2609.04075) | 时间回补；漏洞修复 Agent 评测 |
 | 2026-09-06 | RMA: Rapid Motor Adaptation for Legged Robots | [论文](https://arxiv.org/abs/2107.04034) | 经典论文回顾；RSS 2021 |
-
 
 | 2026-09-07 | FailBench: How Reliable are VLMs at Judging Robot Task Success? | [论文](https://arxiv.org/abs/2609.03611) | 时间回补；VLM 机器人失败判定 benchmark；2,197 attempts / 14 sources |
 | 2026-09-07 | Local Path Planning and Obstacle Avoidance for an Omnicopter Platform | [论文](https://arxiv.org/abs/2609.03630) | 时间回补；6D-DWA；0.2 s 本地规划循环；ICUAS 2026 |
@@ -688,7 +688,6 @@
 | 2026-09-11 | If It's Not Buggy, Don't Fix It: On the Dynamics of Iterative Bug-fixing with LLMs | [论文](https://arxiv.org/abs/2609.10123) | 时间回补；自动修复 damage rate 与 pseudo-bug-fixing cycle；停止条件 |
 | 2026-09-11 | LQR-Trees: Feedback Motion Planning via Sums-of-Squares Verification | [DOI](https://doi.org/10.1177/0278364910369189) | 经典论文回顾；IJRR 2010；LQR + SOS verified funnels / feedback motion planning |
 
-
 | 2026-09-12 | RIDE: Relocalization-Informed Depth Estimation with 3D Gaussian Splatting | [论文](https://arxiv.org/abs/2609.11079) | 时间回补；v1 2026-09-10；复用 PnP-RANSAC 2D-3D inlier 作为 metric depth 锚点，3DGS 重定位几何辅助稠密深度。 |
 | 2026-09-12 | ActSafeGuard: Differentiable and Training-Aligned Constraint Enforcement for Flow-Matching Policies | [论文](https://arxiv.org/abs/2609.11697) | 时间回补；v1 2026-09-10；可微 ray-scaling 硬动作可行域，与 flow-matching 训练对齐。 |
 | 2026-09-12 | Contact-Aware Incremental Model Predictive Control for an Underactuated Aerial Manipulator | [论文](https://arxiv.org/abs/2609.11661) | 时间回补；v1 2026-09-10；NMPC + whole-body INDI；欠驱动四旋翼真实接触书写与法向力跟踪。 |
@@ -698,7 +697,6 @@
 | 2026-09-12 | Ecdysis: Efficient and Effective Training of Runtime Harnesses for LLM Agents | [论文](https://arxiv.org/abs/2609.11677) | 时间回补；v1 2026-09-10；跨任务 failure aggregation 区分模型偶发错误与 harness 系统性缺陷。 |
 | 2026-09-12 | ChurnBench: A Drift-Aware Benchmark Demonstrating That Refresh Scheduling, Not Cache Age, Governs Staleness in Agentic AI | [论文](https://arxiv.org/abs/2609.11515) · [代码与数据](https://github.com/vsingh45/churnbench) | 时间回补；v1 2026-09-10；Agent 数据新鲜度 benchmark；TTL / refresh schedule 主导 freshness error。 |
 | 2026-09-12 | Task Space Regions / CBiRRT | [ICRA 2009](https://publications.ri.cmu.edu/manipulation-planning-on-constraint-manifolds) · [IJRR 2011 DOI](https://doi.org/10.1177/0278364910396389) | 经典论文回顾；约束流形采样、Task Space Region、CBiRRT/CBiRRT2。 |
-
 
 | 2026-09-13 | Visual-SLAM for the detection of hidden tomatoes in greenhouses by Hierarchical Localization and GLOMAP for robotized harvesting | [论文](https://arxiv.org/abs/2609.11766) · [HLoc-GLOMAP](https://github.com/pablovela5620/hloc-glomap) | 时间回补；v1 2026-09-10；单目 RGB + HLoc/GLOMAP 离线多视图重建遮挡番茄几何。 |
 | 2026-09-13 | Aerodynamic Prior-Free Coordinated Trajectory Generation and Tracking Control for a Tail-Sitter UAV | [论文](https://arxiv.org/abs/2609.11698) · [代码](https://github.com/SYSU-HILAB/AP-PnC) | 时间回补；v1 2026-09-10；协调飞行 differential flatness + 在线气动参数 NMPC，无需机体专属气动辨识。 |
@@ -733,6 +731,21 @@
 | 2026-09-14 | GraphAHA: Graph-Based Adaptive Search with Heterogeneous Actions for Test-Time Code Generation | [论文](https://arxiv.org/abs/2609.12757) | 最新公开批次；v1 2026-09-11；typed DAG 复用候选代码与层级 Thompson sampling。 |
 | 2026-09-14 | Reality Is the Final Verifier: On Two Key Gaps in Agentic Software Engineering | [论文](https://arxiv.org/abs/2609.12039) | 最新公开批次；v1 2026-09-10；Requirement Gap / Model Gap 与 deployment-evidence assurance loop。 |
 | 2026-09-14 | Control Barrier Function Based Quadratic Programs for Safety Critical Systems | [DOI](https://doi.org/10.1109/TAC.2016.2638961) · [arXiv](https://arxiv.org/abs/1609.06408) · [CBFKit](https://github.com/bardhh/cbfkit) | 经典论文回顾；IEEE TAC 2017；CBF/CLF-QP、forward invariance 与运行时 safety filter。 |
+
+| 2026-09-15 | ProClosure: Hierarchical Room-Object Assignment using Progressive Boundary Closure from Monocular Video | [论文](https://arxiv.org/abs/2609.12614) | 时间回补；v1 2026-09-11；单目 SLAM structural map + progressive boundary closure，恢复 room-object hierarchy。 |
+| 2026-09-15 | Global Path Planner with Multi-Model Switching | [论文](https://arxiv.org/abs/2609.13015) | 时间回补；v1 2026-09-11；traversability graph + Heading-Aware A* + multi-model Pure Pursuit。 |
+| 2026-09-15 | Battery-Aware Predictive Trajectory Planning and Control for Multirotors Under Disturbances | [论文](https://arxiv.org/abs/2609.12188) | 时间回补；v1 2026-09-10；vehicle-motor-battery 闭环传播进入轨迹选择与电压/执行器约束。 |
+| 2026-09-15 | Size Doesn't Matter: Material-State Reinforcement Learning for Excavator Transferable Soil Manipulation | [论文](https://arxiv.org/abs/2609.12677) | 时间回补；v1 2026-09-11；MPM + material-state RL；归一化末端空间跨 500g/11.5t 设备迁移。 |
+| 2026-09-15 | Communication-Constrained Multi-Robot Exploration With Adaptive Communication Windows / MACE | [论文](https://arxiv.org/abs/2609.12502) | 时间回补；v1 2026-09-11；通信窗口 + Vehicle Orienteering 决策，去中心化多机器人探索。 |
+| 2026-09-15 | Tuning ROS 2 for Energy-Efficient Navigation: Empirical Insights from Costmap 2D Configurations | [论文](https://arxiv.org/abs/2609.12971) | 时间回补；v1 2026-09-11；ICRA 2026；Nav2 Costmap2D 配置对能耗/CPU/内存/导航性能的联合影响。 |
+| 2026-09-15 | Dynin-Robotics: Omnimodal Unified Diffusion Vision-Language-Action Model | [论文](https://arxiv.org/abs/2609.13053) | 时间回补；v1 2026-09-11；统一 masked-diffusion trajectory model 与 block-parallel action decoding。 |
+| 2026-09-15 | Configure cost and quality in Copilot auto model selection | [官方更新](https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection/) | 2026-09-14 最近24小时官方更新；Auto 增加 efficiency / balance / intelligence 三档。 |
+
+| 2026-09-15 | 社区精选：Review Agent 先执行 build/test/targeted scripts，再由多 Agent ensemble 汇总 | [GitHub](https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review/) | 社区精选；GitHub 官方工程实践；2026-09-11。 |
+| 2026-09-15 | 社区精选：把 prompt cache 命中率当基础设施指标，稳定 cached prefix | [Reddit](https://www.reddit.com/r/ClaudeCode/comments/1wbclml/claude_code_promptcache_bugs_who_pays_for_the/) | 社区精选；社区经验；2026-09-15。 |
+| 2026-09-15 | 社区精选：/rewind → /compact → /clear，并用 spec map 保留高价值上下文 | [Reddit](https://www.reddit.com/r/ClaudeAI/comments/1wgh4my/stop_writing_handoff_docs_rewind_is_the_tool_90/) | 社区精选；社区经验；2026-09-15。 |
+
+| 2026-09-15 | Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces / PRM | [DOI](https://doi.org/10.1109/70.508439) · [Kavraki Lab](https://kavrakilab.rice.edu/publications/kavraki-svestka1996probabilistic-roadmaps-for.html) · [OMPL](https://ompl.kavrakilab.org/classompl_1_1geometric_1_1PRM.html) | 经典论文回顾；IEEE TRA 1996；可复用 roadmap + local planner + multi-query 图搜索。 |
 
 ## 维护检查表
 
