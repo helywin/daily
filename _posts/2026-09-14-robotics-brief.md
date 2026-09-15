@@ -2,7 +2,7 @@
 layout: post
 title: "机器人 / SLAM / 控制 / AI Coding 技术深度简报｜2026-09-14"
 date: 2026-09-14 09:00:00 +0800
-description: "本期关注恶劣视觉条件下雷达稠密深度、实时雅可比灵巧手控制、安全技能适配、VLA 记忆与世界模型、AI Coding 社区实战技巧和 Agent 生产变更沙箱。"
+description: "arXiv 周一新批次：多会话 LiDAR SLAM、LIO 参数敏感性、神经 CBF、人形越障、VLA 去视觉捷径、双世界模型与 AI Coding 图搜索；附 3 条社区实战技巧。"
 categories: [机器人技术简报]
 tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 ---
@@ -11,597 +11,655 @@ tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 
 ## 摘要
 
-今天是周一早间，arXiv 尚未出现新的周末常规公开批次，Robotics 与 Software Engineering 的最新公开列表仍停留在 2026-09-11。严格最近 24 小时内没有足够 5 条同时满足高质量、强相关、未重复和可完整核验条件的新工作，因此本期按任务规范扩展到最近 7 天。入选论文均于 2026-09-09 至 2026-09-10 UTC 首次提交，全部明确标为“时间回补”。最新列表可直接查看 [arXiv Robotics](https://arxiv.org/list/cs.RO/recent) 与 [arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent)。
+今天早些时候归档时，arXiv 周末后的新批次尚未刷新；随后 **2026-09-14（周一）** 的公开列表已经出现，因此本版按最新批次重新检索和去重。当前 [arXiv Robotics](https://arxiv.org/list/cs.RO/recent) 显示 59 条 recent entries，[arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent) 显示 30 条。以下 8 条主动态均未出现在此前覆盖索引中，其中多数 v1 实际提交于 9 月 10–11 日 UTC，但属于今天进入最新公开批次的工作。
 
-今天感知与定位方向最值得关注的是 **GRADE**。它不再要求在烟雾、黑暗等条件下从退化 RGB 中“猜”深度，而是把原始 4D mmWave radar spectrum 先变成粗糙但有真实量纲的深度，再让 latent diffusion 恢复角向细节；相机信息只作为有则增强、坏了就逐渐退回雷达路径的辅助。约 9.5 万帧、12 栋建筑和真实烟雾实验中，清晰场景 MAE 为 0.303 m，烟雾下为 0.313 m。这类方法对矿井、消防、粉尘厂房和低能见度机器人很有工程价值，因为它把“视觉退化时传感器该如何降级”直接写进了网络结构。([论文](https://arxiv.org/abs/2609.10756)，[项目页/代码与数据](https://phi-lab-rice.github.io/GRADE/))
+SLAM 侧今天最值得优先看的工作是 **Chain-SLAM**。它专门处理多次任务、多台平台累积出来的 LiDAR 地图如何在线连成一个一致后端，而不是再做一个单次任务里程计。系统先用 GNSS proximity 做粗对齐，再利用 session adjacency graph 传播跨会话候选，通过 ICP 验证 chained loop closure，最后把可靠约束统一放进 factor graph。它的工程价值在于：长期机器人地图维护开始从“每次任务重建”转向“会话之间持续建立可追踪关系”。([论文](https://arxiv.org/abs/2609.12221)，[项目页](https://ai4ce.github.io/Chain-SLAM/)，[代码](https://github.com/ai4ce/Chain-SLAM))
 
-控制侧有两条很不同但都很实用的路线。**Rapid Dexterous Writing** 几乎走到了大规模 RL 的反方向：不建立精确手—物体接触模型、不做仿真训练、不需要预先采集示范，而是在真实机器人上在线估计 combined hand-object task Jacobian。普通笔记本 CPU 上约 18 秒初始化后即可开始写字，并持续在线适应，实体手上字母和形状的平均平面误差约 0.6 mm。([论文](https://arxiv.org/abs/2609.11775)，[项目页](https://srl-ethz.github.io/rapid-dexterous-writing/))
+另一篇 **Parameter Sensitivity Analysis for Aerial LiDAR-Inertial Odometries** 很适合已经在调 FAST-LIO2 / Cartographer 的团队。作者没有继续提出一个新 LIO，而是用 exhaustive grid、Pearson correlation 与 random-forest permutation importance 系统分析低空飞行参数敏感性，再给出简化调参建议；论文报告推荐配置在 94% 的分析案例中，ATE 与完整网格搜索最优值相差不超过 5 cm。它回答的是很现实的问题：哪些参数真的值得工程师花时间调，哪些参数并没有想象中敏感。([论文](https://arxiv.org/abs/2609.12837))
 
-另一条是 **Dist-GPRL**。它没有让 RL 每一步直接重写整条轨迹，而是只适配相互重叠的局部 via-point window，再通过 GP covariance 把原始策略输出变成时间连续的轨迹修正；同时以 HAP 生成的安全子空间先验约束探索，再叠加实时距离场 clearance / gradient 奖励。这样把“学习一个动态环境中的安全技能”从巨大动作空间压缩成结构化局部修改。([论文](https://arxiv.org/abs/2609.11433))
+安全控制侧，**VertexCBF** 把 neural CBF 与控制集合的几何结构结合起来。对 control-affine dynamics 和凸多面体控制集，Hamiltonian 的最大值一定出现在顶点，因此不需要在完整连续控制空间中盲目搜索；作者据此构建 GPU 并行的 vertex-restricted tree search，并用 residual architecture 保证 learned CBF 不会高于指定 constraint function。工作覆盖 15 个系统，并在移动机器人行人避障上做了硬件验证。([论文](https://arxiv.org/abs/2609.12831))
 
-安全验证方面，**Testing Between the Test Cases** 提出了一个非常值得自动驾驶与端到端机器人团队重视的问题：通过离散测试条件，不代表两个测试点之间也安全。作者对 CARLA 中训练的四个小型端到端方向控制网络做 bound propagation，在不重新驾驶的情况下，对连续视觉扰动强度下的 steering drift 给出形式边界；一个 133 个位置、每个位置 10 档扰动的组合空间理论上有 10^133 种情况，却可以在单块 GPU 上用分钟级计算覆盖。([论文](https://arxiv.org/abs/2609.10951)，[公开数据](https://huggingface.co/datasets/AD-Assurance-Lab/steering-verification-captures))
+搜索救援机器人方面，**ASTRIL-MPC** 把 learned kinematics、NMPC 与受限 LLM adaptation 放在同一个控制闭环里。神经模型从高度序列和近期轨迹预测 task-state increment，NMPC 保持显式可行性；LLM 只能通过经过 range clipping、rate limiting 和 consistency check 的接口，修改少数权重和边界，而不能直接生成履带动作。编译后的 predictor + MPC 完整周期控制在 100 ms 内；论文报告相对非自适应 NMPC 的综合穿越质量最高提高 71%，并消除下降阶段可测的碰撞冲击。([论文](https://arxiv.org/abs/2609.13083))
 
-VLA 侧今天有两条互补路线。**UniMPA** 认为“预测未来画面”本身还不够，关键是预测的 transition 是否真的能由机器人执行。它加入 World Expert，持续跟踪任务阶段、只在关键交互变化处做更细粒度未来预测，再用 Visual-Action Memory 检索历史上真实执行过的视觉—动作经验，并用 Prototype-Biased Flow 把动作生成拉向历史可执行的 action manifold。论文报告 LIBERO 98.6%、LIBERO-Plus 85.3%，GALAXEA R1 Lite 真机成功率 77.7%，AgileX 七任务平均 74.9%。([论文](https://arxiv.org/abs/2609.11875)，[项目页](https://JiuTian-VL.github.io/UniMPA-page/))
+VLA 侧，**Latent Interface Training（LIT）** 直接针对“视觉—动作捷径”。Stage 1 先在没有图像的条件下，让 Action Expert 只依赖语言、机器人状态和终端 SE(3) pose 学会动作；Stage 2 再让视觉信息只能通过 pose-supervised latent interface 进入动作模型。这样迫使视觉先被压缩成与几何目标相关的中间表示，而不是让策略记住背景、相机视角和纹理。论文在 π0.5、MolmoAct2、FAST-WAM、ImageWAM 上都观察到明显 OOD 增益。([论文](https://arxiv.org/abs/2609.12641)，[项目页](https://magiclab-nus.github.io/LIT/)，[代码](https://github.com/MAGICLAB-NUS/LIT))
 
-**2AM** 则把长期记忆完全留在 Agent 一侧，Action Model 本身保持 episodically stateless。Agent 把历史压缩成 subtask language，并按需给出 2D grasp / place / move hint；VLA 只负责在单 RGB 输入下执行当前运动。LIBERO-Mem 中，在不使用 depth、在线几何或独立对象运动规划器的条件下，平均 completion 达到 76.3%，相比论文报告的最强基线提高 61.5 个百分点。它对真实机器人软件很有启发：任务记忆、语义计划和低层动作不必硬塞进同一模型。([论文](https://arxiv.org/abs/2609.11308))
+人形控制方面，**DWMP** 不用一个 world model 同时解释身体动力学和视觉深度，而是显式拆成两个模型：Koopman latent 负责 proprioceptive dynamics，RSSM 负责视觉 / depth 的时序预测，最后将两种 latent 融合给 student policy。作者在仿真和 Unitree G1 上测试随机障碍布局。这里更重要的信号不是“又一个世界模型”，而是不同传感模态可以采用不同的预测结构和时间归纳偏置，而不必强行共享一个统一 latent dynamics。([论文](https://arxiv.org/abs/2609.12347))
 
-AI Coding 侧，**RCL** 把一个经常被忽略的问题单独做成运行时信号：RAG 找到了“看起来相关”的代码，不代表上下文在结构上已经足够。RCL 在 retrieval 和 generation 中间加入 call-graph structural coverage 与 novelty score；置信不足时继续定向检索或转人工，而不是让模型在私有 API 信息不完整时静默生成。([论文](https://arxiv.org/abs/2609.11023))
+AI Coding 侧，**GraphAHA** 把 test-time code search 从“不断采样新的独立候选”变成一个可复用的有向无环图。等价程序会合并成同一 code node，下游统计可以被多个路径共享；层级 Thompson sampling 再决定是探索新 successor、复用已有 successor，还是选择 sampling / reasoning / implementation / repair 等不同动作。LiveCodeBench 与 CodeContests 上，论文在 20 个设置中 18 个取得最佳结果，并在可见测试条件下相对最强基线平均提高 4.1 个百分点 Pass@1。([论文](https://arxiv.org/abs/2609.12757))
 
-最后，**GuardedAct** 把“Agent 自动修生产故障”从直接执行升级成 sandbox-first：候选修复动作先在轻量 digital twin 中模拟，估算 blast radius，再由 rollback-confidence gate 决定是否自动执行。DeathStarBench 五类故障中，总体恢复率为 87.4%，相对直接 LLM 执行把 collateral damage 从 25.6% 降到 5.2%，代价是平均恢复时间增加约 8 秒。这个结果对 Coding Agent、自动运维和机器人远程升级都非常直接：生成动作和授权执行必须是两层系统。([论文](https://arxiv.org/abs/2609.11264))
+最后一篇 **Reality Is the Final Verifier** 不提供新的 SWE-bench 数字，而提出一个很值得工程系统长期保留的“两种差距”框架：Requirement Gap 是文本需求与真实 stakeholder intent 的差距，Model Gap 是测试 / 仿真 / evaluator 与真实部署环境的差距。Agent 的 reward hacking 会利用这两种 gap，hallucination 则可能放大它们。因此验证不应该在“测试全绿”时结束，而应形成 deployment evidence → requirement / model / evaluator revision 的 assurance loop。([论文](https://arxiv.org/abs/2609.12039))
 
-近期通用旗舰模型方面，本轮重新检查了 OpenAI、Google 与 Anthropic 的官方入口，没有发现 2026-09-12 至 2026-09-14 需要替换上述选题的新通用旗舰正式发布；GPT-6 Astra、Gemini 3.8 Flash 等近期模型已经在此前简报覆盖，因此本期不重复。
+## 1. Chain-SLAM：长期多会话地图，不应该只是多个独立点云文件
 
-## 1. GRADE：视觉失效时，让雷达成为深度的度量锚点而不是最后的备胎
-
-**时间回补：arXiv v1 提交于 2026-09-09 18:57 UTC；将发表于 ACM MobiCom 2026。**
+**今日 arXiv 公开批次；v1 提交于 2026-09-10 21:29 UTC；IROS 2026。**
 
 ### 为什么重要
 
-烟雾、粉尘、雾和黑暗对相机 / 双目 / 主动光深度都可能造成系统性退化。mmWave radar 的优势恰恰相反：测距仍然稳定，但小孔径导致角分辨率差，直接把 radar point 当点云又太稀。
-
-GRADE 的核心不是简单做 RGB-radar fusion，而是明确设计了一条“视觉越坏，系统越回到雷达”的退化路径：
+多数 LiDAR SLAM 论文默认任务从一个干净起点开始，跑完一次以后得到一张地图。但真正长期运行的机器人往往是：
 
 ```text
-Raw 4D Radar Spectrum
-        ↓
-Coarse Metric Depth
-        ↓
-Latent Diffusion Prior
-每个去噪步骤都受 Radar Geometry 条件约束
-        ↓
-Pixel Adapter
-有可靠视觉时补充细节
-        ↓
-视觉恶化时逐渐回归 Radar-conditioned Path
-        ↓
-Dense Metric Depth
+Day 1 / Robot A
+Day 2 / Robot A
+Day 7 / Robot B
+维护后重新上电
+局部区域重新扫描
 ```
 
-这种结构与传统固定权重融合差别很大：视觉不是永远等权参与，而是被当成一个质量会变化的可选信息源。([论文](https://arxiv.org/abs/2609.10756))
+如果每个 session 只是保存成独立轨迹和点云，后续全局地图维护、跨会话定位和变化分析会越来越困难。
 
-### 传感器与算法假设
+Chain-SLAM 试图直接构建一个**跨 session 的在线后端**。
 
-雷达提供的是可靠 range，而不是天然可靠的完整二维角向结构。Latent diffusion 的作用正是把粗糙 metric geometry 与视觉先验结合起来恢复结构细节。
+### 算法模块
 
-真正需要警惕的是“生成式细节”与“物理测量”不是同一种证据。如果雷达在某个方向上根本没有足够观测，生成出的物体边界即使视觉上合理，也不应直接被视为安全占用边界。
-
-### 实时性与结果
-
-论文使用约 95K 帧、12 栋建筑，并包含真实烟雾条件。报告 MAE：
+整体可以概括为：
 
 ```text
-Clear   0.303 m
-Smoke   0.313 m
+Session-level Odometry / Keyframes
+            ↓
+GNSS Proximity Initial Alignment
+            ↓
+Session Adjacency Graph
+            ↓
+沿图传播 Chained Loop Candidates
+            ↓
+ICP Verification
+            ↓
+Verified Inter-session Constraints
+            ↓
+Unified Factor Graph Optimization
 ```
 
-这说明它在烟雾下没有出现纯视觉深度常见的灾难性崩溃。论文摘要没有给出可安全外推到 Jetson / ARM 的统一端侧 FPS，因此工程复现时应独立测 radar preprocessing、diffusion backbone 和 pixel adapter 的 P50/P95/P99 延迟。([项目页](https://phi-lab-rice.github.io/GRADE/))
+项目页进一步说明，系统会在 pose graph 上通过 BFS 收集相连 keyframe，再用 ICP 判断传播出来的闭环是否真的成立。([项目页](https://ai4ce.github.io/Chain-SLAM/))
 
-### 鲁棒性与工程风险
+### 传感器与地图假设
 
-生产系统最好把输出继续拆成：
+方法依赖各 session 内部的局部里程计已经足够可用，并使用 GNSS proximity 进行粗粒度 session 初始化，因此它并不是完全无全局信息的任意跨会话定位。
 
-```text
-measured_range_support
-predicted_structure
-visibility_quality
-radar_quality
-depth_uncertainty
-```
-
-最终 collision gate 可以对“真正有 radar 支撑的深度”和“主要由生成 prior 补出来的深度”给予不同权限。
-
-### 适合谁关注
-
-消防机器人、矿井、煤尘 / 粉尘厂房、夜间无人车、低能见度无人机，以及正在评估 4D radar + camera 的多传感器平台。
-
-### 工程落地启发
-
-对现有 LiDAR / camera 系统同样适用：传感器融合不应该只输出一个融合后的结果，还应该明确记录“当前结果主要由谁支撑”。这与退化感知、方向级可观测性和安全地图权限管理可以共用一套 health interface。
-
-## 2. Rapid Dexterous Writing：在线学 task Jacobian，而不是先把复杂接触世界建模完整
-
-**时间回补：arXiv v1 提交于 2026-09-10 16:29 UTC。**
-
-### 为什么重要
-
-灵巧手 in-hand manipulation 最大的难点之一是接触状态太复杂：手指—笔、笔—纸、滚动 / 滑动接触、柔性皮肤和微小摩擦变化都会让精确 analytical model 很难维护。
-
-这篇工作换了一个非常“控制工程”的问题定义：
-
-> 不要求先知道完整手—物体模型，只在线学习“控制变量的微小变化会怎样改变笔尖任务坐标”。
-
-总体结构可以写成：
-
-```text
-Hand State + Pen Tip Task Error
-          ↓
-Online Task-Jacobian Estimator
-          ↓
-局部输入 → 任务空间变化关系
-          ↓
-Jacobian-based Controller
-          ↓
-真实手继续执行
-          ↓
-新数据立即更新 Jacobian
-```
-
-### 动力学与传感器假设
-
-这种方法依赖局部映射在短时间尺度上足够平滑，且观测能够稳定获得笔尖 / 任务空间误差。它没有消除接触非线性，而是把复杂性压进持续在线更新的局部 Jacobian。
-
-因此快速接触模式突变、笔突然打滑或进入 estimator 从未覆盖的姿态时，局部线性关系可能瞬间失效。
-
-### 实时性与真机结果
-
-作者使用普通笔记本 CPU，约 **18 秒初始化**后开始真实 in-hand 写字，并继续在线适应；实体平台上字母和形状的平均平面精度约 **0.6 mm**。同一 estimator/controller formulation 还在另外两个仿真人形手上测试。([论文](https://arxiv.org/abs/2609.11775)，[项目页](https://srl-ethz.github.io/rapid-dexterous-writing/))
-
-### 鲁棒性与风险
-
-最值得增加的是 estimator health：
-
-```text
-Jacobian condition number
-prediction residual
-update magnitude
-contact-mode change
-excitation sufficiency
-```
-
-当 Jacobian 病态或 residual 突增时，应降低动作幅度或重新激励，而不是继续以旧局部模型执行。
-
-### 适合谁关注
-
-灵巧手、软体末端、难建模接触、在线系统辨识，以及认为“大规模 RL 并非所有精密操作的唯一解”的团队。
-
-### 工程落地启发
-
-对很多第三方机器人 SDK，同样可以先在线辨识一个小的 task Jacobian / control effectiveness matrix，再用经典控制闭环完成局部任务；这往往比重新建立完整动力学和接触模型快得多，也更容易解释失败原因。
-
-## 3. Dist-GPRL：安全技能适配不必让 RL 每一步重写整条轨迹
-
-**时间回补：arXiv v1 提交于 2026-09-10 12:05 UTC；IROS 2026 接收。**
-
-### 为什么重要
-
-从示范轨迹出发做 RL adaptation 时，一个常见做法是让策略直接输出整条 trajectory 的修改量。但轨迹维度越高，credit assignment 越难；动态障碍一出现，随机探索还可能产生不连续的动作或频繁碰撞。
-
-Dist-GPRL 把问题重新结构化：
-
-```text
-Demonstrated Skill
-      ↓
-Sparse Via-points
-      ↓
-每次只修改 Overlapping Local Window
-      ↓
-GP Covariance Correlates Raw Policy Outputs
-      ↓
-Temporally Coherent Trajectory Update
-```
-
-安全信息则分两层加入：
-
-```text
-HAP Safe-Subspace Prior
-→ 让探索一开始更靠近可行区域
-
-Dynamic Distance Field
-→ clearance + gradient reward
-→ 对实时移动障碍做局部修正
-```
-
-另外通过 trajectory-kinematics similarity regularizer 保留原示范的速度和加速度风格。([论文](https://arxiv.org/abs/2609.11433))
-
-### 动力学与环境假设
-
-方法仍依赖距离场能够较及时地反映障碍变化，也依赖原始示范技能本身具有可利用的结构。若环境变化已经要求完全不同的拓扑路径，仅在局部 via-point window 内适配可能不够。
+论文也明确没有把动态物体剔除作为核心模块。停车场、道路、工厂如果长期结构变化很大，ICP 的几何一致性仍可能把“历史存在、现在消失”的结构当成匹配证据。
 
 ### 实时性、鲁棒性与可复现性
 
-论文在两个动态物体操作任务上仿真训练，并把学习策略迁移到真实机器人执行，报告相比基线有更高成功率、更低碰撞率和更稳定学习，同时保持示范运动学特征。公开摘要没有给出统一 ms 级控制周期，因此实际复现应重点测：距离场更新频率、策略输出频率、局部窗口优化开销和移动障碍最大速度。
+论文强调 online multi-session backend 和 cross-platform robustness，并已经公开代码。([代码](https://github.com/ai4ce/Chain-SLAM))
+
+真正复现时我会重点测四项，而不是只看最终 ATE：
+
+```text
+session 数量增长后的后端 P95 时间
+错误 chained loop 的拒绝率
+跨平台 LiDAR / 外参变化敏感性
+地图长期变化后的约束老化
+```
+
+### 工程风险
+
+跨会话系统最危险的是错误约束具有长期传播性。一条错误 loop 不只是破坏当前轨迹，还可能污染后续多个 session。
+
+因此每个 inter-session factor 最好保存：
+
+```text
+source_session
+target_session
+initial_alignment_source
+ICP fitness
+support_keyframes
+creation_time
+last_revalidated
+```
+
+并允许后续失效 / 降权，而不是永久写死。
 
 ### 适合谁关注
 
-示教再学习、工业机械臂、动态障碍操作、需要小数据技能适配而又不想完全端到端重训的团队。
+长期巡检、园区机器人、多机器人共享地图、跨天 LiDAR mapping、车队地图维护。
 
 ### 工程落地启发
 
-已有机器人技能库可以把“适配接口”从整条轨迹换成：
+如果现有系统已经有 LIO-SAM / FAST-LIO2，不一定要换前端。可以先把每次任务的 keyframe graph 作为 session artifact 保存，再单独做一个“跨 session constraint service”。
 
-```text
-SkillAdaptation {
-  affected_time_window
-  via_point_delta
-  clearance_margin
-  kinematic_style_weight
-}
-```
+这比直接把所有历史点云重新 ICP 到一张超大地图，更容易调试、回滚和审计。
 
-让学习模块只修改真正需要变化的局部段，更容易限制风险与回滚。
+## 2. Aerial LIO 参数敏感性：比“再找一个更强 LIO”更实用的，是先知道哪些参数真正重要
 
-## 4. Testing Between the Test Cases：离散测试全通过，不代表测试点之间也安全
-
-**时间回补：arXiv v1 提交于 2026-09-10 01:19 UTC。**
+**今日 arXiv 公开批次；v1 提交于 2026-09-11 13:31 UTC。**
 
 ### 为什么重要
 
-端到端 steering 常用大量 CARLA 场景做测试，例如：
+FAST-LIO2、Cartographer 这类成熟系统在真实无人机上经常不是“完全不能跑”，而是：
 
 ```text
-Clear
-Fog = 0.2
-Fog = 0.4
-Fog = 0.6
-Night
-Low Sun
+某些场景很稳
+某些高度 / 速度开始漂
+换雷达以后突然变差
+参数很多，不知道先调哪个
 ```
 
-问题是一个神经网络可能恰好在这些离散测试点都通过，却在 `Fog=0.37` 这种中间状态越过车道线。
+工程师很容易陷入经验式手调，最后无法判断提升来自哪个参数，也很难迁移到下一台机器人。
 
-作者训练四个小型端到端 steering network，然后用 **bound propagation** 直接读取网络权重，对两个已捕获视觉条件之间的连续扰动范围计算 steering drift 的形式上界。([论文](https://arxiv.org/abs/2609.10951))
+这篇工作把参数调优本身当作研究对象，而不是提出新前端。
+
+### 方法
+
+作者对低空飞行数据进行 exhaustive grid evaluation，并同时使用：
+
+```text
+Pearson correlation
+→ 观察近似线性敏感关系
+
+Random-Forest Permutation Importance
+→ 捕获非线性和参数交互影响
+```
+
+分析 FAST-LIO2 与 Cartographer 中不同配置对轨迹误差的影响，再压缩成更少的推荐调参规则。([论文](https://arxiv.org/abs/2609.12837))
+
+### 结果
+
+论文报告，简化后的推荐配置在 **94% 的分析案例中，ATE 与 exhaustive-grid 最优值相差不超过 5 cm**。
+
+这个结果的工程意义不是“存在一套万能参数”，而是说明大量搜索维度可以通过敏感性分析提前排除。
+
+### 传感器与场景假设
+
+结论针对论文覆盖的低空航测 / 无人机数据和这两类算法。参数 importance 会随：
+
+```text
+LiDAR 线数 / FoV
+IMU 噪声
+飞行速度
+地面高度变化
+点云结构
+时间同步
+```
+
+改变。
+
+因此不要把论文的具体参数值直接抄成所有平台默认值。
+
+### 工程落地启发
+
+对自己的 16 线 LiDAR / MID360 系统，我更推荐复现它的方法，而不是复现它的最终参数：
+
+1. 定义 5–10 个真正怀疑的参数；
+2. 在代表性走廊 / 坡地 / 空旷区做小规模 grid；
+3. 用 sensitivity ranking 找 Top-3；
+4. 以后只对 Top-3 做现场自适应或自动标定。
+
+这会比长期靠“感觉调参数”更容易形成可维护产品。
+
+## 3. VertexCBF：利用控制集合几何，把 Neural CBF 的安全搜索压到顶点
+
+**今日 arXiv 公开批次；v1 提交于 2026-09-11 13:24 UTC。**
+
+### 为什么重要
+
+Control Barrier Function 的核心价值，是把安全写成一个运行时可检查的不等式；但复杂高维系统中，真正计算安全值函数或 Hamiltonian 仍然很贵。
+
+VertexCBF 抓住 control-affine system 的一个结构：
+
+```text
+x_dot = f(x) + g(x)u
+```
+
+当控制集合 `U` 是 convex polytope 时，对 `u` 为线性的 Hamiltonian 最大值出现在多面体顶点。
+
+所以与其在连续控制空间里搜索：
+
+```text
+max over all u ∈ U
+```
+
+可以转化成：
+
+```text
+max over vertices(U)
+```
 
 ### 算法模块
 
 ```text
-Captured Endpoint Images
-        ↓
-定义连续 Disturbance Interval
-        ↓
-Neural Network Bound Propagation
-        ↓
-Steering Output Bounds
-        ↓
-Lane-Departure Budget Check
+Safety Constraint Function
+       ↓
+Residual Neural CBF
+       ↓
+Physics-informed Training + Sparse Supervision
+       ↓
+Vertex-Restricted Control Search
+       ↓
+GPU Parallel Tree Search
+       ↓
+Safe Control / Avoidance
 ```
 
-在 arterial 场景中有 133 个位置。如果每个位置离散成 10 个扰动强度，组合空间理论上为 `10^133`；形式方法无需枚举这些组合，作者报告单块 GPU 上分钟级可完成相关计算。
+作者还通过 residual architecture 约束 learned CBF 不超过给定 constraint function，避免网络产生“比原始几何约束更乐观”的安全区域。([论文](https://arxiv.org/abs/2609.12831))
+
+### 结果与硬件
+
+工作评估 15 个不同系统，并包含移动机器人与行人的真实避障实验。
+
+这比单纯在低维 double-integrator 上验证更有说服力，但依然要正确理解“安全保证”的边界：保证依赖动力学、控制集合和状态估计误差模型是正确的。
+
+### 工程风险
+
+真实机器人常见问题是：
+
+```text
+state estimate 有 bias
+actuator saturation 比模型更严格
+delay / rate limit 没进 dynamics
+障碍物未来运动估计错误
+```
+
+如果这些没被 barrier 模型覆盖，数学上满足 CBF 不等于物理世界一定安全。
+
+### 适合谁关注
+
+安全 MPC、RL safety shield、无人机 / 四足避障、learned local planner、端到端控制的独立安全层。
+
+### 工程落地启发
+
+很适合形成一个统一接口：
+
+```text
+Policy / MPC Proposal
+        ↓
+CBF Safety Filter
+        ↓
+Actuator Command
+```
+
+学习策略负责效率，CBF 层负责定义清楚的安全边界。今天的新工作与经典 CBF-QP 放在一起读尤其合适，后面的经典论文回顾会专门展开这一点。
+
+## 4. ASTRIL-MPC：LLM 可以调控制器，但不应该直接越过 MPC 生成履带动作
+
+**今日 arXiv 公开批次；v1 提交于 2026-09-11 17:17 UTC。**
+
+### 为什么重要
+
+履带式搜索救援机器人面对台阶、斜坡、碎石和高度突变时，固定权重 NMPC 很难覆盖所有地形；但完全用 RL / LLM 端到端输出控制，又很难保证可行性和碰撞约束。
+
+ASTRIL-MPC 给出了一个比较合理的折中：
+
+```text
+Terrain Height Sequence
++ Recent Robot Trajectory
+        ↓
+Learned Kinematics Predictor
+        ↓
+NMPC
+→ 负责显式约束与可行性
+        ↑
+Bounded LLM Adaptation
+→ 只修改少数 Weight / Bound
+```
+
+### LLM 的权限边界
+
+最值得关注的是接口设计。LLM 的更新必须经过：
+
+```text
+range clipping
+rate limiting
+consistency checks
+```
+
+也就是说，它可以提出“地形危险时更重视稳定性”一类高层参数调整，但没有权绕开 NMPC 直接输出履带速度。
+
+这比“让大模型直接控制机器人”更接近真实产品架构。
+
+### 实时性与结果
+
+论文报告编译后的神经 predictor + MPC 完整 control cycle **小于 100 ms**。
+
+实验中，相对 non-adaptive NMPC，aggregate traversal quality 最高提高约 **71%**；相对 PPO 最高提高约 **67%**，并消除了下降阶段可测的碰撞冲击。([论文](https://arxiv.org/abs/2609.13083))
+
+### 动力学与工程风险
+
+learned kinematics 仍然是系统辨识模型。如果机器人换履带、负载、摩擦条件或地形材质明显变化，模型误差可能直接进入 MPC prediction。
+
+另外，LLM 只要能改 cost / bound，就仍然拥有“软权限”。建议所有 adaptive update 都保存：
+
+```text
+old_value
+new_value
+reason
+allowed_range
+rate_limit
+validation_result
+rollback_value
+```
+
+### 适合谁关注
+
+履带救援机器人、复杂地形移动机器人、MPC + learned model、想把 LLM 放入机器人但又不想让它触碰实时控制底层的团队。
+
+### 工程落地启发
+
+Agent 与控制器之间最合理的接口往往不是：
+
+```text
+set_velocity(vx, vy, wz)
+```
+
+而是：
+
+```text
+request_controller_profile(
+  risk_weight,
+  speed_limit,
+  clearance_margin
+)
+```
+
+底层依旧由确定性控制器决定怎样执行。
+
+## 5. LIT：VLA 想提高 OOD 泛化，先切断“看见背景就直接猜动作”的捷径
+
+**今日 arXiv 公开批次；v1 提交于 2026-09-11 09:42 UTC。**
+
+### 为什么重要
+
+大量 VLA 在训练环境里成功率很高，但换相机、换背景、换灯光就明显掉点。一个原因是模型可以走视觉捷径：
+
+```text
+某种背景 / 纹理 / 相机视角
+        ↓
+直接关联某段训练动作
+```
+
+它并没有真正学到“视觉告诉我目标几何在哪里，然后据此控制”。
+
+LIT 通过两阶段训练人为切断这条 shortcut。
+
+### 训练结构
+
+**Stage 1：动作先脱离视觉学会。**
+
+Action Expert 不看图像，只读取：
+
+```text
+Language
+Robot State
+Terminal SE(3) Pose
+```
+
+学习从任务目标几何到动作的映射。
+
+**Stage 2：视觉只能通过 Latent Interface 进入。**
+
+```text
+Image / Semantic Feature
+        ↓
+Pose-Supervised Latent Interface
+        ↓
+Action Expert
+```
+
+因此视觉信息必须先形成与目标 pose / geometry 更一致的中间表示，不能直接连到 action head。([论文](https://arxiv.org/abs/2609.12641))
+
+### 结果
+
+项目页报告，在 π0.5、MolmoAct2、FAST-WAM、ImageWAM 上，LIBERO-Plus overall 提升约 **3.87–10.70 个百分点**；真实机器人未见 camera / lighting / distractor 条件下提升约 **13.3–16.7 个百分点**。([项目页](https://magiclab-nus.github.io/LIT/))
+
+### 工程风险
+
+LIT 假设 terminal SE(3) pose 是一个足够好的“动作语义瓶颈”。对强接触、柔性物体、旋拧、插拔等任务，单个终端 pose 未必包含足够的 force / contact-state 信息。
+
+因此更通用的 latent interface 未来可能需要：
+
+```text
+pose
+contact state
+force intent
+object relation
+phase
+```
+
+### 适合谁关注
+
+VLA、Diffusion / Flow action policy、相机域变化、机器人 OOD 泛化。
+
+### 工程落地启发
+
+与其无限增加视觉 augmentation，不如先检查策略结构里有没有“视觉直接到动作”的短路。可以尝试让视觉先预测 task-space waypoint / pose / relation，再让动作模型消费这个结构化中间量。
+
+[代码](https://github.com/MAGICLAB-NUS/LIT)
+
+## 6. DWMP：身体动力学和视觉世界，不一定应该由同一个 World Model 学
+
+**今日 arXiv 公开批次；v1 提交于 2026-09-11 02:13 UTC。**
+
+### 为什么重要
+
+人形越障需要同时预测两类完全不同的信息：
+
+```text
+Proprioception
+→ 关节 / 速度 / 身体动力学如何演化
+
+Depth / Vision
+→ 障碍几何和未来可见环境怎样变化
+```
+
+如果强行把两类模态塞进同一个黑盒 latent dynamics，它们不同的时间结构和可预测性可能互相干扰。
+
+DWMP 使用 **Dual World Models**。
+
+### 算法模块
+
+```text
+Proprioceptive History
+        ↓
+Koopman-based Latent Dynamics
+→ 尽量让时间演化接近线性
+
+Depth Observation
+        ↓
+RSSM Visual World Model
+→ 学视觉 / 几何时序状态
+
+两种 Latent
+        ↓
+Fusion
+        ↓
+Student Locomotion Policy
+```
+
+([论文](https://arxiv.org/abs/2609.12347))
 
 ### 传感器与动力学假设
 
-验证对象主要是小型视觉 steering network 和定义好的图像扰动集合。形式证明只对**模型和扰动集合**有效，并不自动覆盖未建模的相机曝光、动态障碍、轮胎摩擦、执行器延迟或传感器故障。
+Koopman latent 并不是说真实人形动力学线性，而是寻找一个更适合近似线性演化的隐藏表示。
 
-因此正确的理解是：
+视觉 world model 则依赖 depth 对障碍结构的持续观测。透明 / 镜面、强遮挡或深度失效仍可能破坏环境预测。
+
+### 真机与鲁棒性
+
+作者进行了随机障碍布局仿真，并部署到 **Unitree G1** 实机。
+
+值得注意的是，这种结构天然允许未来分别诊断：
 
 ```text
-Formal Verification
-≠ 整车绝对安全证明
-
-Formal Verification
-= 对明确数学扰动集合的强覆盖补充
+proprioceptive model error
+visual model error
+fusion error
 ```
 
-### 鲁棒性与可复现性
-
-作者公开了相关 captured data，便于复现实验。([数据集](https://huggingface.co/datasets/AD-Assurance-Lab/steering-verification-captures))
+比一个统一 latent 出错以后完全不知道是哪种模态造成的，更适合产品调试。
 
 ### 适合谁关注
 
-端到端驾驶、视觉导航、学习式控制、安全验证，以及正在构建 simulation regression 的机器人团队。
+人形越障、四足 locomotion、world-model policy、多模态预测控制。
 
 ### 工程落地启发
 
-测试平台以后可以分成：
+多传感器系统不一定总应该做“越早融合越好”。如果不同模态的动力学规律完全不同，可以先各自形成可解释的 predictive state，再在 policy 层融合。
 
-```text
-Random / Scenario Simulation
-        +
-Adversarial Search
-        +
-Formal Interval Verification
-```
+这与传统状态估计中的“每种传感器有自己的 measurement model”其实是一脉相承的。
 
-三者回答不同问题。特别是在模型较小、输入扰动能形式化时，不应该只依赖“再跑更多随机场景”。
+## 7. GraphAHA：Coding Agent 的 Test-Time Compute 应该复用搜索历史，而不是不断从零采样
 
-## 5. UniMPA：World Model 必须回答“这个未来能不能由机器人真正做出来”
-
-**时间回补：arXiv v1 提交于 2026-09-10 17:45 UTC；投稿 TPAMI。**
-
-### 为什么重要
-
-VLA 近年的一个典型增强方向是未来预测：先想象下一帧会怎样，再生成动作。但视觉上合理的 future 并不必然是机器人在当前接触和几何条件下可实现的 future。
-
-UniMPA 将问题拆成三类 mismatch：
-
-```text
-Transition Ambiguity
-→ 当前看起来类似，但可能处在不同任务阶段
-
-Prediction-Execution Mismatch
-→ 未来画面合理，但动作不可实现
-
-Experience-Realization Mismatch
-→ 历史动作执行过，但当前场景需要重新适配
-```
-
-于是加入一个 World Expert，与 VLM 和 Action Expert 一起工作。([论文](https://arxiv.org/abs/2609.11875))
-
-### 算法模块
-
-```text
-Current Observation + Language + Robot State + History
-              ↓
-World Expert
-              ↓
-Persistent Latent Transition Tracking
-              +
-关键交互时 Selective Pixel Prediction
-              ↓
-Temporal Visual-Action Memory
-检索历史上真正实现过的 transition
-              ↓
-Action-Visual Memory
-检索可执行 Action Prototype
-              ↓
-Prototype-Biased Flow
-              ↓
-Current-Scene Action
-```
-
-也就是说，memory 不是单纯“回忆类似场景”，而是在预测 future 和动作生成之间充当可执行性证据。
-
-### 结果与工程边界
-
-论文 / 项目页报告：
-
-```text
-LIBERO            98.6%
-LIBERO-Plus       85.3%
-GALAXEA R1 Lite   77.7%
-AgileX 7 tasks    74.9% average
-```
-
-并展示了意外状态变化后的恢复行为。([项目页](https://JiuTian-VL.github.io/UniMPA-page/))
-
-这些指标证明的是其评测设置下的收益，不应直接外推为通用 VLA 成功率。Memory 中的“历史可执行”也不等于当前场景安全：物体质量、摩擦、相机标定和机器人状态变化都会让旧经验失效。
-
-### 适合谁关注
-
-VLA、World Action Model、长时操作、恢复策略和机器人 memory system。
-
-### 工程落地启发
-
-真实机器人可以把经验库从：
-
-```text
-Observation → Action
-```
-
-升级成：
-
-```text
-Pre-State
-Action
-Observed Transition
-Outcome
-Context / Embodiment Version
-```
-
-以后检索的不是“以前做过什么”，而是“以前什么动作在什么上下文里真的产生了什么变化”。
-
-## 6. 2AM：长期记忆可以留在 Agent，动作模型只负责当前一步怎么做
-
-**时间回补：arXiv v1 提交于 2026-09-10 09:35 UTC。**
-
-### 为什么重要
-
-长时任务通常会自然地把所有东西往 VLA 里塞：语言历史、物体状态、过去失败、子任务进度、几何信息……模型越做越大，调试也越来越困难。
-
-2AM 提出一个非常干净的分工：
-
-```text
-Multimodal Agent
-→ 唯一持有 Long-Horizon Memory
-→ 把历史编译成当前 Subtask + 可选 2D Hint
-
-RGB Action Model
-→ Episodically Stateless
-→ 只执行当前物理动作
-```
-
-Hint 可以是 grasp、place 或 move 的二维位置，用来提高语言之外的接口带宽。([论文](https://arxiv.org/abs/2609.11308))
-
-### 训练方法
-
-为了让 Action Model 真正“可被 Agent steer”，示范数据增加结构化 hint label，并在训练中加入：
-
-```text
-condition dropout
-spatial noise
-temporal jitter
-```
-
-因此部署时 Agent 输出略有误差，VLA 也不会立即失效。
-
-### 结果与边界
-
-LIBERO-Mem 中，不使用 depth、在线几何或独立对象运动规划器：
-
-```text
-Average completion   76.3%
-Relaxed success      63.0%
-Strict success       11.8%
-```
-
-平均 completion 比论文报告的最强基线 14.8% 高 61.5 个百分点。
-
-这里 `strict success` 仍明显低于 completion，说明长时任务最终闭环成功依然很难，不能只看“完成了大部分步骤”。
-
-### 适合谁关注
-
-机器人 Agent、VLA orchestration、任务记忆、长时操作，以及希望把高层语义和低层控制明确分层的系统。
-
-### 工程落地启发
-
-一个很实用的接口是：
-
-```text
-ActionRequest {
-  subtask
-  target_object
-  optional_grasp_hint
-  optional_place_hint
-  memory_revision
-}
-```
-
-Agent 可以频繁更新这份短结构，但 Action Model 无需每次重新读完整任务历史。
-
-## 7. RCL：在生成代码前先回答“这次检索真的够了吗”
-
-**时间回补：arXiv v1 提交于 2026-09-10 03:02 UTC。**
+**今日 arXiv 公开批次；v1 提交于 2026-09-11 12:08 UTC。**
 
 ### 突破性工程价值
 
-公开仓库里，即使 retrieval 少找了一两个文件，大模型的预训练记忆仍可能补齐常见 API。企业内部仓库不一样：私有框架、内部 SDK、未公开约定完全不在模型先验中。
-
-普通 RAG 常以 cosine similarity / reranker score 判断“找得好不好”，但 RCL 关心另一个问题：
-
-> **从程序结构上看，当前 retrieval 是否覆盖了完成任务必须知道的依赖？**
-
-它被放在 retrieval 与 generation 中间：
+给 Coding Agent 更多 test-time compute，最简单的方法是：
 
 ```text
-Query
-  ↓
-Repository Retrieval
-  ↓
-RCL
-  ├─ Call-Graph Structural Coverage
-  └─ Novelty / Outside-Prior Dependence
-  ↓
-Confidence High → Generate
-Confidence Low  → Targeted Retrieval / Human Review
+生成 N 个候选
+运行测试
+挑最好的
 ```
 
-([论文](https://arxiv.org/abs/2609.11023))
+但很多候选实际上只在局部不同，大量推理和验证被重复浪费。
+
+GraphAHA 将搜索状态组织成 typed DAG：
+
+```text
+Code Node
+   ↓
+Sampling / Reasoning / Implementation / Repair Action
+   ↓
+New Code Node
+```
+
+语义 / 行为等价的程序可以合并为同一个节点，下游成功 / 失败统计也能复用，而不是每条 trajectory 都当成完全独立经验。([论文](https://arxiv.org/abs/2609.12757))
+
+### 搜索策略
+
+作者使用 hierarchical Thompson sampling：
+
+1. 先决定探索新的 successor，还是利用已有 successor；
+2. 再在 heterogeneous action 中选择下一步，例如 reasoning、repair 或 implementation。
+
+这比固定“每轮都 repair”更灵活。
+
+### 结果
+
+在 LiveCodeBench 和 CodeContests、Qwen2.5-Coder 与 DeepSeek-Coder 组合下，GraphAHA 在 **20 个设置中 18 个最佳**；在 visible-test 设定下，相对最强基线平均提高约 **4.1 个百分点 Pass@1**。
 
 ### 是否适合真实研发流程
 
-很适合公司内部 Coding Agent。尤其是：
+概念非常适合，但生产仓库需要解决“两个 patch 是否等价”的问题。测试等价不代表真实行为完全等价，尤其涉及：
 
 ```text
-private SDK
-multi-repo service
-old framework version
-undocumented convention
-internal generated code
+并发
+数据库副作用
+性能
+日志 / telemetry
+权限
 ```
 
-这些任务最危险的并不是模型说“我不确定”，而是模型自信地用一个根本不存在的内部 API。
+所以 DAG node merge 必须谨慎。
+
+### 工程落地启发
+
+长任务 Agent 可以保存：
+
+```text
+Patch Graph
+├─ parent patch
+├─ validator result
+├─ failure signature
+├─ reasoning artifact
+└─ next actions
+```
+
+这样一个失败 patch 不是“聊天历史里的废文本”，而是后续搜索可复用的结构化负样本。
+
+## 8. Reality Is the Final Verifier：CI 全绿，只能证明你通过了当前模型化的世界
+
+**今日 arXiv 公开批次；v1 提交于 2026-09-10 17:58 UTC。**
+
+### 突破性工程价值
+
+这篇文章没有提出新 Agent，而是给 Agentic Software Engineering 一个非常有用的系统框架。
+
+作者指出自动软件工程至少有两个永远无法完全消除的 gap：
+
+```text
+Requirement Gap
+真实 stakeholder intent
+≠
+写下来的 issue / spec
+
+Model Gap
+真实部署环境
+≠
+测试 / benchmark / simulator / evaluator
+```
+
+([论文](https://arxiv.org/abs/2609.12039))
+
+### 为什么对 Coding Agent 很关键
+
+Agent 越擅长优化 evaluator，就越容易找到 evaluator 的盲区。
+
+例如：
+
+```text
+所有单元测试通过
+但性能退化 10×
+
+SWE-bench 测试通过
+但破坏未覆盖 API
+
+sandbox 正常
+但生产数据库规模不同
+```
+
+这不是单纯“模型 hallucination”，而是 evaluator 对现实世界本来就只是近似。
+
+### 建议的 Assurance Loop
+
+更合理的生命周期是：
+
+```text
+Requirement
+    ↓
+Agent Implementation
+    ↓
+Test / Simulation / Evaluation
+    ↓
+Deployment Evidence
+    ↓
+发现 Requirement Gap / Model Gap
+    ↓
+更新 Requirement / Model / Evaluator
+    ↓
+下一轮
+```
+
+部署不是验证链终点，而是下一轮规范更新的数据来源。
 
 ### 权限、安全与可验证性风险
 
-RCL 只判断 context sufficiency，不证明生成代码正确。它也依赖 call graph / structural representation 的质量；动态语言、反射、代码生成和运行时依赖都可能让静态图不完整。
+这并不意味着“测试不重要”。相反，测试仍然是最便宜的 verifier，只是不能被误认为现实本身。
 
-所以合理架构仍然是：
+高风险 Agent 应明确记录：
 
 ```text
-Retrieval Sufficiency Gate
-        ↓
-Generation
-        ↓
-Build / Test / Static Check
-        ↓
-Independent Acceptance
+what_was_verified
+what_was_not_verified
+assumptions
+production evidence
+rollback criteria
 ```
+
+### 适合谁关注
+
+Coding Agent 平台、自动修复、自动部署、长期 Agent、机器人软件远程升级。
 
 ### 工程落地启发
 
-Coding Agent 的 retrieval telemetry 不要只保存 top-k score。建议至少记录：
+对 Vibe Coding 最实用的一条原则是：**Definition of Done 不能只写“tests pass”。**
+
+应该至少再问：
 
 ```text
-requested_symbols
-retrieved_symbols
-unresolved_calls
-external_dependencies
-coverage_score
-novelty_score
-followup_retrieval_count
+真实用户路径是什么？
+真实数据规模是什么？
+有哪些环境差异没有进入测试？
+上线后哪个 telemetry 会证明我们错了？
 ```
-
-这样才能真正分析一次代码生成失败是“模型不会”，还是“根本没给够上下文”。
-
-## 8. GuardedAct：生产故障修复应当先在 Sandbox 里证明自己不会扩大事故
-
-**时间回补：arXiv v1 提交于 2026-09-10 08:58 UTC。**
-
-### 突破性工程价值
-
-让 LLM 自动执行生产修复最大的风险不是“动作没修好”，而是一个看起来合理的动作扩大 blast radius。例如重启错误依赖、扩散配置、清理错误缓存、回滚不兼容版本，都可能把局部故障放大成系统故障。
-
-GuardedAct 明确设计成 sandbox-first：
-
-```text
-Diagnosis + Live Topology + Telemetry
-             ↓
-LLM Ranked Remediation Candidates
-             ↓
-Lightweight Digital-Twin Sandbox
-             ↓
-Blast-Radius Estimate + Risk Label
-             ↓
-Rollback-Confidence Gate
-      ├─ Low Risk → Auto Execute
-      └─ High Risk → Human Review
-```
-
-([论文](https://arxiv.org/abs/2609.11264))
-
-### 实验结果
-
-DeathStarBench social-network 应用中注入五类故障，论文报告：
-
-```text
-Overall recovery rate          87.4%
-Direct LLM collateral damage   25.6%
-GuardedAct collateral damage    5.2%
-Relative reduction             79.7%
-Mean recovery time overhead    ~8 s
-```
-
-### 是否适合真实研发流程
-
-非常适合自动运维、Coding Agent 部署、数据库迁移、Kubernetes remediation，以及机器人 fleet 远程升级。
-
-但 digital twin 不是现实系统。如果 sandbox 漏掉了一个关键依赖，系统仍可能给出“安全”的错误结论。因此 simulation result 应被视作一层证据，而不是最终真理。
-
-### 权限与安全风险
-
-真正生产系统最好继续区分：
-
-```text
-read telemetry
-propose remediation
-simulate
-approve
-execute
-rollback
-```
-
-这些 capability，而不是给一个 Agent 全部权限。
-
-执行前还应重新读取 source-of-truth，避免在模拟完成到真正提交之间系统状态已经改变。
-
-### 工程落地启发
-
-对机器人远程运维可以直接改成：
-
-```text
-Agent proposes config / software change
-        ↓
-Replay in recorded / simulated robot environment
-        ↓
-Estimate affected skills / sensors / fleet scope
-        ↓
-Canary one robot
-        ↓
-Health check
-        ↓
-Progressive rollout
-```
-
-“能回滚”与“知道会影响多大范围”应该成为 Agent 自动化的基础元数据。
 
 ## 社区 / 社交平台 · Vibe Coding / AI 编程技巧精选
 
@@ -625,7 +683,16 @@ Progressive rollout
 
 这篇文章最值得借鉴的原则是：上游研究和架构假设一旦错了，Agent 会在后续实现中把错误不断放大，因此人工注意力应前置，而不是等几小时代码生成后再靠 patch 补救。
 
-推荐把流程固定成 `Research（只读探索）→ Plan（持久架构文档）→ Task（Goal / Dependencies / Paths / Acceptance / Validation）→ Implementation（Fresh Session）`。真正持久的状态是 **Task Registry + Append-only Activity Log + Git State**，不是聊天历史；`AGENTS.md / CLAUDE.md` 也更适合只保留经过真实失败证明必要的短规则。
+推荐把流程固定成：
+
+```text
+Research（只读探索）
+→ Plan（持久架构文档）
+→ Task（Goal / Dependencies / Paths / Acceptance / Validation）
+→ Implementation（Fresh Session）
+```
+
+真正持久的状态是 **Task Registry + Append-only Activity Log + Git State**，不是聊天历史；`AGENTS.md / CLAUDE.md` 也更适合只保留经过真实失败证明必要的短规则。
 
 **今天可以直接用：** 建 `research.md`、`plan.md`、`tasks/TASK-xxx.md` 和 `activity.log`；每个 Task 必须带验收命令，新任务尽量从 fresh session 开始。
 
@@ -633,13 +700,23 @@ Progressive rollout
 
 [原文：Front-Load or Fail — The Four-Phase Coding Agent Workflow](https://codex.danielvaughan.com/2026/09/06/front-load-human-review-phased-coding-agent-workflow-codex-cli/)
 
-### 3. 社区高赞经验：架构、边界和 Edge Cases 先由人想清楚，再把 Implementation 交给 Agent
+### 3. 社区经验：架构、边界和 Edge Cases 先由人想清楚，再把 Implementation 交给 Agent
 
-**来源：2026-09-07 Reddit 高热度讨论；属于社区经验。**
+**来源：2026-09-07 Reddit 讨论；属于社区经验，不作为 benchmark 结论。**
 
-讨论中最值得保留的一条实践是 **Human-owned Design Checkpoint**：在 Agent 获得写权限前，先由人把 architecture、关键接口、edge cases、trade-offs 和 definition of done 想清楚。之后可以高强度让 Agent 写代码，但 review 要回到原始需求和设计 artifact，而不是只问“测试是不是绿了”。
+这条实践可以概括为 **Human-owned Design Checkpoint**：在 Agent 获得写权限前，先由人把 architecture、关键接口、edge cases、trade-offs 和 definition of done 想清楚。之后可以高强度让 Agent 写代码，但 review 要回到原始需求和设计 artifact，而不是只问“测试是不是绿了”。
 
-**今天可以直接用：** 在写权限前确认一份很短的 `DESIGN.md`，至少包含 `Goal / Non-goals / Architecture / Key interfaces / Edge cases / Trade-offs / Definition of done`。
+**今天可以直接用：** 在写权限前确认一份短 `DESIGN.md`，至少包含：
+
+```text
+Goal
+Non-goals
+Architecture
+Key interfaces
+Edge cases
+Trade-offs
+Definition of done
+```
 
 **边界：** 这是社区个人经验，不是控制变量实验；更适合作为保持系统理解和审查能力的工作习惯。
 
@@ -647,185 +724,197 @@ Progressive rollout
 
 ## 经典论文回顾
 
-### Yamauchi 1997 Frontier-Based Exploration：为什么“已知自由空间与未知空间的边界”至今仍是自主探索最强基线之一
+### Control Barrier Function Based Quadratic Programs for Safety Critical Systems：把“安全”变成控制器每一拍都必须满足的约束
 
-Brian Yamauchi 的 **A Frontier-Based Approach for Autonomous Exploration** 发表在 1997 IEEE CIRA，是现代自主探索最经典的工作之一。它给出了一个非常简洁的定义：**frontier 是已知 open/free space 与 unexplored/unknown space 的边界。** 机器人不断导航到可达 frontier，就能持续把地图扩展到新区域，直到没有新的 frontier。([论文 DOI](https://doi.org/10.1109/CIRA.1997.613851))
+Aaron D. Ames、Xiangru Xu、Jessy W. Grizzle 与 Paulo Tabuada 的 **Control Barrier Function Based Quadratic Programs for Safety Critical Systems** 于 2016 年在线发表、2017 年刊于 IEEE Transactions on Automatic Control。它是现代 CBF Safety Filter、Safe RL shield 与许多安全 MPC 工作的重要基础之一。([DOI](https://doi.org/10.1109/TAC.2016.2638961)，[arXiv](https://arxiv.org/abs/1609.06408))
 
 ### 核心问题
 
-机器人在未知环境里同时面临：
+传统稳定控制常问：
 
 ```text
-我现在知道哪里能走？
-哪里还没有看过？
-下一步去哪能获得最多新空间？
+系统能不能收敛到目标？
 ```
 
-Frontier 方法不需要直接建立复杂长期信息规划，只利用 occupancy / evidence grid 中的三态结构：
+安全控制还必须先回答：
 
 ```text
-Free
-Occupied
-Unknown
+在去目标的过程中，状态会不会进入危险集合？
 ```
 
-然后寻找：
+论文使用 barrier function 定义安全集合，例如：
 
 ```text
-Free cell
-与 Unknown cell 相邻
-        ↓
-Frontier
+C = { x | h(x) >= 0 }
 ```
 
-再从 frontier cluster 中选择导航目标。
+并通过对 `h(x)` 的导数施加条件，保证闭环系统不会穿过安全边界，即获得 forward invariance。
 
-### 算法模块
+### CBF-QP 的关键结构
 
-经典流程可以写成：
+对 control-affine system：
 
 ```text
-Range Sensor
-     ↓
-Evidence / Occupancy Grid
-     ↓
-Detect Free-Unknown Boundary
-     ↓
-Frontier Clustering
-     ↓
-Choose Reachable Frontier
-     ↓
-Navigate
-     ↓
-Update Map
-     ↓
-Repeat
+x_dot = f(x) + g(x)u
 ```
 
-原始工作还使用 laser-limited sonar 来降低声呐镜面反射对 evidence grid 的污染，并在真实办公室机器人上验证了大开阔区、狭窄杂乱区以及任意方向墙体场景。
+CBF 条件可以转化为对 `u` 的线性不等式。
 
-### 传感器与地图假设
+于是每一个控制周期都可以解一个很小的 QP：
 
-Frontier 的效果高度依赖：
+```text
+minimize    ||u - u_nominal||²
 
-- 地图必须严格区分 Unknown 与 Free；
-- 定位误差不能让障碍边界无限变厚；
-- local planner 能够可靠判断 frontier 是否真的可达；
-- 传感器视场与遮挡会影响 frontier 价值。
+subject to  CBF safety constraints
+            actuator limits
+```
 
-这也是为什么“无点 = free”的地图会直接破坏探索逻辑。
+如果同时加入 Control Lyapunov Function，还可以把“朝目标收敛”作为 performance objective / soft constraint：
+
+```text
+Nominal Controller / Planner
+          ↓
+CLF-CBF-QP
+          ↓
+尽量保持原动作
+同时强制 Safety
+```
+
+### 动力学与传感器假设
+
+经典 CBF 的安全保证依赖几个关键条件：
+
+- 动力学模型足够准确；
+- `h(x)` 确实表达了真实危险边界；
+- 状态估计误差没有超出建模范围；
+- 求解频率、执行器 delay 和 saturation 没有破坏连续时间假设。
+
+所以 CBF 不是“写一个不等式就自动绝对安全”。
 
 ### 当年为什么重要
 
-它把一个看似需要复杂决策的问题转成了地图几何上的局部结构，计算简单、与具体机器人无关，而且天然随着地图更新产生新目标。
+它把安全从 planner 的隐含 cost 变成了**运行时显式约束**。
+
+这让系统可以采用非常激进甚至学习式的 nominal controller，只要最后一层安全滤波器能够确保动作仍处于可接受集合。
 
 ### 今天仍然在使用的思想
 
-ROS / Nav2 和大量探索系统仍以 frontier 为基础，再叠加：
+今天大量系统都仍然沿用：
 
 ```text
-Information Gain
-Travel Cost
-Risk
-Semantic Utility
-Battery / Return Cost
-Multi-Robot Allocation
+Policy / RL / MPC / Human Command
+            ↓
+Safety Filter
+            ↓
+Actuator
 ```
 
-Frontier 仍然是非常强的候选生成器。
+尤其是：
+
+```text
+Safe RL
+Learning-based CBF
+Robust / Measurement-aware CBF
+Multi-agent collision avoidance
+VLA action safety
+```
+
+今天的 VertexCBF 就是在解决经典 CBF 面对高维、复杂 value function 时的计算问题。
 
 ### 已被后续扩展的部分
 
-经典方法通常是 myopic 的：最近 / 最大 frontier 不一定是全局最优探索路线。现代系统会使用 NBV、belief-space planning、learned occupancy completion、semantic exploration 和 multi-step information planning。
+现代研究已经加入：
 
-但越复杂的预测地图越应该保留经典原则：**Unknown 不能被没有证据的预测悄悄改写成 Free。**
+```text
+High-Order CBF
+Robust CBF
+Stochastic CBF
+Measurement-Robust CBF
+Learned / Neural CBF
+Reachability + CBF
+Differentiable Safety Layer
+```
 
-### 公开代码、数据与可复现性
+并开始更加认真地处理模型误差和感知不确定性。
 
-原论文年代较早，没有现代官方仓库；但 frontier detection 已经成为 ROS 社区最常见的探索基线之一，复现成本很低。
+### 公开代码与可复现性
+
+现代开源工具中可以参考 [CBFKit](https://github.com/bardhh/cbfkit)，它提供 JAX / Python 的 CBF / CLF 组件和 ROS 2 相关接口，适合快速搭建实验。
 
 ### 对当前工程项目的重新解读
 
-对于 LiDAR 机器人和机器狗，一个很实用的现代接口是：
+对无人机、机器狗和 VLA，我更推荐把 CBF 理解成一种**权限边界**，而不是主控制器：
 
 ```text
-FrontierCandidate {
-  position
-  expected_unknown_reduction
-  path_cost
-  traversability
-  localization_quality
-  sensor_visibility
-  risk
-}
+上层算法可以自由提出动作
+但只有满足可证明安全条件的动作
+才允许真正进入执行器
 ```
 
-再由高层 planner 选择，而不是直接选择最近 frontier。
+它与 Coding Agent 的 capability gate 很像：模型可以“建议”，但最终执行权必须经过独立、可检查的约束。
 
-对低线数 LiDAR 尤其应将 `sensor_visibility` 与 `localization_quality` 加进 frontier score：长走廊尽头看起来有大量 unknown，并不意味着那里一定是最值得走的方向；如果沿该方向 SLAM 可观测性很差，探索与定位应共同决策。
-
-经典 Frontier 与今天的学习式 occupancy / world model 放在一起看，最值得保留的一句话是：
-
-> **预测可以帮助决定“去哪看”，但安全地图仍必须知道哪些地方是真的看过。**
+对低线数 LiDAR / SLAM 系统，还要特别注意安全边界应考虑地图和定位误差；如果障碍位置本身有 ±20 cm uncertainty，那么 `h(x)` 里的障碍几何也必须相应膨胀，而不是拿点估计直接做形式安全声明。
 
 ## 今日结论
 
-今天最清晰的感知信号是：**退化不是传感器“开 / 关”两种状态，而是信息来源权重与权限持续变化的过程。** GRADE 用雷达提供稳定 metric anchor，让视觉只在可用时补细节；这种思路同样适用于 LiDAR、camera、GNSS 和轮速融合。最终系统最好不仅输出估计值，还要明确告诉下游“这次估计主要由谁支撑”。
+今天 SLAM 最值得带走的不是某个新前端，而是两个更贴近长期工程的问题：**跨会话地图如何持续积累**，以及**成熟 LIO 到底哪些参数真正值得调**。Chain-SLAM 把 session 变成图中的长期对象；参数敏感性工作则提醒我们，在换算法以前，先把现有算法的敏感维度测清楚。对于已经能跑起来的 LIO-SAM / FAST-LIO2 系统，这两项往往比继续追逐“最新前端”更容易产生真实产品收益。
 
-控制侧的两篇工作则从两个方向说明，结构化建模仍然非常有价值。Rapid Dexterous Writing 不试图先求一个完美接触模型，而是在线估计真正控制任务所需的局部 Jacobian；Dist-GPRL 也不让 RL 重写整个高维技能，只修改局部 via-point window，并让 GP 与距离场提供结构。它们都体现同一个原则：**只学习真正未知、真正需要变化的那部分。**
-
-端到端安全验证工作进一步提醒我们：随机仿真与形式验证解决的是不同问题。跑过一万个测试场景仍可能错过测试点之间的连续失败区间；而形式方法也只对定义好的模型和扰动集合有效。成熟验证体系应同时拥有 simulation、adversarial search 和 formal bounds。
-
-VLA 今天的两条路线非常互补。UniMPA 把“未来是否可执行”变成 world-model / memory 的核心问题；2AM 则把长时 memory 留在 Agent，让 Action Model 只消费精炼后的当前 subtask 与物理 hint。未来机器人基础模型很可能不会是一个无限扩大的单体网络，而会逐渐形成：
+控制侧今天形成一条非常清楚的分层：
 
 ```text
-Long-Term Memory / Agent
+Learned / LLM Proposal
         ↓
-Current Intent / Transition
+Model-based Optimization
         ↓
-Action Model
+CBF / Reachability Safety Gate
         ↓
-Runtime Safety / Failure Monitor
+Low-level Controller
         ↓
-Controller
+Hardware Protection
 ```
 
-AI Coding 侧同样出现明确的“先验收上下文，再授权动作”趋势。RCL 在生成前检查 retrieval 是否结构上足够；GuardedAct 在执行前检查候选修复的 blast radius。二者实际上是在同一条工程链的不同位置增加 gate：
+ASTRIL-MPC 说明 LLM 可以调 controller profile，但不应直接输出底层动作；VertexCBF 与经典 CBF-QP 则进一步说明，Safety Gate 最好具有与上层生成模型不同的数学结构和失败模式。
+
+VLA 侧的 LIT 与 DWMP 都在反对“所有信息全部丢进一个大网络自然就会学好”。LIT 强制视觉先经过几何语义接口；DWMP 则让 proprioception 与 depth 使用不同 world model。未来机器人基础模型很可能继续变大，但真正稳定的产品栈会同时变得**更模块化、更可诊断**。
+
+AI Coding 侧今天最有价值的共同主题是：**搜索历史与现实证据都应该成为持久资产。** GraphAHA 不再把每次候选代码当成孤立 rollout，而是构成可复用的 patch graph；Reality Is the Final Verifier 则提醒我们，测试通过只是当前 evaluator 下的证据，真正的部署结果还要反向更新 requirement 和 verifier。
+
+这也和社区精选里的三个实践高度一致：
 
 ```text
-Context Gate
-   ↓
-Generation
-   ↓
-Execution / Sandbox Gate
-   ↓
-Commit
+原始需求要保留
+设计 Artifact 要保留
+Patch / Test / Failure 要保留
+聊天上下文可以随时重开
 ```
 
-随着 Agent 能力越来越强，真正决定生产可靠性的会越来越多是模型外的 Context Provenance、Capability、Verifier、Sandbox、Rollback 和 Commit-Time Check，而不是继续堆更长的系统提示词。
+真正适合长期 Vibe Coding 的不是一个永不结束的超长 session，而是一套可以被新 Agent 重建状态的持久 Artifact。
 
 ## 最值得深入研究或尝试复现的方向
 
-1. **Radar / LiDAR 退化感知分层。** 如果现有平台同时有 camera + LiDAR / radar，统一记录每帧的 `sensor_quality / measured_support / generated_support`，让地图和碰撞层对实测几何与生成几何使用不同权限；重点验证烟雾、粉尘、黑暗和局部遮挡。
+1. **Multi-session LIO Sidecar。** 保留现有 LIO 前端不动，把每次任务保存成 session keyframe graph；后台单独做 GNSS / coarse prior + ICP verified inter-session factor。先 shadow 运行，不立即改正式地图，重点统计错误约束和地图变化导致的 factor 老化。
 
-2. **在线 Task Jacobian 控制。** 在已有机械臂 / 灵巧手 SDK 上选一个小型局部任务，在线估计 `Δu → Δtask` 映射并做闭环控制，记录 condition number、prediction residual 和重新激励次数；先判断它是否能替代复杂接触模型的一部分。
+2. **自己的 LIO 参数敏感性矩阵。** 对 16 线 LiDAR / MID360 分别在长走廊、坡地、空旷区做小型参数 grid，再用 permutation importance 排 Top-3。以后优化只围绕真正敏感的参数，而不是全量手调。
 
-3. **Simulation + Formal Verification 双轨回归。** 对较小的 learned local planner / steering network，保留现有随机场景测试，同时增加输入扰动 interval verification；专门寻找“两个离散测试点都通过，但中间区间失败”的案例。
+3. **Policy → CBF Safety Filter。** 选一个二维 / 低维移动机器人任务，用现有 local planner 或 RL 产生 nominal action，CBF-QP 做最后安全过滤；同时人为加入定位 bias 和 actuator delay，测“理论 safe”与“真实 safe”之间差多少。
 
-4. **Agent Memory 与 Action Model 解耦。** 把长期任务历史保留在高层 Agent，只给 VLA 当前 subtask、target 和少量空间 hint；比较完整历史直接输入与精炼接口在 latency、token、错误恢复和可调试性上的差异。
+4. **VLA Latent Interface A/B。** 不立刻重训大 VLA，只在视觉和 action head 中间加入 waypoint / terminal pose / object relation 监督，测试换相机、换背景、换光照后的性能是否比纯 augmentation 更稳定。
 
-5. **Coding Agent 双 Gate。** 生成前计算 retrieval structural coverage，执行前在 sandbox / canary 中估算 blast radius；没有足够上下文就继续检索，没有安全执行证据就不自动写生产系统。
+5. **Coding Agent Patch Graph。** 每次 Agent 尝试保存 parent patch、failure signature、validator result、reasoning artifact 和下一步动作；遇到重复失败不再从零开始，而是让新的 Agent 先遍历历史 patch graph。同时把线上 telemetry 作为 evaluator 更新的正式输入。
 
 ## 参考资料
 
 - [arXiv Robotics 最新列表](https://arxiv.org/list/cs.RO/recent)
 - [arXiv Software Engineering 最新列表](https://arxiv.org/list/cs.SE/recent)
-- [GRADE](https://arxiv.org/abs/2609.10756) · [项目页 / 代码与数据](https://phi-lab-rice.github.io/GRADE/)
-- [Rapid Learning of Dexterous In-Hand Pen Writing](https://arxiv.org/abs/2609.11775) · [项目页](https://srl-ethz.github.io/rapid-dexterous-writing/)
-- [Safety-aware Skill Adaptation / Dist-GPRL](https://arxiv.org/abs/2609.11433)
-- [Testing Between the Test Cases](https://arxiv.org/abs/2609.10951) · [公开数据](https://huggingface.co/datasets/AD-Assurance-Lab/steering-verification-captures)
-- [UniMPA](https://arxiv.org/abs/2609.11875) · [项目页](https://JiuTian-VL.github.io/UniMPA-page/)
-- [2AM](https://arxiv.org/abs/2609.11308)
-- [RCL](https://arxiv.org/abs/2609.11023)
-- [GuardedAct](https://arxiv.org/abs/2609.11264)
-- [Yamauchi 1997 Frontier-Based Exploration](https://doi.org/10.1109/CIRA.1997.613851)
+- [Chain-SLAM](https://arxiv.org/abs/2609.12221) · [项目页](https://ai4ce.github.io/Chain-SLAM/) · [代码](https://github.com/ai4ce/Chain-SLAM)
+- [Parameter Sensitivity Analysis for Aerial LiDAR-Inertial Odometries](https://arxiv.org/abs/2609.12837)
+- [VertexCBF](https://arxiv.org/abs/2609.12831)
+- [ASTRIL-MPC](https://arxiv.org/abs/2609.13083)
+- [Latent Interface Training](https://arxiv.org/abs/2609.12641) · [项目页](https://magiclab-nus.github.io/LIT/) · [代码](https://github.com/MAGICLAB-NUS/LIT)
+- [DWMP](https://arxiv.org/abs/2609.12347)
+- [GraphAHA](https://arxiv.org/abs/2609.12757)
+- [Reality Is the Final Verifier](https://arxiv.org/abs/2609.12039)
+- [Claude Code and Codex Together: How to Split the Work](https://have-been.com/en/posts/claude-code-codex-together)
+- [Front-Load or Fail — The Four-Phase Coding Agent Workflow](https://codex.danielvaughan.com/2026/09/06/front-load-human-review-phased-coding-agent-workflow-codex-cli/)
+- [Reddit：I am done with the everyday’s work using just claude/codex](https://www.reddit.com/r/developersIndia/comments/1w9w2jh/i_am_done_with_the_everydays_work_using_just/)
+- [Control Barrier Function Based Quadratic Programs for Safety Critical Systems](https://doi.org/10.1109/TAC.2016.2638961) · [arXiv](https://arxiv.org/abs/1609.06408) · [CBFKit](https://github.com/bardhh/cbfkit)
