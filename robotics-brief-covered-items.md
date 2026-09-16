@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-15（Asia/Shanghai）
+> 最后更新：2026-09-16（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -89,6 +89,8 @@
 > 2026-09-14 早间首版新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 606 条；随后因 arXiv 9 月 14 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 615 条。早间首版条目保留为历史覆盖记录。
 >
 > 2026-09-15 早间首版新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 627 条；随后因 arXiv 9 月 15 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 636 条。早间首版条目保留为历史覆盖记录。
+>
+> 2026-09-16 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 648 条。
 
 ## 已核验条目
 
@@ -757,6 +759,19 @@
 | 2026-09-15 | Fabrication After Tool Failure: Tool-Augmented Agents Assert Values Their Tools Did Not Return | [论文](https://arxiv.org/abs/2609.14758) | 9 月 15 日最新 Software Engineering 批次；tool semantic failure、显式 retrieval_status 与运行时诚实性。 |
 | 2026-09-15 | Gemini 3.8 Audio (Live, Live Extended Thinking) | [官方模型卡](https://deepmind.google/models/model-cards/gemini-3-8-audio/) | Google DeepMind 2026-09-15 发布；native multimodal realtime audio；128K context、audio/text output。 |
 | 2026-09-15 | g²o: A General Framework for Graph Optimization | [DOI](https://doi.org/10.1109/ICRA.2011.5979949) · [官方代码](https://github.com/RainerKuemmerle/g2o) | 经典论文回顾；ICRA 2011；通用 graph nonlinear least-squares、SLAM / BA 稀疏图优化。 |
+
+| 2026-09-16 | Comparing Trajectories from Positions Alone: Curvature-Based Time Alignment and Drift Error Metric | [论文](https://arxiv.org/abs/2609.14936) | 时间回补；v1 2026-09-14；曲率时间对齐 + 按里程归一漂移误差，用于 SLAM/定位可复现评测。 |
+| 2026-09-16 | Exact Feasibility Certification and Optimal Responsibility Allocation for Multi-Robot CBF Safety Filters | [论文](https://arxiv.org/abs/2609.14935) | 时间回补；v1 2026-09-14；CBF-QP 精确可行性余量、责任定位与共享约束最优分配。 |
+| 2026-09-16 | Primitive-Informed Sampling-Based MPC for Multi-Fingered Dexterous Manipulation | [论文](https://arxiv.org/abs/2609.14868) | 时间回补；v1 2026-09-14；低维操作 primitive + joint residual + rollout constraints；Allegro 真机。 |
+| 2026-09-16 | Distributed Safe Cooperative Vector Field for Trajectory Curvature Constrained Multi-Robot Systems | [论文](https://arxiv.org/abs/2609.15266) | 时间回补；v1 2026-09-14；曲率约束多机器人协同向量场与自适应避碰边界；真机验证。 |
+| 2026-09-16 | X-WBC: A Cross-Embodiment Foundation Model for Humanoid Whole-Body Control | [论文](https://arxiv.org/abs/2609.15213) | 时间回补；v1 2026-09-14；CoRL 2026；共享人类动作语义 + 本体特定控制模块；4 台真机。 |
+| 2026-09-16 | Tracking the Ground: Online Lidar Identification of Robot-Induced Soil Deformation in Agricultural Environments | [论文](https://arxiv.org/abs/2609.15667) | 时间回补；v1 2026-09-14；LiDAR 在线估计机器人引起的土壤形变与可解释 soil state。 |
+| 2026-09-16 | From Prediction to Decision: World-Model-Guided Action Selection for Continuous Pile Excavation | [论文](https://arxiv.org/abs/2609.15382) | 时间回补；v1 2026-09-14；世界模型候选铲掘排序；ROS2/TensorRT Jetson AGX Orin 闭环。 |
+| 2026-09-16 | MessyMem: Learning-from-Doing Memory for Mobile Manipulation | [论文](https://arxiv.org/abs/2609.15976) · [项目页](https://messymem.github.io/) | 时间回补；v1 2026-09-14；持久 3D 场景图 + 交互结果记忆；CoRL 2026。 |
+| 2026-09-16 | 社区精选：敏感动作审批状态外置，Agent 不可改；hook 采用 fail-closed 硬拒绝 | [Reddit](https://www.reddit.com/r/ClaudeWorkflows/comments/1wglhhm/workflow_securing_claude_code_agents_preventing/) | 社区精选；社区工程经验；2026-09-15。 |
+| 2026-09-16 | 社区精选：Claude Code ↔ Codex CLI 双向 MCP 中明确单一 orchestration owner 与 gated handoff | [文章](https://codex.danielvaughan.com/2026/03/26/claude-code-codex-bidirectional-mcp/) | 社区精选；工程文章；2026-09-15 更新。 |
+| 2026-09-16 | 社区精选：Flaky test 有界重试 + 每次证据 + 到期 quarantine，避免 Agent 回归被“重跑成绿” | [指南](https://codingagentguide.com/) | 社区精选；source-checked 实践指南；2026-09-15。 |
+| 2026-09-16 | ORB-SLAM3: An Accurate Open-Source Library for Visual, Visual-Inertial and Multi-Map SLAM | [论文](https://arxiv.org/abs/2007.11898) · [DOI](https://doi.org/10.1109/TRO.2021.3075644) · [代码](https://github.com/UZ-SLAMLab/ORB_SLAM3) | 经典论文回顾；IEEE T-RO 2021；视觉/惯性/多地图统一 SLAM、IMU 初始化与 Atlas。 |
 
 ## 维护检查表
 
