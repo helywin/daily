@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-16（Asia/Shanghai）
+> 最后更新：2026-09-17（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -91,6 +91,8 @@
 > 2026-09-15 早间首版新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 627 条；随后因 arXiv 9 月 15 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 636 条。早间首版条目保留为历史覆盖记录。
 >
 > 2026-09-16 早间首版新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 648 条；随后因 arXiv 9 月 16 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 657 条。早间首版条目保留为历史覆盖记录。
+>
+> 2026-09-17 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 669 条。
 
 ## 已核验条目
 
@@ -501,7 +503,7 @@
 | 2026-08-24 | OrthoSkillVLA: Continual Skill Learning via Gradient-Informed Skill Subspace Adaptation | [论文](https://arxiv.org/abs/2608.19589) | 时间回补；VLA 无 demonstration replay 持续技能学习 |
 | 2026-08-24 | PRAXIS: Graph-Grounded Tacit Knowledge for Domain Code Generation | [论文](https://arxiv.org/abs/2608.19784) | 时间回补；依赖图上的项目隐性知识 |
 | 2026-08-24 | BreakGuard: Towards Detecting Dependency Breaking Changes with LLM-Generated Tests | [论文](https://arxiv.org/abs/2608.20167) | 时间回补；LLM 生成依赖升级破坏性差分测试 |
-| 2026-08-24 | A Method for Registration of 3-D Shapes / Iterative Closest Point (ICP) | [DOI](https://doi.org/10.1109/34.121791) · [公开 PDF](https://graphics.stanford.edu/courses/cs348a-21-winter/Handouts/Besl92.pdf) · [PCL](https://pointclouds.org/documentation/classpcl_1_1_iterative_closest_point.html) | 经典论文回顾；ICP 1992 |
+| 2026-08-24 | A Method for Registration of 3-D Shapes / Iterative Closest Point (ICP) | [DOI](https://doi.org/10.1109/34.121791) · [公开 PDF](https://graphics.stanford.edu/courses/cs348a-21-winter/Handouts/Besl92.pdf) · [PCL](https://pointclouds.org/documentation/classpcl_1_1iterative_closest_point.html) | 经典论文回顾；ICP 1992 |
 | 2026-08-25 | NeSAM: Neuro-Symbolic Kinodynamics with Soil Adaptation for Off-Road Mobility | [论文](https://arxiv.org/abs/2608.21330) | 时间回补；可微 Bekker-Wong + Transformer residual + 在线土壤 EKF |
 | 2026-08-25 | SRL-MPC: Shape-Aware Reinforcement Learned Model Predictive Control | [论文](https://arxiv.org/abs/2608.21175) · [项目页](https://hanruihua.github.io/srl_mpc_project/) | 时间回补；shape-aware HOCBF-MPC + RL 参数适配 |
 | 2026-08-25 | FF-MPCC: High-speed Agile Formation Flight with Model Predictive Contouring Control | [论文](https://arxiv.org/abs/2608.21056) | 时间回补；高速无人机编队 MPCC |
@@ -782,6 +784,21 @@
 | 2026-09-16 | Modality-Autoregressive World-Action Models / ModAR | [论文](https://arxiv.org/abs/2609.17524) · [项目页](https://adamhung60.github.io/ModAR/) | 最新公开批次；v1 2026-09-15；tracks→DINO→depth→RGB→action；future RGB 无稳定增益。 |
 | 2026-09-16 | RepoAtlas: Guiding Coding Agents via Evolving Multimodal Repository Views | [论文](https://arxiv.org/abs/2609.16936) | 最新 Software Engineering 批次；v1 2026-09-15；select-project-refresh 动态代码图上下文；SWE-bench Verified。 |
 | 2026-09-16 | On Degeneracy of Optimization-based State Estimation Problems | [CMU](https://publications.ri.cmu.edu/on-degeneracy-of-optimization-based-state-estimation-problems) · [DOI](https://doi.org/10.1109/ICRA.2016.7487211) | 经典论文回顾；ICRA 2016；Hessian/eigen 方向级退化检测与良态方向部分求解。 |
+
+| 2026-09-17 | Escape-Aware Control Barrier Functions for Quadrotor Safety under Body-Rate Limits | [论文](https://arxiv.org/abs/2609.17292) | 时间回补；9 月 16 日最新公开批次；body-rate / reachable-thrust-aware escape barrier 与高速安全认证。 |
+| 2026-09-17 | Exact Fusion and Coordinated Exploration in Multi-Robot Active Inference | [论文](https://arxiv.org/abs/2609.17384) | 时间回补；共享先验只计一次；evidence increment + anticipated teammate evidence 减少协同探索冗余。 |
+| 2026-09-17 | Continual Learning for Traversability Prediction with Uncertainty-Aware Adaptation | [论文](https://arxiv.org/abs/2609.17141) | 时间回补；generative experience recall + uncertainty-aware adaptation；skid-steering 真机多环境。 |
+| 2026-09-17 | Motion planning in high dimensional spaces hybridizing RRT and HAR via position-direction decoupling | [论文](https://arxiv.org/abs/2609.16810) | 时间回补；解耦 expansion-point / direction bias；RRT-HAR + sparse move；高维多刚体实例。 |
+| 2026-09-17 | Residual Fault Adaptation for Dexterous In-Hand Manipulation Under Runtime Joint Faults | [论文](https://arxiv.org/abs/2609.17404) | 时间回补；冻结健康 teacher + recurrent residual；无部署时 fault label / switching；真机软件注入故障。 |
+| 2026-09-17 | IL-ACT: Imitation Learning with Adaptive Cartesian Tracking Control for a 30-ton Excavator | [论文](https://arxiv.org/abs/2609.16696) | 时间回补；imitation nominal joint-rate + adaptive Cartesian feedback + stopping-distance governor；Simscape 评估。 |
+| 2026-09-17 | CorrRisk-WM: Corridor-Conditioned Risk World Modeling for Safety-Critical Trajectory Planning | [论文](https://arxiv.org/abs/2609.16724) | 时间回补；候选轨迹 corridor-conditioned intrusion / near-miss risk；Waymo open-loop 评估。 |
+| 2026-09-17 | FluxVLA Engine: A One-Stop VLA Engineering Platform for Embodied Intelligence | [论文](https://arxiv.org/abs/2609.17210) · [代码](https://github.com/FluxVLA/FluxVLA) | 时间回补；VLA 数据/训练/仿真/远程推理/真机 operator 的配置化工程平台。 |
+
+| 2026-09-17 | 社区精选：用 Claude Code Remote Control session fork 做高风险试验分支，并用 commit/测试/handoff 合回证据 | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；2026-09-16 附近最新发布能力；fork 只解决会话/执行分支，不替代 Git 合并与验证。 |
+| 2026-09-17 | 社区精选：长任务恢复使用可验证 HANDOFF + Git 状态，不重新灌入整段聊天 | [Reddit](https://www.reddit.com/r/ClaudeWorkflows/comments/1wi35ri/workflow_efficient_session_resumption_for_claude/) | 社区精选；社区经验；2026-09-16。 |
+| 2026-09-17 | 社区精选：Build/Test 必须等待前台退出码，后台任务未收集最终状态不得声称通过 | [Reddit](https://www.reddit.com/r/ClaudeWorkflows/comments/1whj598/workflow_claude_code_forcing_foreground_builds_to/) | 社区精选；社区经验；2026-09-16。 |
+
+| 2026-09-17 | Rapidly-exploring Random Trees: A New Tool for Path Planning / RRT | [LaValle](https://lavalle.pl/rrtpubs.html) · [OMPL](https://ompl.kavrakilab.org/planners.html) | 经典论文回顾；1998；Voronoi bias、single-query sampling tree 与高维探索；与当日 RRT-HAR 的 position/direction bias 解耦形成对照。 |
 
 ## 维护检查表
 
