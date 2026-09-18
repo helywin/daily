@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-17（Asia/Shanghai）
+> 最后更新：2026-09-18（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -93,6 +93,8 @@
 > 2026-09-16 早间首版新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 648 条；随后因 arXiv 9 月 16 日最新公开批次刷新，更新同日文章并追加 8 条主动态与 1 条经典论文回顾，累计共 657 条。早间首版条目保留为历史覆盖记录。
 >
 > 2026-09-17 早间首版新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 669 条；随后因 arXiv 9 月 17 日最新公开批次刷新，更新同日文章并追加 8 条主动态、1 条经典论文回顾与 2 条社区精选，累计共 680 条。早间首版条目保留为历史覆盖记录。
+>
+> 2026-09-18 新增 7 条主动态、1 条经典论文回顾与 2 条社区精选，共 690 条。
 
 ## 已核验条目
 
@@ -459,7 +461,7 @@
 | 2026-08-19 | PMCoder: Coupling Planning with Episodic Memory in LLM Agents for Software Issue Resolution | [论文](https://arxiv.org/abs/2608.06811) | 时间回补；AI Coding；v1 2026-08-07 |
 | 2026-08-19 | Scrouting / SuperScout | [论文](https://arxiv.org/abs/2608.04804) | 时间回补；AI Coding；v1 2026-08-05 |
 | 2026-08-19 | IMU Preintegration on Manifold for Efficient Visual-Inertial Maximum-a-Posteriori Estimation | [RSS](https://www.roboticsproceedings.org/rss11/p06.html) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾 |
-| 2026-08-20 | Hydra-0: Action Flow for Generalist World Modeling and Control | [论文](https://arxiv.org/abs/2608.18077) · [项目页](https://nvidia-isaac.github.io/video_to_data/hydra-0/) | 时间回补；v1 2026-08-18；跨本体 Action Flow 世界模型；规范来源已复核 |
+| 2026-08-20 | Hydra-0: Action Flow for Generalist World Modeling and Control | [论文](https://arxiv.org/abs/2608.18077) · [项目页](https://nvidia-isaac.github.io/video_to_data/hydra-0/) · [代码](https://github.com/NVlabs/hydra-0) | 时间回补；v1 2026-08-18；跨本体 Action Flow 世界模型；规范来源已复核 |
 | 2026-08-20 | PRISM: Precision and contact-rich Real-world Industrial Skill dataset with Multimodal sensing | [论文](https://arxiv.org/abs/2608.17962) · [项目页](https://tengbo-yu.github.io/PRISM/) | 时间回补；v1 2026-08-18；工业多模态接触操作数据；规范来源已复核 |
 | 2026-08-20 | Jetson-ORB-SLAM3: Accuracy-Preserving GPU Implementation for Edge Computing Devices | [论文](https://arxiv.org/abs/2608.17874) | 时间回补；v1 2026-08-18；Jetson GPU ORB 与 TensorRT 回环；规范来源已复核 |
 | 2026-08-20 | Effector-Centric NMPC of Tiltable-Multirotors for Offset-Free Omnidirectional Aerial Manipulation | [论文](https://arxiv.org/abs/2608.17819) | 时间回补；v1 2026-08-18；100 Hz 可倾转多旋翼末端 NMPC；规范来源已复核 |
@@ -751,7 +753,6 @@
 
 | 2026-09-15 | Probabilistic Roadmaps for Path Planning in High-Dimensional Configuration Spaces / PRM | [DOI](https://doi.org/10.1109/70.508439) · [Kavraki Lab](https://kavrakilab.rice.edu/publications/kavraki-svestka1996probabilistic-roadmaps-for.html) · [OMPL](https://ompl.kavrakilab.org/classompl_1_1geometric_1_1PRM.html) | 经典论文回顾；IEEE TRA 1996；可复用 roadmap + local planner + multi-query 图搜索。 |
 
-
 | 2026-09-15 | P-POSEMEM: Projective Semantic Memory for Consistent Language Grounding under Pose-Graph Rewrites | [论文](https://arxiv.org/abs/2609.15475) | 9 月 15 日最新公开批次；v1 2026-09-14；pose-graph rewrite / marginalization 下保持语言目标语义一致性。 |
 | 2026-09-15 | JEPLO: Joint-Embedding Predictive Learning for LiDAR-Based Legged Locomotion | [论文](https://arxiv.org/abs/2609.15770) · [代码](https://github.com/ASIG-X/JEPLO) | 9 月 15 日最新公开批次；v1 2026-09-14；MID360 + proprioception、mapping-free JEPA 感知运动、Go2 sim-to-real。 |
 | 2026-09-15 | ResSafe: Learning Safety Filtering with Residual Reinforcement Learning for Humanoids | [论文](https://arxiv.org/abs/2609.15988) | 9 月 15 日最新公开批次；v1 2026-09-14；nominal performance policy + residual safety policy。 |
@@ -811,6 +812,17 @@
 | 2026-09-17 | The Normal Distributions Transform: A New Approach to Laser Scan Matching | [DOI](https://doi.org/10.1109/IROS.2003.1249285) | 经典论文回顾；Biber & Straßer，IROS 2003；cell-wise Gaussian scan registration、无显式 correspondence |
 | 2026-09-17 | 社区精选：为 Headless Coding Agent 的 MCP 启动设置 Deadline | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；官方工具作者发布；v2.1.274，2026-09-17；CLAUDE_CODE_MCP_STARTUP_WAIT_MS |
 | 2026-09-17 | 社区精选：Plugin / Skill 使用可复现 Regression Eval | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；官方工具作者发布；v2.1.269，2026-09-11；claude plugin eval JSON/HTML scored report |
+
+| 2026-09-18 | rMuscle: Robotic Muscle Memory for Efficient Vision-Language-Action Model Inference | [论文](https://arxiv.org/abs/2609.19104) | 时间回补；v1 2026-09-16；动作生成与执行重叠，按视觉变化复用视觉特征，并延长可直接执行的前缀。 |
+| 2026-09-18 | CaSCo: Cascade-Aware Soft-Collision Motion Planning | [论文](https://arxiv.org/abs/2609.18910) | 时间回补；v1 2026-09-16；学习有效级联碰撞几何与软约束恢复，减少保守碰撞模型导致的不可行。 |
+| 2026-09-18 | Asymptotically Optimal Multi-Robot Task and Motion Planning | [论文](https://arxiv.org/abs/2609.18813) | 时间回补；v1 2026-09-16；多机器人 TAMP 采用渐近最优联合搜索，统一离散任务与连续运动代价。 |
+| 2026-09-18 | DynoFluxBench: Benchmarking Kinodynamic Space-Time Planners in Dynamic Environments | [论文](https://arxiv.org/abs/2609.18549) · [项目页](https://dynofluxbench.github.io/) | 时间回补；v1 2026-09-16；面向动态障碍的 kinodynamic space-time planner 基准，强调墙钟时间、成功率与轨迹质量。 |
+| 2026-09-18 | VLM-MPPI: Grounding Natural Language in Behaviorally Diverse Trajectories for Aerial Navigation | [论文](https://arxiv.org/abs/2609.18451) | 时间回补；v1 2026-09-16；VLM 将语言意图映射为 MPPI 代价/候选行为，保留高速低层采样控制。 |
+| 2026-09-18 | KINO: A Keyframe Interface for VLM Planning and Whole-Body Control in Humanoid Loco-Manipulation | [论文](https://arxiv.org/abs/2609.18869) | 时间回补；v1 2026-09-16；关键帧接口连接低频 VLM 任务规划与高频全身控制。 |
+| 2026-09-18 | PASSAGE: Scaling Scene-Aligned Motion Learning for Perceptive Humanoid Traversal in Cluttered Environments | [论文](https://arxiv.org/abs/2609.18732) | 时间回补；v1 2026-09-16；scene-aligned motion learning 与感知式人形穿越，面向狭窄/杂乱空间。 |
+| 2026-09-18 | 社区精选：Plugin4Shell — Agent 插件/Skill 供应链 checkout 后验证实际 HEAD 与期望 SHA | [AIR Security](https://www.air.security/blog-posts/plugin4shell) | 社区精选；2026-09-17；供应链 SHA pinning 绕过，工程侧应在 checkout 后显式校验解析后的 HEAD。 |
+| 2026-09-18 | 社区精选：多 Agent 协作税——默认主 Agent + 1–2 个独立子任务，完成后一次性回报 | [The Decoder](https://the-decoder.com/ai-agent-swarms-are-a-massive-waste-of-tokens-with-zero-quality-gain-says-openai-codex-developer/) | 社区精选；2026-09-17；来自 Codex 开发者经验，强调协调开销与 token 成本，非普适 benchmark 结论。 |
+| 2026-09-18 | A Unified Approach for Motion and Force Control of Robot Manipulators: The Operational Space Formulation | [Stanford](https://khatib.stanford.edu/publications.html) · [PDF](https://khatib.stanford.edu/publications/pdfs/Khatib_1987_RA.pdf) · [DOI](https://doi.org/10.1109/JRA.1987.1087068) | 经典论文回顾；Khatib，IEEE JRA 1987；Operational Space、任务空间惯量、运动/力统一控制；与当日 KINO 全身控制接口形成经典—现代对照。 |
 
 ## 维护检查表
 
