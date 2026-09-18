@@ -2,16 +2,14 @@ name: Patch robotics brief index 2026-09-18
 
 on:
   push:
-    branches: ["master"]
-    paths:
-      - ".github/workflows/patch-robotics-index-2026-09-18.yml"
+    branches:
+      - master
 
 permissions:
   contents: write
 
 jobs:
   patch-index:
-    if: github.event.head_commit.message == 'chore: add one-time robotics index patch'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
