@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-18（Asia/Shanghai）
+> 最后更新：2026-09-19（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -95,6 +95,8 @@
 > 2026-09-17 早间首版新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 669 条；随后因 arXiv 9 月 17 日最新公开批次刷新，更新同日文章并追加 8 条主动态、1 条经典论文回顾与 2 条社区精选，累计共 680 条。早间首版条目保留为历史覆盖记录。
 >
 > 2026-09-18 早间首版新增 7 条主动态、1 条经典论文回顾与 2 条社区精选，共 690 条；随后因 9 月 18 日新公开批次刷新，更新同日文章并追加 8 条主动态、1 条经典论文回顾与 3 条社区精选，累计共 702 条。早间首版条目保留为历史覆盖记录。
+>
+> 2026-09-19 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 714 条。
 
 ## 已核验条目
 
@@ -836,6 +838,19 @@
 | 2026-09-18 | 社区精选：Claude Code per-command allowed_domains | [官方 Release](https://github.com/anthropics/claude-code/releases) | 社区精选；2026-09-18；sandbox 网络权限按单条 Bash/PowerShell/Monitor 命令临时放行域名。 |
 | 2026-09-18 | 社区精选：Plugin install/update exact command SHA-256 approval | [官方 Release](https://github.com/anthropics/claude-code/releases) | 社区精选；2026-09-18；--accept-command <sha256> 将安装/更新批准绑定到确切命令 payload。 |
 | 2026-09-18 | 社区精选：Code Review Finding Lifecycle | [GitHub Changelog](https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience/) | 社区精选；2026-09-18；review finding 跨 revision 维护 NEW/OPEN/RESOLVED 生命周期并重新验证。 |
+
+| 2026-09-19 | VGGT-GS SLAM: Uncalibrated Monocular Gaussian Splatting SLAM with Feed-Forward Priors | [论文](https://arxiv.org/abs/2609.19628) | 时间回补；v1 2026-09-17；VGGT pose/depth prior + submap differentiable BA，联合优化相机位姿、3D Gaussian、内参与径向/切向畸变；GNA + Sim(3) 全局一致性。 |
+| 2026-09-19 | RawSLAM | [论文](https://arxiv.org/abs/2609.20589) | 时间回补；v1 2026-09-17；16-bit linear HDR、对数 Gaussian color、Reinhard photometric objective；代码/数据待公开。 |
+| 2026-09-19 | Semantic SLAM in Precision Agriculture using Bayesian Inference | [论文](https://arxiv.org/abs/2609.20604) | 时间回补；v1 2026-09-17；YOLOv8n + Bayesian semantic attributes + g2o；Spot 室内人工田块、至少 400 株植物实时建图。 |
+| 2026-09-19 | Navigate or Relocate? Planning Among Movable Obstacles in Unknown Environments | [论文](https://arxiv.org/abs/2609.19541) | 时间回补；v1 2026-09-17；在线 NAMO，同时比较绕行与移障路径代价，以 sampling search 求 relocation sequence，LLM 仅用于采样偏置。 |
+| 2026-09-19 | TADreamer: Zero-Shot Language-Guided 3D Navigation for Terrestrial-Aerial Bimodal Robots via Video Imagination | [论文](https://arxiv.org/abs/2609.19824) | 时间回补；v1 2026-09-17；VLM + video imagination + 3D waypoint/mode reconstruction + measured-geometry calibration。 |
+| 2026-09-19 | Coding Agents with an Obstacle-Aware Harness for Safe Robot Manipulation / SafeHarness | [论文](https://arxiv.org/abs/2609.20822) | 时间回补；v1 2026-09-17；route planning 与 contact execution 两层 obstacle-aware harness，把文本安全约束落到可验证几何执行结构。 |
+| 2026-09-19 | UniExo | [论文](https://arxiv.org/abs/2609.19690) | 时间回补；v1 2026-09-17；四个单技能 imitation expert 蒸馏为连续 skill-latent human policy，再与髋部外骨骼 multi-agent RL 协同适应。 |
+| 2026-09-19 | Learning Slope-Adaptive Whole-Body Locomotion for Humanoid Robots in Roofing Construction | [论文](https://arxiv.org/abs/2609.20558) | 时间回补；v1 2026-09-17；人类示范 + metric roof scene + trajectory optimization + execution-aware RL；Unitree G1 屋面施工动作。 |
+| 2026-09-19 | 社区精选：Agent 技能/MCP/插件使用率进入 Usage Metrics API | [GitHub Changelog](https://github.blog/changelog/2026-09-17-agentic-cli-customizations-now-in-the-usage-metrics-api/) | 社区精选；2026-09-17；为 skill/custom agent/MCP/slash command/plugin 增加 top usage 与 distinct-use 指标，注意 MCP 统计连接尝试且 plugin skill 与 skill 有重叠。 |
+| 2026-09-19 | 社区精选：GitHub Actions Workflow Execution Protections | [GitHub Changelog](https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available/) | 社区精选；2026-09-17 GA；actor/event/workflow-file allowlist + evaluate mode，适合约束 Agent 生成的 CI/CD 与 pull_request_target。 |
+| 2026-09-19 | 社区精选：Claude Code Gateway Hint Headers | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；v2.1.273；CLAUDE_CODE_GATEWAY_HINT_HEADERS=1 提供 request class、agent type、tool durations 与 compaction 状态，便于网关级 SLO/根因分析。 |
+| 2026-09-19 | FAB-MAP: Probabilistic Localization and Mapping in the Space of Appearance | [Oxford](https://ora.ox.ac.uk/objects/uuid%3A917f6474-bc02-4d6d-8f51-c8bd90b2bbb8) · [DOI](https://doi.org/10.1177/0278364908090961) | 经典论文回顾；IJRR 2008；生成式 appearance model + Chow-Liu tree + new-place hypothesis，显式处理 perceptual aliasing 与概率回环决策。 |
 
 ## 维护检查表
 
