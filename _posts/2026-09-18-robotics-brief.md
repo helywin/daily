@@ -2,7 +2,7 @@
 layout: post
 title: "机器人 / SLAM / 控制 / AI Coding 技术深度简报｜2026-09-18"
 date: 2026-09-18 09:00:00 +0800
-description: "最新机器人公开批次继续向可执行系统靠拢：VLA 推理缓存、级联软碰撞规划、多机器人 TAMP、动态环境 kinodynamic planning、语言驱动无人机 MPPI 与人形全身控制成为重点，同时 AI Coding 暴露插件供应链与多 Agent 协作成本问题。"
+description: "9 月 18 日新公开批次聚焦公里级分层 SLAM、动态场景 LIVO、等变水下惯导、可行腿式 MPC、黑盒 Reach-Avoid-Stay 安全、MPC 引导视觉策略学习、轻量机器人记忆与 Coding Agent harness 实证。"
 categories: [机器人技术简报]
 tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 ---
@@ -11,449 +11,1252 @@ tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 
 ## 摘要
 
-截至 2026-09-18 早间，arXiv `cs.RO/recent` 的最新公开批次仍是 **2026-09-17**，该批次共有 113 条 Robotics entries。昨天的简报已经覆盖了 SEAM、SOL-SLAM、地下 VIO 退化评测、ElastiQP、Adaptive-MHE、VLA-ULAP 等条目，所以今天不重复，而是继续从同一最新批次中向下筛选此前未覆盖、且工程价值较高的工作。本文 7 条主动态的 `v1` 都提交于 2026-09-16，因此统一标为“时间回补”，不伪装成 9 月 18 日新论文。（[arXiv Robotics Recent](https://arxiv.org/list/cs.RO/recent)）
+今天早间首版生成时，arXiv Robotics 的最新公开批次仍停留在 9 月 17 日，因此首版从上一批次向下补充了 rMuscle、CaSCo、Multi-Robot TAMP、DynoFluxBench、VLM-MPPI、KINO、PASSAGE 等未覆盖工作。随后 **2026-09-18 新公开批次已经刷新**：Robotics 当天有 133 条，Software Engineering 当天有 24 条。本版重新检索并与 `robotics-brief-covered-items.md` 做强制去重；早间首版条目保留在覆盖索引中作为历史记录，但正文换成新批次中优先级更高的 8 条工作。最新列表见 [arXiv Robotics](https://arxiv.org/list/cs.RO/recent) 与 [arXiv Software Engineering](https://arxiv.org/list/cs.SE/recent?show=2000&skip=0)。
 
-今天最明显的趋势不是某个单点模型参数变大，而是**系统接口越来越重要**：rMuscle 从跨执行相似性里做 VLA 缓存；CaSCo 把“碰到什么、会连锁撞到什么”写进规划状态；多机器人 TAMP 重新审视不同任务转移对应不同维度配置空间的理论覆盖；VLM-MPPI 和 KINO 都把慢速语义推理与高速控制之间放入一个有限、可验证的中间接口；PASSAGE 则证明人形感知运动能力仍然强烈受高质量、场景对齐数据规模影响。
+今天 SLAM 侧最值得优先看的工作是 **AMB3R-SLAM**。它针对当前神经/学习式单目 SLAM 很难同时满足“大场景、动态环境、实时后端”的问题，将低延迟 tracking 与分层 backend 解耦，用 span-2、long-context 和 loop-closure edges 逐级建立局部、中程和全局一致性，避免依赖静态世界假设的 bundle adjustment。论文在单张消费级 GPU 上处理 10k+ 帧、公里级轨迹，并在 9 个数据集上验证；VBR 和 Oxford Spires 上相对此前 SOTA 的 ATE 降低超过 70%，额外输入 LiDAR 时在 KITTI/VBR 上进入亚米级。([论文](https://arxiv.org/abs/2609.19518)，[项目页](https://hengyiwang.github.io/projects/amber-slam)，[代码仓库](https://github.com/HengyiWang/amb3r-slam))
 
-对现有 SLAM/导航工程尤其值得注意的是：最新批次中的 SEAM、SOL-SLAM、VIO failure benchmark 已在昨天展开，今天没有重复报道。与其为了“每天必须有一篇 SLAM”而重复旧工作，本期把重点放到**地图之后如何规划、控制与执行**，这更符合强制去重规则。
+另一条和实际巡检环境更直接相关的是 **Dynamic-LIVO**。它使用 Spatio-Temporal Normal 识别动态 LiDAR 点，并把同一动态分类传播到 LiDAR-inertial 与 visual-inertial update，避免动态点及其关联图像观测同时污染状态估计和彩色地图。对新区域或稀疏区域，作者不急于立刻二分类，而是使用 time-delayed S-T normal estimation，等后续观测补足后再决定，这个“证据不足就延迟裁决”的设计比一帧式动态剔除更适合长期建图。([论文](https://arxiv.org/abs/2609.19336))
 
-## 1. rMuscle：VLA 推理优化开始利用“机器人重复劳动”本身，而不是只做通用模型压缩
+状态估计侧，**Equivariant Filter Design for Acoustic and Depth Aided INS** 很值得水下和多传感器滤波团队读。现有 IEKF 常把 IMU bias 当 Euclidean appendage，破坏原本期望的 group-affine 误差结构；这篇工作使用 Tangent-Group symmetry 把 bias 一起纳入几何状态，导航状态保留零线性化误差、bias 只留下二阶误差，并为 DVL 构造等变输出模型。Monte Carlo 中，姿态、速度、位置误差相对 Two-Frame-Group IEKF 和 MEKF 均降低 18–25%，ANEES 更接近 1；AUV 实测数据离线分析也显示更低位置漂移。([论文](https://arxiv.org/abs/2609.19742))
 
-**时间回补；v1 提交于 2026-09-16，进入 9 月 17 日最新公开批次。**（[论文](https://arxiv.org/abs/2609.19104)）
+控制侧，**DR-MPC** 的目标不是再做一个更复杂的腿式动力学优化，而是把在线“可求解性”做进问题结构：将 dynamics equality 和 affine input constraints 转成 quadratic penalties，仅保留永远非空的 box constraints，再利用 block-arrow Hessian 和 Schur complement 做结构化消元。相同 DR-MPC formulation 下，专用 solver 相对 HPIPM / OSQP 的 median end-to-end speedup 为 16.0× / 4.4×，Unitree Go1 机载 median MPC 时间 4.4 ms。([论文](https://arxiv.org/abs/2609.20035))
+
+安全控制方面，**Winning a Won Game** 把经典“reach-avoid”进一步扩展为 **strict Reach-Avoid-Stay（sRAS）**：机器人不仅要安全到达目标，还要在第一次到达以后永久维持目标集合内安全。作者将 stay value 与 reach-avoid value 组合成 robust discrete-time CBF，再提升到 state-action Q function；合成和部署都不要求已知动力学、affine structure、value derivatives 或人工 barrier。近似值函数通过 reachability-based adversarial RL 从 black-box interaction 学习，并在四足 gap jumping 真机和 F1TENTH 超车/守位中验证。([论文](https://arxiv.org/abs/2609.19449))
+
+机器人学习侧，**Sampling-Guided Policy Search（SGPS）** 把 sampling-based MPC 当作训练过程里的“反复修正器”，而不是一次 imitation teacher。先用 MPC sampled action 做 BC 初始化，然后在 perturbed initial states 和 randomized dynamics 下交替进行 sampling refinement 与 short-horizon first-order policy-gradient update；视觉训练时把 rendering 从微分图里拆出去，因此可以直接从 depth 学，而不需要额外 state-policy teacher。单 GPU 训练覆盖 Go2 / G1 的 locomotion、越障、推箱和双臂搬运，最终策略 zero-shot 部署到真实 Go2，用机载 depth 完成 trot、crawl、跨栏和行为切换。([论文](https://arxiv.org/abs/2609.20575))
+
+长期机器人记忆方面，**Workspace Models** 给出了一条很实用的“训练时用大模型，部署时删掉大模型”路线。训练阶段让 VLM 判断当前与历史中真正和任务有关的信息，再把这些 salient elements 蒸馏进一个轻量 **workspace token**；部署时 policy 直接查询这个 token，不需要 VLM in-the-loop。论文在仿真和硬件上都显示，这个 token 不只是更便宜，在记忆密集任务中还可以比直接条件于完整历史得到更好的 policy performance。([论文](https://arxiv.org/abs/2609.20820))
+
+AI Coding 侧今天最值得看的不是单一 Agent 新分数，而是 **An Empirical Study of Harness Design for Coding Agents**。作者固定 Agent execution loop，只改变 planning、action space、context management，在 4 个模型、SWE-Bench Verified 与 Terminal-Bench 2.1 上形成 176 个 matched settings。结论很具体：context window 越紧，context management 越重要，主要收益来自防止 overflow；“先规则删除、再 LLM 总结”是整体效率最好的上下文策略；把被删除内容做成可恢复机制增加了复杂度但没有带来 accuracy gain；planning 对弱模型更多是准确率 scaffold，对强模型更多是 cost saver；而 bash 能力强的模型可以用 bash-only interface 以更低成本完成命令行型任务。([论文](https://arxiv.org/abs/2609.20804))
+
+近期通用旗舰模型方面，本轮重新核验 OpenAI、Anthropic、Google DeepMind 的官方发布入口，没有发现 9 月 18 日需要新增报道的通用旗舰正式发布；Claude Fable 5.1、Gemini 3.8 Audio、GPT-6 Astra 等近期重要更新均已在前几期覆盖，因此今天不重复。
+
+## 1. AMB3R-SLAM：公里级实时 SLAM 的关键不只是前端更强，而是后端要有“层级时间尺度”
+
+**最新 9 月 18 日公开批次；v1 提交于 2026-09-17 00:11 UTC。**
 
 ### 为什么重要
 
-工厂和固定工位是具身模型最现实的早期落地场景之一，而这类任务恰恰高度重复。传统 VLA 加速常见路线是量化、蒸馏、减少视觉 token、降低 diffusion step 或更换轻量 backbone，但这些方法基本把每一次执行都当成全新的输入。rMuscle 的出发点不同：**机器人反复完成相似任务时，不只图像和动作相似，模型内部状态也会重复。**
+很多现代单目 SLAM 系统在短序列上效果很好，但轨迹拉到公里级以后会同时遇到三个压力：
 
-这使“缓存”从 LLM 的 prefix cache 类比进入 VLA：系统不是单纯缓存输入，而是针对 VLA 两个不同瓶颈分别重用计算结果。
+```text
+高频 tracking 必须低延迟
+        +
+中程漂移需要不断校正
+        +
+全局 loop closure / consistency 需要看很长历史
+```
+
+如果所有优化都放进同一个全局 BA，计算会随关键帧不断增长；如果只做局部窗口，长程一致性又很难维持。动态场景还会进一步破坏依赖 static-world residual 的全局优化。
+
+AMB3R-SLAM 的核心不是“再加一个更大的网络”，而是把后端拆成不同跨度的图约束。
 
 ### 算法模块
 
-rMuscle 使用双阶段缓存：
+官方项目页给出的结构可以概括为：
 
 ```text
-Repeated robot executions
-        ↓
-Context Cache
-  复用视觉 token 的中间输出
-        ↓
-Action-generation stage
-        ↓
-Action Cache
-  复用神经元激活模式，减少权重访问
-        ↓
-Action output
+Input images
+    ↓
+Lightweight Front-end
+低延迟 camera tracking
+    ↓
+Hierarchical Backend
+  ├─ span-2 edges
+  │   维持局部连续一致性
+  ├─ long-context edges
+  │   修正中长程漂移
+  └─ loop-closure edges
+      建立全局一致性
+    ↓
+Pose Graph Optimization
 ```
 
-为了避免缓存本身变成大内存和高检索开销，论文还加入在线 cache recomputation、滑动窗口检索，以及在连续去噪步骤之间共享 mask。
+这里最值得注意的是：**全局一致性不是通过“越来越大的静态世界 BA”实现，而是通过不同时间尺度的 pose-graph relations 逐级建立。**
 
-### 实时性、鲁棒性与可复现性
+这种结构天然更接近长期机器人系统：高频层必须稳定、低延迟；低频层可以更昂贵，但不能阻塞 tracking。
 
-论文报告在 RTX 4090 与 Jetson Thor 上、跨 LIBERO、RoboTwin 和真实操作任务取得 **1.29–1.42×** 推理加速，并声称真实机器人成功率保持原水平。这个结果的价值在于它包含桌面 GPU 和边缘平台，而不是只在服务器卡上测 kernel throughput。
+### 传感器与地图假设
 
-但需要注意，缓存收益天然依赖**跨执行相似性**。固定工位装配、分拣、上下料很合适；开放家庭环境、移动机器人持续换视角和换目标时，命中率可能明显下降。因此工程评测不应只看平均延迟，还要同时记录 cache hit ratio、误复用率、P95 latency 和任务成功率。
+基础系统是 monocular，但论文同时展示了 stereo、RGB-D、LiDAR 作为额外输入的扩展。
+
+单目模式仍然面对尺度、弱纹理、曝光、motion blur 等经典问题。论文“dynamic scenes out of the box”的前提是其 backend 避免静态世界 BA 依赖，并不意味着任何大规模运动目标都不会影响 front-end matching / pose relation。
+
+### 实时性与结果
+
+论文报告：
+
+- 单张 consumer-grade GPU；
+- 超过 10k 帧；
+- kilometer-scale trajectory；
+- 9 个数据集；
+- VBR 与 Oxford Spires 上相对此前 SOTA ATE 降低超过 70%；
+- 加 LiDAR 输入后，KITTI 与 VBR 达到 sub-meter ATE。
+
+这些结果说明层级 backend 的 scaling 思路有价值，但工程复现还应该额外记录：
+
+```text
+front-end P50 / P95 latency
+local-edge queue depth
+long-context update latency
+loop-closure optimization pause
+GPU memory vs trajectory length
+```
+
+因为“平均实时”不代表长 loop closure 到来时没有 latency spike。
+
+### 鲁棒性与可复现性
+
+项目页与 GitHub 仓库已经公开，但截至今天仓库仍非常早期，主要是 README / 项目入口；因此应把它理解为**官方代码入口已存在**，而不是已经可以一键完整复现全部论文结果。
 
 ### 工程风险
 
-缓存对具身系统最大的风险不是“缓存没命中”，而是**过期状态被错误复用**。如果物体位置变化很小但足以影响接触，视觉特征仍然相似，缓存可能让模型错过关键差异。安全实现最好保留置信门槛，并对接触前、目标切换、异常检测等阶段强制刷新。
+层级 backend 会产生一个新的系统问题：不同层级可能对同一历史 pose 给出不同版本。
+
+如果上层语义地图、任务点、导航路径直接缓存某一版 global pose，就会重现前几天 P-POSEMEM / SEAM 暴露的问题。
+
+因此建议所有上层数据绑定稳定 identity / submap / keyframe reference，而不是永久复制 `map_xyz`。
 
 ### 适合谁关注
 
-工业操作机器人、Jetson/边缘 VLA 部署、固定工位具身模型、需要降低动作延迟和显存带宽压力的团队。
+大尺度视觉 SLAM、长期巡检、神经 SLAM、多模态 SLAM、需要把局部实时和全局一致性分层的系统。
 
 ### 工程落地启发
 
-即使不复现整套 rMuscle，也值得在自己的 VLA pipeline 中先做一件事：**记录连续任务之间各层特征相似度与动作相似度**。如果固定工位上很多层长期高度相似，再决定缓存哪一层，比一开始就盲目做模型剪枝更有针对性。
-
-## 2. CaSCo：碰撞规划不再只有“撞 / 不撞”，而是开始计算物体语义风险与级联后果
-
-**时间回补；v1 提交于 2026-09-16。**（[论文](https://arxiv.org/abs/2609.18910)）
-
-### 为什么重要
-
-传统 motion planning 往往把碰撞建模成硬约束，但现实里机器人轻擦纸箱和碰到玻璃杯的后果完全不同，更麻烦的是机器人推倒 A 之后，A 可能继续撞倒 B。CaSCo 把这个问题称为 **cascade-aware soft collision**：规划代价不仅取决于机器人直接碰到谁，还取决于碰撞后场景如何演化。
-
-### 算法模块
-
-系统首先利用 VLM 或语言模型为场景物体赋予语义风险，然后用物理模拟器预测候选动作造成的直接与间接位移。规划状态不再只有机器人 configuration，而是扩展为：
+即使继续使用 ORB-SLAM3 / LIO-SAM，也可以直接借鉴“层级后端”思想：
 
 ```text
-(robot state,
- predicted object arrangement,
- set of already-incurred risky objects)
+高频：local odometry
+中频：local/submap optimization
+低频：long-range loop / global graph
 ```
 
-目标函数统计被直接或级联移动的**唯一物体**的总风险，避免同一物体被重复计费。作者进一步构造了具有 admissible / consistent 性质的 cascade-relaxed heuristic，并通过缓存和剪枝降低搜索开销。
+每层都定义独立预算与异步队列，不要让全局闭环偶发计算峰值反向拖死实时 tracking。
 
-### 假设与鲁棒性
+[论文](https://arxiv.org/abs/2609.19518) · [项目页](https://hengyiwang.github.io/projects/amber-slam) · [代码仓库](https://github.com/HengyiWang/amb3r-slam)
 
-这个方法隐含两个强假设：物体语义风险能被合理标定，以及物理模拟对“轻推之后会发生什么”足够可信。前者可以人工规则兜底，后者更难，因为摩擦、质心、支撑关系、软物体和包装材料都会带来 sim-real gap。
+## 2. Dynamic-LIVO：动态点“证据不够”时，先延迟判断，而不是急着删
 
-因此真正落地时，最适合把 CaSCo 当成**风险排序器**，而不是把模拟结果视为严格安全保证。对玻璃、化学品、电气设备等高风险对象仍应保留硬禁碰区域。
-
-### 实时性与可复现性
-
-论文在 cluttered manipulation 场景并包含真实机器人实验。相比普通几何 roadmap，它需要额外 physics rollout，因此搜索成本更高；但缓存 object arrangement 与风险集合正是在避免重复物理计算。
-
-### 工程风险
-
-如果 VLM 把一个“看起来普通但实际昂贵”的工件判低风险，规划器会主动利用软碰撞穿过去。生产系统最好把风险来源拆成：资产数据库硬标签、规则层、视觉语义估计三层，VLM 只能补充未知对象，不能覆盖硬规则。
-
-### 适合谁关注
-
-仓储拣选、杂乱桌面操作、家庭机器人、工业柔性上下料，以及需要在“完全无碰撞”和“可接受轻接触”之间做权衡的系统。
-
-### 工程落地启发
-
-现有 MoveIt / sampling planner 可以先做简化版：给 collision object 增加风险等级，把低风险物体从 hard constraint 改为高代价 soft constraint，再逐步加入被推物体的二次碰撞预测。这样能先验证“语义软碰撞”是否真的改善任务成功率，再投入复杂物理模拟。
-
-## 3. Asymptotically Optimal Multi-Robot TAMP：多机器人最优性难点不只是维度高，而是每种任务转移的“参与机器人集合”不同
-
-**时间回补；v1 提交于 2026-09-16。**（[论文](https://arxiv.org/abs/2609.18813)）
+**最新 9 月 18 日公开批次；v1 提交于 2026-09-16 19:04 UTC。**
 
 ### 为什么重要
 
-多机器人 Task and Motion Planning 同时面对离散任务顺序和连续碰撞自由运动。简单做法是把所有机器人状态拼成一个巨大 composite configuration space，但当某个任务转移只涉及机器人 A，另一个转移涉及 A+B+C 时，不同 transition 实际落在不同维度的约束集合上。
-
-这篇工作的重要点在于它从理论上指出：要得到全局渐近最优，不能只保证每个 mode 内的 motion planner 越来越好，还必须保证**相关任务转移持续获得足够采样覆盖**。
-
-### 算法结构
-
-作者给出全局渐近最优的充分条件，并据此设计 planner：
+动态环境中的 LIVO 很容易出现一种跨模态污染：
 
 ```text
-Individual robot roadmaps 持续增长
-            ↓
-Implicit tensor-product search
-            ↓
-Task-mode / transition reasoning
-            ↓
-Conditional transition sampling
-            ↓
-Lazy collision checking
-            ↓
-Mode-level + solution-level guidance
+移动的人 / 车
+   ↓
+LiDAR 点进入 scan-to-map residual
+   +
+图像 feature 也落在同一动态物体
+   ↓
+LiDAR update 与 visual update
+同时把错误信息写进状态
+   ↓
+地图出现拖影 / 状态估计偏移
 ```
 
-关键是避免显式构造巨大的联合 roadmap，而是保留单机器人 roadmap，在需要时通过隐式 tensor product 组合。
+很多方法只在 LiDAR 端做 dynamic filtering，却仍允许相关视觉 feature 进入后续优化。
 
-### 假设、实时性与鲁棒性
-
-这里讨论的是 asymptotic guarantee，不等于有限时间内一定快。工程上真正决定速度的仍然是 transition sampler、碰撞检测、任务模式数量与机器人间耦合程度。对于紧耦合搬运、交接、双机器人协同装配，低维独立规划无法完全替代联合空间搜索。
-
-### 工程风险
-
-多机器人规划最容易出现“理论上完备、线上超时”。如果系统最终只给 planner 200 ms 或 2 s，渐近性质并不能救场。因此应把 anytime 行为、首次可行解时间、最优性 gap 和冲突重规划次数列为主要指标。
-
-### 适合谁关注
-
-多机械臂、移动操作机器人协同、仓储 AMR + 机械臂、实验室自动化、多机器人装配。
-
-### 工程落地启发
-
-如果现有系统使用 centralized TAMP，可以先检查任务图中的 transition 到底涉及哪些机器人。很多 transition 实际只需要 1–2 台机器人，把所有机器人一直绑在一个高维状态里是浪费。按 transition 的参与集合动态构造联合搜索空间，往往比先上更复杂的学习 planner 更直接。
-
-## 4. DynoFluxBench：动态障碍中的 kinodynamic planning 终于开始有专门 benchmark，而不是各论文各自画一套场景
-
-**时间回补；v1 提交于 2026-09-16。**（[论文](https://arxiv.org/abs/2609.18549)，[项目页](https://dynofluxbench.github.io/)）
-
-### 为什么重要
-
-静态路径规划 benchmark 很成熟，但机器人一旦同时受到动力学约束和移动障碍约束，就会进入 space-time kinodynamic planning。不同论文常用不同障碍轨迹、到达时限和动力学模型，很难判断算法到底强在哪里。
-
-DynoFluxBench 专门针对**已知动态环境 + kinodynamic feasibility + 不限制到达时间**建立统一评测，并提供三种新的 baseline：ST-Db-RRT、ST-GBRRT 和 KIST。
-
-### 算法对比
-
-三种 planner 覆盖不同搜索范式：ST-Db-RRT 使用 trajectory optimization 产生 discontinuity-bounded motion primitive；KIST 与 ST-GBRRT 则维护 kinodynamically feasible tree，但采用不同的 heuristic guidance。
-
-作者还分析了这些方法在动态环境下的 probabilistic completeness。实验中，ST-Db-RRT 的首次解在部分场景可快到 **32×**，而当 trajectory optimization 脆弱时，KIST / ST-GBRRT 仍有价值。
-
-### 为什么这个 benchmark 对工程更有价值
-
-动态环境 planner 最容易被“平均路径长度”掩盖问题。真实系统至少要同时看：
-
-```text
-first-solution latency
-success rate under moving obstacles
-trajectory dynamic feasibility
-minimum clearance over time
-control effort
-replanning sensitivity
-```
-
-而且必须区分“规划器没找到解”和“低层控制跟不上规划轨迹”。
-
-### 工程风险
-
-论文假设动态环境已知，这与真实机器人在线预测行人 / 车辆未来轨迹仍有距离。把 benchmark 成绩直接外推到 perception uncertainty 场景并不合理。下一步工程验证应人为加入 obstacle prediction error 与 tracking delay。
-
-### 适合谁关注
-
-无人机动态避障、高速移动机器人、自动驾驶局部规划、kinodynamic RRT / sampling planner 研究者。
-
-### 工程落地启发
-
-如果正在比较 MPPI、RRT 系和轨迹优化，本质上也需要一个类似 DynoFluxBench 的内部 harness：固定场景生成器、动态障碍脚本、动力学模型和同一组评价指标。先把 benchmark 建起来，往往比继续调一个 planner 的参数更有长期价值。
-
-## 5. VLM-MPPI：让 VLM 只选“行为模式”，高速轨迹仍交给 20 Hz MPPI
-
-**时间回补；v1 提交于 2026-09-16。**（[论文](https://arxiv.org/abs/2609.18451)）
-
-### 为什么重要
-
-对于室内无人机，直接让大 VLM 输出连续控制量既慢又难做动力学安全约束。VLM-MPPI 采用更工程化的分层：同时运行 6 个带不同行为偏置的 MPPI，让 VLM 只在这些**已经动态可行的候选轨迹**之间做语义选择。
-
-例如“从柜子左侧绕过”“保持离人更远”“从狭窄开口穿过”等自然语言意图，不需要让语言模型理解推力与角速度，而是让它选择一个行为模式。
+Dynamic-LIVO 的设计更完整：一个动态判断同时约束 LiDAR 和视觉两个更新通道。
 
 ### 算法模块
 
 ```text
-LiDAR / state estimate
+LiDAR temporal observations
         ↓
-6× behavior-conditioned MPPI
-  各自使用不同 guiding cost / sampling bias
+Spatio-Temporal Normal Analysis
         ↓
-6 条有意区分的 3D trajectory candidates
+static / dynamic evidence
         ↓
-投影到机载第一视角 RGB
-        ↓
-VLM + natural-language prompt
-        ↓
-选择 candidate index（异步）
-        ↓
-20 Hz MPPI replanning
-        ↓
-PID low-level tracking
+┌─────────────────────────────┐
+│ LiDAR-inertial update       │
+│ Visual-inertial update      │
+│ Colored map construction    │
+└─────────────────────────────┘
 ```
 
-这比“对同一个 MPPI 多采样几次”更关键，因为不同 planner 被设计成收敛到不同的 behavioral mean，候选具有明确语义差异。
+对“刚看见的区域”或“点太稀”的情况，S-T normal 本身不可靠。
 
-### 传感器与实时性
+论文因此增加：
 
-真实四旋翼使用 LiDAR + RGB；MPPI 以 20 Hz 重规划，低层由 PID 跟踪，而 VLM 异步运行，因此慢模型不会直接阻塞控制环。论文在 Isaac Sim 和真机场景中报告评测任务 100% 成功，但这个数字应严格理解为作者所测场景，不代表开放环境泛化率。
+```text
+insufficient observations
+        ↓
+defer classification
+        ↓
+collect later observations
+        ↓
+re-evaluate S-T normal
+        ↓
+then decide static / dynamic
+```
 
-### 鲁棒性与风险
+这点很重要：**unknown ≠ dynamic**。
 
-最大的系统风险是**候选集缺失**：如果 6 个 MPPI 都没有生成真正满足语言意图或安全要求的轨迹，VLM 再聪明也只能在坏选项里挑一个。因此 VLM 输出必须允许 `none-of-the-above`，并把低层安全约束与急停独立于语言层。
+### 传感器与假设
 
-另一个风险是视觉投影可能把 3D clearance 表达得不够清楚。对于狭窄空间，无人机自身尺寸、桨叶安全半径最好直接叠加到可视化候选上。
+系统依赖 LiDAR + IMU + camera，并利用时空重复观测判断几何是否持续稳定。
+
+如果机器人速度很快，一个动态目标只短暂进入视场，或者扫描稀疏到根本没有足够 temporal support，delay strategy 可能需要在“等待更多证据”和“不要让可疑观测污染 estimator”之间做权衡。
+
+### 鲁棒性与结果
+
+论文在公共与自采数据、不同 sensor configurations 上验证，报告更高定位精度和更干净的 static colored map。
+
+但当前 source code 和自采 dataset 明确写的是 **upon acceptance release**，所以现阶段不可把它评价为已经完整开源。
+
+### 工程风险
+
+时间延迟分类会引入“暂存观测”的数据生命周期问题。
+
+建议每个点 / feature 至少有：
+
+```text
+classification_state:
+  static | dynamic | pending
+
+support_count
+temporal_span
+normal_confidence
+associated_visual_features
+```
+
+`pending` 状态不应直接进入永久地图，也不应简单当作 dynamic 删除。
 
 ### 适合谁关注
 
-室内无人机、语义导航、VLM + 传统规划混合系统、需要把自然语言接入现有 PX4 / MPC / MPPI 栈的团队。
+城市 / 工厂动态 LIVO、彩色点云建图、巡检机器人、多传感器动态剔除。
 
 ### 工程落地启发
 
-这是一种很值得复制的接口设计：**VLM 不产生控制，VLM 选择受约束的行为。** 对已有无人机系统，可以先保留定位、避障和控制全部不变，只增加 3–5 套 cost profile，再让语义层选择 profile / trajectory ID，风险远低于端到端替换控制器。
+即使不复现 S-T normal，也可以先把现有动态剔除器从二元接口：
 
-## 6. KINO：人形机器人把 VLM 与 Whole-Body RL 连接起来的关键，不一定是更多 token，而是“动作关键帧接口”
+```text
+static / dynamic
+```
 
-**时间回补；v1 提交于 2026-09-16。**（[论文](https://arxiv.org/abs/2609.18869)）
+升级为：
+
+```text
+static / dynamic / uncertain
+```
+
+让 `uncertain` 进入短期缓存，后续观测足够以后再决定是否写入长期地图。这通常比提高一次性动态分割网络准确率更容易带来地图稳定性收益。
+
+[论文](https://arxiv.org/abs/2609.19336)
+
+## 3. Tangent-Group EqF：IMU Bias 不应该只是“挂在 Lie Group 旁边的欧氏变量”
+
+**最新 9 月 18 日公开批次；v1 提交于 2026-09-17 06:09 UTC；投稿 ICRA 2027。**
 
 ### 为什么重要
 
-高层 VLM 适合做任务与场景推理，低层 Whole-Body Policy 适合做高频运动控制，但两者之间经常缺少稳定接口。若高层直接输出关节动作，语义模型负担太重；若只输出“抓取箱子”这样的符号技能，低层又缺少足够几何约束。
+IEKF 的核心优势来自几何误差结构：当系统具有合适 group-affine structure 时，误差动力学对 estimate 的依赖可以大幅减少，线性化更一致。
 
-KINO 把 **motion keyframe** 作为中间语言：一个 keyframe 指定目标全身 pose，必要时还包含 object pose。
+但真实 inertial navigation 还必须估计：
+
+```text
+gyro bias
+accelerometer bias
+```
+
+常见做法是把 bias 作为一个 Euclidean block 直接 append 到 Lie-group state 后面。这样实现方便，却会破坏严格的 group-affine 结构，也会让 covariance consistency 逐渐变差。
+
+### 数学结构
+
+这篇工作使用 **Tangent-Group (TG) symmetry**，把 bias 一起纳入状态空间几何。
+
+结果是：
+
+```text
+navigation states
+→ zero linearization error
+
+bias states
+→ only second-order error
+```
+
+同时，作者为 DVL velocity 构造 equivariant output model，其 update 只有 third-order linearization error；pressure depth 则使用直接输出。
+
+最终融合链可以写成：
+
+```text
+IMU propagation
+      ↓
+TG-Equivariant State
+      ↓
+DVL equivariant velocity update
+      +
+pressure depth update
+      ↓
+consistent navigation posterior
+```
+
+### 传感器与假设
+
+场景是 GPS-denied AUV，主要传感器：
+
+- IMU；
+- acoustic DVL；
+- pressure-derived depth。
+
+它并不处理 DVL 全面失锁、海流模型错误、声速异常等所有水下问题，但给出了一个更一致的滤波底座。
+
+### 结果
+
+Monte Carlo 中，相对 Two-Frame-Group IEKF 与 Multiplicative EKF：
+
+```text
+attitude / velocity / position error
+↓ 18–25%
+```
+
+更值得关注的是 ANEES：TG-EqF 更接近理想值 1，意味着 reported covariance 和实际误差更一致。
+
+AUV field data 的 offline analysis 也显示 position drift 降低。
+
+### 实时性与工程风险
+
+论文是 filter，而不是大规模 batch optimizer，理论上非常适合嵌入式在线状态估计。
+
+但当前 field evidence 是**离线重放实测数据**，不是已经证明在 AUV 主控上长期实时运行。工程部署仍需测：
+
+```text
+update latency
+numerical conditioning
+DVL dropout recovery
+bias convergence
+ANEES / NIS over long missions
+```
+
+### 适合谁关注
+
+水下 AUV、Invariant EKF、Lie-group state estimation、多传感器惯性融合。
+
+### 工程落地启发
+
+更普遍的启示是：如果状态里有“辅助变量”长期影响主状态，不要默认它们放在欧氏尾巴里就没有代价。
+
+在轮式/腿式融合中，外参、bias、scale、time offset 等变量是否破坏原本的 invariant structure，值得在估计器设计阶段明确检查。
+
+[论文](https://arxiv.org/abs/2609.19742)
+
+## 4. DR-MPC：实时 MPC 的第一目标有时不是“模型更精确”，而是“每一拍都能快速给出可用解”
+
+**最新 9 月 18 日公开批次；v1 提交于 2026-09-17 10:38 UTC。**
+
+### 为什么重要
+
+腿式 MPC 常见难点是同时存在：
+
+```text
+nonlinear / linearized dynamics
+contact switching
+swing force = 0
+friction / input constraints
+high control frequency
+```
+
+传统做法将大量约束作为 equality / inequality 硬塞进 QP，接触模式一变，问题结构和可行域也跟着变化。
+
+DR-MPC 选择主动放松部分模型约束，使最终在线问题只留下**天然非空的 box constraints**。
 
 ### 算法模块
 
-VLM 根据语言指令、场景观测和执行反馈，从预定义 keyframe library 中选择下一关键帧；系统根据当前物体位置和尺寸对 keyframe retarget；随后 keyframe-conditioned whole-body RL policy 产生关节动作。
+论文将：
 
-论文还提出 saliency-based keyframe sampling，用于低层 policy 训练。在稀疏 VLM keyframe 条件下，作者报告端到端成功率由 **44% 提升到 92%**。
+```text
+dynamics equality
+affine input constraints
+```
 
-### 模型假设与泛化
+移入 quadratic penalty，而不是继续作为 hard constraints。
 
-KINO 的代价是需要预定义 keyframe library，因此不是“任意新任务零先验”。但这恰恰带来工程可控性：高层搜索空间有限，中间状态可视化，失败可以定位到“选错关键帧、retarget 错、还是低层执行失败”。
+然后利用 contact-aware input parameterization，把 swing-force elimination 和 contact-aligned move blocking 写入结构。
 
-论文在仿真和 Unitree G1 上验证 pickup、transport、placement，包括单手与双手操作，并展示超出训练参考位置的 placement 泛化。
+最终 QP 的 Hessian 呈 block-arrow 结构：
 
-### 实时性与鲁棒性
+```text
+states / affine outputs
+        ↓ Schur complement elimination
+reduced control system
+        ↓ factorization
+control solution
+```
 
-低层控制不依赖 VLM 高频输出，因此更适合真实人形。真正部署时建议给每个 keyframe 配置 entry condition、completion detector、timeout 和 recovery policy；否则高层选对了关键帧，低层因接触失败卡住，系统仍无法闭环。
+### 实时性
 
-### 工程风险
+相同 DR-MPC formulation 下：
 
-keyframe library 会逐渐膨胀，若没有语义分类和版本管理，最终会变成不可维护的 motion template 仓库。此外 retarget 只处理几何变化并不自动解决动力学变化，例如重物、摩擦、手部接触不稳定。
+- 相对 HPIPM median end-to-end speedup：**16.0×**；
+- 相对 OSQP：**4.4×**；
+- Unitree Go1 onboard median MPC end-to-end：**4.4 ms**；
+- locomotion performance 在仿真中保持可比；
+- 有真实 Go1 验证。
+
+这是今天最明确的“可以放进高频腿式控制 loop”的数字之一。
+
+### 动力学假设与风险
+
+这里要非常准确地区分：
+
+> **优化问题可行**，不等于**机器人真实动力学约束一定被严格满足**。
+
+因为 dynamics equality 已进入 penalty，如果 penalty 权重、线性化误差或 model mismatch 处理不当，solver 可以用一定 dynamics residual 换取更低总 cost。
+
+因此上线时应把：
+
+```text
+dynamics_residual
+affine_constraint_residual
+contact_force_margin
+box_constraint_margin
+```
+
+作为 runtime telemetry，而不能只看 solver status。
+
+### 可复现性
+
+论文写明开源代码将在 publication 后提供，因此今天暂时不能按“已有代码”评分。
 
 ### 适合谁关注
 
-人形机器人、移动操作、VLM planner、Whole-Body RL、需要可解释高低层接口的工业具身系统。
+四足 / 人形 MPC、whole-body QP、接触切换控制、需要 100–200 Hz 以上在线优化的团队。
 
 ### 工程落地启发
 
-对已有机器人，完全可以把“关键帧”推广成统一 task-space contract：`base pose + end-effector pose + object relation + tolerance + completion condition`。高层模型只负责生成 / 选择 contract，低层 MPC、QP 或 RL 去满足它。这比让 VLM 直接输出底层 action 更容易验证。
+现有 MPC 可以先做离线实验：逐渐将最容易导致 infeasible / expensive factorization 的约束从 hard equality 转成高权重 penalty，画出：
 
-## 7. PASSAGE：人形穿越复杂障碍的瓶颈仍然很“朴素”——场景对齐运动数据规模直接决定行为覆盖
+```text
+solve time
+vs
+constraint residual
+vs
+tracking performance
+```
 
-**时间回补；v1 提交于 2026-09-16。**（[论文](https://arxiv.org/abs/2609.18732)）
+找到真正的工程 Pareto，而不是默认“所有模型等式都必须作为硬约束”。
+
+[论文](https://arxiv.org/abs/2609.20035)
+
+## 5. Strict Reach-Avoid-Stay CBF：安全不是“到达目标前别出事”，到达以后也必须守得住
+
+**最新 9 月 18 日公开批次；v1 提交于 2026-09-16 21:32 UTC。**
 
 ### 为什么重要
 
-人形机器人可以跨、侧身、下蹲穿越障碍，但很多方法为每种行为单独设计 RL objective 或人工 motion library。PASSAGE 尝试用一个 perception-conditioned planner + tracker 统一选择和组合这些动作，而且把重点放在**scene-aligned human motion data scaling**。
-
-### 数据与模型结构
-
-作者通过 VR 和惯性动作捕捉，收集 **100 小时、1,500 个 cluttered scenes** 的场景对齐人体运动。系统由两层组成：
+很多 reach-avoid formulation 关注：
 
 ```text
-motion history
-+ local destination
-+ robot-centric multi-layer elevation map
-        ↓
-conditional flow-matching planner
-        ↓
-short-horizon motion references @ 6.25 Hz
-        ↓
-perceptive whole-body tracker @ 50 Hz
-        ↓
-robot joints
+安全地到达 Goal
 ```
 
-real-time chunking 用于提高 chunk 间一致性，planner 还在冻结 tracker 后进行 RL post-training。
+但机器人真实任务常常要求：
 
-### 数据规模结果
+```text
+安全到达
++
+到达以后持续留在安全目标集合
+```
 
-论文在三个独立训练 seed 上报告：场景对齐数据由 6 h 扩到 100 h 后，held-out scene 的平均 contact-free success 从 **48.1% 提升到 68.9%**；再加入验证过的 scene augmentation 后达到 **70.3%**。
+例如：
 
-这组结果比单纯“更大模型更好”更有启发：对复杂运动，**行为覆盖和场景分布覆盖**仍是最直接的性能杠杆。
+- 四足跳过缝隙以后必须稳定落地，不是“脚碰到对岸”就算成功；
+- 赛车超车以后必须保持领先和赛道安全；
+- 机械臂到达插入位置以后必须保持接触稳定。
 
-### 传感器、实时性与真机
+这篇工作将这种要求 formalize 为 **strict Reach-Avoid-Stay (sRAS)**。
 
-完整系统使用机载 3D LiDAR、在线 occupancy mapping、Jetson AGX Orin，规划 6.25 Hz、控制 50 Hz；作者在 50 个未见真实布局中测试，不依赖预建地图或 offboard computation。
+### 算法模块
 
-这类配置很接近可部署的人形导航系统：局部几何地图仍然是安全与可解释的感知接口，生成式 planner 负责行为组合，而高频 tracker 负责动力学执行。
+作者构造两个 value：
 
-### 工程风险
+```text
+Stay Value
+→ 哪些目标状态可以永久安全停留
 
-100 小时 scene-aligned motion 的采集成本并不低，而且人体动作到机器人本体仍存在 retarget / feasibility gap。论文的成功不意味着“再录更多 mocap 就能无限增长”，数据分布、障碍几何覆盖和 tracker 能力都会成为上限。
+Reach-Avoid Value
+→ 哪些状态可以安全到达
+   那些“可永久停留”的目标子集
+```
+
+二者组合成 robust discrete-time CBF，再提升成 state-action **Q-CBF**：
+
+```text
+Black-box State
+     ↓
+Nominal Action
+     ↓
+sRAS Q-CBF
+     ↓
+safe / intervene
+     ↓
+Executed Action
+```
+
+### 最特别的地方：不要求已知动力学
+
+合成 / 部署均不需要：
+
+- known dynamics；
+- control-affine structure；
+- value derivatives；
+- hand-designed barrier。
+
+作者使用 reachability-based adversarial RL，仅通过 black-box interactions 近似 value。
+
+### 理论保证与现实边界
+
+对**精确 value**，在论文的 measure-zero condition 下，filter 对几乎所有 winnable initial states 保留 sRAS feasibility，并对所有允许的不确定性保持目标内安全。
+
+但真机部署使用的是**近似 value**。
+
+这意味着工程系统不能把理论 exact-value guarantee 无条件复制到神经近似上。应该额外测：
+
+```text
+value approximation error
+OOD state coverage
+intervention frequency
+post-target invariant violations
+```
+
+### 真机
+
+论文包含 quadruped gap jumping hardware：
+
+```text
+jump
+→ cross gap
+→ land
+→ remain safe
+```
+
+同时在 simulated F1TENTH 上展示安全超车与 lead retention。
 
 ### 适合谁关注
 
-人形导航、感知运动控制、LiDAR + whole-body policy、sim-to-real、数据驱动 traversal。
+Safe RL、CBF safety filter、四足跳跃、目标集合保持、black-box dynamics。
 
 ### 工程落地启发
 
-对轮足 / 四足机器人也有同样启发：不要只记录“地形标签”，而要把**场景几何 + 实际成功运动轨迹**绑定存储。后续无论训练 diffusion / flow planner 还是做 retrieval-based policy，都比纯动作数据更有价值。
+对机器人任务定义，不要只保存：
+
+```text
+success_condition
+```
+
+更完整的是：
+
+```text
+reach_condition
+avoid_condition
+stay_condition
+```
+
+尤其是楼梯落平台、无人机停靠、机械接触这些任务，`stay_condition` 往往才决定系统是不是真的完成任务。
+
+[论文](https://arxiv.org/abs/2609.19449)
+
+## 6. SGPS：Sampling MPC 不只是 Teacher，它可以在训练过程中不断纠正 Policy 的接触模式
+
+**最新 9 月 18 日公开批次；v1 提交于 2026-09-17 15:33 UTC。**
+
+### 为什么重要
+
+可微仿真 + first-order policy gradient 的优势是 GPU 训练成本低，但局部梯度很容易收敛到“数学上能降低 loss、物理上却很别扭”的接触模式。
+
+例如越障时，policy 可能找到一种局部可行但脆弱的蹭障碍方式。
+
+Sampling MPC 的优势正相反：不依赖局部梯度，可以通过 rollout 跳出当前局部 basin，但单独长期在线跑又比较昂贵。
+
+SGPS 将二者交替使用。
+
+### 训练流程
+
+```text
+Sampling MPC
+→ 找更好的 action target
+        ↓
+Behavior Cloning initialization
+        ↓
+First-order Policy Gradient
+        ↓
+Perturbed initial states
++ randomized dynamics
+        ↓
+再次 Sampling MPC refinement
+        ↓
+短 horizon FoPG
+        ↺
+```
+
+也就是说，MPC 不是只在 dataset 初始化阶段出现一次，而是周期性纠正 policy 的训练目标。
+
+### 视觉训练
+
+视觉 policy 使用 depth observation。
+
+作者特别把 rendering 从 differentiable computation graph 中解耦，因此不需要让 renderer 本身参与梯度传播，也不需要额外训练一个 state-policy teacher。
+
+这降低了视觉 policy training 的 GPU memory / computation pressure。
+
+### 结果与真机
+
+单 GPU 训练覆盖：
+
+- Unitree Go2 locomotion；
+- obstacle traversal；
+- crate pushing；
+- G1 bimanual carrying。
+
+最终 policy zero-shot 到真实 Go2，用 onboard depth 完成：
+
+```text
+trot
+crawl
+clear hurdles
+switch behaviors
+```
+
+### 风险
+
+Sampling MPC 的 proposal quality 依赖 model / simulator。
+
+如果 MPC 在仿真里偏好一种真实硬件上不可执行的 contact mode，后续 policy 反而会把错误 teacher target 学得很稳定。
+
+因此应同时进行：
+
+```text
+MPC target quality check
+sim randomization
+hardware constraint audit
+policy-only rollout
+```
+
+### 适合谁关注
+
+Isaac Lab / 可微仿真、四足 / 人形训练、MPC + RL、希望减少大规模 end-to-end RL trial 的团队。
+
+### 工程落地启发
+
+如果已经有一个“能跑但不够灵活”的 sampling MPC，不必只拿它生成一次 offline demonstration。
+
+可以把它改成**周期性 policy repair source**：当训练 loss plateau、失败模式集中或 curriculum 升级时，再调用 MPC 生成更好的局部 action target。
+
+[论文](https://arxiv.org/abs/2609.20575)
+
+## 7. Workspace Models：长时记忆可以在训练时请 VLM 做“老师”，部署时只留下一个小 Token
+
+**最新 9 月 18 日公开批次；v1 提交于 2026-09-17 17:59 UTC；CoRL 2026。**
+
+### 为什么重要
+
+长时机器人任务需要记住过去：
+
+```text
+哪个抽屉已经打开？
+工具之前放在哪里？
+哪一步已经完成？
+刚刚哪个物体被移动？
+```
+
+最直接的方法是把完整 history 都喂给 policy。
+
+问题是：
+
+```text
+history 越长
+→ compute 越高
+→ spurious correlation 越多
+→ policy 反而可能变差
+```
+
+另一条路线是在运行时反复问 VLM：“历史里现在真正重要的是什么？”但这会把延迟和成本永久放进控制 loop。
+
+Workspace Models 选择在训练时完成这件事。
+
+### 训练结构
+
+```text
+Current + Historical Observations
+            ↓
+Training-time VLM
+识别 task-salient information
+            ↓
+Set-Reconstruction Supervision
+            ↓
+Workspace Token
+轻量 latent memory
+            ↓
+Policy
+```
+
+训练完成后：
+
+```text
+部署：
+Observation + Workspace Token
+        ↓
+Policy
+
+不再需要 VLM in-the-loop
+```
+
+### 为什么值得关注
+
+这和“蒸馏一个 VLM”并不完全一样。
+
+蒸馏目标不是复刻 VLM 的所有语言/视觉能力，而是只保留：
+
+> **当前任务真正需要从历史中取出的信息集合。**
+
+因此 memory capacity 是 task-shaped 的。
+
+### 结果
+
+论文在 simulation 与 hardware 中验证，workspace token 可以作为 observation 的 drop-in memory representation，支持 memory-intensive task。
+
+作者还观察到：它不仅更 lightweight，而且 policy performance 反而更好，说明完整 history 中的多余信息确实可能伤害决策。
+
+### 风险
+
+训练时 VLM 的 saliency judgment 会变成 memory supervision。
+
+如果 VLM 系统性忽略某类低频但关键事件，例如：
+
+```text
+一次短暂碰撞
+一个只出现一帧的工具
+某个安全状态改变
+```
+
+workspace token 也可能永远学不会保留它。
+
+安全关键 memory 不应完全交给 learned saliency，应保留 deterministic state / event log。
+
+### 适合谁关注
+
+长时操作、机器人 memory、VLA orchestration、边缘端 policy、希望把大模型移出实时 loop 的团队。
+
+### 工程落地启发
+
+可以把机器人 memory 拆成两层：
+
+```text
+Hard Memory
+→ task phase / safety / irreversible event
+→ deterministic
+
+Soft Workspace Memory
+→ scene details / object history / contextual cues
+→ learned latent
+```
+
+这样既降低长 history 成本，又不让不可丢失的信息依赖一个隐式 token。
+
+[论文](https://arxiv.org/abs/2609.20820)
+
+## 8. Coding Agent Harness 实证：先删无价值上下文，再总结；强模型未必需要一堆专用 Tools
+
+**最新 9 月 18 日 Software Engineering 批次；v1 提交于 2026-09-17 17:58 UTC。**
+
+### 突破性工程价值
+
+Coding Agent 的表现越来越取决于 harness：
+
+```text
+Planning
+Context Management
+Action / Tool Space
+Execution Loop
+```
+
+问题是大家常把 harness 当整体比较：
+
+```text
+Claude Code vs Codex vs 自研 Agent
+```
+
+这样很难知道到底是模型、Prompt、上下文策略还是 Tools 起作用。
+
+这篇论文固定 execution loop，只改变三个可控组件：
+
+- planning；
+- action space；
+- context management。
+
+因此更接近真正的工程消融。
+
+### 实验规模
+
+作者在：
+
+- 4 个模型；
+- SWE-Bench Verified；
+- Terminal-Bench 2.1；
+- 176 个 matched settings；
+- 5 种 context-management strategies；
+- 4 种 context-window budgets；
+
+上做对照。
+
+### 结论 1：上下文管理首先是在防止“爆窗”
+
+论文发现，context window 越紧，context management 越重要；它主要的收益不是让 Agent “思路突然更聪明”，而是：
+
+> **让 trajectory 不因为 context overflow 提前死亡。**
+
+这解释了为什么长任务里“能继续工作”本身就是一项重要 harness 能力。
+
+### 结论 2：Rule-based Elision → LLM Summary 更划算
+
+总体最有效率的策略是：
+
+```text
+先机械删除
+明确无价值 / 可重建内容
+        ↓
+再让 LLM 总结
+真正需要压缩的内容
+```
+
+而不是所有历史都先交给 LLM summarizer。
+
+更有意思的是，“把已经 elide 的内容做成可恢复机制”增加了 machinery，但模型很少主动使用，最终没有 accuracy gain。
+
+这对复杂 memory system 是一个很好的反过度工程提醒。
+
+### 结论 3：Planning 对不同模型的作用不同
+
+弱一些的模型：
+
+```text
+Planning
+→ accuracy scaffold
+```
+
+强模型：
+
+```text
+Planning
+→ 主要减少成本 / 早停错误路径
+→ accuracy 改变不大
+```
+
+因此没有必要把“必须先输出长 Plan”当成所有模型永久不变的最佳实践。
+
+### 结论 4：Tool 越多不一定越强
+
+论文观察到：
+
+- bash 能力较弱的模型受益于 predefined tools；
+- bash-capable model 用 bash-only interface 也能很好工作；
+- 在 command-line-centric tasks 上，bash-only 往往明显更便宜。
+
+这意味着 Tool 设计应该**model-aware**，不是工具数量竞赛。
+
+### 是否适合真实研发流程
+
+非常适合。
+
+我会把它转成一个实际 harness policy：
+
+```text
+Context:
+  deterministic elision first
+  summarization second
+
+Planning:
+  根据模型 / 任务动态启用
+  不强制超长 plan
+
+Tools:
+  bash-capable model
+  → 默认少而通用
+
+  weak shell model
+  → 提供 typed tools
+```
+
+### 风险与可验证性
+
+SWE-Bench / Terminal-Bench 仍然不能代表所有大型企业仓库。
+
+而且 bash-only 对权限治理要求更高：模型能力越强、工具越通用，capability boundary 越要在模型外部做 sandbox、network、filesystem policy。
+
+### 工程落地启发
+
+如果正在自研 Coding Agent，不要一上来做复杂 memory / tool ecosystem。
+
+先固定模型与 task，做三个最小 A/B：
+
+```text
+1. 无压缩 vs rule-elision vs elision+summary
+2. planning on / off
+3. typed tools vs restricted bash
+```
+
+记录：
+
+```text
+success
+token
+wall-clock
+tool calls
+overflow rate
+human intervention
+```
+
+再决定哪些 harness 组件值得长期维护。
+
+[论文](https://arxiv.org/abs/2609.20804)
 
 ## 社区 / 社交平台 · Vibe Coding / AI 编程技巧精选
 
-### A. Plugin4Shell：把 Agent 插件 / Skill 当作“有开发者权限的可执行供应链”，不能只靠 SHA pinning
+### 1. 网络权限不要按 Session 开：按“这一条命令”临时放行域名
 
-AIR Security 在 2026-09-17 公布 Plugin4Shell，研究者报告同一类插件版本解析问题影响 Claude Code、Codex、GitHub Copilot 与 Gemini CLI 等 coding agent。核心问题不是提示词注入，而是插件安装 / 更新链路：客户端请求 checkout 被 pin 的 commit 后，没有再验证工作区最终 `HEAD` 是否真的等于该 commit，攻击者可利用 ref 名称解析歧义绕过 pinning。研究文章还给出了厂商披露与修复状态。（[原始研究](https://www.air.security/blog-posts/plugin4shell)）
+**来源：Claude Code v2.1.276，2026-09-18 官方 release。**
 
-**今天可做的技巧：**把 `skills/plugins/MCP` 纳入软件供应链清单；禁止自动信任新插件；升级已修复的 Agent 版本；对自研插件管理器在 checkout 后增加“解析实际 HEAD 并与期望 SHA 精确比较”的断言；高权限 Agent 使用 allowlist 和最小权限工作目录。
+Claude Code 最新版本给 sandbox auto mode 的 Bash / PowerShell / Monitor 增加了 **per-command `allowed_domains`**：一条命令需要访问哪些 host，就随该命令一起审核和临时开放；其他 host 仍然拒绝。
 
-**为什么值得学：**Agent 插件不是普通编辑器主题，它可能继承 shell、仓库、凭据与内部服务权限。一旦插件更新链被攻破，攻击者拿到的是 Agent 已经拥有的权限。
+这个功能背后的原则比具体产品更重要：
 
-**风险 / 边界：**这是一家安全厂商发布的研究，涉及具体产品受影响版本与修复状态，团队应结合自己当前安装版本再次查看对应厂商公告。供应链扫描也不能替代运行时权限隔离。
+> **Coding Agent 的网络权限最好绑定到一次工具调用，而不是整个 Session。**
 
-### B. 多 Agent 不是越多越好：把“协调税”当成显式成本，独立子任务完成后一次性回报
+传统做法往往是：
 
-2026-09-17 的一篇开发者报道汇总了 Codex 开发者 Eric Provencher 对 Agent swarm 的实践观察：并行子 Agent 太多时，常出现重复检索、重复验证、彼此不信任又重新检查的情况，token 消耗快速上升，而质量没有同比提升；他把这称为 **coordination tax**。报道中提到“超过两个往往开始浪费”应理解为个人工程经验，而不是受控 benchmark。（[报道](https://the-decoder.com/ai-agent-swarms-are-a-massive-waste-of-tokens-with-zero-quality-gain-says-openai-codex-developer/)）
+```text
+这个 Agent 需要 npm / GitHub / docs
+→ 整个容器长期允许外网
+```
 
-**今天可做的技巧：**默认主 Agent + 1–2 个真正独立的子任务；每个子 Agent 在启动时拿到明确输入、输出格式和验收条件；运行期间不轮询彼此状态，完成后一次性把结果和证据交回主 Agent；只有当任务能清晰分区、工具资源互不冲突时才继续扩并发。
+更安全的是：
 
-**适用场景：**大型仓库分析、并行测试 / 文档 / 安全审查、研究资料搜集、多个互不依赖模块的实现。
+```text
+npm install
+→ 只允许 registry.npmjs.org
 
-**风险 / 边界：**并发数不是固定魔法数字。对于真正独立的 20 个数据分片，更多 Agent 可能很合理；问题在于把强依赖、共享上下文的推理任务机械拆成 swarm。应该记录每个子任务的 token、工具调用、重复文件读取和最终被采用的产出比例，再决定是否加并发。
+git fetch
+→ 只允许 github.com
+
+访问内部 API
+→ 只允许指定内部 host
+```
+
+命令结束后权限随之消失。
+
+**今天怎么用：**即使你不是 Claude Code，也可以在自己的 Agent sandbox 里让每次 network tool call 返回：
+
+```text
+command
+allowed_hosts
+ttl
+reason
+```
+
+然后由执行器而不是模型 enforce。
+
+**边界：**域名 allowlist 不等于内容安全。一个被允许的 GitHub / package registry 仍然可能承载恶意内容；它解决的是网络最小权限，不是供应链验证。
+
+[Claude Code Releases](https://github.com/anthropics/claude-code/releases)
+
+### 2. 安装 Plugin 时不要批准“下一条命令”：批准它的 SHA-256
+
+**来源：Claude Code v2.1.276，2026-09-18 官方 release。**
+
+同一版本新增：
+
+```text
+claude plugin install --accept-command <sha256>
+claude plugin update  --accept-command <sha256>
+```
+
+它允许先用 JSON 模式看到**确切将被执行的安装命令**，再用该命令的 hash 做授权，而不是简单 `-y` 接受“现在 whatever command”。
+
+这个模式非常适合所有 Agent 自动化：
+
+```text
+Plan
+→ 生成具体 destructive / install command
+→ hash exact payload
+→ Human / policy approves hash
+→ Execute only if hash unchanged
+```
+
+如果 Agent 在审批之后又修改了参数，hash 就不匹配，必须重新批准。
+
+**为什么值得学：**它直接缩小了经典 TOCTOU：
+
+```text
+批准的是 A
+真正执行时偷偷变成 A'
+```
+
+的问题。
+
+**今天怎么用：**对 `npm install`、数据库 migration、远程部署、机器人软件升级这类高风险动作，保存：
+
+```text
+normalized_command
+payload_hash
+approved_by
+approved_at
+expires_at
+```
+
+执行器只接受 exact hash。
+
+**边界：**hash 只能证明“执行的是已批准字节”，不能证明命令本身是安全的。批准前仍需 sandbox / dependency / blast-radius 检查。
+
+[Claude Code Releases](https://github.com/anthropics/claude-code/releases)
+
+### 3. Code Review Findings 应该有生命周期：NEW → OPEN → RESOLVED，而不是一堆静态评论
+
+**来源：GitHub Copilot Code Review，2026-09-18 官方更新。**
+
+GitHub 今天更新 Copilot code review：overview 会区分：
+
+```text
+Open
+Resolved since last review
+```
+
+新 commit 引入的 finding 还会标记 `new`；系统会重新验证此前建议是否已经被修复，并在批量接受建议时生成更有意义的 commit message。
+
+这里真正值得复制的是：
+
+> **Agent Review 的输出应该是有状态的 defect ledger，而不是每次 review 重新生成一堆独立评论。**
+
+**今天怎么用：**自研 Reviewer 可以把 finding 固化为：
+
+```text
+finding_id
+introduced_revision
+severity
+evidence
+status: NEW | OPEN | RESOLVED | REGRESSED
+last_verified_revision
+```
+
+每个新 commit 只增量验证受影响 finding。
+
+这样可以避免两个常见问题：
+
+- Agent 反复评论已经修好的问题；
+- 新改动把旧 bug 重新引入，但历史 review 没有状态关联。
+
+**边界：**auto-resolve 仍然必须基于实际新 revision 的证据。不要因为开发者“回复已修复”就直接改成 RESOLVED。
+
+[GitHub Changelog](https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience/)
 
 ## 经典论文回顾
 
-### A Unified Approach for Motion and Force Control of Robot Manipulators: The Operational Space Formulation（Oussama Khatib，1987）
+### PTAM：现代 SLAM 的“快前端 + 慢后端”架构，2007 年就已经把关键原则说清楚了
 
-**发表位置：**IEEE Journal on Robotics and Automation, Vol. RA-3, No. 1, 43–53, February 1987。（[Stanford Robotics Lab](https://khatib.stanford.edu/publications.html)，[论文 PDF](https://khatib.stanford.edu/publications/pdfs/Khatib_1987_RA.pdf)，[DOI](https://doi.org/10.1109/JRA.1987.1087068)）
+Georg Klein 与 David Murray 的 **Parallel Tracking and Mapping for Small AR Workspaces（PTAM）** 发表于 **ISMAR 2007**，并获得 Best Paper Award。它最初是为小型 AR workspace 的手持单目相机设计，但对后续 Keyframe-based Visual SLAM 的系统架构影响极大。([Oxford 论文页](https://www.robots.ox.ac.uk/~lav/Papers/klein_murray_ismar2007/)，[DOI](https://doi.org/10.1109/ISMAR.2007.4538852))
 
 ### 核心问题
 
-传统关节空间控制直接围绕 `q, q_dot, tau` 工作，但机器人任务通常表达为“末端到哪里、沿哪个方向施多大力、冗余关节怎么安排”。Operational Space Formulation 的关键转变是：**直接在任务空间描述末端的动力学，并构造与机器人真实惯量一致的任务空间控制。**
-
-### 数学直觉
-
-关节空间动力学可写为：
+在 PTAM 之前，实时单目 SLAM 常把：
 
 ```text
-M(q) q_ddot + h(q, q_dot) = tau
+相机定位
+地图更新
 ```
 
-末端速度满足 `x_dot = J(q) q_dot`。Operational Space 将动力学投影到任务空间，得到任务空间等效惯量：
+放在同一个逐帧估计循环里。
+
+这带来天然冲突：
 
 ```text
-Lambda(q) = (J M^-1 J^T)^-1
+Tracking
+→ 每帧必须快
+
+Mapping / Optimization
+→ 希望看更多关键帧
+→ 希望做更昂贵的优化
 ```
 
-并构造 dynamically consistent generalized inverse：
+PTAM 的核心突破不是新的 feature descriptor，而是把这两个时间尺度拆开。
+
+### 系统架构
 
 ```text
-J_bar = M^-1 J^T Lambda
+Camera Frames
+     ↓
+Tracking Thread
+→ 使用当前地图快速估计 pose
+→ frame-rate
+     ↓
+挑选 Keyframe
+     ↓
+Mapping Thread
+→ 三角化新点
+→ 地图维护
+→ Bundle Adjustment
 ```
 
-由此可以把主任务控制在 task space 中，同时利用 null space 处理冗余自由度。现代写法常用：
+两个线程并行运行。
 
-```text
-tau = J^T F_task + N^T tau_null
-```
+于是 mapping 可以做当时看起来很“奢侈”的 batch optimization，而 tracking 不必等待它完成。
 
-其中 `N` 用于隔离不会破坏主任务的冗余动作。核心思想不是记住某个公式，而是**任务空间优先级必须考虑机器人动力学，而不是只做普通 Moore-Penrose 伪逆。**
+### 关键技术思想
+
+PTAM 同时强化了几个后来几乎成为视觉 SLAM 常识的结构：
+
+- **Keyframe-based mapping**：不是每帧都进入长期优化；
+- **Tracking against a map**：前端利用地图，而不是只做 frame-to-frame VO；
+- **Parallel tracking / mapping**：不同时间预算的任务拆开；
+- **Bundle Adjustment as map refinement**：更重的几何优化放到后台；
+- **Relocalization**：tracking 丢失后允许从地图恢复。
 
 ### 当年为什么重要
 
-这篇工作把 motion control、force control、冗余机器人和奇异位形处理放进统一动力学框架。对于机械臂而言，这意味着“控制末端行为”不再只是把笛卡尔误差通过 Jacobian 变成关节误差，而是可以显式描述末端惯量、力与约束方向。
+它证明了一件非常关键的事情：
+
+> **“复杂后端优化”和“实时前端”并不矛盾，只要系统架构把它们解耦。**
+
+2007 年还是 dual-core desktop 的时代，这种线程拆分就已经足够让数千 landmark 的地图与 frame-rate tracking 共存。
 
 ### 今天仍在使用的思想
 
-今天 humanoid whole-body control、mobile manipulation、operational-space QP、task hierarchy、null-space posture control 仍然大量继承这些抽象。KINO 这类高层关键帧接口最终也需要某种 task-space / whole-body execution 层；PASSAGE 的 tracker 即使由 RL 学得，其工程接口依旧经常落到 base、足端、手端、质心等 task-space quantity 上。
+现代 ORB-SLAM、VINS、很多 neural SLAM 虽然算法细节完全不同，但仍经常可以看到：
 
-### 哪些部分已被后续方法增强
+```text
+Fast Tracking / Odometry
+        ↓
+Keyframes
+        ↓
+Local Mapping / Optimization
+        ↓
+Loop / Global Optimization
+```
 
-经典 Operational Space Control 并不直接解决现代人形机器人的多接触切换、摩擦锥、关节 / 力矩 / 接触力不等式、碰撞约束与状态估计不确定性。今天更常见的是 Whole-Body QP / HQP、inverse dynamics optimization、MPC、CBF、安全过滤器以及学习策略与模型控制混合。
+今天 AMB3R-SLAM 进一步将 backend 从“一个 mapping thread”细分成：
 
-换句话说，现代方法不是抛弃 operational space，而是把它的 task-space 结构塞进更强的约束优化框架。
+```text
+local
+mid-level
+global
+```
 
-### 可复现性与现在怎么做
+本质上是 PTAM 时间尺度解耦思想在公里级场景上的继续扩展。
 
-最容易的复现不是从人形开始，而是 7-DoF Franka：
+### 已经被后续替代的部分
 
-1. 用 Pinocchio / MuJoCo / Drake 得到 `M(q)` 与 `J(q)`；
-2. 实现 task-space inertia `Lambda` 与 dynamically consistent inverse；
-3. 主任务设末端 6D pose，null-space 任务设关节姿态；
-4. 与普通 Jacobian pseudoinverse controller 对比；
-5. 特别测试接近奇异位形、负载变化和快速方向切换时的关节力矩与 task error。
+PTAM 原始系统针对 small AR workspace：
 
-真正理解这篇经典论文之后，再看今天的 Whole-Body MPC / QP / RL，会更容易分辨“哪些只是优化器换了，哪些真的改变了任务接口”。
+- 没有今天成熟的全局 loop-closure architecture；
+- 单目初始化和尺度仍有局限；
+- feature / matching / BA 实现属于 2007 年时代；
+- 不具备现代 VIO、多地图 Atlas、稠密 / 语义地图能力。
+
+今天更常使用 ORB-SLAM3、VINS、DSO、neural SLAM 等成熟系统。
+
+### 公开代码与可复现性
+
+原始 PTAM 后来以 GPLv3 重新发布：
+
+[Oxford-PTAM/PTAM-GPL](https://github.com/Oxford-PTAM/PTAM-GPL)
+
+但它依赖老式 C++ / 图像库生态，今天不适合直接作为新产品底座。
+
+真正值得复现的是**架构思想**，而不是把 2007 代码重新移植进现代项目。
+
+### 对当前工程项目的重新解读
+
+机器人系统经常犯的错误是：
+
+```text
+所有模块都要求“实时”
+```
+
+更合理的是明确不同 deadline：
+
+```text
+100–500 Hz  State / Control
+10–30 Hz    Tracking / Local Perception
+1–10 Hz     Local Mapping / Planning
+0.1–1 Hz    Global Optimization / Semantic Reasoning
+event-driven Loop Closure / Rebuild
+```
+
+然后用 queue、revision 和 stable ID 协调不同层级。
+
+PTAM 给今天最大的启示仍然非常现代：
+
+> **算法能不能跑实时，很多时候取决于你有没有把不同时间尺度的问题错误地绑在同一个同步循环里。**
+
+[Oxford 论文页](https://www.robots.ox.ac.uk/~lav/Papers/klein_murray_ismar2007/) · [DOI](https://doi.org/10.1109/ISMAR.2007.4538852) · [PTAM-GPL](https://github.com/Oxford-PTAM/PTAM-GPL)
 
 ## 今日结论
 
-今天最重要的共同线索可以概括成一句话：**复杂机器人系统正在把不确定的大模型能力压缩到更小、更稳定、更可验证的接口里。**
+今天新批次里，SLAM / 状态估计最值得带走的不是一个单独 benchmark，而是**“分层 + 延迟裁决 + 几何一致性”**三个系统原则。
 
-rMuscle 利用重复执行构造可控缓存；VLM-MPPI 让 VLM 只选轨迹候选；KINO 让 VLM 只选关键帧；PASSAGE 把生成式 planner 与 50 Hz tracker 分层；多机器人 TAMP 则把联合空间按 task transition 的参与机器人集合重新结构化。它们都不是“一个模型端到端全做”，而是在计算预算、动力学与可验证性之间重新划边界。
+AMB3R-SLAM 将 local / mid-level / global consistency 分成不同 backend 时间尺度；Dynamic-LIVO 在时空证据不足时不急着把点删除，而是保留 `pending` 等待更多观测；Tangent-Group EqF 则进一步提醒我们，bias 这样的“辅助状态”怎样被放进状态空间，会直接改变线性化误差和 covariance consistency。
 
-另一条同样重要的工程信号来自 AI Coding：Plugin4Shell 说明 Agent 的插件生态已经是软件供应链问题，而多 Agent coordination tax 则提醒团队，Agent 数量本身不是产能指标。**权限边界、验证证据、重复工作率与单位有效产出的 token 成本**，正在成为和模型能力同样重要的系统指标。
+这三者共同说明：
+
+```text
+真实系统的可靠性
+不只来自更准的单次预测
+还来自状态在时间上的正确生命周期
+```
+
+控制侧也是同样的趋势。DR-MPC 主动放松一部分严格模型约束换取稳定高频求解；sRAS CBF 则把“到达以后还能安全留住”写进 safety definition；SGPS 让 sampling MPC 周期性纠正 gradient policy 的局部接触错误。传统优化、形式安全与学习策略并不是三选一，而正在形成更清晰的职责分工。
+
+机器人学习侧，Workspace Models 很值得和之前的 2AM、P-POSEMEM、长期 scene memory 放在一起看。长期记忆不应该等价为“把所有历史不断塞进 context”。更合理的体系很可能是：
+
+```text
+不可丢的结构化事件 / 状态
+        +
+任务相关的轻量 latent workspace
+        +
+按需访问的原始历史
+```
+
+AI Coding 今天的 harness 实证则给了一个非常实用的反过度工程结论：
+
+```text
+先机械删除确定无价值的上下文
+再让模型总结真正需要压缩的部分
+```
+
+并不是所有被删内容都必须建一个复杂可恢复 memory；也不是每个强模型都需要几十个专用 tool。Harness 应该根据**模型能力、任务类型和预算**配置，而不是追求组件数量。
+
+社区最新工具变化也进一步强调模型外部的工程边界：网络权限应尽量 command-scoped；高风险命令批准应绑定 exact payload hash；Code Review finding 应有跨 revision 的生命周期。
+
+如果把今天整期压缩成一句话：
+
+> **无论机器人还是 Coding Agent，成熟系统都在从“一个聪明模型做所有事”转向“不同时间尺度、不同权限和不同可信度的模块通过可验证接口协作”。**
 
 ## 最值得深入研究或尝试复现的方向
 
-**第一优先：复现 VLM-MPPI 的“语义选择受约束候选”架构。** 对已有无人机平台风险最低：保留 LiDAR 定位 / 避障与低层控制，先并行生成 3–6 条具有明确行为差异的轨迹，再让 VLM 只选择 ID。特别适合室内配电室、走廊这类语义要求明确但安全边界严格的场景。
+1. **Hierarchical SLAM Backend Sidecar。** 不替换现有 LIO-SAM / ORB-SLAM3 前端，先把历史 keyframe graph 按 local / submap / global 三层组织；给每层独立更新频率、最大 latency 和 revision，观察大 loop closure 到来时是否能避免阻塞高频 tracking。
 
-**第二优先：给 VLA / 重复工位任务做 feature-cache profiling。** 不必立刻实现 rMuscle，只需记录不同执行之间各层 activation similarity、命中率、延迟和动作误差，就能判断固定工位是否值得做跨执行缓存。
+2. **三态 Dynamic Evidence。** 将动态过滤从 `static/dynamic` 改成 `static/dynamic/pending`；对 pending 点保留短期时空 support，1–3 秒后重判。重点比较地图完整度、ghost points、定位 ATE 与内存成本，而不是只看单帧 segmentation accuracy。
 
-**第三优先：建立动态障碍 kinodynamic planner 内部 benchmark。** 参考 DynoFluxBench，把 MPPI、RRT/kinodynamic tree、trajectory optimization 放到同一组动态障碍脚本和动力学模型下，统一记录首次解延迟、成功率、最小时空 clearance 和低层可跟踪性。
+3. **MPC Hard-vs-Soft Constraint Pareto。** 在当前四足 / 无人机 MPC 上挑 1–2 组最容易造成求解困难的 equality / affine constraint，逐渐转换成高权重 penalty；同时记录 solve time、residual、tracking 和实际硬件 margin，找真正的高频控制 Pareto。
 
-**第四优先：Coding Agent 插件链做一次供应链审计。** 列出实际安装的 skills/plugins/MCP、来源 repo、权限、自动更新行为与 pinning 验证方式；对 checkout 后没有验证实际 commit 的链路补硬断言，并尽量把高权限工具放进 sandbox。
+4. **Sampling MPC 作为 Policy Repair。** 现有 RL policy 不重新从零训练；只在失败 cluster、curriculum 升级或 uncertainty 高时调用 sampling MPC 生成局部 action targets，再做短 horizon policy update。比较与纯 BC / 纯 PPO 的真实失败次数和 GPU 时间。
+
+5. **Coding Harness 三组最小 A/B。** 在同一个真实仓库任务集上只比较：`no compression vs rule-elision vs elision+summary`、`planning on/off`、`typed tools vs restricted bash`。统一记录成功率、token、wall-clock、overflow、human intervention；不要先投入复杂长期 memory，等数据说明需要再做。
 
 ## 参考资料
 
-- [arXiv Robotics Recent](https://arxiv.org/list/cs.RO/recent)
-- [rMuscle: Robotic Muscle Memory for Efficient Vision-Language-Action Model Inference](https://arxiv.org/abs/2609.19104)
-- [CaSCo: Cascade-Aware Soft-Collision Motion Planning](https://arxiv.org/abs/2609.18910)
-- [Asymptotically Optimal Multi-Robot Task and Motion Planning](https://arxiv.org/abs/2609.18813)
-- [DynoFluxBench: Benchmarking Kinodynamic Space-Time Planners in Dynamic Environments](https://arxiv.org/abs/2609.18549)
-- [DynoFluxBench Project](https://dynofluxbench.github.io/)
-- [VLM-MPPI: Grounding Natural Language in Behaviorally Diverse Trajectories for Aerial Navigation](https://arxiv.org/abs/2609.18451)
-- [KINO: A Keyframe Interface for VLM Planning and Whole-Body Control in Humanoid Loco-Manipulation](https://arxiv.org/abs/2609.18869)
-- [PASSAGE: Scaling Scene-Aligned Motion Learning for Perceptive Humanoid Traversal in Cluttered Environments](https://arxiv.org/abs/2609.18732)
-- [AIR Security: Plugin4Shell](https://www.air.security/blog-posts/plugin4shell)
-- [The Decoder: AI agent swarms and coordination tax](https://the-decoder.com/ai-agent-swarms-are-a-massive-waste-of-tokens-with-zero-quality-gain-says-openai-codex-developer/)
-- [Stanford Robotics Lab: Oussama Khatib Publications](https://khatib.stanford.edu/publications.html)
-- [Khatib 1987 Operational Space Formulation PDF](https://khatib.stanford.edu/publications/pdfs/Khatib_1987_RA.pdf)
-- [DOI: 10.1109/JRA.1987.1087068](https://doi.org/10.1109/JRA.1987.1087068)
+- [arXiv Robotics 最新列表](https://arxiv.org/list/cs.RO/recent)
+- [arXiv Software Engineering 最新列表](https://arxiv.org/list/cs.SE/recent?show=2000&skip=0)
+- [AMB3R-SLAM](https://arxiv.org/abs/2609.19518) · [项目页](https://hengyiwang.github.io/projects/amber-slam) · [代码仓库](https://github.com/HengyiWang/amb3r-slam)
+- [Dynamic-LIVO](https://arxiv.org/abs/2609.19336)
+- [Equivariant Filter Design for Acoustic and Depth Aided Inertial Navigation Systems](https://arxiv.org/abs/2609.19742)
+- [DR-MPC](https://arxiv.org/abs/2609.20035)
+- [Winning a Won Game: Strict Reach-Avoid-Stay CBF](https://arxiv.org/abs/2609.19449)
+- [Accelerating Visual Policy Learning with Sampling-Based MPC](https://arxiv.org/abs/2609.20575)
+- [Workspace Models](https://arxiv.org/abs/2609.20820)
+- [An Empirical Study of Harness Design for Coding Agents](https://arxiv.org/abs/2609.20804)
+- [Claude Code Releases](https://github.com/anthropics/claude-code/releases)
+- [GitHub Copilot Code Review — Improved Review Experience](https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience/)
+- [PTAM — Parallel Tracking and Mapping for Small AR Workspaces](https://www.robots.ox.ac.uk/~lav/Papers/klein_murray_ismar2007/)
+- [PTAM DOI](https://doi.org/10.1109/ISMAR.2007.4538852)
+- [PTAM-GPL](https://github.com/Oxford-PTAM/PTAM-GPL)
