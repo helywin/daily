@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-19（Asia/Shanghai）
+> 最后更新：2026-09-20（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -97,6 +97,8 @@
 > 2026-09-18 早间首版新增 7 条主动态、1 条经典论文回顾与 2 条社区精选，共 690 条；随后因 9 月 18 日新公开批次刷新，更新同日文章并追加 8 条主动态、1 条经典论文回顾与 3 条社区精选，累计共 702 条。早间首版条目保留为历史覆盖记录。
 >
 > 2026-09-19 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 714 条。
+>
+> 2026-09-20 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 726 条。
 
 ## 已核验条目
 
@@ -851,6 +853,20 @@
 | 2026-09-19 | 社区精选：GitHub Actions Workflow Execution Protections | [GitHub Changelog](https://github.blog/changelog/2026-09-17-workflow-execution-protections-in-github-actions-generally-available/) | 社区精选；2026-09-17 GA；actor/event/workflow-file allowlist + evaluate mode，适合约束 Agent 生成的 CI/CD 与 pull_request_target。 |
 | 2026-09-19 | 社区精选：Claude Code Gateway Hint Headers | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；v2.1.273；CLAUDE_CODE_GATEWAY_HINT_HEADERS=1 提供 request class、agent type、tool durations 与 compaction 状态，便于网关级 SLO/根因分析。 |
 | 2026-09-19 | FAB-MAP: Probabilistic Localization and Mapping in the Space of Appearance | [Oxford](https://ora.ox.ac.uk/objects/uuid%3A917f6474-bc02-4d6d-8f51-c8bd90b2bbb8) · [DOI](https://doi.org/10.1177/0278364908090961) | 经典论文回顾；IJRR 2008；生成式 appearance model + Chow-Liu tree + new-place hypothesis，显式处理 perceptual aliasing 与概率回环决策。 |
+
+
+| 2026-09-20 | PerSeM: Persistent Semantic Memory for Long-Horizon Open-Vocabulary UAV Mapping | [论文](https://arxiv.org/abs/2609.19542) | 时间回补；v1 2026-09-17；开放词汇 UAV 持久 voxel 语义记忆、多视角稳定与选择性 refinement。 |
+| 2026-09-20 | EliGSiR: Continual RGB-D Mapping with Gaussian Splatting under Bounded Compute | [论文](https://arxiv.org/abs/2609.20348) | 时间回补；v1 2026-09-17；view scheduling + adaptive fidelity + targeted geometry growth。 |
+| 2026-09-20 | Learning Safe Humanoid Navigation from Reduced Order Models | [论文](https://arxiv.org/abs/2609.19272) · [项目页](https://wdc3iii.github.io/rom-nav/) | 时间回补；v1 2026-09-16；RoM→G1 迁移 + frozen locomotion + Poisson safety filter。 |
+| 2026-09-20 | Feasibility and Singularity in High-Order Safety-Critical Control for Quadrotor UAVs | [论文](https://arxiv.org/abs/2609.19362) | 时间回补；v1 2026-09-16；pairwise effectiveness + aggregate feasibility + torque-aware fourth-order HOCBF。 |
+| 2026-09-20 | StageGuard: Distilling Agentic Reasoning into Lightweight Stage Transition Monitors for Long-Horizon Robot Tasks | [论文](https://arxiv.org/abs/2609.20791) | 时间回补；v1 2026-09-17；agentic distillation 的阶段完成监控；BEHAVIOR-1K 与 UR5e/Piper 真机。 |
+| 2026-09-20 | GeoAAC: Geometry-Aware Adaptive Action Chunking for Flow-Matching Vision-Language-Action Policies | [论文](https://arxiv.org/abs/2609.20776) | 时间回补；v1 2026-09-17；Flow denoising geometry 驱动 training-free adaptive action chunk。 |
+| 2026-09-20 | MoWAM: Motion-centric World-Action Models for Efficient Robot Manipulation | [论文](https://arxiv.org/abs/2609.20709) | 时间回补；v1 2026-09-17；部署期 explicit future motion 替代完整 future-video generation，并支持 candidate verification。 |
+| 2026-09-20 | DeltaSelect: Cost-Bounded Representative Task Selection for Coding-Agent A/B Evaluation | [论文](https://arxiv.org/abs/2609.19607) | 时间回补；v1 2026-09-17；从历史 benchmark trials 选择低成本、可校准的 Coding Agent regression set。 |
+| 2026-09-20 | SemanticFusion: Dense 3D Semantic Mapping with Convolutional Neural Networks | [论文](https://arxiv.org/abs/1609.05130) · [DOI](https://doi.org/10.1109/ICRA.2017.7989538) · [项目页](https://www.imperial.ac.uk/dyson-robotics-lab/downloads/semanticfusion/) | 经典论文回顾；ICRA 2017；ElasticFusion + CNN，多视角概率式 dense semantic mapping。 |
+| 2026-09-20 | 社区精选：Claude Code 原生 AGENTS.md 支持与 Canonical Instruction Source | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；v2.1.277；跨 Claude/Codex 项目减少重复 instruction drift。 |
+| 2026-09-20 | 社区精选：AGENTS.md / CLAUDE.md 过期引用的 Pre-commit 机械校验 | [Reddit](https://www.reddit.com/r/ClaudeCode/comments/1wk018t/your_claudemd_can_reference_code_that_no_longer/) | 社区精选；社区经验；2026-09-19；stale instruction reference validation。 |
+| 2026-09-20 | 社区精选：Auto Mode Server-Side Classifier 与 Runtime Telemetry | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；v2.1.278；记录 classifier location、fallback 与 policy revision。 |
 
 ## 维护检查表
 
