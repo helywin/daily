@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-20（Asia/Shanghai）
+> 最后更新：2026-09-21（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -99,6 +99,8 @@
 > 2026-09-19 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 714 条。
 >
 > 2026-09-20 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 726 条。
+>
+> 2026-09-21 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 738 条。
 
 ## 已核验条目
 
@@ -854,7 +856,6 @@
 | 2026-09-19 | 社区精选：Claude Code Gateway Hint Headers | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；v2.1.273；CLAUDE_CODE_GATEWAY_HINT_HEADERS=1 提供 request class、agent type、tool durations 与 compaction 状态，便于网关级 SLO/根因分析。 |
 | 2026-09-19 | FAB-MAP: Probabilistic Localization and Mapping in the Space of Appearance | [Oxford](https://ora.ox.ac.uk/objects/uuid%3A917f6474-bc02-4d6d-8f51-c8bd90b2bbb8) · [DOI](https://doi.org/10.1177/0278364908090961) | 经典论文回顾；IJRR 2008；生成式 appearance model + Chow-Liu tree + new-place hypothesis，显式处理 perceptual aliasing 与概率回环决策。 |
 
-
 | 2026-09-20 | PerSeM: Persistent Semantic Memory for Long-Horizon Open-Vocabulary UAV Mapping | [论文](https://arxiv.org/abs/2609.19542) | 时间回补；v1 2026-09-17；开放词汇 UAV 持久 voxel 语义记忆、多视角稳定与选择性 refinement。 |
 | 2026-09-20 | EliGSiR: Continual RGB-D Mapping with Gaussian Splatting under Bounded Compute | [论文](https://arxiv.org/abs/2609.20348) | 时间回补；v1 2026-09-17；view scheduling + adaptive fidelity + targeted geometry growth。 |
 | 2026-09-20 | Learning Safe Humanoid Navigation from Reduced Order Models | [论文](https://arxiv.org/abs/2609.19272) · [项目页](https://wdc3iii.github.io/rom-nav/) | 时间回补；v1 2026-09-16；RoM→G1 迁移 + frozen locomotion + Poisson safety filter。 |
@@ -867,6 +868,19 @@
 | 2026-09-20 | 社区精选：Claude Code 原生 AGENTS.md 支持与 Canonical Instruction Source | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；v2.1.277；跨 Claude/Codex 项目减少重复 instruction drift。 |
 | 2026-09-20 | 社区精选：AGENTS.md / CLAUDE.md 过期引用的 Pre-commit 机械校验 | [Reddit](https://www.reddit.com/r/ClaudeCode/comments/1wk018t/your_claudemd_can_reference_code_that_no_longer/) | 社区精选；社区经验；2026-09-19；stale instruction reference validation。 |
 | 2026-09-20 | 社区精选：Auto Mode Server-Side Classifier 与 Runtime Telemetry | [Claude Code Releases](https://github.com/anthropics/claude-code/releases) | 社区精选；v2.1.278；记录 classifier location、fallback 与 policy revision。 |
+
+| 2026-09-21 | SemSafe-3DGS: Semantic Risk-Aware Active Navigation in Uncertain 3D Gaussian Splatting Maps | [论文](https://arxiv.org/abs/2609.19330) | 时间回补；v1 2026-09-16；class-dependent semantic risk + AVaR clearance + CBF-QP 安全/主动感知。 |
+| 2026-09-21 | Task-Oriented Active Learning of Residual Dynamics for Model Predictive Path Integral Control / ToIA | [论文](https://arxiv.org/abs/2609.19378) | 时间回补；v1 2026-09-16；MPPI rollout 内 task-relevant information gain + GP residual online learning；20 Hz。 |
+| 2026-09-21 | GAVEL: Graph World Models for Verified and Efficient Long-Horizon LLM Task Planning | [论文](https://arxiv.org/abs/2609.19315) | 时间回补；v1 2026-09-16；显式 graph world model、precondition/effect 验证、belief-guided local repair。 |
+| 2026-09-21 | ViLoMan: Learning Visual-Proprioceptive Whole-Body Loco-Manipulation Skills for Humanoid Robots | [论文](https://arxiv.org/abs/2609.19340) | 时间回补；v1 2026-09-16；egocentric depth + proprioception 直接输出 joint-level whole-body action；Unitree G1。 |
+| 2026-09-21 | From Rollout to Reset: A Graph-Based Harness for Autonomous Long-Horizon Manipulation Evaluation / HALTER | [论文](https://arxiv.org/abs/2609.19413) | 时间回补；v1 2026-09-16；scene graph + atomic reset skills + reset verification，真实机器人自动评测 harness。 |
+| 2026-09-21 | REACT: A Fully Spiking State-Space Model for Real-Time Event-Driven Temporal Perception | [论文](https://arxiv.org/abs/2609.19204) | 时间回补；v1 2026-09-16；raw event one-by-one state-space perception；EvTTC 4.6 ms end-to-end latency。 |
+| 2026-09-21 | Quantifying Overclaiming Propensity in Frontier LLM Agents / OverclaimBench | [论文](https://arxiv.org/abs/2609.20812) | 时间回补；v1 2026-09-17；文件覆盖率与 completion claim 分离，揭示 Coding Agent 自述完成度不可作为执行证据。 |
+| 2026-09-21 | MAGS: Multi-agent Auto-formalization Guarantees Safety for Agentic Outputs | [论文](https://arxiv.org/abs/2609.19391) | 时间回补；v1 2026-09-16；冻结 human-audited safety spec，以 Dafny + verifier feedback 驱动修复与可机检安全保证。 |
+| 2026-09-21 | 社区精选：Claude Code 子 Agent 输出显式降权与 instruction boundary | [官方 Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.277) | 社区精选；2026-09-18；subagent result 以专门 header/缩进交付，避免其文本冒充主会话自身指令。 |
+| 2026-09-21 | 社区精选：gh-aw v0.89.x 为 MCP 调用记录 timestamp / server / tool | [GitHub Agentic Workflows](https://github.github.com/gh-aw/blog/2026-09-14-weekly-update/) | 社区精选；2026-09-14；把 tool provenance / observability 作为 Agent harness 基础设施。 |
+| 2026-09-21 | 社区精选：Daily Model Inventory Checker 审计 provider catalog 与模型 alias | [GitHub Agentic Workflows](https://github.github.com/gh-aw/blog/2026-09-14-agent-of-the-day/) | 社区精选；2026-09-14；持续核验 provider live catalog 与本地 alias/config，防止 silently stale routing。 |
+| 2026-09-21 | Monte Carlo Localization: Efficient Position Estimation for Mobile Robots | [CMU](https://publications.ri.cmu.edu/monte-carlo-localization-efficient-position-estimation-for-mobile-robots) | 经典论文回顾；AAAI 1999；particle-based Markov localization、自适应样本数与多峰全局位姿假设。 |
 
 ## 维护检查表
 
