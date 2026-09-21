@@ -516,54 +516,78 @@ MAGS 与 OverclaimBench 放在一起看非常有价值：一个说明“模型�
 
 [论文](https://arxiv.org/abs/2609.19391)
 
-## 社区 / 社交平台 · Vibe Coding / AI 编程技巧精选
+## AI Coding 实战技巧精选
 
-### 1. Claude Code v2.1.277：把子 Agent 回传显式标记为“subagent output”，不要让它伪装成主会话指令
+### 技巧 1｜让 Agent 只能“暂存 npm 发布”，不要直接把包推到生产 Registry
 
-Claude Code 9 月 18 日的 v2.1.277 除了 AGENTS.md 支持外，还有一个很值得抄到自研 Agent runtime 的安全改动：**子 Agent 返回给主 Agent 的结果现在带明确 header，并对正文缩进，使其中的文本不能被当成当前会话自己的指令。**
+- **来源**：[GitHub / npm 官方更新，2026-09-18](https://github.blog/changelog/2026-09-18-stage-only-npm-tokens-for-safer-automation/)。
+- **一句话结论**：如果 Codex / Claude Code / CI Agent 会自动构建并发布 npm 包，不要给它可直接 `npm publish` 的 token；改用 **Read and write (stage only)** granular token，让 Agent 只能 `npm stage publish`，最终发布由维护者 2FA 批准。
+- **具体怎么做**：
+  1. 在 npm 创建只覆盖目标 package 的 granular access token，权限选 **Read and write (stage only)**。
+  2. CI / Agent 只拿这个 token，发布步骤从：
+     ```bash
+     npm publish
+     ```
+     改成：
+     ```bash
+     npm stage publish
+     ```
+  3. Agent 产出 staged version 后停止；维护者检查 diff / changelog / provenance，再用 2FA 批准正式 release。
+  4. 在 CI 加一条防回退检查，禁止工作流重新出现普通 `npm publish`。
+- **适合什么场景**：让 Coding Agent 自动改 SDK、组件库、CLI、npm package，并希望它可以完成构建和预发布、但不能拥有最终生产发布权。
+- **注意**：stage-only token 仍然有部分 package 写权限，例如移动 dist-tag、deprecate version，因此仍然要按写密钥保护。官方要求 npm CLI 11.15.0+、Node.js 22.14.0+。
 
-这背后的工程原则是“数据来源即权限级别”。父 Agent、子 Agent、工具输出、用户输入、仓库文件，不应该被无差别拼成同一段高权重 prompt。
+### 技巧 2｜Headless Claude Code 一定同时检查退出码和超时，不要从最后一句话判断“任务成功”
 
-今天就能用：自研 orchestrator 里给所有 child result 增加结构化 envelope，例如 `source=subagent`、`trust=untrusted`、`capabilities=[]`，并禁止子 Agent 文本直接升级权限或重写 system / workflow policy。
+- **来源**：[Anthropic Claude Code v2.1.277 官方 Release，2026-09-18](https://github.com/anthropics/claude-code/releases/tag/v2.1.277)。该版本修复了 `claude -p` / Agent SDK 在内部错误后可能一直挂住且没有结果的问题；现在会报告错误并以 **exit code 1** 退出。
+- **一句话结论**：把 Coding Agent 当普通 CI 进程管理：**0 才是成功，非 0 是失败，超时是另一种失败**；不要 grep 输出里的 “done / completed”。
+- **具体怎么做**：
+  1. 给 headless 任务加外层 deadline：
+     ```bash
+     timeout 30m claude -p "$TASK" >agent.log 2>&1
+     rc=$?
+     ```
+  2. 明确区分正常失败和 timeout：
+     ```bash
+     case "$rc" in
+       0)   echo "AGENT_OK" ;;
+       124) echo "AGENT_TIMEOUT"; exit 124 ;;
+       *)   echo "AGENT_FAILED rc=$rc"; exit "$rc" ;;
+     esac
+     ```
+  3. 即使 `rc=0`，再检查你真正需要的 artifact，例如 patch、测试报告或输出文件：
+     ```bash
+     test -s result.json || exit 2
+     ```
+  4. 在日志里保留 `exit_code / timeout / artifact_check / git_sha`，不要只存 Agent 最终自然语言。
+- **适合什么场景**：CI 中运行 Claude Code、定时无人值守 Agent、服务器上的长时间 Codex/Claude 任务、自研 Agent worker。
+- **注意**：不同 Agent CLI 的退出码约定可能不同；这条技巧的通用部分是“**进程状态 + deadline + artifact validation**”，不是把 Claude 的具体退出码规则硬套到所有工具。
 
-风险边界：仅加一段 Markdown header 不是完整隔离；真正的权限边界仍应在模型之外的 tool authorization 层执行。
+### 技巧 3｜自研 Coding Agent 不要把所有 Tool Schema 常驻 Context：按需加载工具，并把长任务结果写进 Artifact
 
-[Claude Code v2.1.277](https://github.com/anthropics/claude-code/releases/tag/v2.1.277)
-
-### 2. GitHub Agentic Workflows v0.89.x：每次 MCP 调用都应该能回答“哪个 server、哪个 tool、什么时候调用”
-
-GitHub Agentic Workflows 9 月 14 日周报强调了 `gh aw logs --json` 的可观测性增强：MCP 调用会记录 timestamp、server name 和 tool name；同一周还继续收紧 safe-output、Actions SHA pinning 和 checkout credential exposure。
-
-为什么值得学：Agent 事故排查如果只有最终 prompt / response，往往无法重建真实执行链。至少应该为每次工具调用记录：
-
-```text
-run_id
-agent_id
-server
-tool
-start/end timestamp
-request hash
-result hash / status
-permission decision
-```
-
-今天就能用：把 MCP / connector 调用当成分布式 tracing span，而不是普通日志字符串。
-
-风险边界：日志本身可能包含敏感参数，必须做字段级脱敏和 retention policy；“可观测”不能变成“把所有 secret 永久落盘”。
-
-[GitHub Agentic Workflows Weekly Update · 2026-09-14](https://github.github.com/gh-aw/blog/2026-09-14-weekly-update/)
-
-### 3. Daily Model Inventory Checker：不要把 `large` / `agent` 这种模型别名当静态配置，要持续审计实际解析结果
-
-GitHub Agentic Workflows 的 Daily Model Inventory Checker 每天读取 OpenAI、Anthropic、Google 等 provider 的实时模型目录，并和自己的 alias 配置交叉比对。9 月 9 日它曾发现新模型已经上线，但现有 alias pattern 没覆盖，导致请求 `large` / `agent` 的 workflow 可能继续落到旧默认模型。
-
-这个技巧尤其适合多模型 Coding Agent 平台：**model alias 是运行时依赖，不是一次性配置。**
-
-今天就能用：每天拉取 provider catalog，生成 `provider_model_id → local_alias → pricing → allowed_tasks` 清单；发现新模型、deprecated ID、alias 漏配时先开 issue / regression eval，而不是直接自动切生产默认。
-
-风险边界：模型目录出现新 ID 不代表它已经适合生产；别名切换必须经过固定 regression set、成本和权限审查。
-
-[Agent of the Day · Daily Model Inventory Checker](https://github.github.com/gh-aw/blog/2026-09-14-agent-of-the-day/)
+- **来源**：[OpenAI Agents API 官方发布，2026-09-10](https://openai.com/index/introducing-the-agents-api/) 与 [官方 Quickstart](https://developers.openai.com/api/docs/guides/agents-api/quickstart)。
+- **一句话结论**：长任务里，工具定义和工具输出都很占 context。让 Agent **按需发现工具**，并把研究结果、测试证据、补丁说明写进文件 / artifact；主 Agent 最后只读取需要汇总的产物。
+- **具体怎么做**：
+  1. 不要一次把几十上百个 MCP / function schema 全塞进 Prompt；按 server / 能力域组织工具，让 runtime 通过 tool search 按需加载相关定义。
+  2. 给每个长任务固定输出目录，例如：
+     ```text
+     /workspace/outputs/
+       findings.md
+       tests.json
+       patch.diff
+       unresolved.md
+     ```
+  3. 子 Agent 只负责一个明确子任务，并把结果写进 artifact；主 Agent 不接收几千行原始日志，只读取这些文件。
+  4. 如果使用 Agents API，可以显式限制并行子 Agent 数，例如：
+     ```js
+     multi_agent: {
+       enabled: true,
+       max_concurrent_subagents: 3
+     }
+     ```
+     不要默认“并行越多越好”。
+- **适合什么场景**：自研公司内部 Coding Agent、MCP 工具很多的大仓库、需要跑数小时的代码迁移/调试、多个子 Agent 并行调查同一个问题。
+- **注意**：artifact 也需要版本和来源；至少记录 `task_id / repo_sha / producer_agent / created_at`。否则只是把“上下文混乱”换成“文件夹混乱”。
 
 ## 经典论文回顾
 
