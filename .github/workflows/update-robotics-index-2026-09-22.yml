@@ -11,21 +11,21 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          ref: master
-          fetch-depth: 0
-
-      - name: Patch coverage index
+      - name: Clone, patch, commit and push
         shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          set -euo pipefail
+          git clone "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" repo
+          cd repo
+          git checkout master
+
           python3 - <<'PY'
           from pathlib import Path
 
           p = Path('robotics-brief-covered-items.md')
           s = p.read_text(encoding='utf-8')
-
           s = s.replace('> 最后更新：2026-09-21（Asia/Shanghai）', '> 最后更新：2026-09-22（Asia/Shanghai）', 1)
 
           prev = '> 2026-09-21 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 738 条。\n'
@@ -54,23 +54,13 @@ jobs:
                   raise SystemExit('maintenance checklist marker not found')
               s = s.replace(marker, '\n' + rows + marker, 1)
 
-          required = [
-              '2609.21114','2609.21186','2609.22075','2609.21211','2609.21803',
-              '2609.21580','2609.21562','Grok 4.7','Anthropic Sandbox Runtime',
-              'State-changing Tool Call','Multi-State Constraint Kalman Filter'
-          ]
-          for item in required:
+          for item in ['2609.21114','2609.21186','2609.22075','2609.21211','2609.21803','2609.21580','2609.21562','Grok 4.7','Anthropic Sandbox Runtime','State-changing Tool Call','Multi-State Constraint Kalman Filter','## 维护检查表']:
               if item not in s:
                   raise SystemExit(f'missing after patch: {item}')
-          if '## 维护检查表' not in s:
-              raise SystemExit('checklist missing')
 
           p.write_text(s, encoding='utf-8')
           PY
 
-      - name: Commit and push
-        shell: bash
-        run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git rm .github/workflows/update-robotics-index-2026-09-22.yml
