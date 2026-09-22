@@ -758,9 +758,11 @@ Cursor / Grok Build 用户、多模型 Coding Agent 平台、长任务 code migr
 
 ## 经典论文回顾
 
-### MSCKF：为什么 VIO 可以利用很多视觉特征，却不把每一个 3D Landmark 都塞进 EKF 状态
+### MSCKF：经典复盘——从固定计算预算与观测可信度重新看滤波式 VIO
 
 Anastasios I. Mourikis 与 Stergios I. Roumeliotis 的 **A Multi-State Constraint Kalman Filter for Vision-aided Inertial Navigation** 发表于 **ICRA 2007**。它是滤波式 VIO 最重要的经典工作之一。([DOI](https://doi.org/10.1109/ROBOT.2007.364024))
+
+本工作已在 **2026-08-05** 的简报索引中覆盖；本期不把它当作新的经典论文条目，而是结合今天的 Noctif3R 与 SLIM-init，从**固定计算预算、观测可信度和退化初始化接口**三个角度重新复盘。
 
 ### 核心问题
 
