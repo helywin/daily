@@ -102,7 +102,7 @@
 >
 > 2026-09-21 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 738 条。
 >
-> 2026-09-22 新增 8 条主动态、2 条 AI Coding 实战技巧精选，并经典复盘 MSCKF 1 条，共 748 条。
+> 2026-09-22 新增 8 条主动态、2 条 AI Coding 实战技巧精选，并经典复盘 MSCKF 1 条，共 749 条。
 
 ## 已核验条目
 
@@ -894,6 +894,8 @@
 | 2026-09-22 | Grok 4.7 | [官方发布](https://x.ai/news/grok-4-7) · [模型文档](https://docs.x.ai/developers/models/grok-4.7) | 2026-09-21 正式发布；500K context；长时 coding/agentic work 与 self-verification；厂商 benchmark 需独立复测。 |
 | 2026-09-22 | AI Coding 实战技巧精选：Anthropic Sandbox Runtime / srt | [官方仓库](https://github.com/anthropics/sandbox-runtime) | AI Coding 实战技巧精选；OS 级 sandbox 限定 filesystem/network；Beta Research Preview。 |
 | 2026-09-22 | AI Coding 实战技巧精选：Zero-trust Intent Policy Gate for State-changing Tools | [Google Developers Blog](https://developers.googleblog.com/build-zero-trust-ai-agents-that-judge-intent-not-just-syntax/) | AI Coding 实战技巧精选；2026-09-15；tool 执行前验证用户意图与业务规则，硬权限仍需 deterministic check。 |
+
+| 2026-09-22 | A Multi-State Constraint Kalman Filter for Vision-aided Inertial Navigation / MSCKF | [DOI](https://doi.org/10.1109/ROBOT.2007.364024) | 经典论文回顾；ICRA 2007；从固定计算预算、structureless feature constraints 与观测可信度角度复盘滤波式 VIO。 |
 
 ## 维护检查表
 
