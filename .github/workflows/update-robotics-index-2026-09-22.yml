@@ -2,17 +2,17 @@ name: Update robotics coverage index 2026-09-22
 
 on:
   push:
-    branches: [master]
-
-permissions:
-  contents: write
+    branches:
+      - master
 
 jobs:
-  update-index:
-    if: github.actor != 'github-actions[bot]'
+  update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           ref: master
           fetch-depth: 0
@@ -68,7 +68,7 @@ jobs:
           p.write_text(s, encoding='utf-8')
           PY
 
-      - name: Commit index and remove temporary workflow
+      - name: Commit and push
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
