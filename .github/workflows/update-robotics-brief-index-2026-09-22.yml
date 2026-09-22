@@ -1,0 +1,37 @@
+name: Update robotics brief coverage index 2026-09-22
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-robotics-brief-index-2026-09-22.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Patch index
+        run: python .github/scripts/update_robotics_brief_index_2026_09_22.py
+      - name: Commit index
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add robotics-brief-covered-items.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'docs: update robotics brief coverage index for 2026-09-22'
+          fi
+      - name: Cleanup updater
+        run: |
+          rm -f .github/scripts/update_robotics_brief_index_2026_09_22.py
+          rm -f .github/workflows/update-robotics-brief-index-2026-09-22.yml
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore: remove temporary robotics brief index updater'
+          fi
+      - name: Push
+        run: git push origin HEAD:master
