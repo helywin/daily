@@ -1,0 +1,79 @@
+name: Update robotics coverage index 2026-09-22
+
+on:
+  push:
+    branches: [master]
+
+permissions:
+  contents: write
+
+jobs:
+  update-index:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Patch coverage index
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('robotics-brief-covered-items.md')
+          s = p.read_text(encoding='utf-8')
+
+          s = s.replace('> 最后更新：2026-09-21（Asia/Shanghai）', '> 最后更新：2026-09-22（Asia/Shanghai）', 1)
+
+          prev = '> 2026-09-21 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 738 条。\n'
+          hist = '> 2026-09-22 新增 8 条主动态、1 条经典论文回顾与 2 条 AI Coding 实战技巧精选，共 749 条。\n'
+          if hist not in s:
+              if prev not in s:
+                  raise SystemExit('previous history line not found')
+              s = s.replace(prev, prev + '>\n' + hist, 1)
+
+          rows = '''| 2026-09-22 | Noctif3R: Feed-Forward Monocular Real-Time SLAM for Photon-Limited Scenes on Embedded Hardware | [论文](https://arxiv.org/abs/2609.21114) | 时间回补；v1 2026-09-17；极暗 monocular SLAM、显式 match gate、Jetson AGX Orin 端侧执行。 |
+| 2026-09-22 | Robust Structureless Monocular Visual Inertial Initialization Exploiting Line Features and Vanishing Points / SLIM-init | [论文](https://arxiv.org/abs/2609.21186) | 时间回补；v1 2026-09-18；IROS 2026；line/VP structureless VIO initialization，低视差退化增强。 |
+| 2026-09-22 | LIMBO: Learning and Internalizing Model-Free Barrier Objectives for Agile and Safe Whole-Body Control | [论文](https://arxiv.org/abs/2609.22075) | 时间回补；v1 2026-09-18；black-box state-action Q-CBF、risk-guided boundary sampling、29-DoF humanoid 真机。 |
+| 2026-09-22 | Stochastic Neural Signed Swept Volume for Real-time Chance-Constrained Trajectory Optimization | [论文](https://arxiv.org/abs/2609.21211) | 时间回补；v1 2026-09-18；probabilistic swept-volume SDF、epistemic/perception uncertainty、chance-constrained trajectory optimization。 |
+| 2026-09-22 | Contact-Rich Motion Planning via GPU-Parallel Mode Evaluation / CoMET | [论文](https://arxiv.org/abs/2609.21803) | 时间回补；v1 2026-09-18；GPU-parallel trajectory evaluation + greedy contact-mode expansion。 |
+| 2026-09-22 | Tilt as a Certified Resource: Preserving Motor Wrench-Rate Authority on Articulated Multirotors | [论文](https://arxiv.org/abs/2609.21580) | 时间回补；v1 2026-09-18；motor-only wrench-rate readiness certificate + CBF，articulated multirotor simulation。 |
+| 2026-09-22 | GameLogicBench: Evaluating Coding Agents on Runtime Game Logic with Tick-Level State Assertions | [论文](https://arxiv.org/abs/2609.21562) · [代码](https://github.com/NJU-LINK/GameLogicBench) | 时间回补；v1 2026-09-18；72 Godot tasks、1451 test cases、tick-level assertions、mutation-validated evaluator。 |
+| 2026-09-22 | Grok 4.7 | [官方发布](https://x.ai/news/grok-4-7) · [模型文档](https://docs.x.ai/developers/models/grok-4.7) | 最新模型发布；2026-09-21；500K context，coding/agentic/knowledge work，xAI API / Cursor / Grok Build。 |
+| 2026-09-22 | AI Coding 实战技巧精选：Anthropic Sandbox Runtime 用 OS 级策略隔离 MCP / Bash Agent | [官方仓库](https://github.com/anthropics/sandbox-runtime) | AI Coding 实战技巧精选；截至 2026-09-21 更新；srt 包装命令/MCP，filesystem + network allowlist，Beta Research Preview。 |
+| 2026-09-22 | AI Coding 实战技巧精选：State-changing Tool Call 执行前增加独立 Intent Policy Gate | [Google Developers Blog](https://developers.googleblog.com/build-zero-trust-ai-agents-that-judge-intent-not-just-syntax/) | AI Coding 实战技巧精选；2026-09-15；user intent + conversation + proposed tool call + policy → ALLOW/DENY，并监控多轮累积行为。 |
+| 2026-09-22 | A Multi-State Constraint Kalman Filter for Vision-aided Inertial Navigation / MSCKF | [DOI](https://doi.org/10.1109/ROBOT.2007.364024) · [OpenVINS](https://docs.openvins.com/) | 经典论文回顾；ICRA 2007；pose cloning + feature nullspace projection 的滤波式 VIO 基础。 |
+'''
+
+          marker = '\n## 维护检查表'
+          if '| 2026-09-22 | Noctif3R:' not in s:
+              if marker not in s:
+                  raise SystemExit('maintenance checklist marker not found')
+              s = s.replace(marker, '\n' + rows + marker, 1)
+
+          required = [
+              '2609.21114','2609.21186','2609.22075','2609.21211','2609.21803',
+              '2609.21580','2609.21562','Grok 4.7','Anthropic Sandbox Runtime',
+              'State-changing Tool Call','Multi-State Constraint Kalman Filter'
+          ]
+          for item in required:
+              if item not in s:
+                  raise SystemExit(f'missing after patch: {item}')
+          if '## 维护检查表' not in s:
+              raise SystemExit('checklist missing')
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit index and remove temporary workflow
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm .github/workflows/update-robotics-index-2026-09-22.yml
+          git add robotics-brief-covered-items.md
+          git commit -m 'docs: update robotics brief coverage index for 2026-09-22'
+          git push origin HEAD:master
