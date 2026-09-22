@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-21（Asia/Shanghai）
+> 最后更新：2026-09-22（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -101,6 +101,8 @@
 > 2026-09-20 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 726 条。
 >
 > 2026-09-21 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 738 条。
+>
+> 2026-09-22 新增 8 条主动态、2 条 AI Coding 实战技巧精选，并经典复盘 MSCKF 1 条，共 748 条。
 
 ## 已核验条目
 
@@ -336,7 +338,7 @@
 | 2026-08-05 | FlowPilot | [论文](https://arxiv.org/abs/2608.00635) |  |
 | 2026-08-05 | Probabilistic Reachable-Action Verification of Visuomotor Policies via Set-Based Training | [论文](https://arxiv.org/abs/2608.02545) |  |
 | 2026-08-05 | SWE-Touch | [论文](https://arxiv.org/abs/2608.02499) |  |
-| 2026-08-05 | MSCKF | [DOI](https://doi.org/10.1109/ROBOT.2007.364024) | 经典论文回顾 |
+| 2026-09-22 | MSCKF | [DOI](https://doi.org/10.1109/ROBOT.2007.364024) · [OpenVINS](https://docs.openvins.com/) | 经典复盘；原始覆盖 2026-08-05；本期从固定计算预算、观测可信度与退化初始化接口重新解读。 |
 | 2026-08-06 | SLAMFormer-∞ | [论文](https://arxiv.org/abs/2608.03429) |  |
 | 2026-08-06 | PLS-Calib | [论文](https://arxiv.org/abs/2608.03296) |  |
 | 2026-08-06 | CUDA MPC | [论文](https://arxiv.org/abs/2608.03051) |  |
@@ -881,6 +883,17 @@
 | 2026-09-21 | AI Coding 实战技巧精选：Headless Claude Code 使用 exit code + timeout + artifact validation | [Claude Code v2.1.277](https://github.com/anthropics/claude-code/releases/tag/v2.1.277) | AI Coding 实战技巧精选；2026-09-18；claude -p 内部错误改为 exit 1；无人值守任务用进程状态、deadline 与产物检查判定成功。 |
 | 2026-09-21 | AI Coding 实战技巧精选：按需加载 Agent Tools，并将长任务状态写入 Artifact | [OpenAI Agents API](https://openai.com/index/introducing-the-agents-api/) · [Quickstart](https://developers.openai.com/api/docs/guides/agents-api/quickstart) | AI Coding 实战技巧精选；2026-09-10；tool search / programmatic tool calling + workspace artifacts，减少常驻 context 并限制 subagent 并发。 |
 | 2026-09-21 | Monte Carlo Localization: Efficient Position Estimation for Mobile Robots | [CMU](https://publications.ri.cmu.edu/monte-carlo-localization-efficient-position-estimation-for-mobile-robots) | 经典论文回顾；AAAI 1999；particle-based Markov localization、自适应样本数与多峰全局位姿假设。 |
+
+| 2026-09-22 | Noctif3R: Feed-Forward Monocular Real-Time SLAM for Photon-Limited Scenes on Embedded Hardware | [论文](https://arxiv.org/abs/2609.21114) | 时间回补；v1 2026-09-17；极暗 monocular SLAM、显式 match/information gate、Jetson AGX Orin 异分辨率端侧执行。 |
+| 2026-09-22 | Robust Structureless Monocular Visual Inertial Initialization Exploiting Line Features and Vanishing Points / SLIM-init | [论文](https://arxiv.org/abs/2609.21186) | 时间回补；v1 2026-09-18；IROS 2026；line/VP structureless VIO initialization，面向低视差与 translation-dominant 退化。 |
+| 2026-09-22 | LIMBO: Learning and Internalizing Model-Free Barrier Objectives for Agile and Safe Whole-Body Control | [论文](https://arxiv.org/abs/2609.22075) | 时间回补；v1 2026-09-18；learned state-action Q-CBF + residual humanoid policy，将安全结构蒸馏进 29-DoF whole-body controller。 |
+| 2026-09-22 | Stochastic Neural Signed Swept Volume for Real-time Chance-Constrained Trajectory Optimization | [论文](https://arxiv.org/abs/2609.21211) | 时间回补；v1 2026-09-18；连续 swept-volume 概率 signed-distance field + chance-constrained trajectory optimization。 |
+| 2026-09-22 | Contact-Rich Motion Planning via GPU-Parallel Mode Evaluation / CoMET | [论文](https://arxiv.org/abs/2609.21803) | 时间回补；v1 2026-09-18；GPU 高吞吐并行评估 contact-mode trajectory，减少对复杂启发式树搜索的依赖。 |
+| 2026-09-22 | Tilt as a Certified Resource: Preserving Motor Wrench-Rate Authority on Articulated Multirotors | [论文](https://arxiv.org/abs/2609.21580) | 时间回补；v1 2026-09-18；motor-only wrench-rate authority/readiness certificate + CBF，避免把慢 servo 误计为瞬时控制余量。 |
+| 2026-09-22 | GameLogicBench: Evaluating Coding Agents on Runtime Game Logic with Tick-Level State Assertions | [论文](https://arxiv.org/abs/2609.21562) · [代码](https://github.com/NJU-LINK/GameLogicBench) | 时间回补；v1 2026-09-18；Godot tick-level 行为断言 + mutation validation，验证 Coding Agent evaluator 本身。 |
+| 2026-09-22 | Grok 4.7 | [官方发布](https://x.ai/news/grok-4-7) · [模型文档](https://docs.x.ai/developers/models/grok-4.7) | 2026-09-21 正式发布；500K context；长时 coding/agentic work 与 self-verification；厂商 benchmark 需独立复测。 |
+| 2026-09-22 | AI Coding 实战技巧精选：Anthropic Sandbox Runtime / srt | [官方仓库](https://github.com/anthropics/sandbox-runtime) | AI Coding 实战技巧精选；OS 级 sandbox 限定 filesystem/network；Beta Research Preview。 |
+| 2026-09-22 | AI Coding 实战技巧精选：Zero-trust Intent Policy Gate for State-changing Tools | [Google Developers Blog](https://developers.googleblog.com/build-zero-trust-ai-agents-that-judge-intent-not-just-syntax/) | AI Coding 实战技巧精选；2026-09-15；tool 执行前验证用户意图与业务规则，硬权限仍需 deterministic check。 |
 
 ## 维护检查表
 
