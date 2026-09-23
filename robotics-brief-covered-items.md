@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-22（Asia/Shanghai）
+> 最后更新：2026-09-23（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -103,6 +103,8 @@
 > 2026-09-21 新增 8 条主动态、1 条经典论文回顾与 3 条社区精选，共 738 条。
 >
 > 2026-09-22 新增 8 条主动态、2 条 AI Coding 实战技巧精选，并经典复盘 MSCKF 1 条，共 748 条。
+>
+> 2026-09-23 新增 7 条论文/技术主动态、同一模型动态栏目覆盖 2 个官方模型发布、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 760 条。
 
 ## 已核验条目
 
@@ -894,6 +896,19 @@
 | 2026-09-22 | Grok 4.7 | [官方发布](https://x.ai/news/grok-4-7) · [模型文档](https://docs.x.ai/developers/models/grok-4.7) | 2026-09-21 正式发布；500K context；长时 coding/agentic work 与 self-verification；厂商 benchmark 需独立复测。 |
 | 2026-09-22 | AI Coding 实战技巧精选：Anthropic Sandbox Runtime / srt | [官方仓库](https://github.com/anthropics/sandbox-runtime) | AI Coding 实战技巧精选；OS 级 sandbox 限定 filesystem/network；Beta Research Preview。 |
 | 2026-09-22 | AI Coding 实战技巧精选：Zero-trust Intent Policy Gate for State-changing Tools | [Google Developers Blog](https://developers.googleblog.com/build-zero-trust-ai-agents-that-judge-intent-not-just-syntax/) | AI Coding 实战技巧精选；2026-09-15；tool 执行前验证用户意图与业务规则，硬权限仍需 deterministic check。 |
+
+| 2026-09-23 | SPARSER: Sparse Variable Projection by Exploiting Separable Structure in Robotic Perception | [论文](https://arxiv.org/abs/2609.24708) | 时间回补；v1 2026-09-21；VarPro + sparsity + gauge handling，matrix-free Schur operator；SLAM/SfM/SNL。 |
+| 2026-09-23 | Range-Aided SLAM Initialization Exploiting Accurate Heading Information | [论文](https://arxiv.org/abs/2609.24846) | 时间回补；v1 2026-09-21；AUV/LBL+INS；GTRS + linear least squares 的 RA-SLAM 初始化。 |
+| 2026-09-23 | PredActor: Predictive Action Diffusion for Steerable Onboard Humanoid Control | [论文](https://arxiv.org/abs/2609.24840) · [项目页](https://masteryip.github.io/predactor.github.io/) | 时间回补；v1 2026-09-21；Unitree G1 + Jetson Orin NX，joint state-action diffusion，50 Hz measured feasibility。 |
+| 2026-09-23 | Feasibility Distance Fields for Heterogeneous Constraints in Robot Configuration Space | [论文](https://arxiv.org/abs/2609.24632) | 时间回补；v1 2026-09-21；统一 joint-space metric 表达 collision/joint/torque/dexterity/compliance 等约束裕度。 |
+| 2026-09-23 | SE(3) Neural Potential Fields for 6-DoF Trajectory Planning Directly from Images Without Explicit 3D Reconstruction | [论文](https://arxiv.org/abs/2609.24864) | 时间回补；v1 2026-09-21；posed RGB→SE(3) neural potential；geodesic navigation-function supervision；UR10 真机。 |
+| 2026-09-23 | FoldQuantVLA: Native Low-Bit Quantization of Vision-Language-Action Models via Consistent Folding | [论文](https://arxiv.org/abs/2609.24433) | 时间回补；v1 2026-09-21；W4A4/W8A8 mixed precision；Jetson Orin + GR00T/π0.5；真机成功率消融。 |
+| 2026-09-23 | VibeMemBench: Evaluating Memory Systems for Coding Agents on Real Repository Coding Tasks | [论文](https://arxiv.org/abs/2609.23570) | 时间回补；v1 2026-09-20；111 repo coding targets；验证 memory experience 是否真正提升 executable task resolution。 |
+| 2026-09-23 | GPT-6 Sol and GPT-6 Luna | [官方发布](https://openai.com/index/introducing-gpt-6-sol-and-luna/) | 2026-09-22 正式发布；GPT-6 family 的成本效率档；API/Codex/ChatGPT Work。 |
+| 2026-09-23 | Claude Opus 5.5 | [官方发布](https://www.anthropic.com/claude-opus-5-5) | 2026-09-22 正式发布；agentic coding / long-running work；API claude-opus-5-5。 |
+| 2026-09-23 | AI Coding 实战技巧精选：JetBrains 先审批 Codex Plan，再使用 MCP per-tool persistent controls | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains/) | AI Coding 实战技巧精选；2026-09-22；Copilot for JetBrains 1.18.0，Plan mode + assisted approvals + per-tool MCP controls。 |
+| 2026-09-23 | AI Coding 实战技巧精选：GPT-6 保持 Tool Schema 稳定并用 allowed_tools 维护 Prompt Cache | [OpenAI 官方](https://openai.com/index/better-prompt-caching-for-gpt-6/) | AI Coding 实战技巧精选；2026-09-22；stable prefix、allowed_tools、configuration_update、cache diagnostics。 |
+| 2026-09-23 | The Differentiation of Pseudo-Inverses and Nonlinear Least Squares Problems Whose Variables Separate | [DOI](https://doi.org/10.1137/0710036) | 经典论文回顾；Golub & Pereyra，SIAM J. Numer. Anal. 1973；Variable Projection / separable nonlinear least squares。 |
 
 ## 维护检查表
 
