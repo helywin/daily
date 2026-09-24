@@ -1,0 +1,36 @@
+name: Patch robotics brief index 2026-09-24
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '.github/workflows/patch-robotics-index-20260924.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  patch-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Patch coverage index
+        run: python .github/scripts/patch_robotics_index_20260924.py
+      - name: Commit index update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add robotics-brief-covered-items.md
+          git commit -m "docs: update robotics brief coverage index for 2026-09-24"
+          git push origin HEAD:master
+      - name: Clean temporary updater
+        run: |
+          git pull --rebase origin master
+          git rm .github/scripts/patch_robotics_index_20260924.py .github/workflows/patch-robotics-index-20260924.yml
+          git commit -m "chore: clean robotics brief index updater for 2026-09-24"
+          git push origin HEAD:master
