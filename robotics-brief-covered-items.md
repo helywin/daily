@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-23（Asia/Shanghai）
+> 最后更新：2026-09-24（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -105,6 +105,8 @@
 > 2026-09-22 新增 8 条主动态、2 条 AI Coding 实战技巧精选，并经典复盘 MSCKF 1 条，共 748 条。
 >
 > 2026-09-23 新增 7 条论文/技术主动态、同一模型动态栏目覆盖 2 个官方模型发布、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 760 条。
+>
+> 2026-09-24 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 771 条。
 
 ## 已核验条目
 
@@ -909,6 +911,18 @@
 | 2026-09-23 | AI Coding 实战技巧精选：JetBrains 先审批 Codex Plan，再使用 MCP per-tool persistent controls | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains/) | AI Coding 实战技巧精选；2026-09-22；Copilot for JetBrains 1.18.0，Plan mode + assisted approvals + per-tool MCP controls。 |
 | 2026-09-23 | AI Coding 实战技巧精选：GPT-6 保持 Tool Schema 稳定并用 allowed_tools 维护 Prompt Cache | [OpenAI 官方](https://openai.com/index/better-prompt-caching-for-gpt-6/) | AI Coding 实战技巧精选；2026-09-22；stable prefix、allowed_tools、configuration_update、cache diagnostics。 |
 | 2026-09-23 | The Differentiation of Pseudo-Inverses and Nonlinear Least Squares Problems Whose Variables Separate | [DOI](https://doi.org/10.1137/0710036) | 经典论文回顾；Golub & Pereyra，SIAM J. Numer. Anal. 1973；Variable Projection / separable nonlinear least squares。 |
+
+| 2026-09-24 | TM-APR: Thermal Temporal-Memory Localization via Analytic Online Adaptation | [论文](https://arxiv.org/abs/2609.26766) | 时间回补；v1 2026-09-22；ACIL + Unscented/GMM/H∞ 解析在线适配；闭式 O(1) 更新。 |
+| 2026-09-24 | Dr-LiSA: Direct Radar-Lidar Scan Alignment for SE(3) Localization | [论文](https://arxiv.org/abs/2609.26423) | 时间回补；v1 2026-09-22；2D spinning radar 对 3D LiDAR map 的 learned-forward-model direct SE(3) alignment；>90 km 道路数据。 |
+| 2026-09-24 | ArborSplat: Online Semantic Gaussian Splatting SLAM for Orchards | [论文](https://arxiv.org/abs/2609.26315) | 时间回补；v1 2026-09-22；LiDAR odometry + semantic 3DGS；class-constrained refinement 保留细结构表示容量。 |
+| 2026-09-24 | Learning Air-Ground Motion Control with Temporal Mode Switching and Cross-Terrain Tracking | [论文](https://arxiv.org/abs/2609.26564) | 时间回补；v1 2026-09-22；历史单点 ToF + state/reference 模式选择器；RL 地面跟踪；101 m 真机空地轨迹。 |
+| 2026-09-24 | Wheel-loader V-Cycle Automation with Deep Koopman MPC | [论文](https://arxiv.org/abs/2609.26580) | 时间回补；v1 2026-09-22；前进/后退双 deep bilinear Koopman model + MPC；50 ms 仿真控制循环。 |
+| 2026-09-24 | SafeLoop: Risk-Aware Rollback for Vision-Language-Action Manipulation | [论文](https://arxiv.org/abs/2609.26313) · [代码](https://github.com/Loule0-0/SafeLoop/tree/release/safeloop) | 时间回补；v1 2026-09-22；model-agnostic VLA risk prediction + safe waypoint rollback；LIBERO/真机。 |
+| 2026-09-24 | You Should Be Properly Scoring Your Odometry | [论文](https://arxiv.org/abs/2609.25900) | 时间回补；v1 2026-09-22；strictly proper scoring rules + smfeval；同时评估 pose error 与 covariance consistency。 |
+| 2026-09-24 | CliffCompaction: Cost-Efficient Compaction for Long-Horizon Coding Agents | [论文](https://arxiv.org/abs/2609.26779) | 时间回补；v1 2026-09-22；truncation-only / original-context compaction，避免 summary drift；长时 Coding Agent。 |
+| 2026-09-24 | AI Coding 实战技巧精选：Copilot app Local Sandboxing 默认沙箱新 Session | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/) | AI Coding 实战技巧精选；2026-09-23；filesystem/network/credentials 项目级 sandbox + `/sandbox on`；无法 enforce 时 fail-closed。 |
+| 2026-09-24 | AI Coding 实战技巧精选：Copilot Code Review 分层使用 Lite / Balanced Effort | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews/) | AI Coding 实战技巧精选；2026-09-23；push/draft 自动 review 与个人/企业默认 effort 配置。 |
+| 2026-09-24 | A Flexible and Scalable SLAM System with Full 3D Motion Estimation / Hector SLAM | [DOI](https://doi.org/10.1109/SSRR.2011.6106777) · [代码](https://github.com/tu-darmstadt-ros-pkg/hector_slam) · [ROS Index](https://index.ros.org/p/hector_mapping/) | 经典论文回顾；SSRR 2011；无轮速 scan-to-occupancy-grid gradient Gauss-Newton + multi-resolution mapping。 |
 
 ## 维护检查表
 
