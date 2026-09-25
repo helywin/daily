@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-24（Asia/Shanghai）
+> 最后更新：2026-09-25（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -107,6 +107,8 @@
 > 2026-09-23 新增 7 条论文/技术主动态、同一模型动态栏目覆盖 2 个官方模型发布、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 760 条。
 >
 > 2026-09-24 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 771 条。
+>
+> 2026-09-25 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 782 条。
 
 ## 已核验条目
 
@@ -923,6 +925,19 @@
 | 2026-09-24 | AI Coding 实战技巧精选：Copilot app Local Sandboxing 默认沙箱新 Session | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app/) | AI Coding 实战技巧精选；2026-09-23；filesystem/network/credentials 项目级 sandbox + `/sandbox on`；无法 enforce 时 fail-closed。 |
 | 2026-09-24 | AI Coding 实战技巧精选：Copilot Code Review 分层使用 Lite / Balanced Effort | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews/) | AI Coding 实战技巧精选；2026-09-23；push/draft 自动 review 与个人/企业默认 effort 配置。 |
 | 2026-09-24 | A Flexible and Scalable SLAM System with Full 3D Motion Estimation / Hector SLAM | [DOI](https://doi.org/10.1109/SSRR.2011.6106777) · [代码](https://github.com/tu-darmstadt-ros-pkg/hector_slam) · [ROS Index](https://index.ros.org/p/hector_mapping/) | 经典论文回顾；SSRR 2011；无轮速 scan-to-occupancy-grid gradient Gauss-Newton + multi-resolution mapping。 |
+
+
+| 2026-09-25 | DAVIO: Dense Monocular-Inertial SLAM with Feed-Forward Initialization and Pose-Conditioned Mapping | [论文](https://arxiv.org/abs/2609.27702) | 时间回补；v1 2026-09-23；Depth Anything 3 同时服务 feature-free VIO 初始化与 pose-conditioned dense mapping；camera+IMU。 |
+| 2026-09-25 | Large-Scale Geometric Map-Based Localization of UAVs in GNSS-Denied Urban Environments | [论文](https://arxiv.org/abs/2609.28225) | 时间回补；v1 2026-09-23；IROS 2026；向下视觉建筑检测 + footprint 几何描述子；最大约 452 km² / 27.7 万建筑检索。 |
+| 2026-09-25 | LEAP-CBF: A Safety Filter for Uncertain Systems with Least-Effort Adversarial Potentials | [论文](https://arxiv.org/abs/2609.28364) | 时间回补；v1 2026-09-23；以最小累计扰动 effort 表达 recoverability；on-policy RL 学 LEAP；四足与四旋翼真机。 |
+| 2026-09-25 | Safety-Filtered Distributed Koopman-MPC | [论文](https://arxiv.org/abs/2609.27463) | 时间回补；v1 2026-09-23；remote trajectory 仅用于 Koopman prediction，本地感知构造 hard QP safety projection；packet-loss 仓储多机器人仿真。 |
+| 2026-09-25 | Motoneuron-Inspired Sampling for Model Predictive Path Integral Control / Spike-MPPI | [论文](https://arxiv.org/abs/2609.28325) | 时间回补；v1 2026-09-23；时序结构化 motoneuron proposal；与 spectrum-matched Gaussian 对照，强调 MPPI proposal 的频谱与高阶结构。 |
+| 2026-09-25 | LiMA: Bridging Long-term Imagination to Real-time Dexterous Manipulation via Asynchronous Diffusion | [论文](https://arxiv.org/abs/2609.28431) · [项目页](https://ccdcs.github.io/LiMA_repo/) | 时间回补；v1 2026-09-23；slow sparse intent + fast dense motion refinement；Latent Schrödinger Bridge；双臂灵巧操作。 |
+| 2026-09-25 | PointCast: One World Model for Rigid, Articulated, and Deformable Object Manipulation | [论文](https://arxiv.org/abs/2609.28393) · [项目页](https://pointcast-wm.github.io/) | 时间回补；v1 2026-09-23；19.8M point-set diffusion world model；rigid/cloth/rope/cabinet；可冻结用于 sampling MPC。 |
+| 2026-09-25 | Can LLMs Reason About Runtime Behavior? A Repository-Level Dynamic Benchmark / SWE-Flux | [论文](https://arxiv.org/abs/2609.28449) | 时间回补；v1 2026-09-23；12 个真实 Python repo、480 个 execution-grounded instance；gold answer 来自 instrumented tests。 |
+| 2026-09-25 | AI Coding 实战技巧精选：Copilot CLI C++ Whole Codebase Indexing | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing/) | AI Coding 实战技巧精选；2026-09-22；持久 C++ 全仓符号索引，/lsp logs 查看进度，适合大型 CMake/ROS2 仓库。 |
+| 2026-09-25 | AI Coding 实战技巧精选：Copilot OpenTelemetry Agent Tracing | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app/) · [官方文档](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference) | AI Coding 实战技巧精选；2026-09-22；导出 agent/LLM/tool/token trace；默认不采集 prompt/response 内容。 |
+| 2026-09-25 | Information-Theoretic Model Predictive Control: Theory and Applications to Autonomous Driving | [arXiv](https://arxiv.org/abs/1707.02342) · [DOI](https://doi.org/10.1109/TRO.2018.2865891) | 经典论文回顾；T-RO 2018；information-theoretic sampling MPC / MPPI 经典理论，结合当日 Spike-MPPI 从 proposal distribution 角度重读。 |
 
 ## 维护检查表
 
