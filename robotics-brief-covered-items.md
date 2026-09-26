@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-25（Asia/Shanghai）
+> 最后更新：2026-09-26（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -109,6 +109,8 @@
 > 2026-09-24 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 771 条。
 >
 > 2026-09-25 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 782 条。
+>
+> 2026-09-26 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 793 条。
 
 ## 已核验条目
 
@@ -938,6 +940,18 @@
 | 2026-09-25 | AI Coding 实战技巧精选：Copilot CLI C++ Whole Codebase Indexing | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing/) | AI Coding 实战技巧精选；2026-09-22；持久 C++ 全仓符号索引，/lsp logs 查看进度，适合大型 CMake/ROS2 仓库。 |
 | 2026-09-25 | AI Coding 实战技巧精选：Copilot OpenTelemetry Agent Tracing | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app/) · [官方文档](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference) | AI Coding 实战技巧精选；2026-09-22；导出 agent/LLM/tool/token trace；默认不采集 prompt/response 内容。 |
 | 2026-09-25 | Information-Theoretic Model Predictive Control: Theory and Applications to Autonomous Driving | [arXiv](https://arxiv.org/abs/1707.02342) · [DOI](https://doi.org/10.1109/TRO.2018.2865891) | 经典论文回顾；T-RO 2018；information-theoretic sampling MPC / MPPI 经典理论，结合当日 Spike-MPPI 从 proposal distribution 角度重读。 |
+
+| 2026-09-26 | UpDown-SC: Gravity-Canonicalized Dual-Envelope Scan Context for Indoor LiDAR Place Recognition | [论文](https://arxiv.org/abs/2609.29118) · [代码](https://github.com/jiejie567/updown-sc) | 时间回补；v1 2026-09-24；gravity canonicalization + dual vertical envelopes，室内 LiDAR place recognition。 |
+| 2026-09-26 | UCON: Uncertainty-aware Navigation with Historical Re-association in Dynamic Environments | [论文](https://arxiv.org/abs/2609.29419) | 时间回补；v1 2026-09-24；historical point-cloud re-association + covariance-aware trajectory optimization；IROS 2026。 |
+| 2026-09-26 | ReVAMP: Vector-Accelerated Motion Planning for Kinematically-Constrained Systems via Reparameterization | [论文](https://arxiv.org/abs/2609.30213) | 时间回补；v1 2026-09-24；analytic-IK reparameterization + vectorized constrained planning；最高约 10× 加速。 |
+| 2026-09-26 | Real-Time Force Regulation for Whole-Hand Dexterous Grasping | [论文](https://arxiv.org/abs/2609.30082) · [项目页](https://sangminkim-99.github.io/reactive-grasp-whole-hand/) | 时间回补；v1 2026-09-24；动态 whole-hand contact force reallocation；27-DoF 真机抓持/恢复。 |
+| 2026-09-26 | Contact as a Decision Variable: Capability-Tradeoff Contact Selection for Legged Loco-Manipulation | [论文](https://arxiv.org/abs/2609.30140) | 时间回补；v1 2026-09-24；residual wrench / reach / base mobility 驱动支撑接触选择；Go2 + NERO 真机。 |
+| 2026-09-26 | OA-MPPI: Occlusion-Aware Model Predictive Path Integral Control for UAV Flight | [论文](https://arxiv.org/abs/2609.28709) | 时间回补；v1 2026-09-23；3D occlusion boundary + hidden-agent reachable-region cost；onboard 真机实时。 |
+| 2026-09-26 | Rolling-WAM: World Action Models with Rolling Imagination | [论文](https://arxiv.org/abs/2609.30247) · [项目页](https://rolling-wam.github.io/) | 时间回补；v1 2026-09-24；跨 replanning cycle 滚动去噪 video-action chunks；4.5× steady-state replanning speedup。 |
+| 2026-09-26 | Evaluating Agent Skills for Version-Specific Plugin Migration: A Retrospective Study | [论文](https://arxiv.org/abs/2609.30120) · [代码与评测](https://github.com/oh-my-dsh/dsh-plugin-upgrade-skill) | 时间回补；v1 2026-09-24；Agent Skill contract-level evidence、evaluator audit 与 executable probes。 |
+| 2026-09-26 | AI Coding 实战技巧精选：Agentic Autofix 使用 Copilot Memory 前先校验仓库记忆 | [GitHub Changelog](https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory/) · [Docs](https://docs.github.com/en/copilot/concepts/agents/copilot-memory) | AI Coding 实战技巧精选；2026-09-25；Autofix 读取/写回修复模式记忆，重大迁移后先检查 stale memory。 |
+| 2026-09-26 | AI Coding 实战技巧精选：提前设置 Copilot 新功能默认启用策略 | [GitHub Changelog](https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/) | AI Coding 实战技巧精选；2026-09-24；AI Controls → Copilot → Default policy for new features，统一管理 Features/Code Review/MCP 默认策略。 |
+| 2026-09-26 | SegMatch: Segment based place recognition in 3D point clouds | [论文](https://arxiv.org/abs/1609.07720) · [DOI](https://doi.org/10.1109/ICRA.2017.7989618) · [代码](https://github.com/ethz-asl/segmap) | 经典论文回顾；ICRA 2017；3D segment-based place recognition / geometric verification，结构级回环经典。 |
 
 ## 维护检查表
 
