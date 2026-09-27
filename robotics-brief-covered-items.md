@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-26（Asia/Shanghai）
+> 最后更新：2026-09-27（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -111,6 +111,8 @@
 > 2026-09-25 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 782 条。
 >
 > 2026-09-26 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 793 条。
+>
+> 2026-09-27 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 805 条。
 
 ## 已核验条目
 
@@ -952,6 +954,20 @@
 | 2026-09-26 | AI Coding 实战技巧精选：Agentic Autofix 使用 Copilot Memory 前先校验仓库记忆 | [GitHub Changelog](https://github.blog/changelog/2026-09-25-agentic-autofix-now-uses-copilot-memory/) · [Docs](https://docs.github.com/en/copilot/concepts/agents/copilot-memory) | AI Coding 实战技巧精选；2026-09-25；Autofix 读取/写回修复模式记忆，重大迁移后先检查 stale memory。 |
 | 2026-09-26 | AI Coding 实战技巧精选：提前设置 Copilot 新功能默认启用策略 | [GitHub Changelog](https://github.blog/changelog/2026-09-24-default-enablement-of-copilot-features-for-copilot-business-and-enterprise/) | AI Coding 实战技巧精选；2026-09-24；AI Controls → Copilot → Default policy for new features，统一管理 Features/Code Review/MCP 默认策略。 |
 | 2026-09-26 | SegMatch: Segment based place recognition in 3D point clouds | [论文](https://arxiv.org/abs/1609.07720) · [DOI](https://doi.org/10.1109/ICRA.2017.7989618) · [代码](https://github.com/ethz-asl/segmap) | 经典论文回顾；ICRA 2017；3D segment-based place recognition / geometric verification，结构级回环经典。 |
+
+
+| 2026-09-27 | OREN-X: Octree Residual Network for Real-Time Multi-Modal Mapping | [论文](https://arxiv.org/abs/2609.29157) | 时间回补；v1 2026-09-24；共享 octree 统一 occupancy/SDF/radiance/VL field；Replica 80+ fps SDF、30+ fps 四模态。 |
+| 2026-09-27 | FMCW-LIO: A Doppler LiDAR-Inertial Odometry | [论文](https://arxiv.org/abs/2609.29374) · [DOI](https://doi.org/10.1109/LRA.2024.3396636) · [代码入口](https://github.com/IMRL/FMCW-LIO) | 补充回顾；IEEE RA-L 2024，2026-09-24 补登 arXiv；Doppler-aided on-manifold LIO + 动态点剔除；仓库仍 Coming soon。 |
+| 2026-09-27 | CrossSafe: Towards Cross-Embodiment Latent Safety Filters | [论文](https://arxiv.org/abs/2609.28984) | 时间回补；v1 2026-09-24；morphology-aware latent HJ reachability；5 双臂本体 × 5 manipulation tasks，held-out embodiment zero-shot。 |
+| 2026-09-27 | Online Sim-to-Real Adaptation via Closed-Loop System Modeling / OSRAM | [论文](https://arxiv.org/abs/2609.28878) · [项目页](http://generalroboticslab.com/OSRAM) | 时间回补；v1 2026-09-24；把 robot+policy 建模为闭环系统，在线适配 reference command 而不改底层 policy；硬件验证。 |
+| 2026-09-27 | Koopman-Accelerated Model-Based Diffusion for Real-Time Robot Control / BK-MBD | [论文](https://arxiv.org/abs/2609.28920) · [项目页](https://rcilab.khu.ac.kr/bkmbd/) | 时间回补；v1 2026-09-24；bilinear Koopman rollout + model-based diffusion；仿真 planning ≤14.7 ms / 50 ms period；机械臂真机。 |
+| 2026-09-27 | Training-free Behavior Cloning / Behavior Predictive Control | [论文](https://arxiv.org/abs/2609.30134) | 时间回补；v1 2026-09-24；action-aware retrieval + Hankel continuation + closed-form residual；Jetson Orin Nano >75 Hz。 |
+| 2026-09-27 | RAPID: Robot Agentic Programming from Demonstrations | [论文](https://arxiv.org/abs/2609.30249) · [项目页](https://yuyaoliu.me/projects/rapid) | 时间回补；v1 2026-09-24；单视觉示范→task spec/action primitives/verification env→Agent 迭代生成机器人程序；Franka 真机。 |
+| 2026-09-27 | Where Does Exactly-Once Live? Model, Harness, and Tool-Contract Effects on Duplicate Side Effects in LLM Agents | [论文](https://arxiv.org/abs/2609.29095) | 时间回补；v1 2026-09-24；LIMBO 25,930 episodes；write idempotency key 将 duplicate rate 28%→4%。 |
+| 2026-09-27 | AI Coding 实战技巧精选：Claude Code /doctor prompt-audit | [Claude Code v2.1.283](https://github.com/anthropics/claude-code/releases/tag/v2.1.283) | AI Coding 实战技巧精选；2026-09-25；审计 CLAUDE.md/skills/agents/commands 的 stale path、stale command 与冲突 instruction。 |
+| 2026-09-27 | AI Coding 实战技巧精选：Claude Code exact model allowlist + deniedModels | [Claude Code v2.1.283](https://github.com/anthropics/claude-code/releases/tag/v2.1.283) | AI Coding 实战技巧精选；2026-09-25；availableModelsMatch=exact，新版本默认不放行；deniedModels 显式封锁。 |
+| 2026-09-27 | AI Coding 实战技巧精选：GitHub Security Lab Agentic Fuzzing Taskflow | [官方实践](https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/) · [代码](https://github.com/GitHubSecurityLab/seclab-taskflows-fuzzing) | AI Coding 实战技巧精选；2026-09-24；Agent 自动生成/改进 AFL++ harness + coverage loop；必须在 disposable Codespace/VM 运行。 |
+| 2026-09-27 | STOMP: Stochastic Trajectory Optimization for Motion Planning | [MPI-IS](https://is.mpg.de/publications/kalakrishnan_raiic_2011) · [DOI](https://doi.org/10.1109/ICRA.2011.5980280) · [原始代码](https://github.com/kalakris/stomp_motion_planner_icra2011) | 经典论文回顾；ICRA 2011；无梯度 stochastic trajectory optimization，以相关噪声 rollouts 绕过复杂/不可微 cost 与局部最小。 |
 
 ## 维护检查表
 
