@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-27（Asia/Shanghai）
+> 最后更新：2026-09-28（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -113,6 +113,8 @@
 > 2026-09-26 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 793 条。
 >
 > 2026-09-27 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 805 条。
+
+> 2026-09-28 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 817 条。
 
 ## 已核验条目
 
@@ -968,6 +970,19 @@
 | 2026-09-27 | AI Coding 实战技巧精选：Claude Code exact model allowlist + deniedModels | [Claude Code v2.1.283](https://github.com/anthropics/claude-code/releases/tag/v2.1.283) | AI Coding 实战技巧精选；2026-09-25；availableModelsMatch=exact，新版本默认不放行；deniedModels 显式封锁。 |
 | 2026-09-27 | AI Coding 实战技巧精选：GitHub Security Lab Agentic Fuzzing Taskflow | [官方实践](https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent/) · [代码](https://github.com/GitHubSecurityLab/seclab-taskflows-fuzzing) | AI Coding 实战技巧精选；2026-09-24；Agent 自动生成/改进 AFL++ harness + coverage loop；必须在 disposable Codespace/VM 运行。 |
 | 2026-09-27 | STOMP: Stochastic Trajectory Optimization for Motion Planning | [MPI-IS](https://is.mpg.de/publications/kalakrishnan_raiic_2011) · [DOI](https://doi.org/10.1109/ICRA.2011.5980280) · [原始代码](https://github.com/kalakris/stomp_motion_planner_icra2011) | 经典论文回顾；ICRA 2011；无梯度 stochastic trajectory optimization，以相关噪声 rollouts 绕过复杂/不可微 cost 与局部最小。 |
+
+| 2026-09-28 | Free-Init: Scan-Free, Motion-Free, and Correspondence-Free Initialization for Doppler LiDAR-Inertial Systems | [论文](https://arxiv.org/abs/2609.29375) · [DOI](https://doi.org/10.1109/LRA.2024.3490395) · [代码](https://github.com/IMRL/Free-Init) | 补充回顾；IEEE RA-L 2024，2026-09-24 补登 arXiv；point-wise Doppler + IMU 初始化；velocimeter >10 kHz。 |
+| 2026-09-28 | Retrieve-to-Localize: Bridging Large Language Models and LiDAR Geometry for Spatial Grounding | [论文](https://arxiv.org/abs/2609.29835) | 时间回补；v1 2026-09-24；SpatialLiDAR-QA / SpatialLiDAR-LM；language-conditioned proposal retrieval + local point refinement。 |
+| 2026-09-28 | WRAP: Fixtureless Wrench-aware Multi-Robot Assembly Planning | [论文](https://arxiv.org/abs/2609.29407) · [项目页](https://www.vhartmann.com/wrap) | 时间回补；v1 2026-09-24；LP wrench feasibility + backward heuristic / forward search + multi-robot assembly execution；仿真/真机。 |
+| 2026-09-28 | Body-Grounded Replanning for Physically Adaptive Manipulation | [论文](https://arxiv.org/abs/2609.30024) | 时间回补；v1 2026-09-24；joint/body-state event 触发高层 LLM 策略重规划，低层 controller 与任务目标不变；真机。 |
+| 2026-09-28 | Res-HIL: Human-Guided Residual Reinforcement Learning for Sample-Efficient Dexterous Manipulation | [论文](https://arxiv.org/abs/2609.30023) | 时间回补；v1 2026-09-24；冻结 imitation policy + residual HIL；20 demos + 10 min online training。 |
+| 2026-09-28 | DAWN: Noise-Robust Quadruped Parkour via Depth-Denoising World Models | [论文](https://arxiv.org/abs/2609.29092) · [项目页](https://dawn-parkour.github.io/) · [代码](https://github.com/DocyNoah/dawn-parkour) | 时间回补；v1 2026-09-24；IROS 2026；noisy→clean reconstruction + contrastive latent alignment；Go1 raw depth 零样本。 |
+| 2026-09-28 | Decoupled Early Exits for Task-Dependent Compute Allocation in Flow-Matching VLAs | [论文](https://arxiv.org/abs/2609.29382) | 时间回补；v1 2026-09-24；V/A/D 三轴 early exit + KV cache synthesis；latency -79.2%，FLOPs -31.8%，mean success +5.6%。 |
+| 2026-09-28 | Coding Agents for Generalized Task and Motion Planning Problems | [论文](https://arxiv.org/abs/2609.30233) · [代码](https://github.com/tomsilver/robocode) · [项目页](https://agenticgentamp.github.io/) | 时间回补；v1 2026-09-24；coding agents 通过 simulator 交互合成并冻结广义 TAMP 程序；98,000 evaluation episodes。 |
+| 2026-09-28 | AI Coding 实战技巧精选：CodeQL 2.27.1 作为 Agent C/C++ Patch 的静态验收层 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-25-codeql-2-27-1-adds-c-and-c-query-and-kotlin-2-4-20-support/) | AI Coding 实战技巧精选；新增 cpp/ambiguous-assignment-of-comparison 与 Boost.Asio/Protobuf 等数据流模型。 |
+| 2026-09-28 | AI Coding 实战技巧精选：高影响动作要求 Proof of Presence | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-24-require-proof-of-presence-for-high-impact-actions/) | AI Coding 实战技巧精选；关键操作要求交互式重新认证/MFA，将长期 token 与最终授权分离。 |
+| 2026-09-28 | AI Coding 实战技巧精选：Copilot Enterprise Managed Settings Validator | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator/) | AI Coding 实战技巧精选；校验 managed-settings/team-mappings 的 JSON、unsupported config 与 team reference。 |
+| 2026-09-28 | Motion Planning in Dynamic Environments Using Velocity Obstacles | [DOI](https://doi.org/10.1177/027836499801700706) | 经典论文回顾；IJRR 1998；Velocity Obstacle 将动态碰撞预测转成速度空间禁区，现代 RVO/ORCA/概率动态规划的重要基础。 |
 
 ## 维护检查表
 
