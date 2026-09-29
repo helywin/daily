@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-28（Asia/Shanghai）
+> 最后更新：2026-09-29（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -115,6 +115,8 @@
 > 2026-09-27 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 805 条。
 
 > 2026-09-28 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 817 条。
+
+> 2026-09-29 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 828 条。
 
 ## 已核验条目
 
@@ -983,6 +985,18 @@
 | 2026-09-28 | AI Coding 实战技巧精选：高影响动作要求 Proof of Presence | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-24-require-proof-of-presence-for-high-impact-actions/) | AI Coding 实战技巧精选；关键操作要求交互式重新认证/MFA，将长期 token 与最终授权分离。 |
 | 2026-09-28 | AI Coding 实战技巧精选：Copilot Enterprise Managed Settings Validator | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-25-enterprise-managed-settings-in-product-validator/) | AI Coding 实战技巧精选；校验 managed-settings/team-mappings 的 JSON、unsupported config 与 team reference。 |
 | 2026-09-28 | Motion Planning in Dynamic Environments Using Velocity Obstacles | [DOI](https://doi.org/10.1177/027836499801700706) | 经典论文回顾；IJRR 1998；Velocity Obstacle 将动态碰撞预测转成速度空间禁区，现代 RVO/ORCA/概率动态规划的重要基础。 |
+
+| 2026-09-29 | Transformer-based Monte Carlo Localization in Construction Meshes | [论文](https://arxiv.org/abs/2609.31357) | 时间回补；v1 2026-09-25；synthetic LiDAR from building mesh + PointNet++ learned observation model + MCL；uncertainty-aware likelihood，18 ms/call。 |
+| 2026-09-29 | SeA-RVINS: Semantic-Aware Tightly Coupled RTK-Visual-Inertial System with Correlation-Preserving Robust Estimation for Urban Navigation | [论文](https://arxiv.org/abs/2609.30814) | 时间回补；v1 2026-09-25；semantic stereo track rejection + correlation-preserving DCS + ambiguity continuation；约 20 km TEX-CUP。 |
+| 2026-09-29 | Onboard Wind-Preview Model Predictive Control Using Pitot-Static Sensing for Multirotor UAVs | [论文](https://arxiv.org/abs/2609.31185) | 时间回补；v1 2026-09-25；前置 pitot-static 风场预览进入 nonlinear MPC；室外沿风方向误差相对 baseline -54%。 |
+| 2026-09-29 | Quadruped Obstacle Avoidance and Footstep Planning with Distributed Low-cost Time-of-Flight Sensors | [论文](https://arxiv.org/abs/2609.31008) · [项目页](https://dynamic.robots.ox.ac.uk/projects/time-of-flight-anymal/) | 时间回补；v1 2026-09-25；ANYmal 分布式低成本 ToF 近场厘米级建图、避障与 footstep planning；IEEE RA-L 2026。 |
+| 2026-09-29 | Bundled Contact Gradients: Stabilizing Differentiable Simulation for Deployable Dynamic Tasks | [论文](https://arxiv.org/abs/2609.30951) · [项目页](https://bundledcontactgradients.github.io/) | 时间回补；v1 2026-09-25；stiff-contact 局部 randomized bundle 平滑梯度；动态动作 zero-shot 到 Unitree G1 真机。 |
+| 2026-09-29 | InternW0-Δ: A World Action Model Bridging Predictive Dynamics and Actions with 20K+ Hours of Open Data | [论文](https://arxiv.org/abs/2609.31394) · [项目页](https://internrobotics.github.io/InternW0-Delta/) | 时间回补；v1 2026-09-25；MoT video/action experts + VLM/4D priors + Causal Imprint；20K+ 小时 heterogeneous corpus。 |
+| 2026-09-29 | Claude Sonnet 5.5 | [Anthropic 官方发布](https://www.anthropic.com/claude-sonnet-5-5) · [迁移指南](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide) | 2026-09-28 正式发布；claude-sonnet-5-5；$2/M input、$10/M output；官方称 30%+ faster，最多约 30% lower cost/task。 |
+| 2026-09-29 | Analyzing and Mitigating Cost-Inefficient Behaviors in Coding Agents | [论文](https://arxiv.org/abs/2609.30725) | 时间回补；v1 2026-09-25；1,200 trajectory 分析 + 10K+ mitigation；developer-designed skills 最多降低 41.73% 成本。 |
+| 2026-09-29 | AI Coding 实战技巧精选：使用 /claude-api migrate 自动迁移到 Claude Sonnet 5.5 | [Anthropic 官方迁移指南](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide) | AI Coding 实战技巧精选；2026-09-28；自动处理 model ID、breaking parameters、prefill replacement 与 effort calibration，再人工验证 checklist。 |
+| 2026-09-29 | AI Coding 实战技巧精选：GitHub Self-hosted Runner 最低版本执行规则 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved/) | AI Coding 实战技巧精选；2026-09-29 full enforcement；低于 2.329.0 无法注册/重注册，并需满足更高 workflow runtime minimum。 |
+| 2026-09-29 | KLD-Sampling: Adaptive Particle Filters / Adapting the Sample Size in Particle Filters Through KLD-Sampling | [NeurIPS 2001](https://papers.nips.cc/paper_files/paper/2001/hash/c5b2cebf15b205503560c4e8e6d1ea78-Abstract.html) · [IJRR 2003](https://rse-lab.cs.washington.edu/papers/adaptive-ijrr-2003.pdf) · [DOI](https://doi.org/10.1177/0278364903022012001) | 经典论文回顾；根据 belief occupied bins 与 KL approximation bound 自适应 particle count；与当日 learned-observation MCL 对照。 |
 
 ## 维护检查表
 
