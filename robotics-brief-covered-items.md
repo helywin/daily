@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-29（Asia/Shanghai）
+> 最后更新：2026-09-30（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -117,6 +117,8 @@
 > 2026-09-28 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 817 条。
 
 > 2026-09-29 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 828 条。
+
+> 2026-09-30 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 839 条。
 
 ## 已核验条目
 
@@ -997,6 +999,19 @@
 | 2026-09-29 | AI Coding 实战技巧精选：使用 /claude-api migrate 自动迁移到 Claude Sonnet 5.5 | [Anthropic 官方迁移指南](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide) | AI Coding 实战技巧精选；2026-09-28；自动处理 model ID、breaking parameters、prefill replacement 与 effort calibration，再人工验证 checklist。 |
 | 2026-09-29 | AI Coding 实战技巧精选：GitHub Self-hosted Runner 最低版本执行规则 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved/) | AI Coding 实战技巧精选；2026-09-29 full enforcement；低于 2.329.0 无法注册/重注册，并需满足更高 workflow runtime minimum。 |
 | 2026-09-29 | KLD-Sampling: Adaptive Particle Filters / Adapting the Sample Size in Particle Filters Through KLD-Sampling | [NeurIPS 2001](https://papers.nips.cc/paper_files/paper/2001/hash/c5b2cebf15b205503560c4e8e6d1ea78-Abstract.html) · [IJRR 2003](https://rse-lab.cs.washington.edu/papers/adaptive-ijrr-2003.pdf) · [DOI](https://doi.org/10.1177/0278364903022012001) | 经典论文回顾；根据 belief occupied bins 与 KL approximation bound 自适应 particle count；与当日 learned-observation MCL 对照。 |
+
+
+| 2026-09-30 | World SLAM Model: Joint World Modeling for SLAM and Navigation | [论文](https://arxiv.org/abs/2609.32626) · [项目页](https://tsinghua-mars-lab.github.io/WorldSLAMModel/) | 时间回补；v1 2026-09-26；SLAM expert + generation expert，persistent world state、backend refinement、RGB-only start-goal navigation。 |
+| 2026-09-30 | ForVis: An In-Field Dataset and Benchmark for VIO Using Under-Canopy UAV Flights in Forests | [论文](https://arxiv.org/abs/2609.35482) | 时间回补；v1 2026-09-28；12 UAV flights / 563.8s / 1096.8m；D435i vs OAK-D Pro Wide；7 VI-SLAM / 504 runs。 |
+| 2026-09-30 | CollisionSplatting: Collision-Aware Motion Planning in 3DGS Scenes with Image-Conditioned Objectives and Adjustable Conservatism | [论文](https://arxiv.org/abs/2609.35619) | 时间回补；v1 2026-09-28；标准 3DGS 上 GPU collision distance + adjustable conservatism；集成 MPPI/RRT。 |
+| 2026-09-30 | Think Fast, Plan Selectively: Adaptive Deliberation for Efficient Data-Driven MPC / Fast-TD-MPC | [论文](https://arxiv.org/abs/2609.32591) | 时间回补；v1 2026-09-26；adaptive routing between fast policy and test-time planning；103 tasks；最高约 4× faster inference。 |
+| 2026-09-30 | Adaptive Safety Filtering for Frozen ACC Policies via Conformal Residual Calibration | [论文](https://arxiv.org/abs/2609.35415) | 时间回补；v1 2026-09-28；frozen policy + conformal residual margin + finite-model action projection；2400 controller-trial units。 |
+| 2026-09-30 | Denoising Multi-Robot Trajectories / D4orm | [论文](https://arxiv.org/abs/2609.35651) · [代码](https://github.com/proroklab/d4orm) | 时间回补；v1 2026-09-28；T-RO 2026；diffusion-denoising sampling optimization；10 real quadrotors / 100 simulated robots / 6 onboard ground robots。 |
+| 2026-09-30 | GPT-6.1 Sol | [OpenAI 官方发布](https://openai.com/index/introducing-gpt-6-1-sol/) · [GitHub Copilot](https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot/) | 2026-09-29 正式发布；gpt-6.1-sol；$2/M input、$0.10/M cached input、$10/M output；agentic coding / computer use。 |
+| 2026-09-30 | MCP Error Messages Written for Developers Hurt the Most Capable Agents Most | [论文](https://arxiv.org/abs/2609.35381) · [代码与数据](https://github.com/WenJing95/tool-error-text) | 最新更新；v2 2026-09-29；150 MCP servers / 3001 errors；capability-mismatched recovery instructions hurt tool-only agents。 |
+| 2026-09-30 | AI Coding 实战技巧精选：安装 OpenAI Developers Plugin / Docs MCP 给 Coding Agent 查当前官方 API | [OpenAI Developers 官方文档](https://developers.openai.com/learn/developers-codex-plugin) | AI Coding 实战技巧精选；Codex / Claude Code / Cursor；官方 Docs MCP、API key setup、Agents SDK troubleshooting。 |
+| 2026-09-30 | AI Coding 实战技巧精选：Agents API Self-hosted Sandbox 将业务 API Key 留在环境外 | [OpenAI Agents API 官方文档](https://developers.openai.com/api/docs/guides/agents-api/environments/self-hosted) | AI Coding 实战技巧精选；按 user/workload 隔离；sandbox 内仅使用 restricted environment key / CODEX_API_KEY。 |
+| 2026-09-30 | GPMP2 / Continuous-Time Gaussian Process Motion Planning via Probabilistic Inference | [代码](https://github.com/borglab/gpmp2) · [arXiv](https://arxiv.org/abs/1707.07383) · [DOI](https://doi.org/10.1177/0278364918790369) | 经典论文回顾；RSS 2016 / IJRR 2018；continuous-time GP trajectory + factor-graph probabilistic inference；iGPMP2 incremental replanning。 |
 
 ## 维护检查表
 
