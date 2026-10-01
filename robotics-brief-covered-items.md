@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-09-30（Asia/Shanghai）
+> 最后更新：2026-10-01（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -119,6 +119,8 @@
 > 2026-09-29 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 828 条。
 
 > 2026-09-30 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 839 条。
+
+> 2026-10-01 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 850 条。
 
 ## 已核验条目
 
@@ -1012,6 +1014,18 @@
 | 2026-09-30 | AI Coding 实战技巧精选：安装 OpenAI Developers Plugin / Docs MCP 给 Coding Agent 查当前官方 API | [OpenAI Developers 官方文档](https://developers.openai.com/learn/developers-codex-plugin) | AI Coding 实战技巧精选；Codex / Claude Code / Cursor；官方 Docs MCP、API key setup、Agents SDK troubleshooting。 |
 | 2026-09-30 | AI Coding 实战技巧精选：Agents API Self-hosted Sandbox 将业务 API Key 留在环境外 | [OpenAI Agents API 官方文档](https://developers.openai.com/api/docs/guides/agents-api/environments/self-hosted) | AI Coding 实战技巧精选；按 user/workload 隔离；sandbox 内仅使用 restricted environment key / CODEX_API_KEY。 |
 | 2026-09-30 | GPMP2 / Continuous-Time Gaussian Process Motion Planning via Probabilistic Inference | [代码](https://github.com/borglab/gpmp2) · [arXiv](https://arxiv.org/abs/1707.07383) · [DOI](https://doi.org/10.1177/0278364918790369) | 经典论文回顾；RSS 2016 / IJRR 2018；continuous-time GP trajectory + factor-graph probabilistic inference；iGPMP2 incremental replanning。 |
+
+| 2026-10-01 | Pow3R-SLAM: RGB-D SLAM with Depth-Conditioned Two-View Reconstruction Priors | [论文](https://arxiv.org/abs/2609.38054) · [项目页](https://chriskolios.github.io/Pow3R-SLAM/) | 时间回补；v1 2026-09-29；depth-conditioned learned pointmaps；hybrid 25.3 FPS；代码尚待公开。 |
+| 2026-10-01 | A QCQP-Representable IMU Pre-Integration Factor for Certifiable State Estimation | [论文](https://arxiv.org/abs/2609.38048) | 时间回补；v1 2026-09-29；Cayley-map IMU pre-integration + redundant constraints；certifiable GNSS-IMU smoothing。 |
+| 2026-10-01 | Distilling Privileged Control Barrier Functions into RGB-Only Safety Filters for Dynamic Robot Navigation | [论文](https://arxiv.org/abs/2609.36520) · [项目页](https://syeon-yoo.github.io/distill-cbf-site/) | 时间回补；v1 2026-09-29；privileged CBF teacher → RGB-history student safety filter；真机 sim-to-real。 |
+| 2026-10-01 | DQ-MPCC: Dual Quaternion Model Predictive Contouring Control for Agile Quadrotor Flight | [论文](https://arxiv.org/abs/2609.36482) | 时间回补；v1 2026-09-29；dual-quaternion pose/twist MPCC；8-gate 真机赛道 onboard 100 Hz。 |
+| 2026-10-01 | FORM: Fast Online Identification of Deformable Material Models for Robotic Manipulation | [论文](https://arxiv.org/abs/2609.38105) · [项目页](https://form-robots.github.io/) · [代码](https://github.com/form-robots/FORM) | 时间回补；v1 2026-09-29；weak-form momentum balance + linear least squares；材料辨识 2–5 s。 |
+| 2026-10-01 | Rho: Open-Weight Bimanual Vision-Language-Action Models with Lightweight Online Adaptation | [论文](https://arxiv.org/abs/2609.38164) | 时间回补；v1 2026-09-29；open-weight bimanual VLA；frozen flow-matching expert + lightweight latent adaptation，约 15 corrected episodes。 |
+| 2026-10-01 | Gemini 4 Argon | [Google 官方发布](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/) | 2026-09-30 正式发布；1M output tokens；长时软件工程/知识工作/防御性安全；Fairwind 分阶段开放；介绍期 $2/M input、$10/M output。 |
+| 2026-10-01 | AgentBug-Smith: Automatically Reproducing and Repairing Bugs in LLM Agent Harnesses | [论文](https://arxiv.org/abs/2609.37864) | 时间回补；v1 2026-09-29；Live-Harness-Bench 200 可复现 harness bugs；自动复现与 repair-skill distillation。 |
+| 2026-10-01 | AI Coding 实战技巧精选：Claude Code verify Skill 作为提交前机械验收 | [Claude Code v2.1.286](https://github.com/anthropics/claude-code/releases/tag/v2.1.286) | AI Coding 实战技巧精选；2026-09-30；项目/用户 Skill 名为 verify 时，普通代码 commit 前提醒执行验证。 |
+| 2026-10-01 | AI Coding 实战技巧精选：OpenAI Explicit Prompt Cache Breakpoint | [官方指南](https://developers.openai.com/api/docs/guides/prompt-caching) · [官方更新](https://openai.com/index/better-prompt-caching-for-gpt-6/) | AI Coding 实战技巧精选；稳定 instructions/tools 前缀显式缓存，动态用户输入与 tool logs 放在 breakpoint 后；监控 cached/cache-write tokens。 |
+| 2026-10-01 | SE-Sync: A Certifiably Correct Algorithm for Synchronization over the Special Euclidean Group | [论文页](https://david-m-rosen.github.io/publication/sesync-ijrr/) · [DOI](https://doi.org/10.1177/0278364918784361) · [代码](https://github.com/david-m-rosen/SE-Sync) | 经典论文回顾；IJRR 2019；SDP relaxation + low-rank Riemannian optimization + a-posteriori global-optimality certificate；与当日 certifiable IMU factor 对照。 |
 
 ## 维护检查表
 
