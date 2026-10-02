@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-01（Asia/Shanghai）
+> 最后更新：2026-10-02（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -121,6 +121,8 @@
 > 2026-09-30 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 839 条。
 
 > 2026-10-01 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 850 条。
+
+> 2026-10-02 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 861 条。
 
 ## 已核验条目
 
@@ -1026,6 +1028,19 @@
 | 2026-10-01 | AI Coding 实战技巧精选：Claude Code verify Skill 作为提交前机械验收 | [Claude Code v2.1.286](https://github.com/anthropics/claude-code/releases/tag/v2.1.286) | AI Coding 实战技巧精选；2026-09-30；项目/用户 Skill 名为 verify 时，普通代码 commit 前提醒执行验证。 |
 | 2026-10-01 | AI Coding 实战技巧精选：OpenAI Explicit Prompt Cache Breakpoint | [官方指南](https://developers.openai.com/api/docs/guides/prompt-caching) · [官方更新](https://openai.com/index/better-prompt-caching-for-gpt-6/) | AI Coding 实战技巧精选；稳定 instructions/tools 前缀显式缓存，动态用户输入与 tool logs 放在 breakpoint 后；监控 cached/cache-write tokens。 |
 | 2026-10-01 | SE-Sync: A Certifiably Correct Algorithm for Synchronization over the Special Euclidean Group | [论文页](https://david-m-rosen.github.io/publication/sesync-ijrr/) · [DOI](https://doi.org/10.1177/0278364918784361) · [代码](https://github.com/david-m-rosen/SE-Sync) | 经典论文回顾；IJRR 2019；SDP relaxation + low-rank Riemannian optimization + a-posteriori global-optimality certificate；与当日 certifiable IMU factor 对照。 |
+
+
+| 2026-10-02 | BatSLAM 2.0: Sequence-Verified Sonar Place Recognition in a Robust Pose Graph | [论文](https://arxiv.org/abs/2609.40085) | 时间回补；v1 2026-09-30；仿生双耳声纳 place recognition + sequence verifier + factor-graph pose graph，抑制重复走廊误闭环。 |
+| 2026-10-02 | MVP-SLAM: Multi-Camera Visual-Inertial Floorplan-Prior SLAM | [论文](https://arxiv.org/abs/2609.39596) | 时间回补；v1 2026-09-30；双反向鱼眼 VIO + drift-aware wall/floorplan matching；Hilti-Trimble 2026 多层施工数据。 |
+| 2026-10-02 | Towards Agile Vision-Based Multi-UAV Flight: Revisiting State Estimation | [论文](https://arxiv.org/abs/2609.39611) | 时间回补；v1 2026-09-30；IROS 2026；视觉 tilt / pose cue 约束邻机推力方向，position-only acceleration step 约 300 ms 结构延迟。 |
+| 2026-10-02 | GPU-Accelerated Path-Dependent Marginal Information Gain for Autonomous Exploration | [论文](https://arxiv.org/abs/2609.40297) | 时间回补；v1 2026-09-30；depth-buffer 去除祖先路径重复信息；桌面 GPU 最高 118×、Jetson Orin NX 最高 28×。 |
+| 2026-10-02 | RL-Guided PAC-NMPC for Probabilistically-Safe Perception-Based Navigation in Unknown Environments | [论文](https://arxiv.org/abs/2609.39854) | 时间回补；v1 2026-09-30；probabilistic actor-critic / sensor model + sampling NMPC + 有限样本 PAC 碰撞概率/value-improvement 约束；固定翼真机。 |
+| 2026-10-02 | Multi-Link Safety Filtering for VLA Policies Around Moving Hazards | [论文](https://arxiv.org/abs/2609.40007) · [项目页](https://yathag.github.io/multilink-safety-filter/) | 时间回补；v1 2026-09-30；五椭球 link-level barrier shield；CPU P99 约 2.2 ms；SO-101 真机 hazard contact 11/16→3/16。 |
+| 2026-10-02 | DynaHarness: A Dynamic Physical Harness for Reliable Vision-Language-Action Execution | [论文](https://arxiv.org/abs/2609.40306) · [项目页](https://denghaoyuan123.github.io/Dynaharness_page/) | 时间回补；v1 2026-09-30；slow semantic brain + fast physical brain + shared execution contract + failure-evidence capability revision；代码链接核验时 404。 |
+| 2026-10-02 | Learning When and How to Intervene: A Hindsight-Distilled Sentinel for Coding Agents | [论文](https://arxiv.org/abs/2609.39957) | 时间回补；v1 2026-09-30；HiSentinel；privileged hindsight teacher → 0.6B/1.7B causal pre-action sentinel；allow/redirect/escalate。 |
+| 2026-10-02 | AI Coding 实战技巧精选：Copilot Computer Use 按桌面 App 最小授权 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/) | AI Coding 实战技巧精选；2026-10-01；Copilot CLI/App Computer Use；/computer on/show/off；App-level approval 与 managed settings。 |
+| 2026-10-02 | AI Coding 实战技巧精选：Copilot Dynamic Workflows 将重复 Agent 流程代码化 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/) | AI Coding 实战技巧精选；2026-10-01；code-defined sequential/parallel agent steps、structured results、human checkpoints；experimental preview。 |
+| 2026-10-02 | Switchable Constraints for Robust Pose Graph SLAM | [项目页](https://nikosuenderhauf.github.io/projects/switchableConstraints/) · [DOI](https://doi.org/10.1109/IROS.2012.6385590) | 经典论文回顾；IROS 2012；显式 switch variable 联合优化约束可信度，robust pose graph / false loop closure 经典。 |
 
 ## 维护检查表
 
