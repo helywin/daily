@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-02（Asia/Shanghai）
+> 最后更新：2026-10-03（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -123,6 +123,8 @@
 > 2026-10-01 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 850 条。
 
 > 2026-10-02 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 861 条。
+>
+> 2026-10-03 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 872 条。
 
 ## 已核验条目
 
@@ -1041,6 +1043,19 @@
 | 2026-10-02 | AI Coding 实战技巧精选：Copilot Computer Use 按桌面 App 最小授权 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-01-github-copilot-can-now-interact-with-desktop-apps/) | AI Coding 实战技巧精选；2026-10-01；Copilot CLI/App Computer Use；/computer on/show/off；App-level approval 与 managed settings。 |
 | 2026-10-02 | AI Coding 实战技巧精选：Copilot Dynamic Workflows 将重复 Agent 流程代码化 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-01-dynamic-workflows-in-copilot-cli-and-the-copilot-app/) | AI Coding 实战技巧精选；2026-10-01；code-defined sequential/parallel agent steps、structured results、human checkpoints；experimental preview。 |
 | 2026-10-02 | Switchable Constraints for Robust Pose Graph SLAM | [项目页](https://nikosuenderhauf.github.io/projects/switchableConstraints/) · [DOI](https://doi.org/10.1109/IROS.2012.6385590) | 经典论文回顾；IROS 2012；显式 switch variable 联合优化约束可信度，robust pose graph / false loop closure 经典。 |
+
+
+| 2026-10-03 | GlassGuard: Navigable Glass Mapping with Vision-Guided Revisable Plane Hypotheses | [论文](https://arxiv.org/abs/2610.02110) · [项目页](https://glassguardproject.github.io/) · [代码](https://github.com/glassguardproject/GlassGuard) | 时间回补；v1 2026-10-01；foundation-vision glass mask + metric plane hypothesis + projective multi-view verification；9 场景 / 2.1 km，错误体素每帧减少约 5–17×。 |
+| 2026-10-03 | BLT*: Informed Belief Localization Trees for Localization-Aware Planning in Digital Twins | [论文](https://arxiv.org/abs/2610.01972) | 时间回补；v1 2026-10-01；RRT* / Informed RRT* 扩展到 Gaussian belief space；2-Wasserstein metric + probabilistic collision constraints + 预计算测量信息。 |
+| 2026-10-03 | ReCo: Response-Consistent Locomotion for Policy-Aware MPC in Legged Manipulation | [论文](https://arxiv.org/abs/2610.01612) | 时间回补；v1 2026-10-01；response shaping 让 RL locomotion command-response 更可预测，再辨识闭环模型供 MPC 联合规划底盘与机械臂；真实 onboard 连续操作。 |
+| 2026-10-03 | EIDA: Execution-Interface Dynamics Adaptation for Sim-to-Real Robot Navigation | [论文](https://arxiv.org/abs/2610.01219) | 时间回补；v1 2026-10-01；不重建底层 actuator dynamics，只学习 command→body-pose increment 与 policy-facing velocity feedback；Go2 真机静态场景 20/20 vs baseline 4/20。 |
+| 2026-10-03 | LiDARFlow: Real-Time MAV Obstacle Avoidance with Potential-Flow Guidance and Online LiDAR Geometry | [论文](https://arxiv.org/abs/2610.01573) | 时间回补；v1 2026-10-01；IMAV 2026；panel / potential-flow obstacle field + nominal guidance vector；onboard LiDAR 室内实时避障。 |
+| 2026-10-03 | VAPS: Viability-Aware Policy Switching for Safe Humanoid Acrobatics | [论文](https://arxiv.org/abs/2610.01397) | 时间回补；v1 2026-10-01；Continue / Abort / Fall 三层策略 + 短 horizon viability predictor；Unitree G1 / LimX Oli 仿真与 Oli side-flip 真机。 |
+| 2026-10-03 | OpenSpace Lab Solution to the IROS 2026 Autonomous Exploration Challenge | [论文](https://arxiv.org/abs/2610.01505) | 时间回补；v1 2026-10-01；单机 map-completion + remaining-time / homing constraint，多机 utility target assignment + shared intent；Public Single-Robot Track 第 1。 |
+| 2026-10-03 | CONTRA: Discovering and Qualifying Behavior-Changing Questions for Selective Clarification in LLM Code Generation | [论文](https://arxiv.org/abs/2610.01769) · [代码 / Claude Code 插件](https://github.com/fangz-cs/Contra) | 时间回补；v1 2026-10-01；training-free selective clarification；仅保留两种 plausible answer 会稳定改变程序外部行为的问题；ClarifyCodeBench macro-F1 +13.88pp。 |
+| 2026-10-03 | AI Coding 实战技巧精选：Copilot Code Review 通过 REST / GraphQL API 发起并按请求设置 Review Effort | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/) | AI Coding 实战技巧精选；2026-10-02；可在 CI / 内部工具自动触发 Copilot review；Balanced 成为默认 effort，显式 Lite 设置保留。 |
+| 2026-10-03 | AI Coding 实战技巧精选：Claude Code /code-review --max-findings 控制单次审查问题数量 | [Claude Code v2.1.288](https://github.com/anthropics/claude-code/releases/tag/v2.1.288) | AI Coding 实战技巧精选；2026-10-02；--max-findings <n>|all，选择跨后续 review 复用；--max-findings default 恢复默认。 |
+| 2026-10-03 | Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic | [arXiv](https://arxiv.org/abs/1404.2334) · [DOI](https://doi.org/10.1109/IROS.2014.6942976) · [作者项目页](https://robotic-esp.com/papers/gammell_iros14) | 经典论文回顾；IROS 2014；初始解后直接在可改进当前最优解的 prolate hyperspheroid 中采样；与当日 BLT* belief-space informed planning 对照。 |
 
 ## 维护检查表
 
