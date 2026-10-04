@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-03（Asia/Shanghai）
+> 最后更新：2026-10-04（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -125,6 +125,8 @@
 > 2026-10-02 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 861 条。
 >
 > 2026-10-03 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 872 条。
+>
+> 2026-10-04 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 883 条。
 
 ## 已核验条目
 
@@ -1056,6 +1058,19 @@
 | 2026-10-03 | AI Coding 实战技巧精选：Copilot Code Review 通过 REST / GraphQL API 发起并按请求设置 Review Effort | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level/) | AI Coding 实战技巧精选；2026-10-02；可在 CI / 内部工具自动触发 Copilot review；Balanced 成为默认 effort，显式 Lite 设置保留。 |
 | 2026-10-03 | AI Coding 实战技巧精选：Claude Code /code-review --max-findings 控制单次审查问题数量 | [Claude Code v2.1.288](https://github.com/anthropics/claude-code/releases/tag/v2.1.288) | AI Coding 实战技巧精选；2026-10-02；--max-findings <n>|all，选择跨后续 review 复用；--max-findings default 恢复默认。 |
 | 2026-10-03 | Informed RRT*: Optimal Sampling-based Path Planning Focused via Direct Sampling of an Admissible Ellipsoidal Heuristic | [arXiv](https://arxiv.org/abs/1404.2334) · [DOI](https://doi.org/10.1109/IROS.2014.6942976) · [作者项目页](https://robotic-esp.com/papers/gammell_iros14) | 经典论文回顾；IROS 2014；初始解后直接在可改进当前最优解的 prolate hyperspheroid 中采样；与当日 BLT* belief-space informed planning 对照。 |
+
+
+| 2026-10-04 | CLoSeR: Closing the Loop for Long-Context Streaming Reconstruction | [论文](https://arxiv.org/abs/2610.01927) · [代码](https://github.com/MoyangLi00/CLoSeR) | 时间回补；v1 2026-10-01；global retrieval + loop-conditioned windows + SE(3) sequential/loop optimization；面向 kilometer-scale streaming reconstruction。 |
+| 2026-10-04 | TRACE: Privacy-Preserving Next-Best-View Selection over Distributed 3D Gaussian-Splat Maps | [论文](https://arxiv.org/abs/2610.00822) | 时间回补；v1 2026-09-30；仅交换 transmittance/radiance ray aggregates，不共享完整 splats；消息大小不随地图规模增长。 |
+| 2026-10-04 | Training-Free Diffusion Planning with Analytical Local Scores | [论文](https://arxiv.org/abs/2610.01959) | 时间回补；v1 2026-10-01；解析 obstacle/smoothness/velocity/inter-agent local scores 驱动 denoising；300+ agents / 100+ obstacles。 |
+| 2026-10-04 | PROMO: Preference-conditioned Multi-Objective Reinforcement Learning for Quadrupedal Robots | [论文](https://arxiv.org/abs/2610.01260) · [项目页](https://amrmousa.com/promo/) | 时间回补；v1 2026-10-01；运行时 preference 控制 tracking/stability/energy 权衡；Unitree Go2 zero-shot。 |
+| 2026-10-04 | AFD-CAMLs: Agile Force-Distribution-Aware Planning and Control for Cable-Suspended Aerial Multi-Lifting Systems | [论文](https://arxiv.org/abs/2610.01185) | 时间回补；v1 2026-10-01；allocation null-space force references + centralized local planning + cable-tension admittance correction；4–10 UAV。 |
+| 2026-10-04 | Reactive Humanoid Multi-Contact Using Learned Stability Models | [论文](https://arxiv.org/abs/2610.00823) | 时间回补；v1 2026-09-30；centroidal rollout + learned post-impact CoP region；真机 standing/walking push recovery。 |
+| 2026-10-04 | SkeleWAM: Skeleton World-Action Modeling for Efficient Robotic Manipulation | [论文](https://arxiv.org/abs/2610.02120) · [项目页](https://skelewam-project.github.io/) | 时间回补；v1 2026-10-01；RGB-D/proprioception → sparse 3D skeleton；57.1M 参数，LIBERO-Plus 85.9%。 |
+| 2026-10-04 | Groundability, Not Scale Alone: When Weak Reviewers Can Audit Strong Coding Agents | [论文](https://arxiv.org/abs/2610.01023) | 时间回补；v1 2026-10-01；411 execution-labeled traces + 101 controlled cases；独立 execution evidence 比 reviewer scale 更关键。 |
+| 2026-10-04 | AI Coding 实战技巧精选：Claude Code Mods 用 Blast Radius 在高风险 Bash 执行前展示影响范围 | [Claude Code Mods](https://claude.dev/mods/) · [官方教程](https://claude.dev/blog/getting-started-with-claude-code-mods/) | AI Coding 实战技巧精选；Claude Code 2.1.287+；tool.call + UI hook；对高影响 shell 操作增加可视化人工确认。 |
+| 2026-10-04 | AI Coding 实战技巧精选：将 Skills 与 MCP 配置封装为 Codex Plugin | [OpenAI Developers 官方文档](https://developers.openai.com/api/docs/guides/agents-api/tools/plugins) | AI Coding 实战技巧精选；.codex-plugin/plugin.json + .mcp.json + skills/；跨项目版本化复用工具与规则。 |
+| 2026-10-04 | Capture Point: A Step toward Humanoid Push Recovery | [Honda Research Institute](https://usa.honda-ri.com/w/capture-point-a-step-toward-humanoid-push-recovery) · [DOI](https://doi.org/10.1109/ICHR.2006.321385) | 经典论文回顾；Humanoids 2006；Capture Point / Capture Region 将何时迈步、落脚位置与一步可恢复性变成可计算边界；与当日 reactive multi-contact 对照。 |
 
 ## 维护检查表
 
