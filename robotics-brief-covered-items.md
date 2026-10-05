@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-04（Asia/Shanghai）
+> 最后更新：2026-10-05（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -127,6 +127,8 @@
 > 2026-10-03 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 872 条。
 >
 > 2026-10-04 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 883 条。
+
+> 2026-10-05 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 894 条。
 
 ## 已核验条目
 
@@ -1071,6 +1073,19 @@
 | 2026-10-04 | AI Coding 实战技巧精选：Claude Code Mods 用 Blast Radius 在高风险 Bash 执行前展示影响范围 | [Claude Code Mods](https://claude.dev/mods/) · [官方教程](https://claude.dev/blog/getting-started-with-claude-code-mods/) | AI Coding 实战技巧精选；Claude Code 2.1.287+；tool.call + UI hook；对高影响 shell 操作增加可视化人工确认。 |
 | 2026-10-04 | AI Coding 实战技巧精选：将 Skills 与 MCP 配置封装为 Codex Plugin | [OpenAI Developers 官方文档](https://developers.openai.com/api/docs/guides/agents-api/tools/plugins) | AI Coding 实战技巧精选；.codex-plugin/plugin.json + .mcp.json + skills/；跨项目版本化复用工具与规则。 |
 | 2026-10-04 | Capture Point: A Step toward Humanoid Push Recovery | [Honda Research Institute](https://usa.honda-ri.com/w/capture-point-a-step-toward-humanoid-push-recovery) · [DOI](https://doi.org/10.1109/ICHR.2006.321385) | 经典论文回顾；Humanoids 2006；Capture Point / Capture Region 将何时迈步、落脚位置与一步可恢复性变成可计算边界；与当日 reactive multi-contact 对照。 |
+
+
+| 2026-10-05 | InterEvolve: Test-Time Evolution of Reward Programs for Humanoid Loco-Manipulation | [论文](https://arxiv.org/abs/2610.02196) · [项目页](https://sirui-xu.github.io/InterEvolve/) | 时间回补；v1 2026-10-01；冻结人形 behavioral foundation model，LLM 演化 staged reward program、数值优化常数、并行仿真 verifier，技能可上 Unitree G1。 |
+| 2026-10-05 | Kinematic MeanFlow: One-Step Action Generation Policy for Robotic Foundation Models | [论文](https://arxiv.org/abs/2610.00864) | 时间回补；v1 2026-10-01；通过中间点拆分 MeanFlow 时间导数，针对 RFM 后期 acceleration surge；GR00T-N1.6 action-head latency -67.5%~-74.4%，端到端 -30.3%~-54.9%；作者代码地址核验时 404。 |
+| 2026-10-05 | ECoMEM: Explicit Concept Memory for Memory-Dependent Robot Control | [论文](https://arxiv.org/abs/2610.00801) · [项目页](https://ecomem.github.io/) | 时间回补；v1 2026-09-30；evidence-based Writer + learned Reader；Entity/Spatial、State/Relation、Event/Progress、Temporal/Procedure 概念记忆；真机 pooled success 86.1% vs no-memory 8.6%。 |
+| 2026-10-05 | WBAG: A Whole-Body and Attached-Geometry Safety Framework for Vision-Language-Action Manipulation | [论文](https://arxiv.org/abs/2610.01083) | 时间回补；v1 2026-10-01；whole-body + grasp-conditioned attached geometry → differentiable CBF constraints；SafeLIBERO Scene Safety 97.38%、Safe Success 59.38%。 |
+| 2026-10-05 | Decentralized Safe Path Following for Multiple Quadrotors on Intersecting Paths with Theoretical Guarantees | [论文](https://arxiv.org/abs/2610.00208) · [项目页](https://gradslab.github.io/safe_multiquad_pf/) | 时间回补；v1 2026-09-20；transverse feedback linearization QP；只放松 along-path speed，path/heading 保持硬约束；项目页报告 400 Hz 控制。 |
+| 2026-10-05 | When Reasoning Helps Action: Monitoring and Steering Chain-of-Thought in Vision-Language-Action Policies | [论文](https://arxiv.org/abs/2610.00601) | 时间回补；v1 2026-09-30；TRUST token-level value model；区分 correctability 与 actionability；Alpamayo 推理/行为改善，但 DeepThinkVLA 推理更准未转化为明显闭环收益。 |
+| 2026-10-05 | Finding the Right Fit: Model-Harness Interactions across Agent Tasks | [论文](https://arxiv.org/abs/2610.00917) · [代码](https://github.com/liyix/finding-the-right-fit) | 时间回补；v1 2026-10-01；66 个 model-harness configuration、3 benchmarks；模型排名随 harness 翻转；公开 6204 条 scored trajectories。 |
+| 2026-10-05 | ActiveSaddler: Automated Curriculum Learning for Agent Harness Optimization | [论文](https://arxiv.org/abs/2610.00906) · [项目页](https://autosaddler-projectpage.github.io/activesaddler/) | 时间回补；v1 2026-10-01；non-stationary bandit 动态选择 failure-pattern curriculum；同 rollout budget 下 GAIA2 +4.4pp、Terminal-Bench 2.0 +7.5pp。 |
+| 2026-10-05 | AI Coding 实战技巧精选：Claude Code v2.1.289 权限规则安全回归 | [官方 Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.289) | AI Coding 实战技巧精选；2026-10-03；修复 compound shell、环境变量前缀、sandbox auto-allow、symlink Read deny 等 permission-rule 边角；高权限部署先升级并跑 permission regression。 |
+| 2026-10-05 | AI Coding 实战技巧精选：先发布可复用 Codex Cloud Environment，再启动并行任务 | [OpenAI 官方文档](https://learn.chatgpt.com/docs/cloud) | AI Coding 实战技巧精选；复用 repository/dependencies/tools；每任务独立 workspace；network allowlist 与 network secrets 按最小权限配置。 |
+| 2026-10-05 | Dynamical Movement Primitives: Learning Attractor Models for Motor Behaviors | [DOI](https://doi.org/10.1162/NECO_a_00393) · [movement_primitives](https://github.com/dfki-ric/movement_primitives) · [dmpbbo](https://github.com/stulp/dmpbbo) | 经典论文回顾；Neural Computation 2013；稳定 attractor + learned forcing term；从示范轨迹抽取可重定向、可缩放、可优化的运动 primitive。 |
 
 ## 维护检查表
 
