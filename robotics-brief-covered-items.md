@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-05（Asia/Shanghai）
+> 最后更新：2026-10-06（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -129,6 +129,9 @@
 > 2026-10-04 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 883 条。
 
 > 2026-10-05 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 894 条。
+
+> 
+> 2026-10-06 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 905 条。
 
 ## 已核验条目
 
@@ -1086,6 +1089,19 @@
 | 2026-10-05 | AI Coding 实战技巧精选：Claude Code v2.1.289 权限规则安全回归 | [官方 Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.289) | AI Coding 实战技巧精选；2026-10-03；修复 compound shell、环境变量前缀、sandbox auto-allow、symlink Read deny 等 permission-rule 边角；高权限部署先升级并跑 permission regression。 |
 | 2026-10-05 | AI Coding 实战技巧精选：先发布可复用 Codex Cloud Environment，再启动并行任务 | [OpenAI 官方文档](https://learn.chatgpt.com/docs/cloud) | AI Coding 实战技巧精选；复用 repository/dependencies/tools；每任务独立 workspace；network allowlist 与 network secrets 按最小权限配置。 |
 | 2026-10-05 | Dynamical Movement Primitives: Learning Attractor Models for Motor Behaviors | [DOI](https://doi.org/10.1162/NECO_a_00393) · [movement_primitives](https://github.com/dfki-ric/movement_primitives) · [dmpbbo](https://github.com/stulp/dmpbbo) | 经典论文回顾；Neural Computation 2013；稳定 attractor + learned forcing term；从示范轨迹抽取可重定向、可缩放、可优化的运动 primitive。 |
+
+
+| 2026-10-06 | HexVIO: Towards All-Day Stereo-Inertial Tracking Through Commodity DSPs | [论文](https://arxiv.org/abs/2610.03283) | 时间回补；v1 2026-10-02；Hexagon DSP 视觉前端 + CPU 后端；30 fps / 0.83 W，论文报告功耗降低 67% 或吞吐提升 86%。 |
+| 2026-10-06 | LLA-MPC on Embedded Hardware: Rapid Adaptive Control with Thousands of Parallel Models | [论文](https://arxiv.org/abs/2610.03616) | 时间回补；v1 2026-10-02；learning-free Look-Back/Look-Ahead adaptive MPC；嵌入式 F1TENTH 实时并行评估数千候选模型在线辨识轮胎参数。 |
+| 2026-10-06 | DR-IPC: Disturbance-Resilient Integrated Planning and Control for LiDAR-Based Quadrotor Navigation | [论文](https://arxiv.org/abs/2610.03530) | 时间回补；v1 2026-10-02；LiDAR path guidance + EKF + nonlinear disturbance observer + NMPC；完整机载系统 100 Hz。 |
+| 2026-10-06 | Safe Streaming Flow Planning by Aligning Sampling Dynamics with Execution Dynamics | [论文](https://arxiv.org/abs/2610.03132) · [项目页](https://jang-seunghwan.github.io/SafeStreamingFlowPlanning/) | 时间回补；v1 2026-10-02；CoRL 2026；sequential state-vector-field integration + hierarchical prediction，只对 executed step 使用 high-order CBF。 |
+| 2026-10-06 | KungfuAthleteBot: learning high-dynamic humanoid motion from video with unified robust recovery | [论文](https://arxiv.org/abs/2610.03388) | 时间回补；v1 2026-10-02；视频高动态人形 imitation；physics-guided trajectory correction + pseudo-LKE initialization + unified tracking/recovery；任意跌倒约 0.7 s 恢复。 |
+| 2026-10-06 | EyeRobot 2.0: Active Gaze for Precise Manipulation without Wrist Cameras | [论文](https://arxiv.org/abs/2610.03710) · [项目页](https://eyerobot2.github.io/) | 时间回补；v1 2026-10-02；active stereo gaze + foveated token allocation + fixation-relative SE(3)；1000+ 真机、1800+ 仿真 trials。 |
+| 2026-10-06 | Detect and Suppress: A Mechanistic Defense against Adversarial Patches in VLA Models | [论文](https://arxiv.org/abs/2610.03498) | 时间回补；v1 2026-10-02；SAE 提取攻击相关内部特征 + linear probe 检测；仅检测到攻击时 conditional suppression，避免持续干预损伤 nominal policy。 |
+| 2026-10-06 | GTDD: Generative Test-Driven Development for AI Coding Agents with Adversarial Testing | [论文](https://arxiv.org/abs/2610.02952) | 时间回补；v1 2026-10-02；候选实现固定后由独立 testing agent 持续生成新输入，trusted evaluator 返回最小 counterexample 并沉淀 regression。 |
+| 2026-10-06 | AI Coding 实战技巧精选：用 ReviewBench 给 AI Code Reviewer 建立离线基线 | [GitHub 官方发布](https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/) · [ReviewBench](https://review-bench.ai/) | AI Coding 实战技巧精选；2026-10-05；219 个 public PR / 187 repos / 19 languages；按 severity/category/precision-recall 切片评测 reviewer。 |
+| 2026-10-06 | AI Coding 实战技巧精选：Codex 0.160.1 修复 Unix Host → Windows Remote MCP 启动环境变量丢失 | [官方 Release](https://github.com/openai/codex/releases/tag/rust-v0.160.1) | AI Coding 实战技巧精选；2026-10-05；保留 SYSTEMROOT、TEMP、TMP；适合 remote stdio MCP 混合平台 executor 回归。 |
+| 2026-10-06 | Robust Visual Inertial Odometry Using a Direct EKF-Based Approach (ROVIO) | [ETH 论文页](https://www.research-collection.ethz.ch/items/a1771503-a4d3-4641-acfb-f4d1f0ba1ab8) · [DOI](https://doi.org/10.1109/IROS.2015.7353389) · [代码](https://github.com/ethz-asl/rovio) | 经典论文回顾；IROS 2015；direct patch photometric residual + tightly-coupled robocentric EKF；与当日 HexVIO 的低功耗异构前端对照。 |
 
 ## 维护检查表
 
