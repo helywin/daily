@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-06（Asia/Shanghai）
+> 最后更新：2026-10-07（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -132,6 +132,8 @@
 
 > 
 > 2026-10-06 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 905 条。
+>
+> 2026-10-07 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 916 条。
 
 ## 已核验条目
 
@@ -1102,6 +1104,19 @@
 | 2026-10-06 | AI Coding 实战技巧精选：用 ReviewBench 给 AI Code Reviewer 建立离线基线 | [GitHub 官方发布](https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/) · [ReviewBench](https://review-bench.ai/) | AI Coding 实战技巧精选；2026-10-05；219 个 public PR / 187 repos / 19 languages；按 severity/category/precision-recall 切片评测 reviewer。 |
 | 2026-10-06 | AI Coding 实战技巧精选：Codex 0.160.1 修复 Unix Host → Windows Remote MCP 启动环境变量丢失 | [官方 Release](https://github.com/openai/codex/releases/tag/rust-v0.160.1) | AI Coding 实战技巧精选；2026-10-05；保留 SYSTEMROOT、TEMP、TMP；适合 remote stdio MCP 混合平台 executor 回归。 |
 | 2026-10-06 | Robust Visual Inertial Odometry Using a Direct EKF-Based Approach (ROVIO) | [ETH 论文页](https://www.research-collection.ethz.ch/items/a1771503-a4d3-4641-acfb-f4d1f0ba1ab8) · [DOI](https://doi.org/10.1109/IROS.2015.7353389) · [代码](https://github.com/ethz-asl/rovio) | 经典论文回顾；IROS 2015；direct patch photometric residual + tightly-coupled robocentric EKF；与当日 HexVIO 的低功耗异构前端对照。 |
+
+
+| 2026-10-07 | GR-LIO: A Local Ground-Aware LiDAR-Inertial Odometry System Using Body-to-Ground Height | [论文](https://arxiv.org/abs/2610.05546) | 时间回补；v1 2026-10-04；传播 local ground plane + B-G height，ground point-to-plane 与 planar-motion update 抑制垂直漂移并提升地面机器人 LIO 效率。 |
+| 2026-10-07 | FreeLoc: Online Floorplan Localization via Diffusion-Aided Pose Refinement | [论文](https://arxiv.org/abs/2610.05011) | 时间回补；v1 2026-10-04；CoRL 2026；online floorplan ray query + diffusion continuous pose refinement + histogram-filter temporal fusion，无需密集离线 pose database。 |
+| 2026-10-07 | Neural Barriers: An Online Certifiable Learning-enhanced Adaptive High Order Safety Critical Control | [论文](https://arxiv.org/abs/2610.05542) | 时间回补；v1 2026-10-04；Neural ODE 在线学习时变扰动 + conformal uncertainty + robust adaptive HOCBF；按模型不确定性动态调安全裕量。 |
+| 2026-10-07 | Reachability-Guided Sequential Quadratic Programming-Guarded Model Predictive Path Integral for Safe Nonlinear Predictive Control | [论文](https://arxiv.org/abs/2610.04406) | 时间回补；v1 2026-10-03；低维 HJ reachability 引导 MPPI 安全采样，少量 full-order SQP 最终落实硬约束。 |
+| 2026-10-07 | P3: Persistent Particle Planning for Constrained Diffusion Control | [论文](https://arxiv.org/abs/2610.06002) · [代码 / 权重](https://github.com/p3-username/p3-anon) | 时间回补；v1 2026-10-05；将 diffusion trajectory population 作为跨 replanning 周期持续存在的 SMC 粒子，partial re-noise + ESS resampling，减少 route switching 和重复去噪。 |
+| 2026-10-07 | InterMimicGen: Scaling Humanoid Loco-Manipulation through Self-Evolving Motion Imitation | [论文](https://arxiv.org/abs/2610.06850) · [项目页](https://sirui-xu.github.io/InterMimicGen/) | 时间回补；v1 2026-10-05；contact-preserving retargeting + physics generalist tracker + 成功执行数据自演化 flywheel；覆盖多类 humanoid embodiment。 |
+| 2026-10-07 | EmbeddingGemma 2 | [Google 官方发布](https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/) · [模型](https://huggingface.co/google/embeddinggemma-2) | 2026-10-06 最新发布；740M 多模态 embedding，text/code/image/video/audio 统一 768D；模块化加载 + Matryoshka 维度截断；官方 MTEB Code 78.68。 |
+| 2026-10-07 | Correct Code, Broken Contributions? SWE-CC: Benchmarking Repository Policy Compliance for Coding Agents | [论文](https://arxiv.org/abs/2610.06193) · [代码 / Benchmark](https://github.com/dangtruong01/swe-cc-arxiv) | 时间回补；v1 2026-10-05；12 repos / 823 machine-checkable policies / 500 tasks；功能正确 patch 仍违反 43.1% 适用仓库政策，近半违规发生在中间执行步骤。 |
+| 2026-10-07 | AI Coding 实战技巧精选：Claude Code v2.1.292 为不同子 Agent 分配 effort | [官方 Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.292) | AI Coding 实战技巧精选；2026-10-06；Agent tool 新增 effort 参数；按 repo search / architecture / security review 等子任务难度分配推理预算。 |
+| 2026-10-07 | AI Coding 实战技巧精选：GitHub Stacked PR + gh-stack 拆分 Agent 大型重构 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available/) · [gh-stack](https://github.com/github/gh-stack) | AI Coding 实战技巧精选；2026-10-06 GA；gh stack init/add/submit + worktree，将大改动拆成依赖明确、可独立 build/test/review 的 PR stack。 |
+| 2026-10-07 | Control Barrier Function Based Quadratic Programs for Safety Critical Systems | [arXiv](https://arxiv.org/abs/1609.06408) · [DOI](https://doi.org/10.1109/TAC.2016.2638961) · [CaltechAUTHORS](https://authors.library.caltech.edu/records/jnhr0-1ww05) | 经典论文回顾；IEEE TAC 2017；CBF 将 forward-invariant safety set 转成实时 QP 硬不等式，与 CLF / nominal controller 解耦；与当日 Neural Barriers 自适应不确定性扩展对照。 |
 
 ## 维护检查表
 
