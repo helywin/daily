@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-07（Asia/Shanghai）
+> 最后更新：2026-10-08（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -134,6 +134,8 @@
 > 2026-10-06 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 905 条。
 >
 > 2026-10-07 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 916 条。
+>
+> 2026-10-08 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 927 条。
 
 ## 已核验条目
 
@@ -1117,6 +1119,18 @@
 | 2026-10-07 | AI Coding 实战技巧精选：Claude Code v2.1.292 为不同子 Agent 分配 effort | [官方 Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.292) | AI Coding 实战技巧精选；2026-10-06；Agent tool 新增 effort 参数；按 repo search / architecture / security review 等子任务难度分配推理预算。 |
 | 2026-10-07 | AI Coding 实战技巧精选：GitHub Stacked PR + gh-stack 拆分 Agent 大型重构 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-06-stacked-pull-requests-generally-available/) · [gh-stack](https://github.com/github/gh-stack) | AI Coding 实战技巧精选；2026-10-06 GA；gh stack init/add/submit + worktree，将大改动拆成依赖明确、可独立 build/test/review 的 PR stack。 |
 | 2026-10-07 | Control Barrier Function Based Quadratic Programs for Safety Critical Systems | [arXiv](https://arxiv.org/abs/1609.06408) · [DOI](https://doi.org/10.1109/TAC.2016.2638961) · [CaltechAUTHORS](https://authors.library.caltech.edu/records/jnhr0-1ww05) | 经典论文回顾；IEEE TAC 2017；CBF 将 forward-invariant safety set 转成实时 QP 硬不等式，与 CLF / nominal controller 解耦；与当日 Neural Barriers 自适应不确定性扩展对照。 |
+
+| 2026-10-08 | Embedded Bare-Metal Radar-Inertial Odometry | [论文](https://arxiv.org/abs/2610.07278) · [固件](https://github.com/ntnu-arl/embedded_rio) · [PCB](https://github.com/ntnu-arl/embedded_rio-pcb) | 时间回补；v1 2026-10-05；FMCW Radar + IMU 全部在单核 MCU 运行；飞行 APE 0.51–0.82 m，RPE <3%，支持原版 PX4 闭环。 |
+| 2026-10-08 | OpenSplatGraph: From Dense Semantic Maps to Structured Scene Graphs for Open-Vocabulary Robot Perception | [论文](https://arxiv.org/abs/2610.07569) · [项目页](https://csiro-robotics.github.io/OpenSplatGraph/) | 时间回补；v1 2026-10-06；可靠性感知语义 Gaussian map → query-aware instances → persistent scene graph；ACCV 2026。 |
+| 2026-10-08 | NMPP: Nonlinear Model Predictive Planning for Agile UAV Flight in Cluttered Environments | [论文](https://arxiv.org/abs/2610.08695) | 时间回补；v1 2026-10-06；感知障碍为非线性规划硬几何约束，SE(3) tracker 跟踪全状态参考；真机 5.5 m/s。 |
+| 2026-10-08 | LBA-CBF: Rapidly Adaptive Safety Filters via Parallel Dynamics Inference | [论文](https://arxiv.org/abs/2610.08765) · [项目入口](https://lla-control.github.io/) | 时间回补；v1 2026-10-06；look-back model bank + 多模型 HOCBF 安全投影，最高 250K 模型；Crazyflie / F1TENTH。 |
+| 2026-10-08 | QF3: Fast Flow RL with Filtered Q-Gradients | [论文](https://arxiv.org/abs/2610.08789) · [项目页](https://qf3-rl.github.io/) | 时间回补；v1 2026-10-06；flow matching + 一步预测 Q-gradient，筛选 replay-near 动作维度；人形 flow RL 训练 wall-clock 较 FPO++ 10x。 |
+| 2026-10-08 | OpenWAM: An Open Framework for Composable World-Action Models | [论文](https://arxiv.org/abs/2610.07922) · [项目页](https://openwam.stanford.edu/) | 时间回补；v1 2026-10-06，项目/代码 2026-06-04 已公开；10K+ 小时机器人视频 causal pretrain；可切换 joint/video-first/action-first/decoupled。 |
+| 2026-10-08 | HERMES: Harness Engineering for Software Engineering via Modular Executable Dev-Primitives | [论文](https://arxiv.org/abs/2610.07832) | 时间回补；v1 2026-10-06；局部仓库 Dev-Primitives + dependency-aware activation + execution-grounded diagnosis；四基准平均 +12.4%。 |
+| 2026-10-08 | Claude Haiku 5.5 | [Anthropic 官方发布](https://www.anthropic.com/claude-haiku-5-5) · [GitHub Copilot](https://github.blog/changelog/2026-10-07-claude-haiku-5-5-in-github-copilot/) | 2026-10-07 最新模型；小型高频子 Agent，claude-haiku-5-5；<=100K 每百万输入 $0.10、输出 $0.50，支持 effort。 |
+| 2026-10-08 | AI Coding 实战技巧精选：Copilot Local Sandboxing GA 限制 Agent 文件、网络与凭据权限 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/) | AI Coding 实战技巧精选；2026-10-07；MXC 提供跨 Windows/macOS/Linux 本地工具执行隔离，策略可覆盖 MCP/Git/Network。 |
+| 2026-10-08 | AI Coding 实战技巧精选：Copilot CLI 1.0.94-0 /model 发现 Ollama 本地模型 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli/) | AI Coding 实战技巧精选；2026-10-07；需已运行 Ollama、tool calling/streaming；本地模型不自动启用 offline。 |
+| 2026-10-08 | Synthesis and Stabilization of Complex Behaviors Through Online Trajectory Optimization (Tassa / Erez / Todorov) | [IROS 2012](https://doi.org/10.1109/IROS.2012.6386025) · [iLQR 教学代码](https://github.com/anassinator/ilqr) | 经典论文回顾；IROS 2012；在线轨迹优化 / iLQR 反馈式 backward-forward 优化；对比 NMPP、MPPI 与硬约束控制。 |
 
 ## 维护检查表
 
