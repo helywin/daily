@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-08（Asia/Shanghai）
+> 最后更新：2026-10-09（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -136,6 +136,8 @@
 > 2026-10-07 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 916 条。
 >
 > 2026-10-08 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 927 条。
+>
+> 2026-10-09 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 938 条。
 
 ## 已核验条目
 
@@ -1131,6 +1133,18 @@
 | 2026-10-08 | AI Coding 实战技巧精选：Copilot Local Sandboxing GA 限制 Agent 文件、网络与凭据权限 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/) | AI Coding 实战技巧精选；2026-10-07；MXC 提供跨 Windows/macOS/Linux 本地工具执行隔离，策略可覆盖 MCP/Git/Network。 |
 | 2026-10-08 | AI Coding 实战技巧精选：Copilot CLI 1.0.94-0 /model 发现 Ollama 本地模型 | [GitHub 官方 Changelog](https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli/) | AI Coding 实战技巧精选；2026-10-07；需已运行 Ollama、tool calling/streaming；本地模型不自动启用 offline。 |
 | 2026-10-08 | Synthesis and Stabilization of Complex Behaviors Through Online Trajectory Optimization (Tassa / Erez / Todorov) | [IROS 2012](https://doi.org/10.1109/IROS.2012.6386025) · [iLQR 教学代码](https://github.com/anassinator/ilqr) | 经典论文回顾；IROS 2012；在线轨迹优化 / iLQR 反馈式 backward-forward 优化；对比 NMPP、MPPI 与硬约束控制。 |
+
+| 2026-10-09 | Online Target-less Radar-LiDAR-Camera Extrinsic Calibration via Joint Optimization | [来源](https://arxiv.org/abs/2610.04552) | 时间回补；v1 2026-10-03；无靶标联合优化三对外参，距离相关雷达虚警过滤 + 多帧稀疏对应积累；ICCAS 2026。 |
+| 2026-10-09 | Real-time Event-camera Stereo Visual Odometry via Keytime Gaussian Process Regression | [来源](https://arxiv.org/abs/2610.02601) | 时间回补；v1 2026-10-01；Keytime WNOA 连续时间 GP 保持事件原始时间戳；MVSEC/DSEC 22/6 Hz。 |
+| 2026-10-09 | LLA-MPPI: Rapidly Adaptive Whole-body Control of Legged Robots with GPU-Accelerated Parallel Simulations | [来源](https://arxiv.org/abs/2610.10465) | 时间回补；v1 2026-10-07；GPU contact-model bank + look-back hypothesis + MPPI；Go2 载荷变化、腿失效、推箱；区别此前 LLA-MPC/LBA-CBF。 |
+| 2026-10-09 | Adaptive Risk-Certified Event-Triggered Replanning for Dynamic Navigation | [来源](https://arxiv.org/abs/2610.09302) | 时间回补；v1 2026-10-07；CERT-Replan：conformal horizon residual + upper-tail CVaR 触发速度/走廊/绕行重规划，另保留 one-step CBF。 |
+| 2026-10-09 | Belief-Space Planning with Planner-Conditioned Estimator Error under Intermittent Observations | [来源](https://arxiv.org/abs/2610.09207) | 时间回补；v1 2026-10-06；将规划器条件下估计器误差均值与随机校正事件方差显式纳入 belief-space MPC 风险。 |
+| 2026-10-09 | RoboPace: Contact-Aware Time-Optimal Retiming for Action-Chunk Policies | [来源](https://arxiv.org/abs/2610.09696) | 时间回补；v1 2026-10-07；不重训动作策略、不改几何轨迹，依据接触阶段与机器人动态限幅在线重定时。 |
+| 2026-10-09 | Long-WAM: Scaling the Context of World-Action Models | [来源](https://arxiv.org/abs/2610.10528) | 时间回补；v1 2026-10-07；自回归视频预训练才能有效用长历史；RoboCasa GR-1 63.3%→78.7%，RTX5090 107.4ms/chunk。 |
+| 2026-10-09 | When Sub-Agents Work in Parallel: The Promises and Pitfalls of Dynamic Concurrency in Long-Horizon Coding Tasks | [来源](https://arxiv.org/abs/2610.10263) | 时间回补；v1 2026-10-07；354 tasks / 2124 executions，13 种并发特有失败模式与 28 种可观察模式。 |
+| 2026-10-09 | AI Coding 实战技巧精选：GitHub Draft PR 计入 PR 限额，防止 Agent 草稿堆积 | [来源](https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits/) | AI Coding 实战技巧精选；GitHub 2026-10-08；启用 Draft 计入每用户 PR 数量限制并以测试账号验证。 |
+| 2026-10-09 | AI Coding 实战技巧精选：Claude Code 2.1.290 gatingHooks 检查高权限插件异常处理 | [来源](https://github.com/anthropics/claude-code/releases/tag/v2.1.290) | AI Coding 实战技巧精选；Anthropic 2026-10-05；claude plugin validate JSON 的 gatingHooks 检查 .catch；tool.check agentId / ceiling。 |
+| 2026-10-09 | Batch Continuous-Time Trajectory Estimation as Exactly Sparse Gaussian Process Regression (RSS 2014) | [来源](https://www.roboticsproceedings.org/rss10/p01.html) | 经典论文回顾；RSS 2014；连续时间随机动力学 GP 的精确块三对角逆核，任意异步测量时间戳插值；扩展稿 arXiv:1412.0630。 |
 
 ## 维护检查表
 
