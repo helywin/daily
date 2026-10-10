@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-09（Asia/Shanghai）
+> 最后更新：2026-10-10（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -138,6 +138,9 @@
 > 2026-10-08 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 927 条。
 >
 > 2026-10-09 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 938 条。
+
+>
+> 2026-10-10 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 950 条。
 
 ## 已核验条目
 
@@ -1145,6 +1148,19 @@
 | 2026-10-09 | AI Coding 实战技巧精选：GitHub Draft PR 计入 PR 限额，防止 Agent 草稿堆积 | [来源](https://github.blog/changelog/2026-10-08-draft-pull-requests-count-toward-pull-request-limits/) | AI Coding 实战技巧精选；GitHub 2026-10-08；启用 Draft 计入每用户 PR 数量限制并以测试账号验证。 |
 | 2026-10-09 | AI Coding 实战技巧精选：Claude Code 2.1.290 gatingHooks 检查高权限插件异常处理 | [来源](https://github.com/anthropics/claude-code/releases/tag/v2.1.290) | AI Coding 实战技巧精选；Anthropic 2026-10-05；claude plugin validate JSON 的 gatingHooks 检查 .catch；tool.check agentId / ceiling。 |
 | 2026-10-09 | Batch Continuous-Time Trajectory Estimation as Exactly Sparse Gaussian Process Regression (RSS 2014) | [来源](https://www.roboticsproceedings.org/rss10/p01.html) | 经典论文回顾；RSS 2014；连续时间随机动力学 GP 的精确块三对角逆核，任意异步测量时间戳插值；扩展稿 arXiv:1412.0630。 |
+
+| 2026-10-10 | GLIO2: GPU-Parallel LiDAR-Inertial-GNSS Tight Coupling | [来源](https://arxiv.org/abs/2610.12411) | 时间回补；v1 2026-10-08；GPU scan-to-multiscan LiDAR+IMU预积分+raw GNSS滑窗，Jetson Orin NX约25Hz，退化路段全局定位。 |
+| 2026-10-10 | RAGNAROK: Radar-Visual-Kinematic-Inertial SLAM for Legged Robots | [来源](https://arxiv.org/abs/2610.11531) | 时间回补；v1 2026-10-08；双雷达Doppler+腿部接触+视觉/IMU，连续时间状态与在线外参；Spot真机；代码 https://github.com/hanjun815/RAGNAROK。 |
+| 2026-10-10 | CELL: Confidence-weighted Event Camera Localization in LiDAR Maps | [来源](https://arxiv.org/abs/2610.11967) | 时间回补；v1 2026-10-08；事件-LiDAR匹配依据可微概率PnP位姿信息而非像素误差学习权重；代码 https://github.com/panagiotisq/CELL。 |
+| 2026-10-10 | SCOPE: Score-Curvature for Online Precision Estimation | [来源](https://arxiv.org/abs/2610.12431) | 时间回补；v1 2026-10-08；Diffusion score curvature蒸馏结构化precision，逐时刻Gaussian trajectory uncertainty tubes；CoRL 2026 Spotlight。 |
+| 2026-10-10 | FAITH: Feasibility-Aware Safety-Filtered Reinforcement Learning | [来源](https://arxiv.org/abs/2610.12432) | 时间回补；v1 2026-10-08；安全可行集为空时选择预测峰值伤害最小控制；29-DoF humanoid和G1真机。 |
+| 2026-10-10 | A Balanced Data Diet: Success Guided Sampling | [来源](https://arxiv.org/abs/2610.12465) | 时间回补；v1 2026-10-08；SGS按策略成功能力边界重分配RL reset；最高2^20并行环境，四足与接触装配。 |
+| 2026-10-10 | REACT: Rolling Action Denoising for Streaming Vision-Language-Action | [来源](https://arxiv.org/abs/2610.12007) | 时间回补；v1 2026-10-08；persistent action buffer与分阶段去噪、VLM/DiT/执行异步；CoRL 2026 Spotlight。 |
+| 2026-10-10 | Cadence: Adaptive Intervention and Monitoring for Coding Agents | [来源](https://arxiv.org/abs/2610.12269) | 时间回补；v1 2026-10-08；advisory/replacement双层干预与动态审查间隔；SWE-bench Lite mini-swe-agent +76、Moatless +47任务。 |
+| 2026-10-10 | AI Coding 实战技巧精选：CodeQL 2.27.2 加强C++/Rust/Go安全扫描 | [来源](https://github.blog/changelog/2026-10-09-codeql-2-27-2-improves-c-go-rust-and-javascript-analysis/) | AI Coding 实战技巧精选；GitHub 2026-10-09；固定SHA升级扫描并比较SARIF，关注C++ regex、Rust async/TLS与Go websocket。 |
+| 2026-10-10 | AI Coding 实战技巧精选：Claude Code 2.1.295 Hook onFailure block | [来源](https://github.com/anthropics/claude-code/releases/tag/v2.1.295) | AI Coding 实战技巧精选；Anthropic 2026-10-08；命令/HTTP Hook异常退出、超时、启动失败时fail-closed；模拟故障回归。 |
+| 2026-10-10 | AI Coding 实战技巧精选：Claude Code 2.1.296 Workflow Subagent Model与autoCompactWindow | [来源](https://github.com/anthropics/claude-code/releases/tag/v2.1.296) | AI Coding 实战技巧精选；Anthropic 2026-10-09；CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL和autoCompactWindow配置，按职责分配模型与压缩阈值。 |
+| 2026-10-10 | R2LIVE: A Robust, Real-time, LiDAR-Inertial-Visual Tightly-Coupled State Estimator and Mapping | [来源](https://arxiv.org/abs/2102.12400) | 经典论文回顾；2021；iterated Kalman filter与factor graph紧耦合LiDAR-IMU-Visual；代码 https://github.com/hku-mars/r2live。 |
 
 ## 维护检查表
 
