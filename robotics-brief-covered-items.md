@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-10（Asia/Shanghai）
+> 最后更新：2026-10-11（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -142,6 +142,8 @@
 >
 > 2026-10-10 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 950 条。
 
+> 2026-10-11 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 961 条。
+>
 ## 已核验条目
 
 | 最近覆盖 | 规范条目 | 规范来源 | 备注 |
@@ -1161,6 +1163,19 @@
 | 2026-10-10 | AI Coding 实战技巧精选：Claude Code 2.1.295 Hook onFailure block | [来源](https://github.com/anthropics/claude-code/releases/tag/v2.1.295) | AI Coding 实战技巧精选；Anthropic 2026-10-08；命令/HTTP Hook异常退出、超时、启动失败时fail-closed；模拟故障回归。 |
 | 2026-10-10 | AI Coding 实战技巧精选：Claude Code 2.1.296 Workflow Subagent Model与autoCompactWindow | [来源](https://github.com/anthropics/claude-code/releases/tag/v2.1.296) | AI Coding 实战技巧精选；Anthropic 2026-10-09；CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL和autoCompactWindow配置，按职责分配模型与压缩阈值。 |
 | 2026-10-10 | R2LIVE: A Robust, Real-time, LiDAR-Inertial-Visual Tightly-Coupled State Estimator and Mapping | [来源](https://arxiv.org/abs/2102.12400) | 经典论文回顾；2021；iterated Kalman filter与factor graph紧耦合LiDAR-IMU-Visual；代码 https://github.com/hku-mars/r2live。 |
+
+
+| 2026-10-11 | 2DGS-Planner: Rasterization-based Path Planning in 2D Gaussian Splatting Map | [来源](https://arxiv.org/abs/2610.11752) | 时间回补；v1 2026-10-08；渲染几何而非单个Gaussian作障碍；adaptive roadmap + edge clearance rasterization；作者网页代码TBU。 |
+| 2026-10-11 | STAG: A Sparse Traversability-Aware Graph Representation from Grid-Based Costmaps for Robotic Navigation | [来源](https://arxiv.org/abs/2610.11943) | 时间回补；v1 2026-10-08；medial-axis+homogeneous+transition nodes；203地图/101200查询，中位3.4–9.9x规划加速。 |
+| 2026-10-11 | WAND: Learning Robust Navigation under Complex Wind Disturbances and Dense Obstacles for Quadrotors | [来源](https://arxiv.org/abs/2610.11809) | 时间回补；v1 2026-10-08；TCN风扰估计+WindAdapter策略/前馈双路径；室内风扇飞行18/20。 |
+| 2026-10-11 | CSF: Contextual Safety Filtering for Motion Generators | [来源](https://arxiv.org/abs/2610.12467) | 时间回补；v1 2026-10-08；语言规则与现场对象决定CBF-QP轨迹约束；G1演示；危险事件率最多-90%。 |
+| 2026-10-11 | MAP2: Model- and Acceleration-Based Pursuit with MPC and Gaussian Process Residual Learning for Autonomous Racing | [来源](https://arxiv.org/abs/2610.12196) | 时间回补；v1 2026-10-08；曲率运动学MPC+稀疏GP轮胎残差；真车横向误差相对MAP/PP分别-37.99%/-44.65%。 |
+| 2026-10-11 | RESETTLE: Robotic Recovery through Disagreement-Triggered Retrieval and Efficient Corrective Control | [来源](https://arxiv.org/abs/2610.12185) | 时间回补；v1 2026-10-08；持续动作分歧触发示范检索+一次纠正；官方GitHub当前空仓。 |
+| 2026-10-11 | DreamTrue: Action-Faithful Robot World Model with Counterfactual Post-Training | [来源](https://arxiv.org/abs/2610.12468) | 时间回补；v1 2026-10-08；图像空间动作对齐+反事实视频后训练；人评交互缺陷48.12%→6.25%。 |
+| 2026-10-11 | TestPrism: Rethinking Test Evaluation Beyond a Single Reference | [来源](https://arxiv.org/abs/2610.12289) | 时间回补；v1 2026-10-08；300任务3000实现；单reference成功59.67%而Joint Success仅28.00%。 |
+| 2026-10-11 | AI Coding 实战技巧精选：JetBrains Copilot MCP 按需手动启动 | [来源](https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/) | AI Coding 实战技巧精选；GitHub 2026-10-10；关闭MCP auto startup，IDE更新需JetBrains 2025.2+。 |
+| 2026-10-11 | AI Coding 实战技巧精选：Copilot Code Review 组织计费与授权触发控制 | [来源](https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls/) | AI Coding 实战技巧精选；GitHub 2026-10-08；组织AI Credits付费开关/预算；限制外部个人许可发起review。 |
+| 2026-10-11 | Elastic Bands: Connecting Path Planning and Control (Quinlan & Khatib 1993) | [来源](https://doi.org/10.1109/ROBOT.1993.291936) | 经典论文回顾；ICRA 1993；全局无碰撞路径作可变形Elastic Band，内外力适配局部传感器障碍；与2DGS/STAG比较。 |
 
 ## 维护检查表
 
