@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-11（Asia/Shanghai）
+> 最后更新：2026-10-13（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -143,6 +143,10 @@
 > 2026-10-10 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 950 条。
 
 > 2026-10-11 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 961 条。
+>
+> 2026-10-12 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 972 条。
+>
+> 2026-10-13 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 983 条。
 >
 ## 已核验条目
 
@@ -1176,6 +1180,30 @@
 | 2026-10-11 | AI Coding 实战技巧精选：JetBrains Copilot MCP 按需手动启动 | [来源](https://github.blog/changelog/2026-10-10-new-controls-and-chat-improvements-in-copilot-for-jetbrains/) | AI Coding 实战技巧精选；GitHub 2026-10-10；关闭MCP auto startup，IDE更新需JetBrains 2025.2+。 |
 | 2026-10-11 | AI Coding 实战技巧精选：Copilot Code Review 组织计费与授权触发控制 | [来源](https://github.blog/changelog/2026-10-08-copilot-code-review-new-organization-billing-options-and-controls/) | AI Coding 实战技巧精选；GitHub 2026-10-08；组织AI Credits付费开关/预算；限制外部个人许可发起review。 |
 | 2026-10-11 | Elastic Bands: Connecting Path Planning and Control (Quinlan & Khatib 1993) | [来源](https://doi.org/10.1109/ROBOT.1993.291936) | 经典论文回顾；ICRA 1993；全局无碰撞路径作可变形Elastic Band，内外力适配局部传感器障碍；与2DGS/STAG比较。 |
+
+
+| 2026-10-12 | Does Dynamic-Point Filtering Help When Texture Is Scarce? A Controlled Study of ORB-SLAM2 Front-Ends in Synthetic Indoor Scenes | [论文](https://arxiv.org/abs/2610.10564) · [代码](https://github.com/felixxxue/texture-dynamics-slam) | 时间回补；v1 2026-10-02；24序列720实验；低纹理时动态过滤可能减少可用静态点并损害跟踪完整性。 |
+| 2026-10-12 | Distributed Relative Localization Based on Ultra-WideBand and LiDAR for Multi-robot with Limited Communication | [论文](https://arxiv.org/abs/2610.11141) | 时间回补；v1 2026-10-08；UWB距离图与LiDAR匿名目标图子图匹配实现通信受限身份/相对位置关联。 |
+| 2026-10-12 | Acting from Belief, Looking When Needed: A Bayesian Spatial World Model for Navigation under Intermittent Perception (ALONE) | [论文](https://arxiv.org/abs/2610.11591) | 时间回补；v1 2026-10-08；Bayesian空间信念＋reliability map按需请求深度观测，仿真98%/97%，真机10/10。 |
+| 2026-10-12 | Informationally Decoupled Trajectory Design for Sim-to-Real System Identification (IDTD) | [论文](https://arxiv.org/abs/2610.10905) | 时间回补；v1 2026-10-07；Fisher信息和Schur补选择可区分不同动力学参数的激励片段，平均辨识误差-39.6%。 |
+| 2026-10-12 | VioLA: Learning Generalist Humanoid Control Policies from Human Data | [论文](https://arxiv.org/abs/2610.12435) | 时间回补；v1 2026-10-08；共享body/hand运动潜空间与本体控制器分离，1.406亿帧训练数据93.2%来自人类。 |
+| 2026-10-12 | LiteNWM: Efficient Latent World Models for Onboard Visual Navigation in the Wild | [论文](https://arxiv.org/abs/2610.12368) | 时间回补；v1 2026-10-08；共享视觉编码、潜空间多时间预测与多候选路线scoring；作者报告RTX5090相对基线128x。 |
+| 2026-10-12 | One Skill Too Many: How Co-Installed Skills Conflict in Coding Agents | [论文](https://arxiv.org/abs/2610.11647) | 时间回补；v1 2026-10-08；相似Skill共存会造成独有规范无声丢失，312对Skill、6368次Agent运行。 |
+| 2026-10-12 | TestJack: Should you trust the results in coding benchmarks? Agentic Coding Benchmarks Auditing via Evaluator Evolution | [论文](https://arxiv.org/abs/2610.10619) | 时间回补；v1 2026-10-07；独立新测试重审Coding Agent成功轨迹；总体解决率由50.6%调整至33.2%。 |
+| 2026-10-12 | AI Coding 实战技巧精选：Codex 0.162.0 管理Worktree与沙盒回归 | [官方0.162.0](https://github.com/openai/codex/releases/tag/rust-v0.162.0) · [0.162.1](https://github.com/openai/codex/releases/tag/rust-v0.162.1) | AI Coding 实战技巧精选；2026-10-09；Worktree隔离，验证Linux拒绝文件和Windows沙盒/CRLF修复。 |
+| 2026-10-12 | AI Coding 实战技巧精选：GitHub 上下文密钥检测与预览AI Credits授权 | [GitHub官方公告](https://github.blog/changelog/2026-10-07-purpose-built-model-for-leaked-secret-detection/) | AI Coding 实战技巧精选；2026-10-07；区分已上线密钥告警模型与预览Push Protection/Copilot安全检查，设预算并使用假密钥做回归。 |
+| 2026-10-12 | Active Markov Localization for Mobile Robots (Fox, Burgard & Thrun, 1998) | [CMU出版页](https://publications.ri.cmu.edu/active-markov-localization-for-mobile-robots) · [DOI](https://doi.org/10.1016/S0921-8890(98)00049-9) | 经典论文回顾；RAS 1998；belief驱动主动观察/移动以降低定位不确定性，与ALONE的按需观测对照。 |
+| 2026-10-13 | When LiDAR Fades, Radar Takes Over: LiDAR Reliability-Aware Adaptive Localization Under Airborne Obscurants | [论文](https://arxiv.org/abs/2610.13788) | 时间回补；v1 2026-10-09；LSTM AE 单类检测 LiDAR 烟尘退化并在可靠性不足时从 LIO 切换到 RIO。 |
+| 2026-10-13 | Low-Latency Mapless ESDF Queries for MAV Reactive Collision Avoidance | [论文](https://arxiv.org/abs/2610.13158) | 时间回补；v1 2026-10-09；GPU 直接从带位姿深度图查询距离，森林仿真碰撞率 0.4% 对比 voxel 5.9%，真机 4 m/s。 |
+| 2026-10-13 | Chronos Policy: Learning Robot Policies on Physical Time | [论文](https://arxiv.org/abs/2610.13929) · [项目页](https://changhaowang.github.io/chronospolicy/) | 时间回补；v1 2026-10-09；time-aware RoPE、观测/执行物理时戳与延迟随机化。 |
+| 2026-10-13 | PATACON: GPU-Parallel Tangent-Bundle RRT-Connect for Constrained Motion Planning | [论文](https://arxiv.org/abs/2610.13195) | 时间回补；v1 2026-10-09；GPU 切空间双向 RRT-Connect 降低高维等式约束反复投影成本，最快 11.25 倍。 |
+| 2026-10-13 | BT-Agent: Deploying Onboard Robot Agents with Behavior Trees and Multi-Fidelity Evaluation | [论文](https://arxiv.org/abs/2610.13862) | 时间回补；v1 2026-10-09；本地 9B LLM＋行为树，低层独立安全执行，161 项文本任务，评估吞吐 10.9 倍。 |
+| 2026-10-13 | SmolWAM: A Latent World-Action Model for Robotic Manipulation on Edge Devices | [论文](https://arxiv.org/abs/2610.13740) · [代码](https://github.com/iitimii/SmolWAM) | 时间回补；v1 2026-10-09；0.88B latent WAM、LIBERO 95.5%、57ms / 16-action chunk、2.4GiB GPU 显存。 |
+| 2026-10-13 | (When) Should a Software Factory be Lights-off? Benchmarking Code Review Agents on Bug Detection | [论文](https://arxiv.org/abs/2610.13668) | 时间回补；v1 2026-10-09；CRBugBench 包括 1000 public 与 800 enterprise PR 审查任务，最佳 top-5 recall 71.9%。 |
+| 2026-10-13 | Understanding and Mitigating Cross-Session Attacks via Persistent Artifacts in Agent Skill Composition | [论文](https://arxiv.org/abs/2610.13227) | 时间回补；v1 2026-10-09；SkillRelayBench 跨会话持久工件注入 270 案例，防御 ASR 69.5%→10.9%。 |
+| 2026-10-13 | AI Coding 实战技巧精选：GitHub Enterprise 提交真实 Pusher 身份审计与 Committer 匹配规则 | [官方 Changelog](https://github.blog/changelog/2026-10-12-push-attribution-public-preview/) | AI Coding 实战技巧精选；2026-10-12；Enterprise 有限公开预览，Committer must match pusher 规则与自动化提交身份治理。 |
+| 2026-10-13 | AI Coding 实战技巧精选：升级 VS Code 修复 Copilot Agent 活动指标漏记 | [官方 Changelog](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics/) | AI Coding 实战技巧精选；2026-10-06；VS Code 1.139.0+ 修复 IDE 归属，历史指标不回填；核查 last_known_ide_version 与 agent edit。 |
+| 2026-10-13 | Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning | [论文](https://arxiv.org/abs/1611.03631) · [DOI](https://doi.org/10.1109/IROS.2017.8202315) · [代码](https://github.com/ethz-asl/voxblox) | 经典论文回顾；IROS 2017；TSDF→ESDF 增量传播与机载轨迹优化，对比 Mapless ESDF 在线查询。 |
 
 ## 维护检查表
 
