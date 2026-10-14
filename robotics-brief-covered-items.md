@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-13（Asia/Shanghai）
+> 最后更新：2026-10-14（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -147,6 +147,8 @@
 > 2026-10-12 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 972 条。
 >
 > 2026-10-13 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 983 条。
+>
+> 2026-10-14 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 995 条。
 >
 ## 已核验条目
 
@@ -1204,6 +1206,20 @@
 | 2026-10-13 | AI Coding 实战技巧精选：GitHub Enterprise 提交真实 Pusher 身份审计与 Committer 匹配规则 | [官方 Changelog](https://github.blog/changelog/2026-10-12-push-attribution-public-preview/) | AI Coding 实战技巧精选；2026-10-12；Enterprise 有限公开预览，Committer must match pusher 规则与自动化提交身份治理。 |
 | 2026-10-13 | AI Coding 实战技巧精选：升级 VS Code 修复 Copilot Agent 活动指标漏记 | [官方 Changelog](https://github.blog/changelog/2026-10-06-update-your-ide-to-restore-agent-activity-in-copilot-usage-metrics/) | AI Coding 实战技巧精选；2026-10-06；VS Code 1.139.0+ 修复 IDE 归属，历史指标不回填；核查 last_known_ide_version 与 agent edit。 |
 | 2026-10-13 | Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning | [论文](https://arxiv.org/abs/1611.03631) · [DOI](https://doi.org/10.1109/IROS.2017.8202315) · [代码](https://github.com/ethz-asl/voxblox) | 经典论文回顾；IROS 2017；TSDF→ESDF 增量传播与机载轨迹优化，对比 Mapless ESDF 在线查询。 |
+
+
+| 2026-10-14 | Visual-Wi-Fi Navigation to Signal-Emitting Devices | [论文](https://arxiv.org/abs/2610.12733) | 时间回补；v1 2026-10-08；ViFiNav 被动 Wi-Fi Bearing + 多位姿源定位 + 深度视觉导航；WiFiSpaces 射线追踪。 |
+| 2026-10-14 | Graph-Based Heuristics for Minimum Constraint Removal in Cluttered Robot Motion Planning | [论文](https://arxiv.org/abs/2610.12609) | 时间回补；v1 2026-10-08；MCR 双向 feasible-set + 缩减图定长搜索，3.4–33.7x 快于精确搜索。 |
+| 2026-10-14 | Sampling-based Kinodynamic Planning with World Models | [论文](https://arxiv.org/abs/2610.12910) | 时间回补；v1 2026-10-09；DINO-WM latent RRT/KPIECE + GPU 扩展，相对 CEM/MPPI 最多快 13.8x，真机成功率 +20pp。 |
+| 2026-10-14 | PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting | [论文](https://arxiv.org/abs/2610.12642) | 时间回补；v1 2026-10-08；接触/落足高优先级，低优先级姿态动作不破坏约束，四数据集。 |
+| 2026-10-14 | PanTact: Teaching Whole-Body Dexterity with a Wearable Contact Interface | [论文](https://arxiv.org/abs/2610.12558) · [项目](https://pantact.github.io/) | 时间回补；v1 2026-10-08；人类接触贴片+UMI示教，G1无额外身体贴片执行全身接触操作。 |
+| 2026-10-14 | Fly-by-Code: Embodied Coding Agents for Aerial Manipulation with Active Visual and Physical Feedback | [论文](https://arxiv.org/abs/2610.12549) · [项目](https://fly-by-code.github.io/) | 时间回补；v1 2026-10-08；Active Feedback View/Probe 仿真诊断，空中操作成功率 31.7%→75%。 |
+| 2026-10-14 | LeWAM: End-to-End World and Action Modeling with JEPAs | [论文](https://arxiv.org/abs/2610.12818) · [项目](https://le-wam.github.io/) | 时间回补；v1 2026-10-08；joint next-latent JEPA + action flow matching；长时成功率10.9%→46.2%。 |
+| 2026-10-14 | Co-Modifying Application Code and Deployment Infrastructure: A Causal Study of AI Agent Pull Requests | [论文](https://arxiv.org/abs/2610.12849) | 时间回补；v1 2026-10-09；26999 PR 研究；Agent双范围代码/基础设施 PR 约4.5%，审核与合并风险。 |
+| 2026-10-14 | AI Coding 实战技巧精选：Copilot Managed Settings forceRemoteSettingsRefresh 强制策略新鲜度 | [GitHub官方](https://github.blog/changelog/2026-10-13-enterprise-managed-settings-enforcement-updates/) | AI Coding 实战技巧精选；2026-10-13；启动时刷新企业策略，服务不可达则 fail-closed，sandbox最低客户端版本。 |
+| 2026-10-14 | AI Coding 实战技巧精选：GitHub Code Quality finding dismissal/reopen 审计 | [GitHub官方](https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings/) | AI Coding 实战技巧精选；2026-10-13；审计 repo.code_quality_findings_dismissed / reopened 事件与 actor/finding。 |
+| 2026-10-14 | AI Coding 实战技巧精选：GitHub App repository_creation 与 installation_repositories 细粒度权限 | [GitHub官方](https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management/) | AI Coding 实战技巧精选；2026-10-13；repository_creation:write、installation_repositories:write 替代宽泛管理授权。 |
+| 2026-10-14 | RRT-Connect: An Efficient Approach to Single-Query Path Planning (Kuffner & LaValle, ICRA 2000) | [DOI](https://doi.org/10.1109/ROBOT.2000.844730) · [作者](https://www.kuffner.org/james/plan/) | 经典论文回顾；ICRA 2000；双向 RRT + 贪心 CONNECT，将几何路径与后续动力学可执行性检查分离。 |
 
 ## 维护检查表
 
