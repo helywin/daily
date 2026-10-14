@@ -1210,7 +1210,7 @@
 
 | 2026-10-14 | Visual-Wi-Fi Navigation to Signal-Emitting Devices | [论文](https://arxiv.org/abs/2610.12733) | 时间回补；v1 2026-10-08；ViFiNav 被动 Wi-Fi Bearing + 多位姿源定位 + 深度视觉导航；WiFiSpaces 射线追踪。 |
 | 2026-10-14 | Graph-Based Heuristics for Minimum Constraint Removal in Cluttered Robot Motion Planning | [论文](https://arxiv.org/abs/2610.12609) | 时间回补；v1 2026-10-08；MCR 双向 feasible-set + 缩减图定长搜索，3.4–33.7x 快于精确搜索。 |
-| 2026-10-14 | Sampling-based Kinodynamic Planning with World Models | [论文](https://arxiv.org/abs/2610.12910) | 时间回补；v1 2026-10-09；DINO-WM latent RRT/KPIECE + GPU 扩展，相对 CEM/MPPI 最多快 13.8x，真机成功率 +20pp。 |
+| 2026-10-14 | Sampling-based Kinodynamic Planning with World Models | [论文](https://arxiv.org/abs/2610.12910) | 时间回补；v1 2026-10-09；DINO-WM latent RRT/KPIECE + GPU 扩展，相对 CEM/MPPI 最多快 13.8x，真机成功率提高约20%。 |
 | 2026-10-14 | PriMoRetarget: Humanoid Motion Transfer Through Prioritized Motion Retargeting | [论文](https://arxiv.org/abs/2610.12642) | 时间回补；v1 2026-10-08；接触/落足高优先级，低优先级姿态动作不破坏约束，四数据集。 |
 | 2026-10-14 | PanTact: Teaching Whole-Body Dexterity with a Wearable Contact Interface | [论文](https://arxiv.org/abs/2610.12558) · [项目](https://pantact.github.io/) | 时间回补；v1 2026-10-08；人类接触贴片+UMI示教，G1无额外身体贴片执行全身接触操作。 |
 | 2026-10-14 | Fly-by-Code: Embodied Coding Agents for Aerial Manipulation with Active Visual and Physical Feedback | [论文](https://arxiv.org/abs/2610.12549) · [项目](https://fly-by-code.github.io/) | 时间回补；v1 2026-10-08；Active Feedback View/Probe 仿真诊断，空中操作成功率 31.7%→75%。 |
