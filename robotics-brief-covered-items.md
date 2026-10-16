@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-14（Asia/Shanghai）
+> 最后更新：2026-10-16（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -149,6 +149,7 @@
 > 2026-10-13 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 983 条。
 >
 > 2026-10-14 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 995 条。
+> 2026-10-16 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1007 条。
 >
 ## 已核验条目
 
@@ -1220,6 +1221,19 @@
 | 2026-10-14 | AI Coding 实战技巧精选：GitHub Code Quality finding dismissal/reopen 审计 | [GitHub官方](https://github.blog/changelog/2026-10-13-audit-github-code-quality-finding-dismissals-and-reopenings/) | AI Coding 实战技巧精选；2026-10-13；审计 repo.code_quality_findings_dismissed / reopened 事件与 actor/finding。 |
 | 2026-10-14 | AI Coding 实战技巧精选：GitHub App repository_creation 与 installation_repositories 细粒度权限 | [GitHub官方](https://github.blog/changelog/2026-10-13-github-app-improvements-for-least-privilege-and-management/) | AI Coding 实战技巧精选；2026-10-13；repository_creation:write、installation_repositories:write 替代宽泛管理授权。 |
 | 2026-10-14 | RRT-Connect: An Efficient Approach to Single-Query Path Planning (Kuffner & LaValle, ICRA 2000) | [DOI](https://doi.org/10.1109/ROBOT.2000.844730) · [作者](https://www.kuffner.org/james/plan/) | 经典论文回顾；ICRA 2000；双向 RRT + 贪心 CONNECT，将几何路径与后续动力学可执行性检查分离。 |
+
+| 2026-10-16 | Towards Certifiable State Estimation under Observability Degeneracy | [论文](https://arxiv.org/abs/2610.20490) | 主动态；v1 2026-10-14；退化可观测、候选对偶证书、Hessian 特征谱与亚微秒乘子恢复。 |
+| 2026-10-16 | Tiered-Resolution Volumetric Mapping for Real-Time Simultaneous Planning and Mapping on Natural Outdoor Environments | [论文](https://arxiv.org/abs/2610.20476) | 主动态；v1 2026-10-14；规划走廊内细体素、其他区域粗体素；13–15x 省内存、6–8x 减积分 CPU。 |
+| 2026-10-16 | Smart Fusion for Adaptive Visual-IMU Weighting in cuVSLAM Sparse Bundle Adjustment | [论文](https://arxiv.org/abs/2610.20226) | 主动态；v1 2026-10-14；914 参数 VQE 用 10 维特征选择 IMU/Visual 信任区间，EuRoC/TUM-VI LOOCV。 |
+| 2026-10-16 | DD-GBP: Anytime Multi-Arm Planning and Continuous Execution via Distributed Dynamic Gaussian Belief Propagation | [论文](https://arxiv.org/abs/2610.20460) | 主动态；v1 2026-10-14；分布式 GP 因子图多臂规划；四臂动态场景92.5%完成率。 |
+| 2026-10-16 | VIGOR-MPC: Vision-Guided Objective Regulation MPC | [论文](https://arxiv.org/abs/2610.20333) | 主动态；v1 2026-10-14；特权长时域教师蒸馏视觉短时域 MPC cost，控制计算减少逾90%。 |
+| 2026-10-16 | Safe Reinforcement Learning with Receding-Horizon Safety Critic and Differentiable Action Shields | [论文](https://arxiv.org/abs/2610.20255) | 主动态；v1 2026-10-14；多步失稳 Critic + Ensemble CVaR + PPO 可微 Action Shield。 |
+| 2026-10-16 | When Do Discrete Actions Make Good Continuous Controllers? | [论文](https://arxiv.org/abs/2610.20429) · [项目](https://iscoyizj.github.io/) | 主动态；v1 2026-10-14；离散动作/连续 Flow A/B，关键问题为跨维度因子化误差。 |
+| 2026-10-16 | Doc2Harness: Benchmarking LLMs on Long-Horizon Harness Engineering of Coding Agents | [论文](https://arxiv.org/abs/2610.20344) | 主动态；v1 2026-10-14；328 用例、19 模型、独立容器 Mock Model，最佳53.05%。 |
+| 2026-10-16 | AI Coding 实战技巧精选：GitHub PR AI Scan 正式 GA 与 Advisory 审查 | [GitHub 官方](https://github.blog/changelog/2026-10-15-ai-scan-for-pull-requests-generally-available/) | AI Coding 实战技巧精选；2026-10-15；PR AI Scan 支持 HCL/Bash/Dockerfile 等，告警不自动阻断合并，需配置预算。 |
+| 2026-10-16 | AI Coding 实战技巧精选：Agentic Autofix 指派 CodeQL 告警到 Copilot Draft PR | [GitHub 官方](https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/) | AI Coding 实战技巧精选；2026-10-15；最多25告警、API assignees=copilot-swe-agent[bot]、CodeQL 回归与独立审核。 |
+| 2026-10-16 | AI Coding 实战技巧精选：Code Quality 活跃 Committer License CSV 费用对账 | [GitHub 官方](https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv/) | AI Coding 实战技巧精选；2026-10-15；Billing/Licensing 下载90天提交者与仓库 CSV，核对机器人账号和未来预算。 |
+| 2026-10-16 | FastSLAM: A Factored Solution to the Simultaneous Localization and Mapping Problem | [AAAI 2002](https://aaai.org/papers/00593-aaai02-089-fastslam-a-factored-solution-to-the-simultaneous-localization-and-mapping-problem/) · [CMU](https://publications.ri.cmu.edu/fastslam-a-factored-solution-to-the-simultaneous-localization-and-mapping-problem-with-unknown-data-association) | 经典论文回顾；AAAI 2002；Rao-Blackwellized PF、路径后验与条件地标后验分解。 |
 
 ## 维护检查表
 
