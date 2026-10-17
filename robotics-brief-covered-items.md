@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-16（Asia/Shanghai）
+> 最后更新：2026-10-17（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -150,6 +150,8 @@
 >
 > 2026-10-14 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 995 条。
 > 2026-10-16 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1007 条。
+>
+> 2026-10-17 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1018 条。
 >
 ## 已核验条目
 
@@ -1234,6 +1236,18 @@
 | 2026-10-16 | AI Coding 实战技巧精选：Agentic Autofix 指派 CodeQL 告警到 Copilot Draft PR | [GitHub 官方](https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/) | AI Coding 实战技巧精选；2026-10-15；最多25告警、API assignees=copilot-swe-agent[bot]、CodeQL 回归与独立审核。 |
 | 2026-10-16 | AI Coding 实战技巧精选：Code Quality 活跃 Committer License CSV 费用对账 | [GitHub 官方](https://github.blog/changelog/2026-10-15-download-github-code-quality-license-usage-as-a-csv/) | AI Coding 实战技巧精选；2026-10-15；Billing/Licensing 下载90天提交者与仓库 CSV，核对机器人账号和未来预算。 |
 | 2026-10-16 | FastSLAM: A Factored Solution to the Simultaneous Localization and Mapping Problem | [AAAI 2002](https://aaai.org/papers/00593-aaai02-089-fastslam-a-factored-solution-to-the-simultaneous-localization-and-mapping-problem/) · [CMU](https://publications.ri.cmu.edu/fastslam-a-factored-solution-to-the-simultaneous-localization-and-mapping-problem-with-unknown-data-association) | 经典论文回顾；AAAI 2002；Rao-Blackwellized PF、路径后验与条件地标后验分解。 |
+
+| 2026-10-17 | LIN-SLAM: Lightweight LiDAR--Inertial Neural SLAM for Real-Time Onboard Navigation | [论文](https://arxiv.org/abs/2610.21199) | 时间回补；v1 2026-10-15；几何LIO+神经隐式后端，Go2/Orin NX/16线完成1.47km实时建图。 |
+| 2026-10-17 | Line-Augmented cuVSLAM: Robust Visual Odometry in Low-Texture Environments | [论文](https://arxiv.org/abs/2610.20958) | 时间回补；v1 2026-10-14；Plücker线段残差与自适应点线权重加入Gauss-Newton和滑窗BA。 |
+| 2026-10-17 | Sub-Millisecond Reflexes for Continuous Physical Human-Robot Interaction | [论文](https://arxiv.org/abs/2610.21913) · [代码](https://github.com/RoboRef/franka_reflex_engine) | 时间回补；v1 2026-10-15；ROS2兼容的实时反射状态机、0.1ms以内子控制器切换。 |
+| 2026-10-17 | CBF-Based Control Allocation for Omnidirectional Tiltrotor Aerial Robots | [论文](https://arxiv.org/abs/2610.22057) | 时间回补；v1 2026-10-15；舵机实际角度与推力储备约束、6变量servo-rate CBF QP。 |
+| 2026-10-17 | Plans Are Not Executions: Adapting Frozen World-Model Planners to Controller-Induced Execution Shift | [论文](https://arxiv.org/abs/2610.22041) | 时间回补；v1 2026-10-15；ExecutionBridge保留计划参考语义并适配下游控制器执行偏差。 |
+| 2026-10-17 | T2-z: Test-Time Optimization of Environment Latents for Robotic World Models | [论文](https://arxiv.org/abs/2610.22364) | 时间回补；v1 2026-10-15；测试时优化新环境latent，动作成功率33.73%→72.96%（作者实验）。 |
+| 2026-10-17 | FastVLA: Task-Conditioned and Temporally Adaptive Visual Token Compression for Efficient Vision-Language-Action Models | [论文](https://arxiv.org/abs/2610.22146) · [代码](https://github.com/jiuyixu25/FastVLA) | 时间回补；v1 2026-10-15；任务注意力+Inverse-Simpson动态视觉Token预算；Franka延迟降20%。 |
+| 2026-10-17 | WEAVE: Weaving Real-World Code Evolution into Dependency-Structured Tasks for Benchmarking and Training Code Agents | [论文](https://arxiv.org/abs/2610.22039) | 时间回补；v1 2026-10-15；历史PR依赖DAG+测试驱动Graph Credit用于长任务评测/训练。 |
+| 2026-10-17 | AI Coding 实战技巧精选：GitHub 开源许可证合规GA及合并门禁 | [GitHub 官方](https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/) | AI Coding 实战技巧精选；2026-10-16；Require license compliance results before merging与包合规API。 |
+| 2026-10-17 | AI Coding 实战技巧精选：Copilot 固定模型在2026-11-16前迁移 | [GitHub 官方](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/) | AI Coding 实战技巧精选；2026-10-15；Opus5/GPT-5.6 Terra退役与替代Model Policy检查。 |
+| 2026-10-17 | PL-SLAM: a Stereo SLAM System through the Combination of Points and Line Segments | [论文](https://arxiv.org/abs/1705.09479) · [代码](https://github.com/rubengooj/pl-slam) · [DOI](https://doi.org/10.1109/TRO.2019.2899783) | 经典论文回顾；2017预印本/2019 T-RO；点线联合VO、BA与BoW回环。 |
 
 ## 维护检查表
 
