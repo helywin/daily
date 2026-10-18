@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-17（Asia/Shanghai）
+> 最后更新：2026-10-18（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -152,6 +152,8 @@
 > 2026-10-16 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1007 条。
 >
 > 2026-10-17 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1018 条。
+>
+> 2026-10-18 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1030 条。
 >
 ## 已核验条目
 
@@ -1248,6 +1250,20 @@
 | 2026-10-17 | AI Coding 实战技巧精选：GitHub 开源许可证合规GA及合并门禁 | [GitHub 官方](https://github.blog/changelog/2026-10-16-open-source-license-compliance-generally-available/) | AI Coding 实战技巧精选；2026-10-16；Require license compliance results before merging与包合规API。 |
 | 2026-10-17 | AI Coding 实战技巧精选：Copilot 固定模型在2026-11-16前迁移 | [GitHub 官方](https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november/) | AI Coding 实战技巧精选；2026-10-15；Opus5/GPT-5.6 Terra退役与替代Model Policy检查。 |
 | 2026-10-17 | PL-SLAM: a Stereo SLAM System through the Combination of Points and Line Segments | [论文](https://arxiv.org/abs/1705.09479) · [代码](https://github.com/rubengooj/pl-slam) · [DOI](https://doi.org/10.1109/TRO.2019.2899783) | 经典论文回顾；2017预印本/2019 T-RO；点线联合VO、BA与BoW回环。 |
+
+
+| 2026-10-18 | AVALON: Zero-Shot Indoor Navigation with Human-Seeded Topological Memory | [来源](https://arxiv.org/abs/2610.21586) | 主动态；时间回补，v1 2026-10-15；人类拓扑与现场节点到达验证，Go2 首次入楼导航。 |
+| 2026-10-18 | Navigation by Skylight Polarization via Rayleigh Model Optimization on a Road Vehicle | [来源](https://arxiv.org/abs/2610.20797) | 主动态；时间回补，v1 2026-10-14；Rayleigh 天空偏振绝对航向，Yaw RMS 0.718–0.889 度。 |
+| 2026-10-18 | BubbleCBF: Constructive Safety for Second-Order Systems and Application to Autonomous Robot Navigation in Unknown Environments | [来源](https://arxiv.org/abs/2610.20895) | 主动态；时间回补，v1 2026-10-14；SDF 自由球速度相关安全集合，QP 与输入约束可行性。 |
+| 2026-10-18 | Planning to Learn: Real-Time Robust Adaptive Control on the GPU with Guaranteed Future Learning | [来源](https://arxiv.org/abs/2610.20925) | 主动态；时间回补，v1 2026-10-14；A-SLS GPU 鲁棒 MPC 预测未来动力学学习的可达管收缩。 |
+| 2026-10-18 | MR-MPCC: Model Predictive Contouring Control for Robotic Manipulator Tracking under Moving Reference Frames | [来源](https://arxiv.org/abs/2610.21292) | 主动态；时间回补，v1 2026-10-15；移动参考系路径进度 MPCC 与关节约束 RMRC。 |
+| 2026-10-18 | REKI: Registering Knowledge in VLAs | [来源](https://arxiv.org/abs/2610.22178) | 主动态；时间回补，v1 2026-10-15；2.4B VLA Register 短时记忆及完整代码权重。 |
+| 2026-10-18 | Causal Analysis of Robot Foundation Models Enables Efficiency Gains | [来源](https://arxiv.org/abs/2610.20750) | 主动态；时间回补，v1 2026-10-14；因果分析压缩 3/36 Action Cross-Attention 层。 |
+| 2026-10-18 | Skip the Compressor: Coding Agents Fix More Issues When They Pick Whole Files | [来源](https://arxiv.org/abs/2610.21073) | 主动态；时间回补，v1 2026-10-15；CQ2-CARE 同预算完整源文件选择胜于摘要压缩。 |
+| 2026-10-18 | AI Coding 实战技巧精选：Copilot 10 月 19 日退役模型迁移 | [来源](https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october/) | AI Coding 实战技巧精选；2026-09-18 公告的 2026-10-18 临期操作；迁移 Copilot GPT-5.5/Grok4.5 等。 |
+| 2026-10-18 | AI Coding 实战技巧精选：Copilot OTel 遥测按类别与身份分离 | [来源](https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/) | AI Coding 实战技巧精选；2026-10-12；telemetry.capture.identity 与内容采集单独控制。 |
+| 2026-10-18 | AI Coding 实战技巧精选：Slack/Teams @GitHub 多仓排障 | [来源](https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates/) | AI Coding 实战技巧精选；2026-10-15；单线程跨授权前后端仓调查 Bug 与创建 PR。 |
+| 2026-10-18 | Optimization-based autonomous racing of 1:43 scale RC cars (Liniger, Domahidi, Morari 2015) | [来源](https://doi.org/10.1002/oca.2123) | 经典论文回顾；2015 OCAM；MPCC 轮廓误差与路径进度，C++/MATLAB 原作者代码。 |
 
 ## 维护检查表
 
