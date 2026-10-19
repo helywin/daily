@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-18（Asia/Shanghai）
+> 最后更新：2026-10-19（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -154,6 +154,8 @@
 > 2026-10-17 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1018 条。
 >
 > 2026-10-18 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1030 条。
+>
+> 2026-10-19 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1041 条。
 >
 ## 已核验条目
 
@@ -1264,6 +1266,18 @@
 | 2026-10-18 | AI Coding 实战技巧精选：Copilot OTel 遥测按类别与身份分离 | [来源](https://github.blog/changelog/2026-10-12-client-telemetry-user-attribution-and-configurable-capture/) | AI Coding 实战技巧精选；2026-10-12；telemetry.capture.identity 与内容采集单独控制。 |
 | 2026-10-18 | AI Coding 实战技巧精选：Slack/Teams @GitHub 多仓排障 | [来源](https://github.blog/changelog/2026-10-15-copilot-in-slack-and-teams-adds-model-and-repository-updates/) | AI Coding 实战技巧精选；2026-10-15；单线程跨授权前后端仓调查 Bug 与创建 PR。 |
 | 2026-10-18 | Optimization-based autonomous racing of 1:43 scale RC cars (Liniger, Domahidi, Morari 2015) | [来源](https://doi.org/10.1002/oca.2123) | 经典论文回顾；2015 OCAM；MPCC 轮廓误差与路径进度，C++/MATLAB 原作者代码。 |
+
+| 2026-10-19 | Training-Free Target-Aware Refinement of 3D Gaussian Language Map | [论文](https://arxiv.org/abs/2610.21619) · [项目及代码](https://lab-of-ai-and-robotics.github.io/target-aware-langmap/) | 时间回补；v1 2026-10-15；闭式最小语义注入、共享文本分量居中修正；Replica mIoU 约翻倍。 |
+| 2026-10-19 | Robust Multi-Agent Pursuit with Preemptive Communication via Reachability-Based Control Barrier Functions | [论文](https://arxiv.org/abs/2610.22198) | 时间回补；v1 2026-10-15；邻机可达集与消息陈旧度触发通信，仿真消息量减少 77.5%。 |
+| 2026-10-19 | MAGMA: Multiplier-Augmented Geometric Motion Algorithm | [论文](https://arxiv.org/abs/2610.21852) | 时间回补；v1 2026-10-15；增广拉格朗日与 Primal-Dual AGHF 联合求解受约束高维轨迹。 |
+| 2026-10-19 | Inertially Significant Humanoid Teleoperation via Whole Body Model Predictive Control and Online Parameter Estimation | [论文](https://arxiv.org/abs/2610.22176) | 时间回补；v1 2026-10-15；人形重负载遥操作，Whole-Body MPC + EKF 在线惯性参数辨识。 |
+| 2026-10-19 | Onboard Lightweight LLM Reasoning for Human-Aware Safe UAV Navigation | [论文](https://arxiv.org/abs/2610.22092) | 时间回补；v1 2026-10-15；Qwen-2.5-0.5B 类别级语义安全缓存，Jetson Orin NX 感知 10 Hz、LLM 约 0.8 秒不阻塞控制。 |
+| 2026-10-19 | VeriVLA: Adaptive Test-Time Verification for Flow-Based VLAs with Latent World Models | [论文](https://arxiv.org/abs/2610.21985) | 时间回补；v1 2026-10-15；双轴触发器按需让 JEPA 验证 Action Chunk，真机完成分数 50.8%→65.5%。 |
+| 2026-10-19 | MAIA: Anticipating Interaction Anomalies in Contact-Rich Manipulation via Multimodal World Models | [论文](https://arxiv.org/abs/2610.21686) | 时间回补；v1 2026-10-15；视觉-动作-力觉世界模型，CRIA 2852 轨迹/18 任务，提前异常预判。 |
+| 2026-10-19 | Poison Valleys: Diagnosing Path-Dependent Failure in LLM Code Repair | [论文](https://arxiv.org/abs/2610.21514) · [代码数据](https://poisonvalleys.org/) | 时间回补；v1 2026-10-15；两个合成 Python 案例共1844请求，设计错误进入正式计划导致失败增多。 |
+| 2026-10-19 | AI Coding 实战技巧精选：Claude Code 关闭默认 Fork Subagents | [官方 Release v2.1.302](https://github.com/anthropics/claude-code/releases/tag/v2.1.302) | AI Coding 实战技巧精选；2026-10-16；设置 CLAUDE_CODE_FORK_SUBAGENT=0 对比多 Agent 成功任务成本。 |
+| 2026-10-19 | AI Coding 实战技巧精选：Claude Code 禁止 @File 自动全文注入上下文 | [官方 Release v2.1.299](https://github.com/anthropics/claude-code/releases/tag/v2.1.299) | AI Coding 实战技巧精选；2026-10-14；设置 CLAUDE_CODE_DISABLE_FILE_MENTIONS=1，Agent 通过文件工具按需读取源码。 |
+| 2026-10-19 | Visual Language Maps for Robot Navigation (VLMaps, ICRA 2023) | [论文](https://arxiv.org/abs/2210.05714) · [项目](https://vlmaps.github.io/) · [代码](https://github.com/vlmaps/vlmaps) | 经典论文回顾；v1 2022-10-11 / ICRA 2023；开放词汇视觉语言特征对齐 3D 地图，语义导航与几何安全分层。 |
 
 ## 维护检查表
 
