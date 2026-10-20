@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-19（Asia/Shanghai）
+> 最后更新：2026-10-20（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -156,6 +156,8 @@
 > 2026-10-18 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1030 条。
 >
 > 2026-10-19 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1041 条。
+>
+> 2026-10-20 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1053 条。
 >
 ## 已核验条目
 
@@ -1278,6 +1280,19 @@
 | 2026-10-19 | AI Coding 实战技巧精选：Claude Code 关闭默认 Fork Subagents | [官方 Release v2.1.302](https://github.com/anthropics/claude-code/releases/tag/v2.1.302) | AI Coding 实战技巧精选；2026-10-16；设置 CLAUDE_CODE_FORK_SUBAGENT=0 对比多 Agent 成功任务成本。 |
 | 2026-10-19 | AI Coding 实战技巧精选：Claude Code 禁止 @File 自动全文注入上下文 | [官方 Release v2.1.299](https://github.com/anthropics/claude-code/releases/tag/v2.1.299) | AI Coding 实战技巧精选；2026-10-14；设置 CLAUDE_CODE_DISABLE_FILE_MENTIONS=1，Agent 通过文件工具按需读取源码。 |
 | 2026-10-19 | Visual Language Maps for Robot Navigation (VLMaps, ICRA 2023) | [论文](https://arxiv.org/abs/2210.05714) · [项目](https://vlmaps.github.io/) · [代码](https://github.com/vlmaps/vlmaps) | 经典论文回顾；v1 2022-10-11 / ICRA 2023；开放词汇视觉语言特征对齐 3D 地图，语义导航与几何安全分层。 |
+
+| 2026-10-20 | RTISSLAM-3D: Full 6-DoF SLAM With an In-Air 3D Imaging Sonar | [论文](https://arxiv.org/abs/2610.22552) | 主动态；时间回补 v1 2026-10-15；二维RTISSLAM的实质3D更新，6-DoF/545m森林实验。 |
+| 2026-10-20 | Micro-Localization: High-Precision Mobile Robot Localization Using Microscopic Ground Texture | [论文](https://arxiv.org/abs/2610.22563) | 主动态；时间回补 v1 2026-10-15；地面显微纹理、平面微米级精密定位。 |
+| 2026-10-20 | Structured Perception Representations for Off-road Dynamics Learning | [论文](https://arxiv.org/abs/2610.22900) | 主动态；时间回补 v1 2026-10-16；SpatialBEV根据预测位置查询地形特征，改善越野动力学。 |
+| 2026-10-20 | FCTS: Failure-Guided Curriculum Tree Search Over Generated Terrain for Legged Parkour | [论文](https://arxiv.org/abs/2610.22619) | 主动态；时间回补 v1 2026-10-15；失败条件地形生成和MCTS四足课程。 |
+| 2026-10-20 | Scaling Online Exploration for Robot Agents | [论文](https://arxiv.org/abs/2610.22496) | 主动态；时间回补 v1 2026-10-15；RAX在线探索机器人控制程序与技能。 |
+| 2026-10-20 | When Plans Change, Remember: Replanning-Guided Visual Memory for Vision-Language-Action Models | [论文](https://arxiv.org/abs/2610.22556) | 主动态；时间回补 v1 2026-10-15；RePlanMem-VLA动作块预测分歧触发视觉记忆。 |
+| 2026-10-20 | MambaAct: Efficient Mamba Action Experts for Flow-Matching Vision-Language-Action Models | [论文](https://arxiv.org/abs/2610.22951) | 主动态；时间回补 v1 2026-10-16；轻量Mamba动作专家与去噪延迟改进。 |
+| 2026-10-20 | VulnSAGE: Adjudicating SAST Reports by Connecting LLM Reasoning to Program Structure | [论文](https://arxiv.org/abs/2610.23035) | 主动态；时间回补 v1 2026-10-16；C++静态告警程序切片/CLAIM/隔离PoC。 |
+| 2026-10-20 | AI Coding 实战技巧精选：Copilot CLI 单次任务显式信任目录 | [官方 Release](https://github.com/github/copilot-cli/releases/tag/v1.0.100) | AI Coding 实战技巧精选；2026-10-19；--trust-folder应用于已审查测试工作树，不替代沙盒。 |
+| 2026-10-20 | AI Coding 实战技巧精选：Claude Code Managed Agents 配置只读安全审计 | [官方 Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.304) | AI Coding 实战技巧精选；2026-10-19；/claude-api managed-agents-secure审核配置，不修改设置。 |
+| 2026-10-20 | AI Coding 实战技巧精选：Codex /config 与工具取消回归 | [官方 Release](https://github.com/openai/codex/releases/tag/rust-v0.163.0) | AI Coding 实战技巧精选；时间回补 2026-10-15；Codex 0.163.0设置和Code Mode中断测试。 |
+| 2026-10-20 | LOAM: Lidar Odometry and Mapping in Real-time (RSS 2014) | [RSS](https://roboticsproceedings.org/rss10/p07.html) · [CMU](https://publications.ri.cmu.edu/loam-lidar-odometry-and-mapping-in-real-time) | 经典论文回顾；RSS 2014；原始LOAM高频里程计+低频建图，与索引中LeGO-LOAM区分。 |
 
 ## 维护检查表
 
