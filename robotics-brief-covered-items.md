@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-20（Asia/Shanghai）
+> 最后更新：2026-10-21（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -158,6 +158,8 @@
 > 2026-10-19 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1041 条。
 >
 > 2026-10-20 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1053 条。
+>
+> 2026-10-21 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1065 条。
 >
 ## 已核验条目
 
@@ -1293,6 +1295,19 @@
 | 2026-10-20 | AI Coding 实战技巧精选：Claude Code Managed Agents 配置只读安全审计 | [官方 Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.304) | AI Coding 实战技巧精选；2026-10-19；/claude-api managed-agents-secure审核配置，不修改设置。 |
 | 2026-10-20 | AI Coding 实战技巧精选：Codex /config 与工具取消回归 | [官方 Release](https://github.com/openai/codex/releases/tag/rust-v0.163.0) | AI Coding 实战技巧精选；时间回补 2026-10-15；Codex 0.163.0设置和Code Mode中断测试。 |
 | 2026-10-20 | LOAM: Lidar Odometry and Mapping in Real-time (RSS 2014) | [RSS](https://roboticsproceedings.org/rss10/p07.html) · [CMU](https://publications.ri.cmu.edu/loam-lidar-odometry-and-mapping-in-real-time) | 经典论文回顾；RSS 2014；原始LOAM高频里程计+低频建图，与索引中LeGO-LOAM区分。 |
+
+| 2026-10-21 | CAOS-SLAM: Class-Agnostic Object-Aware Real-Time vSLAM for Dynamic Environments | [论文](https://arxiv.org/abs/2610.26633) | 主动态；v1 2026-10-19；未知动态物体按需分割、深度聚类和对象持续跟踪；中位30 FPS。 |
+| 2026-10-21 | Learning Wheel Motion Uncertainty for Degeneracy-Aware LiDAR-Inertial Odometry on Quadrupedal Wheel-Legged Robots | [论文](https://arxiv.org/abs/2610.26550) | 主动态；v1 2026-10-19；轮方向相关协方差CovNet+退化投影DAP；长廊终点误差0.198m。 |
+| 2026-10-21 | CoopUQ: Robust Multi-Robot Social Navigation via Uncertainty-Aware Cooperative Forecasting | [论文](https://arxiv.org/abs/2610.26852) · [项目](https://coopuq.github.io/) | 主动态；v1 2026-10-19；多机未来占据预测与不确定性风险决策。 |
+| 2026-10-21 | Bio-inspired Thrust-Assisted Trotting on a legged-Aerial Robot via Real-Time QP-MPC | [论文](https://arxiv.org/abs/2610.26810) | 主动态；v1 2026-10-19；Harpy 500Hz推力与地面反作用力联合QP-MPC。 |
+| 2026-10-21 | CusADi2: Latency-Optimized Batch Computation of Robot Kinematics, Jacobians, and Hessians on the GPU | [论文](https://arxiv.org/abs/2610.25476) · [代码](https://github.com/johnviljoen/cusadi2) | 主动态；时间回补 v1 2026-10-18；GPU批内并行优化在线运动学/Jacobian/Hessian延迟。 |
+| 2026-10-21 | AeroDASH: Asynchronous Vision-Language-Action Control for Continuous UAV Flight | [论文](https://arxiv.org/abs/2610.25407) | 主动态；时间回补 v1 2026-10-18；异步B-spline轨迹拼接、过期前缀删除与执行感知GRPO。 |
+| 2026-10-21 | SWE-Residual: Evaluating Starting-State Robustness of Coding Agents | [论文](https://arxiv.org/abs/2610.25899) | 主动态；v1 2026-10-19；Coding Agent接手错误残留工作树产生Acceptance Bias。 |
+| 2026-10-21 | When Coding Agents Outpace Review: Evaluating PRD-Driven Development in Mature Enterprise Repositories (PACE) | [论文](https://arxiv.org/abs/2610.26394) · [代码](https://github.com/TianqiLiu1/PACE-Bench) | 主动态；v1 2026-10-19；43项企业PRD任务/750个专家Code Point，完整交付评测。 |
+| 2026-10-21 | AI Coding 实战技巧精选：npm Package Firewall 代理保护依赖安装 | [GitHub 官方](https://github.blog/changelog/2026-10-20-github-package-firewall-in-public-preview/) | AI Coding 实战技巧精选；2026-10-20；Enterprise Cloud npm 公开预览；Agent/CI npm代理与安全策略。 |
+| 2026-10-21 | AI Coding 实战技巧精选：Dependabot Alert version_requirement 读取实际版本 | [GitHub 官方](https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions/) | AI Coding 实战技巧精选；2026-10-20；REST API返回依赖版本/约束及空值限制。 |
+| 2026-10-21 | AI Coding 实战技巧精选：批量迁移 Branch Protection 到 Rulesets | [GitHub 官方](https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository/) | AI Coding 实战技巧精选；2026-10-20；先Evaluate再Active，验证Bot旁路和CI门禁。 |
+| 2026-10-21 | Observability-based Rules for Designing Consistent EKF SLAM Estimators (IJRR 2010) | [期刊 DOI](https://doi.org/10.1177/0278364909353640) | 经典论文回顾；2009-12-11首发/2010期刊；OC-EKF/FEJ防止不可观测方向的虚假协方差缩小。 |
 
 ## 维护检查表
 
