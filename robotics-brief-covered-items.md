@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-21（Asia/Shanghai）
+> 最后更新：2026-10-22（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -160,6 +160,8 @@
 > 2026-10-20 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1053 条。
 >
 > 2026-10-21 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1065 条。
+>
+> 2026-10-22 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1077 条。
 >
 ## 已核验条目
 
@@ -1308,6 +1310,19 @@
 | 2026-10-21 | AI Coding 实战技巧精选：Dependabot Alert version_requirement 读取实际版本 | [GitHub 官方](https://github.blog/changelog/2026-10-20-dependabot-alerts-rest-api-now-includes-dependency-versions/) | AI Coding 实战技巧精选；2026-10-20；REST API返回依赖版本/约束及空值限制。 |
 | 2026-10-21 | AI Coding 实战技巧精选：批量迁移 Branch Protection 到 Rulesets | [GitHub 官方](https://github.blog/changelog/2026-10-20-bulk-migrate-branch-protections-to-rulesets-for-a-repository/) | AI Coding 实战技巧精选；2026-10-20；先Evaluate再Active，验证Bot旁路和CI门禁。 |
 | 2026-10-21 | Observability-based Rules for Designing Consistent EKF SLAM Estimators (IJRR 2010) | [期刊 DOI](https://doi.org/10.1177/0278364909353640) | 经典论文回顾；2009-12-11首发/2010期刊；OC-EKF/FEJ防止不可观测方向的虚假协方差缩小。 |
+
+| 2026-10-22 | MAPLE: Mondrian-Anchored Prior for Learning-free Indoor Exploration | [来源](https://arxiv.org/abs/2610.28566) | 主动态；时间回补 v1 2026-10-20；无训练 Mondrian 多地图假设预测 Frontier 可见性。 |
+| 2026-10-22 | RadGeoLoc: Radar Geolocalization via Particle Filtering | [来源](https://arxiv.org/abs/2610.27310) | 主动态；时间回补 v1 2026-10-19；旋转雷达匹配卫星 RGB 地图、跨模态似然与多峰粒子定位。 |
+| 2026-10-22 | Reinforced Iterative Learning Control for elastic joint arms: Guaranteed cross-trajectory generalization under model uncertainties | [来源](https://arxiv.org/abs/2610.28329) | 主动态；时间回补 v1 2026-10-20；ILC+RL 跨轨迹补偿，欠驱动四自由度弹性机械臂。 |
+| 2026-10-22 | Real-Time Disturbance-Aware Koopman Model Predictive Control for Quadrotors in Spatially Varying Winds | [来源](https://arxiv.org/abs/2610.27414) | 主动态；时间回补 v1 2026-10-20；固定 Koopman 名义模型、在线风扰残差集成与真实纳米四旋翼 MPC。 |
+| 2026-10-22 | SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model | [来源](https://arxiv.org/abs/2610.28480) | 主动态；时间回补 v1 2026-10-20；可微世界模型+短想象 Rollout，Unitree G1 跟踪/训练 GPU-hours。 |
+| 2026-10-22 | AgenticRoboRL: Bringing Coding-Agent Post-Training to Agentic Robotics | [来源](https://arxiv.org/abs/2610.28589) | 主动态；时间回补 v1 2026-10-20；机器人多 Harness 规划器 SFT+多轮 RL，LIBERO-PRO 9B 18.1%→71.0%。 |
+| 2026-10-22 | Physical Canvas: A Vision Tactile World Model For Robot Policy Evaluation And Learning | [来源](https://arxiv.org/abs/2610.28613) | 主动态；时间回补 v1 2026-10-20；PhysCanvas 视觉触觉世界模型与奖励一致性后训练。 |
+| 2026-10-22 | AgenTest: Mining Business Rules to Test LLM Agents for Business Logic Bugs | [来源](https://arxiv.org/abs/2610.28116) | 主动态；时间回补 v1 2026-10-20；Given–When–Then业务规则与多轮工具轨迹测试、551规格。 |
+| 2026-10-22 | AI Coding 实战技巧精选：GitHub CLI 短期 OAuth 自动刷新凭据 | [来源](https://github.blog/changelog/2026-10-21-github-cli-opt-in-to-expiring-auto-refreshing-oauth-tokens/) | AI Coding 实战技巧精选；2026-10-21；gh v2.103.0 --expiring、auth setup-git、避免缓存过期令牌。 |
+| 2026-10-22 | AI Coding 实战技巧精选：Claude Code 安全决策遥测与幂等 MCP 重试 | [来源](https://github.com/anthropics/claude-code/releases/tag/v2.1.307) | AI Coding 实战技巧精选；2026-10-21；claude_code.safety_event 与只重试只读/幂等 HTTP MCP 工具。 |
+| 2026-10-22 | AI Coding 实战技巧精选：Copilot Model Policy REST API | [来源](https://github.blog/changelog/2026-10-19-copilot-model-policy-api-for-enterprise-orgs-and-teams/) | AI Coding 实战技巧精选；时间回补 2026-10-19；企业/团队/Agent App/组织 GET/PATCH 模型策略。 |
+| 2026-10-22 | A Survey of Iterative Learning Control (Bristow, Tharayil, Alleyne, IEEE CSM 2006) | [来源](https://doi.org/10.1109/MCS.2006.1636313) | 经典论文回顾；IEEE Control Systems Magazine 2006；重复任务学习收敛、鲁棒性与 RILC 跨轨迹泛化边界。 |
 
 ## 维护检查表
 
