@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-23（Asia/Shanghai）
+> 最后更新：2026-10-24（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -164,6 +164,7 @@
 > 2026-10-22 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1077 条。
 >
 > 2026-10-23 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1089 条。
+> 2026-10-24 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1101 条。
 >
 ## 已核验条目
 
@@ -1338,6 +1339,19 @@
 | 2026-10-23 | AI Coding 实战技巧精选：Copilot全局功能默认策略核验 | [来源](https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available/) | AI Coding 实战技巧精选；2026-10-22；审计企业新功能默认策略及MCP服务器控制。 |
 | 2026-10-23 | AI Coding 实战技巧精选：Claude Code 2.1.309沙盒拒写与工具deny回归 | [来源](https://github.com/anthropics/claude-code/releases/tag/v2.1.309) | AI Coding 实战技巧精选；2026-10-22；验证符号链接、组合命令、子Agent工具拒绝继承。 |
 | 2026-10-23 | TrajOpt: Motion planning with sequential convex optimization and convex collision checking (IJRR 2014) | [论文](https://doi.org/10.1177/0278364914528132) · [代码](https://github.com/joschu/trajopt) | 经典论文回顾；IJRR 2014；序列凸化、连续扫掠碰撞和局部优化的初值敏感。 |
+
+| 2026-10-24 | Consistent Distributed Invariant EKF SLAM with Point and Object Features | [论文](https://arxiv.org/abs/2610.31221) | 主动态；时间回补 v1 2026-10-22；Joint-CI多机器人不变误差坐标及点/对象相关性融合。 |
+| 2026-10-24 | Point-Level Refinable Semantic Mapping for Spatial Understanding | [论文](https://arxiv.org/abs/2610.31476) | 主动态；时间回补 v1 2026-10-22；逐点置信度在线修正对象语义地图；Replica/ScanNet。 |
+| 2026-10-24 | ProTrav: Probabilistic Traversability with Elevation Uncertainty Propagation for Risk-aware Off-road Navigation | [论文](https://arxiv.org/abs/2610.30839) | 主动态；时间回补 v1 2026-10-22；SVGP相关高程函数采样、UCB风险MPPI。 |
+| 2026-10-24 | Continuous-Time Motion Planning and Steering with Global Convergence | [论文](https://arxiv.org/abs/2610.30607) | 主动态；时间回补 v1 2026-10-22；GlobMP多项式轨迹连续安全约束、条件性收敛。 |
+| 2026-10-24 | When One Step Is Enough: An Empirical Study of Euler Integration in Flow-Matching Policies | [论文](https://arxiv.org/abs/2610.30735) | 主动态；时间回补 v1 2026-10-22；CoRL 2026，六类VLA单步与多步动作采样消融。 |
+| 2026-10-24 | OpenTac: An Open Ecosystem for Customizable, Scalable, and Transferable 3D Tactile Sensing | [论文](https://arxiv.org/abs/2610.31661) · [项目](https://opentac.github.io/) · [代码](https://github.com/opentac/opentac) | 主动态；时间回补 v1 2026-10-22；3D剪切/法向触觉、CAD、多阵列自适应部分采样。 |
+| 2026-10-24 | Alpha: Systematic Fault Injection and Robustness Evaluation for LLM-Driven Embodied Manipulation | [论文](https://arxiv.org/abs/2610.30197) · [代码](https://github.com/jonajoy142/alpha-embodied-robustness) | 主动态；时间回补 v1 2026-10-21；150次具身故障注入配对试验，接口误序列化归因。 |
+| 2026-10-24 | Agentic Verified Optimization of Real-World Software | [论文](https://arxiv.org/abs/2610.30188) | 主动态；时间回补 v1 2026-10-20；Aqueduct C/C++/Go/Rust到Lean4差分测试及可证明优化。 |
+| 2026-10-24 | AI Coding 实战技巧精选：Teams @GitHub Issue 通知转 Draft PR | [GitHub 公告](https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams/) | AI Coding 实战技巧精选；2026-10-23；Teams通知线程中调查Issue、生成草稿PR并独立验收。 |
+| 2026-10-24 | AI Coding 实战技巧精选：Copilot totals_by_client 跨 OpenCode/Codex/Claude Code 模型用量 | [GitHub 公告](https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode/) | AI Coding 实战技巧精选；2026-10-23；组织/企业用量API分客户端统计Token、Request、Session。 |
+| 2026-10-24 | AI Coding 实战技巧精选：Copilot CLI v1.0.102-1 子Agent自定义MCP权限继承回归 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.102-1) | AI Coding 实战技巧精选；时间回补2026-10-21预发布；MCP工具审批继承与托管Auto模型。 |
+| 2026-10-24 | Using covariance intersection for SLAM (Julier—Uhlmann, Robotics and Autonomous Systems 2007) | [DOI](https://doi.org/10.1016/j.robot.2006.06.011) | 经典论文回顾；2007；未知交叉相关下CI地图融合，与今日Joint-CI对照。 |
 
 ## 维护检查表
 
