@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-24（Asia/Shanghai）
+> 最后更新：2026-10-25（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -165,6 +165,8 @@
 >
 > 2026-10-23 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1089 条。
 > 2026-10-24 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1101 条。
+>
+> 2026-10-25 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1113 条。
 >
 ## 已核验条目
 
@@ -1352,6 +1354,19 @@
 | 2026-10-24 | AI Coding 实战技巧精选：Copilot totals_by_client 跨 OpenCode/Codex/Claude Code 模型用量 | [GitHub 公告](https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode/) | AI Coding 实战技巧精选；2026-10-23；组织/企业用量API分客户端统计Token、Request、Session。 |
 | 2026-10-24 | AI Coding 实战技巧精选：Copilot CLI v1.0.102-1 子Agent自定义MCP权限继承回归 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.102-1) | AI Coding 实战技巧精选；时间回补2026-10-21预发布；MCP工具审批继承与托管Auto模型。 |
 | 2026-10-24 | Using covariance intersection for SLAM (Julier—Uhlmann, Robotics and Autonomous Systems 2007) | [DOI](https://doi.org/10.1016/j.robot.2006.06.011) | 经典论文回顾；2007；未知交叉相关下CI地图融合，与今日Joint-CI对照。 |
+
+| 2026-10-25 | A Sparse Topometric Graph for Scalable Cross-Session Indoor Navigation | [论文](https://arxiv.org/abs/2610.31432) | 主动态；时间回补 v1 2026-10-22；局部3D几何与拓扑子图跨会话匹配；地图内存减少超过两个数量级。 |
+| 2026-10-25 | OASIS: Online Anchor-centric Scene Inference System for Open-Vocabulary Retrieval and Navigation in Dynamic Environments | [论文](https://arxiv.org/abs/2610.30589) | 主动态；时间回补 v1 2026-10-22；稳定语义锚点、按需证据提取及移动对象重定位。 |
+| 2026-10-25 | Dispersive Tree Agreements for Multi-Robot Coordination / WarpWeaver | [论文](https://arxiv.org/abs/2610.31540) | 主动态；时间回补 v1 2026-10-22；分布式列生成、异步协调与六机板上规划。 |
+| 2026-10-25 | MPBRS: Multi-Potential-Based Reward Shaping for Unified Reward Configuration in Humanoid Locomotion | [论文](https://arxiv.org/abs/2610.30334) | 主动态；时间回补 v1 2026-10-21；九种人形统一潜势奖励配置及最优策略不变性前提。 |
+| 2026-10-25 | TerraTransfer++: Demonstration-Free End-to-End Planner | [论文](https://arxiv.org/abs/2610.30319) | 主动态；时间回补 v1 2026-10-21；自博弈控制教师、Flow轨迹蒸馏与视觉学生。 |
+| 2026-10-25 | FocusVLA: Future-Intent Guided Dynamic View Routing for Vision-Language-Action Models | [论文](https://arxiv.org/abs/2610.31423) | 主动态；时间回补 v1 2026-10-22；按预测交互阶段动态调度腕部与全局视角。 |
+| 2026-10-25 | Know When to Escalate: Critic-Guided Adaptive Execution for Cloud-Local Embodied Agents / CARE | [论文](https://arxiv.org/abs/2610.30587) | 主动态；时间回补 v1 2026-10-22；本地可靠性评估、云端接管与共享交接记忆。 |
+| 2026-10-25 | Stale Instruction Files Override the Code in Coding Agents: A One-Sentence Fix | [论文](https://arxiv.org/abs/2610.30571) · [数据](https://github.com/WenJing95/stale-docs-data) | 主动态；时间回补 v1 2026-10-22；320次Codex/Claude受控实验；过期说明优先级修正。 |
+| 2026-10-25 | AI Coding 实战技巧精选：Codex 0.164.0 /presets与交互式权限配置 | [官方Release](https://github.com/openai/codex/releases/tag/rust-v0.164.0) | AI Coding 实战技巧精选；2026-10-23；十个Preset槽位与/model、/permissions设置回归。 |
+| 2026-10-25 | AI Coding 实战技巧精选：Claude Code v2.1.310符号链接真实路径与Hook拒绝回归 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.310) | AI Coding 实战技巧精选；2026-10-23；文件读取链接目标提示与Windows Hook拦截。 |
+| 2026-10-25 | AI Coding 实战技巧精选：Enterprise GitHub Apps GA与最小权限令牌迁移 | [GitHub 公告](https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available/) | AI Coding 实战技巧精选；2026-10-23；企业安装、权限精简和PAT替代迁移。 |
+| 2026-10-25 | Reciprocal n-Body Collision Avoidance / ORCA (2011) | [论文](https://doi.org/10.1007/978-3-642-19457-3_1) · [代码](https://github.com/snape/RVO2) | 经典论文回顾；2011；互惠速度障碍、线性规划和多机速度级局部避碰。 |
 
 ## 维护检查表
 
