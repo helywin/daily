@@ -265,13 +265,13 @@ Momentum Teacher：带噪真实未来观测
 
 ### 实验、实时性与可复现性
 
-跨多种真实操作任务，作者报告 FRED 在长时程和分布外任务中更有优势。在**仅有人类视频、未进入机器人训练数据**的技能迁移任务中，成功率 **50.0%**，最强对照 WAM 为 **19.4%**。项目页提供论文、[代码](https://github.com/)入口和模型 Checkpoint 链接；这里不猜测未核实的仓库具体路径。尚无可以直接迁移至 ARM/NPU 的统一 P95 延迟。
+跨多种真实操作任务，作者报告 FRED 在长时程和分布外任务中更有优势。在**仅有人类视频、未进入机器人训练数据**的技能迁移任务中，成功率 **50.0%**，最强对照 WAM 为 **19.4%**。项目页提供论文、[官方代码](https://github.com/suhyeok-jang/FRED)和模型 Checkpoint 链接；这里不猜测未核实的仓库具体路径。仓库已提供安装、训练、评测脚本及多个模型 Checkpoint；尚无可以直接迁移至 ARM/NPU 的统一 P95 延迟。
 
 ### 适合谁关注与工程落地
 
 适合视频先验 WAM、动作专家、端侧 VLA 延迟优化。推荐固定基础 Action Decoder，比较单步未蒸馏、单步自蒸馏和多步视频特征三组；同时统计 OOD 任务成功率、每次动作 P95、视觉历史长度及对突发环境变化的敏感性。**训练时获得更好的未来表征，与执行时能及时停下过期动作，是两件独立的事。**
 
-[原论文：FRED](https://arxiv.org/abs/2610.30320) · [作者项目页](https://huiwon-jang.github.io/FRED/)
+[原论文：FRED](https://arxiv.org/abs/2610.30320) · [作者项目页](https://huiwon-jang.github.io/FRED/) · [官方源码](https://github.com/suhyeok-jang/FRED/)
 
 ## 8. JANUS：跨 JNI 边界自动构造 Android Native Fuzz Harness
 
@@ -403,7 +403,7 @@ Accelerometer / Known Reference Directions
 
 **定位与传感器：** [Calibration-free IMU](https://arxiv.org/abs/2610.31156) · [CoHelix](https://arxiv.org/abs/2610.31384)。
 
-**控制与具身 AI：** [TEAR](https://arxiv.org/abs/2610.30819) · [Probabilistic Swarm Energy](https://arxiv.org/abs/2610.31371) · [DiffDreamer](https://arxiv.org/abs/2610.31617) · [PhysibleMDM](https://arxiv.org/abs/2610.30500) · [FRED](https://arxiv.org/abs/2610.30320) · [FRED Project](https://huiwon-jang.github.io/FRED/)。
+**控制与具身 AI：** [TEAR](https://arxiv.org/abs/2610.30819) · [Probabilistic Swarm Energy](https://arxiv.org/abs/2610.31371) · [DiffDreamer](https://arxiv.org/abs/2610.31617) · [PhysibleMDM](https://arxiv.org/abs/2610.30500) · [FRED](https://arxiv.org/abs/2610.30320) · [FRED Project](https://huiwon-jang.github.io/FRED/) · [FRED Code](https://github.com/suhyeok-jang/FRED)。
 
 **AI Coding：** [JANUS](https://arxiv.org/abs/2610.30218) · [GitHub Public Monitoring 10-23](https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks/) · [Copilot CLI 1.0.104-2](https://github.com/github/copilot-cli/releases/tag/v1.0.104-2) · [Copilot CLI 1.0.103](https://github.com/github/copilot-cli/releases/tag/v1.0.103)。
 
