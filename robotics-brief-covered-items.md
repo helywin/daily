@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-25（Asia/Shanghai）
+> 最后更新：2026-10-26（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -167,6 +167,8 @@
 > 2026-10-24 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1101 条。
 >
 > 2026-10-25 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1113 条。
+>
+> 2026-10-26 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1125 条。
 >
 ## 已核验条目
 
@@ -1367,6 +1369,19 @@
 | 2026-10-25 | AI Coding 实战技巧精选：Claude Code v2.1.310符号链接真实路径与Hook拒绝回归 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.310) | AI Coding 实战技巧精选；2026-10-23；文件读取链接目标提示与Windows Hook拦截。 |
 | 2026-10-25 | AI Coding 实战技巧精选：Enterprise GitHub Apps GA与最小权限令牌迁移 | [GitHub 公告](https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available/) | AI Coding 实战技巧精选；2026-10-23；企业安装、权限精简和PAT替代迁移。 |
 | 2026-10-25 | Reciprocal n-Body Collision Avoidance / ORCA (2011) | [论文](https://doi.org/10.1007/978-3-642-19457-3_1) · [代码](https://github.com/snape/RVO2) | 经典论文回顾；2011；互惠速度障碍、线性规划和多机速度级局部避碰。 |
+
+| 2026-10-26 | Calibration-free IMU-based Relative Orientation Estimation under Dynamic Human Motion | [论文](https://arxiv.org/abs/2610.31156) | 主动态；时间回补 v1 2026-10-22；相对IMU方向与传感器位置联合EKF；OpenSense姿态误差2.61°。 |
+| 2026-10-26 | CoHelix: Event-Based Multi-Propeller Rotation-Rate Tracking with Shared Projective Geometry | [论文](https://arxiv.org/abs/2610.31384) | 主动态；时间回补 v1 2026-10-22；共享单应性四桨事件测速；移动相机lock 62.9%。 |
+| 2026-10-26 | TEAR: Task-Evidence Authority Routing for Robotic Manipulation | [论文](https://arxiv.org/abs/2610.30819) | 主动态；时间回补 v1 2026-10-22；机器人端网络与任务双证据遥控/自治控制权交接。 |
+| 2026-10-26 | Probabilistic Energy Modeling Unifies Versatile Swarm Control | [论文](https://arxiv.org/abs/2610.31371) | 主动态；时间回补 v1 2026-10-22；Gibbs能量项组合、多任务群控与轻量策略门控。 |
+| 2026-10-26 | DiffDreamer: Coupling World Models with Differentiable Simulation for Agile Quadrotor Control | [论文](https://arxiv.org/abs/2610.31617) | 主动态；时间回补 v1 2026-10-22；世界模型预测外界、可微物理传播无人机本体。 |
+| 2026-10-26 | PhysibleMDM: Enforcing Inference-Time Physical Feasibility Constraints on Motion Diffusion Models via Noise Optimization | [论文](https://arxiv.org/abs/2610.30500) | 主动态；时间回补 v1 2026-10-21；Sep-CMA-ES噪声搜索及逆动力学约束改善人形动作可行性。 |
+| 2026-10-26 | Self-Distilling Future Video Representations for World Action Models / FRED | [论文](https://arxiv.org/abs/2610.30320) · [代码](https://github.com/suhyeok-jang/FRED) · [项目](https://huiwon-jang.github.io/FRED/) | 主动态；时间回补 v1 2026-10-21；单步未来视频表征自蒸馏与真实机器人跨域动作迁移。 |
+| 2026-10-26 | JANUS: Agentic Cross-Language Fuzzing Harness Generation for Android Native Libraries | [论文](https://arxiv.org/abs/2610.30218) | 主动态；时间回补 v1 2026-10-21；JNI跨语言对象依赖构建与有效Fuzz Harness。 |
+| 2026-10-26 | AI Coding 实战技巧精选：GitHub Public Monitoring API泄露凭据状态核查与Webhook | [官方公告](https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks/) | AI Coding 实战技巧精选；2026-10-23；企业公开泄露凭据查询、Active状态和吊销优先级。 |
+| 2026-10-26 | AI Coding 实战技巧精选：Copilot CLI v1.0.104-2 Autopilot后台等待与批处理超时 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.104-2) | AI Coding 实战技巧精选；2026-10-24预发布；区分Interactive/SDK与-p --autopilot等待语义。 |
+| 2026-10-26 | AI Coding 实战技巧精选：Copilot CLI v1.0.103 ACP沙盒参数与会话恢复权限 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.103) | AI Coding 实战技巧精选；2026-10-22；ACP恢复后遵守sandbox配置和--sandbox参数。 |
+| 2026-10-26 | Nonlinear Complementary Filters on the Special Orthogonal Group (Mahony et al., IEEE TAC 2008) | [论文](https://doi.org/10.1109/TAC.2008.923738) | 经典论文回顾；IEEE TAC 2008；SO(3)姿态互补观测器、陀螺Bias估计与Yaw可观性。 |
 
 ## 维护检查表
 
