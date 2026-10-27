@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-26（Asia/Shanghai）
+> 最后更新：2026-10-27（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -169,6 +169,8 @@
 > 2026-10-25 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1113 条。
 >
 > 2026-10-26 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1125 条。
+>
+> 2026-10-27 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1136 条。
 >
 ## 已核验条目
 
@@ -1382,6 +1384,17 @@
 | 2026-10-26 | AI Coding 实战技巧精选：Copilot CLI v1.0.104-2 Autopilot后台等待与批处理超时 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.104-2) | AI Coding 实战技巧精选；2026-10-24预发布；区分Interactive/SDK与-p --autopilot等待语义。 |
 | 2026-10-26 | AI Coding 实战技巧精选：Copilot CLI v1.0.103 ACP沙盒参数与会话恢复权限 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.103) | AI Coding 实战技巧精选；2026-10-22；ACP恢复后遵守sandbox配置和--sandbox参数。 |
 | 2026-10-26 | Nonlinear Complementary Filters on the Special Orthogonal Group (Mahony et al., IEEE TAC 2008) | [论文](https://doi.org/10.1109/TAC.2008.923738) | 经典论文回顾；IEEE TAC 2008；SO(3)姿态互补观测器、陀螺Bias估计与Yaw可观性。 |
+| 2026-10-27 | Monte Carlo-Based Indoor UAV Localization in Dynamic Environments Using Only Four Onboard Range Sensors (AF-MCL) | [论文](https://arxiv.org/abs/2610.32645) | 主动态；时间回补 v1 2026-10-23；四单点测距+航向的二维粒子定位，动态量测筛选与重定位。 |
+| 2026-10-27 | Natural-Language to Nav2: Operational Policies for Costmap-Based Navigation | [论文](https://arxiv.org/abs/2610.32633) · [项目](https://a56239637-dot.github.io/Natural-Language-to-Nav2-Project-Page/) | 主动态；时间回补 v1 2026-10-23；本地LLM解析JSON通行策略、独立验证并映射Nav2 Costmap。 |
+| 2026-10-27 | See What I Need, Dream What I Want: A Navigation Foundation Model on a Self-Constructed Representation Space (RepresentNav) | [论文](https://arxiv.org/abs/2610.31762) · [项目](https://wang-yinxi.github.io/representnav/) | 主动态；时间回补 v1 2026-10-22；多视觉基础模型分层特征的导航自建潜空间与JEPA预测。 |
+| 2026-10-27 | Multimodal MPC via Bayesian Set Optimization for Dynamic Manipulation of Deformable Linear Objects (BM2PC) | [论文](https://arxiv.org/abs/2610.31852) · [代码](https://github.com/Longyouyuan/BM2PC) | 主动态；时间回补 v1 2026-10-22；柔性物多模态MPC与GRU末端实际执行响应模型。 |
+| 2026-10-27 | Delay Randomization Widens the Delay Margin of Learned Humanoid Motion Trackers | [论文](https://arxiv.org/abs/2610.32277) | 主动态；时间回补 v1 2026-10-23；0-50ms训练延迟随机化与独立Sim2Sim延迟裕量测试。 |
+| 2026-10-27 | FORCA: A Force-Aware Coding Agent for Contact-Rich Robot Manipulation | [论文](https://arxiv.org/abs/2610.31841) · [项目](https://tanoom.github.io/forca/) | 主动态；时间回补 v1 2026-10-22；Coding Agent结合腕部力觉日志修正接触运动Python代码。 |
+| 2026-10-27 | Full-Weight VLA Fine-Tuning Without an fp32 Master Copy Silently Erases Most Updates | [论文](https://arxiv.org/abs/2610.31859) | 主动态；时间回补 v1 2026-10-22；BF16可训练权重更新舍入损失与FP32主权重消融。 |
+| 2026-10-27 | Pairing Matters: Performance, Failures, and Efficiency in Lightweight Coding Agents | [论文](https://arxiv.org/abs/2610.32131) | 主动态；时间回补 v1 2026-10-23；六Harness乘三轻量模型跨100 SWE-bench任务组合评测。 |
+| 2026-10-27 | AI Coding 实战技巧精选：Claude Code Edit写文件TOCTOU符号链接竞态修复核查 | [安全公告](https://github.com/anthropics/claude-code/security/advisories/GHSA-5xjx-9qx6-jcrv) | AI Coding 实战技巧精选；2026-10-26；低于2.1.251受影响，核对版本与隔离不可信仓库。 |
+| 2026-10-27 | AI Coding 实战技巧精选：gh-aw v0.93.5凭据跨步骤传递分析及运行审计 | [官方Release](https://github.com/github/gh-aw/releases/tag/v0.93.5) | AI Coding 实战技巧精选；2026-10-25；编译Workflow并用gh aw audit检验敏感凭据流。 |
+| 2026-10-27 | The Vector Field Histogram—Fast Obstacle Avoidance for Mobile Robots (Borenstein and Koren, 1991) | [期刊DOI](https://doi.org/10.1109/70.88137) | 经典论文回顾；1991；二维障碍密度栅格投影到极坐标方向直方图的实时避障。 |
 
 ## 维护检查表
 
