@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-27（Asia/Shanghai）
+> 最后更新：2026-10-28（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -171,6 +171,8 @@
 > 2026-10-26 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1125 条。
 >
 > 2026-10-27 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1136 条。
+>
+> 2026-10-28 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1147 条。
 >
 ## 已核验条目
 
@@ -1395,6 +1397,18 @@
 | 2026-10-27 | AI Coding 实战技巧精选：Claude Code Edit写文件TOCTOU符号链接竞态修复核查 | [安全公告](https://github.com/anthropics/claude-code/security/advisories/GHSA-5xjx-9qx6-jcrv) | AI Coding 实战技巧精选；2026-10-26；低于2.1.251受影响，核对版本与隔离不可信仓库。 |
 | 2026-10-27 | AI Coding 实战技巧精选：gh-aw v0.93.5凭据跨步骤传递分析及运行审计 | [官方Release](https://github.com/github/gh-aw/releases/tag/v0.93.5) | AI Coding 实战技巧精选；2026-10-25；编译Workflow并用gh aw audit检验敏感凭据流。 |
 | 2026-10-27 | The Vector Field Histogram—Fast Obstacle Avoidance for Mobile Robots (Borenstein and Koren, 1991) | [期刊DOI](https://doi.org/10.1109/70.88137) | 经典论文回顾；1991；二维障碍密度栅格投影到极坐标方向直方图的实时避障。 |
+
+| 2026-10-28 | Bracketing Shows the Way: Adaptive Multi-Exposure Policy as Input for Robust Visual SLAM | [论文](https://arxiv.org/abs/2610.33174) · [源码](https://github.com/norlab-ulaval/bracketing-shows-the-way) | 主动态；时间回补 v1 2026-10-23；B-Adapt多曝光采样和BVSLAM因子图；隧道出口误差降低78%。 |
+| 2026-10-28 | Resilient Decentralized Radar-LiDAR-Inertial Odometry in Challenging Subterranean Environments | [论文](https://arxiv.org/abs/2610.35363) | 主动态；时间回补 v1 2026-10-23；ART退化检测和RETOIF分散式雷达/激光惯性融合；地下烟尘。 |
+| 2026-10-28 | Neuromorphic Decision Dynamics for Deadlock-free Safe Navigation in Congested Environments | [论文](https://arxiv.org/abs/2610.33271) | 主动态；时间回补 v1 2026-10-23；局部决策状态与物理速度耦合；有条件安全与有限时间无死锁通行。 |
+| 2026-10-28 | Active Reachability Learning for Humanoid Recoverability Monitoring | [论文](https://arxiv.org/abs/2610.33317) | 主动态；时间回补 v1 2026-10-23；G1后备恢复策略的有限时域可恢复性边界与主动探索。 |
+| 2026-10-28 | Interpretable Collision Avoidance and Feasibility Guarantees through an Uncertainty Aware Pipeline | [论文](https://arxiv.org/abs/2610.33186) | 主动态；时间回补 v1 2026-10-23；上游风险传播和凸安全集合，Jackal真机及路口Monte Carlo。 |
+| 2026-10-28 | RAIWAY: A Large-Wheeled Bipedal Robot with Contact-Informed Blind Locomotion | [论文](https://arxiv.org/abs/2610.33172) | 主动态；时间回补 v1 2026-10-23；仿真接触特权信息蒸馏到本体感觉控制；20英寸轮和15cm楼梯。 |
+| 2026-10-28 | TinyFlow: Breaking the Warping Bottleneck for Edge Optical Flow | [论文](https://arxiv.org/abs/2610.33338) | 主动态；时间回补 v1 2026-10-23；无Warp固定相关窗口，1.26M参数静态INT8光流和VO。 |
+| 2026-10-28 | Speculative Forking: Turning Idle Wait into Parallel Exploration for Repository Environment Setup (SpecBuild) | [论文](https://arxiv.org/abs/2610.33129) | 主动态；时间回补 v1 2026-10-23；Coding Agent在隔离环境并行构建与提前准备修复分支。 |
+| 2026-10-28 | AI Coding 实战技巧精选：GitHub Copilot SDK组织GitHub App短时安装令牌 | [官方发布](https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication/) · [文档](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/server-to-server-tokens) | AI Coding 实战技巧精选；2026-10-27；Copilot Requests只读组织权限、SDK显式令牌和一小时刷新。 |
+| 2026-10-28 | AI Coding 实战技巧精选：Copilot CLI Assisted permissions审批模式 | [官方发布](https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available/) | AI Coding 实战技巧精选；时间回补 2026-10-26；/permissions选择assisted并对照人工审核边界。 |
+| 2026-10-28 | SVO: Fast Semi-Direct Monocular Visual Odometry (Forster et al., ICRA 2014) | [论文DOI](https://doi.org/10.1109/ICRA.2014.6906584) · [原作者代码](https://github.com/uzh-rpg/rpg_svo) | 经典论文回顾；ICRA 2014；半直接稀疏光度跟踪与概率深度地图；研究ROS代码。 |
 
 ## 维护检查表
 
