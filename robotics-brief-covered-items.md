@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-28（Asia/Shanghai）
+> 最后更新：2026-10-29（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -173,6 +173,8 @@
 > 2026-10-27 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1136 条。
 >
 > 2026-10-28 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1147 条。
+>
+> 2026-10-29 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1159 条。
 >
 ## 已核验条目
 
@@ -1409,6 +1411,19 @@
 | 2026-10-28 | AI Coding 实战技巧精选：GitHub Copilot SDK组织GitHub App短时安装令牌 | [官方发布](https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication/) · [文档](https://docs.github.com/en/copilot/how-tos/copilot-sdk/auth/server-to-server-tokens) | AI Coding 实战技巧精选；2026-10-27；Copilot Requests只读组织权限、SDK显式令牌和一小时刷新。 |
 | 2026-10-28 | AI Coding 实战技巧精选：Copilot CLI Assisted permissions审批模式 | [官方发布](https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available/) | AI Coding 实战技巧精选；时间回补 2026-10-26；/permissions选择assisted并对照人工审核边界。 |
 | 2026-10-28 | SVO: Fast Semi-Direct Monocular Visual Odometry (Forster et al., ICRA 2014) | [论文DOI](https://doi.org/10.1109/ICRA.2014.6906584) · [原作者代码](https://github.com/uzh-rpg/rpg_svo) | 经典论文回顾；ICRA 2014；半直接稀疏光度跟踪与概率深度地图；研究ROS代码。 |
+
+| 2026-10-29 | RESPLE2: Recursive Non-Uniform Spline Multi-Sensor Odometry | [论文](https://arxiv.org/abs/2610.37602) · [源码](https://github.com/ASIG-X/RESPLE2) · [项目](https://asig-x.github.io/resple2_web/) | 主动态；时间回补 v1 2026-10-27；ROS2非均匀B样条递归多传感器里程计和回环；GPLv3源码。 |
+| 2026-10-29 | SG²SLAM: Spatial Geometry-Informed 3D Gaussian Splatting SLAM | [论文](https://arxiv.org/abs/2610.36312) | 主动态；时间回补 v1 2026-10-26；流式几何先验联合单目追踪和3DGS建图；源码待发布。 |
+| 2026-10-29 | REACH: Humanoid Low-Ceiling Standing and Crawling | [论文](https://arxiv.org/abs/2610.36546) · [项目](https://aislab-sustech.github.io/REACH/) | 主动态；时间回补 v1 2026-10-27；LiDAR三维规划、G1低姿态及爬行模式双向切换；代码暂未发布。 |
+| 2026-10-29 | CPG-ENN: Explainable CPG and Execution Network for Multi-Gait Quadrupeds | [论文](https://arxiv.org/abs/2610.36537) | 主动态；时间回补 v1 2026-10-27；Go2六参数统一步态及CPG-ENN策略切换。 |
+| 2026-10-29 | cuArms: GPU-Accelerated Multi-Arm Task and Motion Planning | [论文](https://arxiv.org/abs/2610.36250) · [项目](https://cuarms.github.io/) | 主动态；时间回补 v1 2026-10-26；GPU冲突表、惰性冲突搜索、多臂规划及Coding Agent高层调度。 |
+| 2026-10-29 | Rendering-Free Event Frame Simulation for Autonomous Robot Navigation | [论文](https://arxiv.org/abs/2610.37543) · [源码](https://github.com/tudelft/rendering-free-event-nav) | 主动态；时间回补 v1 2026-10-27；解析事件仿真与INT8 56g Crazyflie机载避障。 |
+| 2026-10-29 | E0.5: 3D Foundation Model for World Action Prediction | [论文](https://arxiv.org/abs/2610.36011) | 主动态；时间回补 v1 2026-10-26；三维基础模型联合预测未来几何与机器人动作。 |
+| 2026-10-29 | Small agents should know what their tools do (EffectWorld) | [论文](https://arxiv.org/abs/2610.35981) | 主动态；时间回补 v1 2026-10-26；工具副作用、幂等和读写资源契约驱动小模型训练。 |
+| 2026-10-29 | AI Coding 实战技巧精选：GitHub Agentic Workflows GA与gh-aw Markdown工作流 | [官方公告](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/) | AI Coding 实战技巧精选；2026-10-28；add-wizard、compile、Safe Outputs和GitHub Actions受控执行。 |
+| 2026-10-29 | AI Coding 实战技巧精选：Copilot Fusion本地模型实验路由 | [官方公告](https://github.blog/changelog/2026-10-28-github-copilot-fusion-now-supports-selection-of-local-models/) | AI Coding 实战技巧精选；2026-10-28；Linux本地模型选择与Fusion路由，云端决策不是离线推理。 |
+| 2026-10-29 | AI Coding 实战技巧精选：GitHub AI Scan全仓扫描与修复复查 | [官方公告](https://github.blog/changelog/2026-10-28-ai-scan-for-repositories-in-public-preview/) | AI Coding 实战技巧精选；2026-10-28；全仓候选缺陷扫描、独立验证和合并后重新扫描。 |
+| 2026-10-29 | Continuous-Time Batch Estimation Using Temporal Basis Functions (Furgale et al., ICRA 2012) | [论文DOI](https://doi.org/10.1109/ICRA.2012.6225005) | 经典论文回顾；ICRA 2012；时间基函数连续轨迹与异步观测残差；区别2015 IJRR扩展版。 |
 
 ## 维护检查表
 
