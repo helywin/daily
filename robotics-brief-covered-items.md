@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-29（Asia/Shanghai）
+> 最后更新：2026-10-30（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -175,6 +175,8 @@
 > 2026-10-28 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1147 条。
 >
 > 2026-10-29 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1159 条。
+>
+> 2026-10-30 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1171 条。
 >
 ## 已核验条目
 
@@ -1424,6 +1426,19 @@
 | 2026-10-29 | AI Coding 实战技巧精选：Copilot Fusion本地模型实验路由 | [官方公告](https://github.blog/changelog/2026-10-28-github-copilot-fusion-now-supports-selection-of-local-models/) | AI Coding 实战技巧精选；2026-10-28；Linux本地模型选择与Fusion路由，云端决策不是离线推理。 |
 | 2026-10-29 | AI Coding 实战技巧精选：GitHub AI Scan全仓扫描与修复复查 | [官方公告](https://github.blog/changelog/2026-10-28-ai-scan-for-repositories-in-public-preview/) | AI Coding 实战技巧精选；2026-10-28；全仓候选缺陷扫描、独立验证和合并后重新扫描。 |
 | 2026-10-29 | Continuous-Time Batch Estimation Using Temporal Basis Functions (Furgale et al., ICRA 2012) | [论文DOI](https://doi.org/10.1109/ICRA.2012.6225005) | 经典论文回顾；ICRA 2012；时间基函数连续轨迹与异步观测残差；区别2015 IJRR扩展版。 |
+
+| 2026-10-30 | Generalizable Target-Less Joint Intrinsic-Extrinsic Camera-LiDAR Calibration using Deep Pixel-Point Correspondences | [论文](https://arxiv.org/abs/2610.37350) | 主动态；时间回补 v1 2026-10-27；原始相机图像深度对应联合估计内参、畸变与Camera-LiDAR外参。 |
+| 2026-10-30 | Remember Where You Walk: Learning Spatial Memory for End-to-End Legged Robot Exploration (LSMM) | [论文](https://arxiv.org/abs/2610.37203) | 主动态；时间回补 v1 2026-10-27；位置寻址Hadamard记忆；迷宫重建误差约降至三分之一。 |
+| 2026-10-30 | KEPT: Conformal Keepouts Kept in Planning for Enclosed-Space Navigation in Degraded Sensing | [论文](https://arxiv.org/abs/2610.37217) | 主动态；时间回补 v1 2026-10-27；烟尘退化保形禁入区与每命令制动距离安全检查。 |
+| 2026-10-30 | Learning Visuomotor Quadrotor Flight Through Dynamic Narrow Gaps via Differentiable Simulation | [论文](https://arxiv.org/abs/2610.37557) | 主动态；时间回补 v1 2026-10-27；动态窄缝可微路径目标；仿真99.3%，真机8/10。 |
+| 2026-10-30 | AuRaSim: A Ray-Tracing Based Automotive FMCW Radar Simulator for Dynamic Scenarios | [论文](https://arxiv.org/abs/2610.37403) · [项目](https://wangzhaoze.github.io/aurasim/) | 主动态；时间回补 v1 2026-10-27；Blender/Sionna RT相干ADC立方体及Doppler仿真；代码尚未发布。 |
+| 2026-10-30 | Pushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well (DexSafe) | [论文](https://arxiv.org/abs/2610.37652) · [项目](https://ian-chuang.github.io/dexsafe/) | 主动态；时间回补 v1 2026-10-27；LEAP手4800真机目标及ResSafe残差安全过滤器，掉落降低75%。 |
+| 2026-10-30 | Spine: Compiling Subtask Trees into Structured Context for Long-Horizon Coding Agents | [论文](https://arxiv.org/abs/2610.37224) | 主动态；时间回补 v1 2026-10-27；工作域树与即时上下文编译；SpineCodex长任务成本下降32.4%。 |
+| 2026-10-30 | FeatureArc: Benchmarking Coding Agents on Evolving Features | [论文](https://arxiv.org/abs/2610.37434) | 主动态；时间回补 v1 2026-10-27；多阶段功能回归；首阶段62.7%至整体28.5%。 |
+| 2026-10-30 | AI Coding 实战技巧精选：Copilot跨手机桌面统一云会话与本地环境授权 | [GitHub官方公告](https://github.blog/changelog/2026-10-28-work-from-anywhere-with-a-new-connected-copilot-cloud-experience/) | AI Coding 实战技巧精选；时间回补2026-10-28；移动端云Sandbox跨平台续会话及本地权限边界。 |
+| 2026-10-30 | AI Coding 实战技巧精选：Copilot仓库默认Plugin及企业受控Marketplace | [GitHub官方公告](https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available/) | AI Coding 实战技巧精选；时间回补2026-10-28；.github/copilot/settings.json默认插件与企业required/blocked策略。 |
+| 2026-10-30 | AI Coding 实战技巧精选：Dependabot Reachability Analysis调用路径告警分级 | [GitHub官方公告](https://github.blog/changelog/2026-10-28-prioritize-dependabot-alerts-with-reachability-analysis/) | AI Coding 实战技巧精选；时间回补2026-10-28；JS/TS Lockfile依赖可达性分析与四级风险分流。 |
+| 2026-10-30 | A Flexible New Technique for Camera Calibration (Zhang, IEEE PAMI 2000) | [论文DOI](https://doi.org/10.1109/34.888718) · [OpenCV实现](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html) | 经典论文回顾；2000；平面多视角单应性相机内参初值、镜头畸变与非线性重投影优化。 |
 
 ## 维护检查表
 
