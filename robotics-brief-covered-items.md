@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-30（Asia/Shanghai）
+> 最后更新：2026-10-31（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -177,6 +177,8 @@
 > 2026-10-29 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1159 条。
 >
 > 2026-10-30 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1171 条。
+>
+> 2026-10-31 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1183 条。
 >
 ## 已核验条目
 
@@ -1439,6 +1441,19 @@
 | 2026-10-30 | AI Coding 实战技巧精选：Copilot仓库默认Plugin及企业受控Marketplace | [GitHub官方公告](https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available/) | AI Coding 实战技巧精选；时间回补2026-10-28；.github/copilot/settings.json默认插件与企业required/blocked策略。 |
 | 2026-10-30 | AI Coding 实战技巧精选：Dependabot Reachability Analysis调用路径告警分级 | [GitHub官方公告](https://github.blog/changelog/2026-10-28-prioritize-dependabot-alerts-with-reachability-analysis/) | AI Coding 实战技巧精选；时间回补2026-10-28；JS/TS Lockfile依赖可达性分析与四级风险分流。 |
 | 2026-10-30 | A Flexible New Technique for Camera Calibration (Zhang, IEEE PAMI 2000) | [论文DOI](https://doi.org/10.1109/34.888718) · [OpenCV实现](https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html) | 经典论文回顾；2000；平面多视角单应性相机内参初值、镜头畸变与非线性重投影优化。 |
+
+| 2026-10-31 | Don't Risk It!: Trajectory-Conditioned Distributional Risk for LiDAR-Only Crowd Navigation | [论文](https://arxiv.org/abs/2610.40050) | 主动态；时间回补 v1 2026-10-29；DRIP，LiDAR占据历史下的轨迹条件最小净空风险分布，人群最多45人。 |
+| 2026-10-31 | RAIBO-Wagon: Real-Time Navigation System for a Legged Robot Towing a Wagon | [论文](https://arxiv.org/abs/2610.39267) · [项目](https://insungyang.github.io/raibo-wagon/) | 主动态；时间回补 v1 2026-10-29；CFM暖启动MPPI，学习拖挂FDM；15米真机34/40成功，最大拖重40kg。 |
+| 2026-10-31 | Actuator-Aware Observer Inputs for Cascade ADRC of Quadrotors Under Rotor Lag, Measurement Delay and Sensor Noise | [论文](https://arxiv.org/abs/2610.39126) · [代码](https://github.com/Quang61123/actuator-aware-cascade-adrc) | 主动态；时间回补 v1 2026-10-29；转子滞后和传感延迟对齐的LADRC扩张状态观测器；PX4 SITL，非真机。 |
+| 2026-10-31 | LOGIV: Graph-Verified Execution with Causal Local Repair for Long-Horizon Robot Tasks | [论文](https://arxiv.org/abs/2610.40016) | 主动态；时间回补 v1 2026-10-29；任务图条件持续验证与因果局部恢复；真机12/30到17/30。 |
+| 2026-10-31 | SKiD-SLAM: Resource-Aware Distributed Multi-Robot LiDAR SLAM for Planetary Missions with Field Deployments at Analog Sites | [论文](https://arxiv.org/abs/2610.38141) · [项目](https://sparolab.github.io/research/skid_slam/) · [源码](https://github.com/sparolab/SKiD-SLAM) | 主动态；2026-10-28田野报告时间回补；2025年有早期预印本；250kbps、320B SOLiD、真实洞穴与四足机器人、ROS2代码。 |
+| 2026-10-31 | Explore Where It Matters: Targeted Exploration for Efficient Rover Adaptation (TERRA) | [论文](https://arxiv.org/abs/2610.38657) · [源码](https://github.com/CLeARoboticsLab/terra) | 主动态；时间回补 v1 2026-10-28；目标奖励相关模型误差主动采样；真实ERNEST越野3—5次试验恢复。 |
+| 2026-10-31 | When Relevant Code Is Wrong: Runtime-Aware Context for AI Coding Agents (CASE) | [论文](https://arxiv.org/abs/2610.38800) | 主动态；时间回补 v1 2026-10-28；Feature Flag和部署配置决定检索证据是否有效；初步原型6任务。 |
+| 2026-10-31 | TACOS: Terrain-Aware COntact Supervision for Visual Footstep Planning | [论文](https://arxiv.org/abs/2610.37806) · [源码](https://github.com/norlab-ulaval/TACOS) | 主动态；时间回补 v1 2026-10-27；状态估计因子图接触残差监督视觉落脚风险；1,716接触、50米森林实验。 |
+| 2026-10-31 | AI Coding 实战技巧精选：Codex 0.166.0 专用网络诊断与线程恢复 | [官方Release](https://github.com/openai/codex/releases/tag/rust-v0.166.0) | AI Coding 实战技巧精选；2026-10-29；codex doctor --network-only、codex queue --resume。 |
+| 2026-10-31 | AI Coding 实战技巧精选：Claude Code工作目录外写入拒绝和Worktree恢复 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.314) | AI Coding 实战技巧精选；2026-10-30；permissions.blockWritesOutsideWorkingDirectories和Worktree沙盒恢复检查。 |
+| 2026-10-31 | AI Coding 实战技巧精选：Copilot Security扩展本地security-review | [GitHub公告](https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app/) | AI Coding 实战技巧精选；时间回补2026-10-28；安装github-security插件、/security-review、审查本地补丁。 |
+| 2026-10-31 | DDF-SAM 2.0: Consistent Distributed Smoothing and Mapping (Cunningham, Indelman, Dellaert, ICRA 2013) | [作者记录](https://www.borg.cc.gatech.edu/papers/cunningham13icra.html) · [PDF](https://dellaert.github.io/files/Cunningham13icra.pdf) | 经典论文回顾；ICRA 2013；Anti-factor防信息双重计数、增强局部图、分布式摘要信息一致性。 |
 
 ## 维护检查表
 
