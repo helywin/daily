@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-10-31（Asia/Shanghai）
+> 最后更新：2026-11-01（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -179,6 +179,7 @@
 > 2026-10-30 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1171 条。
 >
 > 2026-10-31 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1183 条。
+> 2026-11-01 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1194 条。
 >
 ## 已核验条目
 
@@ -1454,6 +1455,18 @@
 | 2026-10-31 | AI Coding 实战技巧精选：Claude Code工作目录外写入拒绝和Worktree恢复 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.314) | AI Coding 实战技巧精选；2026-10-30；permissions.blockWritesOutsideWorkingDirectories和Worktree沙盒恢复检查。 |
 | 2026-10-31 | AI Coding 实战技巧精选：Copilot Security扩展本地security-review | [GitHub公告](https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app/) | AI Coding 实战技巧精选；时间回补2026-10-28；安装github-security插件、/security-review、审查本地补丁。 |
 | 2026-10-31 | DDF-SAM 2.0: Consistent Distributed Smoothing and Mapping (Cunningham, Indelman, Dellaert, ICRA 2013) | [作者记录](https://www.borg.cc.gatech.edu/papers/cunningham13icra.html) · [PDF](https://dellaert.github.io/files/Cunningham13icra.pdf) | 经典论文回顾；ICRA 2013；Anti-factor防信息双重计数、增强局部图、分布式摘要信息一致性。 |
+
+| 2026-11-01 | Optimal Path Planning with Localization constraints | [论文](https://arxiv.org/abs/2610.40429) | 主动态；时间回补 v1 2026-10-29；EKF协方差硬约束A*；GNSS盲区经过地标保持可定位。 |
+| 2026-11-01 | PhysVLMM: Interaction-Conditioned Physical Belief Maps for Articulated Objects in Robot Scene Maps | [论文](https://arxiv.org/abs/2610.40539) | 主动态；时间回补 v1 2026-10-29；门/抽屉交互物理后验、弃答、18户真实测试。 |
+| 2026-11-01 | Teaching a Tree to Recover: Online Distillation of an LLM Supervisor with Counterfactual Replay | [论文](https://arxiv.org/abs/2610.39775) | 主动态；时间回补 v1 2026-10-29；将MPC冻结恢复监督从LLM蒸馏为决策树；20未见布局。 |
+| 2026-11-01 | Decision-Level Error Attribution and Depth-Aware Safety Evaluation of Monocular RGB Human Tracking for Autonomous Robot Navigation | [论文](https://arxiv.org/abs/2610.40199) | 主动态；时间回补 v1 2026-10-29；视觉行人停车漏报归因；漏检主导，离线决策测试。 |
+| 2026-11-01 | Echo: Scaling Visual Reinforcement Learning with Off-policy Experience | [论文](https://arxiv.org/abs/2610.37865) | 主动态；时间回补 v1 2026-10-27；视觉策略逆向蒸馏状态策略，廉价无渲染经验与共享Critic。 |
+| 2026-11-01 | DexSuite: An All-in-One Framework for Dexterous Manipulation Across Arms, Hands, and Tasks | [论文](https://arxiv.org/abs/2610.37799) · [项目](https://dexsuiteorg.github.io/) | 主动态；时间回补 v1 2026-10-27；10机械臂12末端30任务4700轨迹；项目页代码仍Coming soon。 |
+| 2026-11-01 | Gym-Anything for Robotics: Scaling physical simulations with digital agents | [论文](https://arxiv.org/abs/2610.40565) · [项目](https://gym-anything.github.io/) | 主动态；时间回补 v1 2026-10-29；Coding Agent构建25个模拟器，含对抗审计和RoboWorld。 |
+| 2026-11-01 | Reusable LLM-Based Plans with Probabilistic Guarantees for Self-Adaptive Systems | [论文](https://arxiv.org/abs/2610.38039) | 主动态；时间回补 v1 2026-10-27；LLM生成可复用规则，逐环境概率模型检查；90%留出实例通过。 |
+| 2026-11-01 | AI Coding 实战技巧精选：Claude Code v2.1.316子Agent推理档位与受限上传验证 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.316) | AI Coding 实战技巧精选；2026-10-31；CLAUDE_CODE_SUBAGENT_EFFORT及Restricted目录上传回归。 |
+| 2026-11-01 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-1混合行尾apply_patch回归 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-1) | AI Coding 实战技巧精选；2026-10-31；修复LF/CRLF补丁无关整文件Diff；预发布。 |
+| 2026-11-01 | The Belief Roadmap: Efficient Planning in Belief Space by Factoring the Covariance (Prentice & Roy, IJRR 2009) | [论文DOI](https://doi.org/10.1177/0278364909341659) · [MIT稿](https://dspace.mit.edu/entities/publication/31309098-99dd-4c42-972c-2000c5f2eb44) | 经典论文回顾；2009；协方差因式化的Belief Roadmap、定位信息驱动路径选择。 |
 
 ## 维护检查表
 
