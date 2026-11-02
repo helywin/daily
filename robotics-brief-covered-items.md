@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-01（Asia/Shanghai）
+> 最后更新：2026-11-02（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -180,6 +180,7 @@
 >
 > 2026-10-31 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1183 条。
 > 2026-11-01 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1194 条。
+> 2026-11-02 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1205 条。
 >
 ## 已核验条目
 
@@ -1467,6 +1468,18 @@
 | 2026-11-01 | AI Coding 实战技巧精选：Claude Code v2.1.316子Agent推理档位与受限上传验证 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.316) | AI Coding 实战技巧精选；2026-10-31；CLAUDE_CODE_SUBAGENT_EFFORT及Restricted目录上传回归。 |
 | 2026-11-01 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-1混合行尾apply_patch回归 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-1) | AI Coding 实战技巧精选；2026-10-31；修复LF/CRLF补丁无关整文件Diff；预发布。 |
 | 2026-11-01 | The Belief Roadmap: Efficient Planning in Belief Space by Factoring the Covariance (Prentice & Roy, IJRR 2009) | [论文DOI](https://doi.org/10.1177/0278364909341659) · [MIT稿](https://dspace.mit.edu/entities/publication/31309098-99dd-4c42-972c-2000c5f2eb44) | 经典论文回顾；2009；协方差因式化的Belief Roadmap、定位信息驱动路径选择。 |
+
+| 2026-11-02 | RAVEN: A Unified Active SLAM System for Rapid Autonomous Visual Exploration with Aerial Robots under Localization Uncertainty | [论文](https://arxiv.org/abs/2610.37111) | 主动态；时间回补 v1 2026-10-27；Frontier与主动回环、Fisher信息轨迹，机载双目惯性无人机；代码待发布。 |
+| 2026-11-02 | Learning Safe Flow Matching Robot Policies from Binary Feasibility Oracles | [论文](https://arxiv.org/abs/2610.40075) | 主动态；时间回补 v1 2026-10-29；黑箱二值可行性Oracle前向保护与反向约束学习；指定实验100%约束通过。 |
+| 2026-11-02 | LLM-guided Planar Loco-Manipulation for Quadruped Robots | [论文](https://arxiv.org/abs/2610.40248) · [项目](https://anonymousprojects-dev.github.io/LLM-guided-LocoManipulation-Quadrupeds/) | 主动态；时间回补 v1 2026-10-29；LoRA高层技能/对象/几何目标规划，RL平面推挤，真机34/45全任务。 |
+| 2026-11-02 | OpenFlyV2: An onboard vision-language-action model for aerial perception and navigation | [论文](https://arxiv.org/abs/2610.39287) · [作者仓库](https://github.com/Ideal-ljl/AeroBrain) | 主动态；时间回补 v1 2026-10-29；Jetson Orin NX 10Hz/12航路点，48%真机导航；数据开放但代码权重尚未发布。 |
+| 2026-11-02 | SwapBot: Tool-Centric Robot Manipulation via Interchangeable End-Effectors and Tactile Sensing | [论文](https://arxiv.org/abs/2610.40646) · [项目](https://personalrobotics.cs.washington.edu/SwapBot/) | 主动态；时间回补 v1 2026-10-29；低成本触觉工具适配与自动快换，触觉示范成功率比RGB-only高15–25个百分点。 |
+| 2026-11-02 | SONIC-K1: Porting a Universal Humanoid Motion Tracker to a Small Humanoid on a Single GPU | [论文](https://arxiv.org/abs/2610.39327) · [开源代码](https://github.com/Kyk0/sonic-k1) | 主动态；时间回补 v1 2026-10-29；Booster K1约100 GPU小时动作跟踪，MuJoCo 97.4%，真机迈步转向仍受限。 |
+| 2026-11-02 | Gaussian Distillation of Flow Policies | [论文](https://arxiv.org/abs/2610.40271) | 主动态；时间回补 v1 2026-10-29；冻结Flow特征主干，以0.02%状态训练Gaussian Action Readout，最高约2倍动作推理。 |
+| 2026-11-02 | When Requirements Interact: Scaling Long-Horizon Coding via Interdependent Specifications (CodeSpecWeave) | [论文](https://arxiv.org/abs/2610.40256) | 主动态；时间回补 v1 2026-10-29；4670任务2865仓库、独立Reviewer审核耦合规格测试，Bench100任务1044规格。 |
+| 2026-11-02 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-2 MCP超时和符号链接配置修复 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-2) | AI Coding 实战技巧精选；2026-11-01；MCP连接单次超时、保留符号链接mcp-config及Skills会话同步；预发布。 |
+| 2026-11-02 | AI Coding 实战技巧精选：gh-aw v1.0.1锁安全PR输出与actions-lock编译 | [官方Release](https://github.com/github/gh-aw/releases/tag/v1.0.1) | AI Coding 实战技巧精选；时间回补2026-10-27；Agent Workflow的lock-safe PR输出、编译可选actions-lock与最小权限审查。 |
+| 2026-11-02 | RTAB-Map as an open-source lidar and visual simultaneous localization and mapping library for large-scale and long-term online operation (Labbé & Michaud, JFR 2019) | [期刊DOI](https://doi.org/10.1002/rob.21831) · [官方源码](https://github.com/introlab/rtabmap) | 经典论文回顾；2018-10-27在线发表/2019期刊；视觉/LiDAR回环与工作记忆、长期记忆管理；与主动回环规划对照。 |
 
 ## 维护检查表
 
