@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-02（Asia/Shanghai）
+> 最后更新：2026-11-03（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -181,6 +181,7 @@
 > 2026-10-31 新增 8 条主动态、3 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1183 条。
 > 2026-11-01 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1194 条。
 > 2026-11-02 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1205 条。
+> 2026-11-03 新增 8 条主动态、2 条 AI Coding 实战技巧和 1 条经典论文回顾，累计 1,216 条。
 >
 ## 已核验条目
 
@@ -1480,6 +1481,18 @@
 | 2026-11-02 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-2 MCP超时和符号链接配置修复 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-2) | AI Coding 实战技巧精选；2026-11-01；MCP连接单次超时、保留符号链接mcp-config及Skills会话同步；预发布。 |
 | 2026-11-02 | AI Coding 实战技巧精选：gh-aw v1.0.1锁安全PR输出与actions-lock编译 | [官方Release](https://github.com/github/gh-aw/releases/tag/v1.0.1) | AI Coding 实战技巧精选；时间回补2026-10-27；Agent Workflow的lock-safe PR输出、编译可选actions-lock与最小权限审查。 |
 | 2026-11-02 | RTAB-Map as an open-source lidar and visual simultaneous localization and mapping library for large-scale and long-term online operation (Labbé & Michaud, JFR 2019) | [期刊DOI](https://doi.org/10.1002/rob.21831) · [官方源码](https://github.com/introlab/rtabmap) | 经典论文回顾；2018-10-27在线发表/2019期刊；视觉/LiDAR回环与工作记忆、长期记忆管理；与主动回环规划对照。 |
+
+| 2026-11-03 | OpenVIO: A Versatile Open-Source Visual-Inertial Odometry System | [论文](https://arxiv.org/abs/2610.41671) · [源码](https://github.com/93won/openvio) | 主动态；时间回补 v1 2026-10-30；MIT 许可针孔、鱼眼、360° VIO 与 ROS1/ROS2 工程。 |
+| 2026-11-03 | CalibSwitch: Observation-Driven Camera-LiDAR Extrinsic Recovery and Selective Maintenance for Multimodal Perception | [论文](https://arxiv.org/abs/2610.41352) | 主动态；时间回补 v1 2026-10-30；SE(3) 外参候选与历史质量门控。 |
+| 2026-11-03 | CONSORT: Uncertainty-Constrained Multi-Robot Planning for Cooperative Localization in GPS-Denied Environments | [论文](https://arxiv.org/abs/2610.41235) | 主动态；时间回补 v1 2026-10-30；多机器人协作定位终端协方差约束、六角栅格与样条。 |
+| 2026-11-03 | A Capability-Aware Backup-Recoverability Filter for Heterogeneous Multi-Robot Navigation | [论文](https://arxiv.org/abs/2610.41188) | 主动态；时间回补 v1 2026-10-30；异构机器人运动学能力与安全恢复控制。 |
+| 2026-11-03 | DiffWBC: Unlocking Steerable General Humanoid Motion Tracking via One-Step Diffusion Whole-Body Control | [论文](https://arxiv.org/abs/2610.41354) · [项目](https://diffwbc.github.io/) | 主动态；时间回补 v1 2026-10-30；G1 单步生成 WBC 与测试时梯度 Steering。 |
+| 2026-11-03 | ∇Mimic: Ultra-Efficient Humanoid Control with Differentiable Simulation | [论文](https://arxiv.org/abs/2610.41654) | 主动态；时间回补 v1 2026-10-30；NablaEngine 接触梯度和 G1 一阶训练。 |
+| 2026-11-03 | CaPtain: A Pipeline for Post-Training Code-as-Policy Robot Agents | [论文](https://arxiv.org/abs/2610.40799) · [源码](https://github.com/waltstephen/CaPtain) | 主动态；时间回补 v1 2026-10-29；开放 4B Code-as-Policy 训练、Harness、权重与物理 Critic。 |
+| 2026-11-03 | ROSTrans: Empirically Benchmarking LLMs for ROS1-to-ROS2 Migration | [论文](https://arxiv.org/abs/2610.41168) | 主动态；时间回补 v1 2026-10-30；108 项任务、ROS2 运行时接口测试，编译成功不等于运行成功。 |
+| 2026-11-03 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-4 指令适用路径 Front Matter 回归 | [官方 Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-4) | AI Coding 实战技巧精选；北京时间 2026-11-03；无效 YAML 时 applyTo/paths/excludeAgent 范围修复；预发布。 |
+| 2026-11-03 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-3 Hooks 禁用和 Autopilot 恢复回归 | [官方 Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-3) | AI Coding 实战技巧精选；北京时间 2026-11-03；disableAllHooks 与重复续跑问题回归；预发布。 |
+| 2026-11-03 | The Invariant Extended Kalman Filter as a Stable Observer (Barrau and Bonnabel, IEEE TAC 2017) | [期刊 DOI](https://doi.org/10.1109/TAC.2016.2594085) · [预印本](https://arxiv.org/abs/1410.1465) | 经典论文回顾；2017 期刊、2016 在线；李群不变误差、对数线性与滤波稳定性。 |
 
 ## 维护检查表
 
