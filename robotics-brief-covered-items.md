@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-03（Asia/Shanghai）
+> 最后更新：2026-11-04（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -182,6 +182,7 @@
 > 2026-11-01 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1194 条。
 > 2026-11-02 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1205 条。
 > 2026-11-03 新增 8 条主动态、2 条 AI Coding 实战技巧和 1 条经典论文回顾，累计 1,216 条。
+> 2026-11-04 新增 8 条主动态、2 条 AI Coding 实战技巧精选和 1 篇经典论文回顾，累计 1,227 条。
 >
 ## 已核验条目
 
@@ -1493,6 +1494,18 @@
 | 2026-11-03 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-4 指令适用路径 Front Matter 回归 | [官方 Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-4) | AI Coding 实战技巧精选；北京时间 2026-11-03；无效 YAML 时 applyTo/paths/excludeAgent 范围修复；预发布。 |
 | 2026-11-03 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-3 Hooks 禁用和 Autopilot 恢复回归 | [官方 Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-3) | AI Coding 实战技巧精选；北京时间 2026-11-03；disableAllHooks 与重复续跑问题回归；预发布。 |
 | 2026-11-03 | The Invariant Extended Kalman Filter as a Stable Observer (Barrau and Bonnabel, IEEE TAC 2017) | [期刊 DOI](https://doi.org/10.1109/TAC.2016.2594085) · [预印本](https://arxiv.org/abs/1410.1465) | 经典论文回顾；2017 期刊、2016 在线；李群不变误差、对数线性与滤波稳定性。 |
+
+| 2026-11-04 | A Tightly Coupled Magnetic-Inertial SLAM System for Field Robots | [论文](https://arxiv.org/abs/2611.03106) | 主动态；时间回补 v1 2026-11-02；九磁力计与IMU紧耦合磁惯性SLAM，磁场局部多项式+全局GP，水平闭合误差0.332m。 |
+| 2026-11-04 | Differentiable Iterative Learning Control for Black-Box Position-Commanded Manipulators | [论文](https://arxiv.org/abs/2611.01220) | 主动态；时间回补2026-11-01；黑箱机械臂ILC约束QP、KKT隐式微分与试验间优化；DOBOT CR3真实重复轨迹。 |
+| 2026-11-04 | Faster Imitation by Re-timing Demonstrations Within the Controller Limit | [论文](https://arxiv.org/abs/2611.00539) | 主动态；时间回补 v1 2026-10-31；控制器逐周期可实现位移包络内贪心合并示教动作。 |
+| 2026-11-04 | HuG: Learning Humanoid Whole-Body Affordance-Aware Grasping with Active Perception | [论文](https://arxiv.org/abs/2611.01659) | 主动态；时间回补 v1 2026-11-01；主动视角、全身抓取可行性、控制器闭环筛选；真机货架任务87.5%。 |
+| 2026-11-04 | ReGATE: Recurrent Gated Visual Fusion for Reactive Humanoid-Object Interaction | [论文](https://arxiv.org/abs/2611.02871) | 主动态；时间回补 v1 2026-11-02；深度/本体历史门控融合，G1抓取搬运时短时视觉遮挡鲁棒性。 |
+| 2026-11-04 | OpenNWM: A Generalist Navigation World Model with Latent Action Pretraining | [论文](https://arxiv.org/abs/2611.01844) · [项目](https://openspace-lab.github.io/OpenNWM/) · [源码](https://github.com/OpenSpace-Lab/OpenNWM) | 主动态；时间回补 v1 2026-11-01；1750万无动作标签视频潜动作预训练，后训练对齐导航动作。 |
+| 2026-11-04 | VLALagBench: Understanding When and Why VLA Inference Latency Matters | [论文](https://arxiv.org/abs/2611.03103) | 主动态；时间回补 v1 2026-11-02；动态物体VLA 100ms延迟可能近乎减半成功率，异步执行和动作时效。 |
+| 2026-11-04 | VerusWeave: A Benchmark for Proof Repair in Concurrent Verus Programs | [论文](https://arxiv.org/abs/2611.00287) | 主动态；时间回补 v1 2026-10-30；75局部+17整模块并发Rust Verus证明修复，完整模块29-47%成功。 |
+| 2026-11-04 | AI Coding 实战技巧精选：Claude Code v2.1.318 mod fork effort与续会话/MCP锁回归 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.318) | AI Coding 实战技巧精选；北京时间2026-11-04 08:01；mod模型fork低推理档位、--continue恢复、共享配置与MCP锁回归。 |
+| 2026-11-04 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-6 MCP异常信息与SQL超时恢复 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-6) | AI Coding 实战技巧精选；北京时间2026-11-03 14:11；失败工具调用展开、MCP安全错误显示、SQL查询60秒超时。 |
+| 2026-11-04 | A New Approach to Linear Filtering and Prediction Problems (Kalman, Journal of Basic Engineering 1960) | [论文DOI](https://doi.org/10.1115/1.3662552) | 经典论文回顾；1960；线性状态空间预测/校正和误差协方差递推，结合MISLAM分析观测相关和退化。 |
 
 ## 维护检查表
 
