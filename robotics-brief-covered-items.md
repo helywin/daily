@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-04（Asia/Shanghai）
+> 最后更新：2026-11-05（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -183,6 +183,7 @@
 > 2026-11-02 新增 8 条主动态、2 条 AI Coding 实战技巧精选与 1 条经典论文回顾，共 1205 条。
 > 2026-11-03 新增 8 条主动态、2 条 AI Coding 实战技巧和 1 条经典论文回顾，累计 1,216 条。
 > 2026-11-04 新增 8 条主动态、2 条 AI Coding 实战技巧精选和 1 篇经典论文回顾，累计 1,227 条。
+> 2026-11-05 新增 8 条主动态、2 条 AI Coding 实战技巧精选和 1 篇经典论文回顾，累计 1,238 条。
 >
 ## 已核验条目
 
@@ -1506,6 +1507,18 @@
 | 2026-11-04 | AI Coding 实战技巧精选：Claude Code v2.1.318 mod fork effort与续会话/MCP锁回归 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.318) | AI Coding 实战技巧精选；北京时间2026-11-04 08:01；mod模型fork低推理档位、--continue恢复、共享配置与MCP锁回归。 |
 | 2026-11-04 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-6 MCP异常信息与SQL超时恢复 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-6) | AI Coding 实战技巧精选；北京时间2026-11-03 14:11；失败工具调用展开、MCP安全错误显示、SQL查询60秒超时。 |
 | 2026-11-04 | A New Approach to Linear Filtering and Prediction Problems (Kalman, Journal of Basic Engineering 1960) | [论文DOI](https://doi.org/10.1115/1.3662552) | 经典论文回顾；1960；线性状态空间预测/校正和误差协方差递推，结合MISLAM分析观测相关和退化。 |
+
+| 2026-11-05 | CoReMatch: Recurrent Continuous Coordinate Refinement for Real-Time Robotic Feature Matching | [论文](https://arxiv.org/abs/2611.03932) | 主动态；时间回补 v1 2026-11-02；连续坐标迭代特征匹配；边缘硬件相对 Efficient LoFTR 速度大于10倍（指定条件）。 |
+| 2026-11-05 | Online Hamilton-Jacobi Reachability Onboard the Robot Control Loop: A Real-Time GPU Solver for Safety-Critical Autonomy | [论文](https://arxiv.org/abs/2611.04096) | 主动态；时间回补 v1 2026-11-03；GPU WENO5/TVD-RK3 HJ BRT，3D Air3D 112Hz，Thor 66Hz。 |
+| 2026-11-05 | Online iLQR-MPC with Whole-Body Control for Robust Humanoid Locomotion | [论文](https://arxiv.org/abs/2611.04204) | 主动态；时间回补 v1 2026-11-03；G1 足步及接触力联合优化，MuJoCo 100Hz MPC / 500Hz WBC。 |
+| 2026-11-05 | Caging Vision-Language Navigation for Legged Robots via Barrier-Certified Safety Architecture | [论文](https://arxiv.org/abs/2611.04972) | 主动态；时间回补 v1 2026-11-03；VLA高层与SDF、Bézier MPPI、dEBF物理安全层。 |
+| 2026-11-05 | WayTrace: A Map-to-Language-to-Trace Hierarchy for Embodied Urban Navigation | [论文](https://arxiv.org/abs/2611.05129) · [项目](https://way-trace.github.io/) | 主动态；时间回补 v1 2026-11-03；地图文字→原子语言动作→图像轨迹，轮足机器人1.37km实地导航。 |
+| 2026-11-05 | LoopQ: Fair, Closed-Loop Evaluation of Quantized Vision-Language-Action Models | [论文](https://arxiv.org/abs/2611.05093) | 主动态；时间回补 v1 2026-11-03；18万+回合PTQ对照，H100/Thor 4bit常未加速，量化内核与Action Expert是瓶颈。 |
+| 2026-11-05 | RoboScope Kit: Unified Interfaces for Fast and Scalable Embodied-AI Evaluation | [论文](https://arxiv.org/abs/2611.03850) · [源码](https://github.com/MINT-SJTU/RoboScope-Kit) | 主动态；时间回补 v1 2026-11-02；CPU仿真Worker与GPU Policy副本并行，LIBERO评测提速4.45-6.16倍。 |
+| 2026-11-05 | How Agent Skills Evolve: A Large-Scale Empirical Study of Skills on GitHub | [论文](https://arxiv.org/abs/2611.04456) | 主动态；时间回补 v1 2026-11-03；84200 Skills与750898提交，重点执行契约、冗余和回归。 |
+| 2026-11-05 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-7 损坏 settings.json 保护和终端控制字符过滤 | [官方 Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-7) | AI Coding 实战技巧精选；北京时间2026-11-04；拒绝单项修改覆盖损坏配置、过滤终端控制字符；预发布。 |
+| 2026-11-05 | AI Coding 实战技巧精选：Gemini CLI Nightly ACP恢复与Rootless Podman权限回归 | [官方 Release](https://github.com/google-gemini/gemini-cli/releases/tag/v0.67.0-nightly.20261104.g89e9d25d6) | AI Coding 实战技巧精选；2026-11-04；ACP session/load完成历史回放、rootless Podman keep-id、SubagentStop Hook。 |
+| 2026-11-05 | A Time-Dependent Hamilton-Jacobi Formulation of Reachable Sets for Continuous Dynamic Games (Mitchell, Bayen, Tomlin, IEEE TAC 2005) | [论文 DOI](https://doi.org/10.1109/TAC.2005.851439) · [机构记录](https://its.berkeley.edu/publications/time-dependent-hamilton-jacobi-formulation-reachable-sets-continuous-dynamic-games) | 经典论文回顾；2005；HJI黏性解零下水平集和Air3D后向可达管，与2026在线GPU求解对照。 |
 
 ## 维护检查表
 
