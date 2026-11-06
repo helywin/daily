@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-05（Asia/Shanghai）
+> 最后更新：2026-11-06（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -184,6 +184,8 @@
 > 2026-11-03 新增 8 条主动态、2 条 AI Coding 实战技巧和 1 条经典论文回顾，累计 1,216 条。
 > 2026-11-04 新增 8 条主动态、2 条 AI Coding 实战技巧精选和 1 篇经典论文回顾，累计 1,227 条。
 > 2026-11-05 新增 8 条主动态、2 条 AI Coding 实战技巧精选和 1 篇经典论文回顾，累计 1,238 条。
+
+> 2026-11-06 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1249条。
 >
 ## 已核验条目
 
@@ -1519,6 +1521,18 @@
 | 2026-11-05 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-7 损坏 settings.json 保护和终端控制字符过滤 | [官方 Release](https://github.com/github/copilot-cli/releases/tag/v1.0.106-7) | AI Coding 实战技巧精选；北京时间2026-11-04；拒绝单项修改覆盖损坏配置、过滤终端控制字符；预发布。 |
 | 2026-11-05 | AI Coding 实战技巧精选：Gemini CLI Nightly ACP恢复与Rootless Podman权限回归 | [官方 Release](https://github.com/google-gemini/gemini-cli/releases/tag/v0.67.0-nightly.20261104.g89e9d25d6) | AI Coding 实战技巧精选；2026-11-04；ACP session/load完成历史回放、rootless Podman keep-id、SubagentStop Hook。 |
 | 2026-11-05 | A Time-Dependent Hamilton-Jacobi Formulation of Reachable Sets for Continuous Dynamic Games (Mitchell, Bayen, Tomlin, IEEE TAC 2005) | [论文 DOI](https://doi.org/10.1109/TAC.2005.851439) · [机构记录](https://its.berkeley.edu/publications/time-dependent-hamilton-jacobi-formulation-reachable-sets-continuous-dynamic-games) | 经典论文回顾；2005；HJI黏性解零下水平集和Air3D后向可达管，与2026在线GPU求解对照。 |
+
+| 2026-11-06 | UniLoop: Unified Loop Closure Detection from Retrieval to Geometric Verification and Relative Pose Estimation | [原始来源](https://arxiv.org/abs/2611.06378) | 主动态；v1 2026-11-04；统一视觉检索、几何回环核验及相对位姿；MSLS Recall@10 96.6%。 |
+| 2026-11-06 | Scale Anchoring via Implicit Semantics and Sequence-Consistent Loop Closure for VGGT-Based SLAM | [原始来源](https://arxiv.org/abs/2611.06308) | 主动态；v1 2026-11-04；SALAD尺度锚定与短序列Sim(3)回环，9条TUM平均ATE 0.1018→0.0451m。 |
+| 2026-11-06 | FOSCo-Net: Ego-centric Voxel Completion for Forest LiDAR Occlusions | [原始来源](https://arxiv.org/abs/2611.06588) | 主动态；v1 2026-11-04；时序点云自监督森林LiDAR体素遮挡补全与误报障碍抑制。 |
+| 2026-11-06 | cuRoboV2-Fast: Fast Torque-Limited Collision-Free Motion Planning | [原始来源](https://arxiv.org/abs/2611.06913) | 主动态；v1 2026-11-04；B样条GPU轨迹优化与TimeOpt负载/力矩约束，RTX5090 4.4ms平均规划。 |
+| 2026-11-06 | ConDR: Conservative Reachability through Neural Hamilton-Jacobi Subsolutions | [原始来源](https://arxiv.org/abs/2611.06802) | 主动态；v1 2026-11-04；单侧HJI残差与ε裕量，降低神经可达性安全漏报。 |
+| 2026-11-06 | Ctrl-F: Force as an Interface for Humanoid Loco-Manipulation | [原始来源](https://arxiv.org/abs/2611.05507) | 主动态；时间回补v1 2026-11-03；G1运动参考叠加手/脚显式三维力命令，真机推动20kg箱体。 |
+| 2026-11-06 | Perceptive Humanoid Motion from Simulation (HALO) | [原始来源](https://arxiv.org/abs/2611.06908) | 主动态；v1 2026-11-04；千套合成住宅，0.5/3/50Hz分层真机控制；360次实验91%成功。 |
+| 2026-11-06 | Hybrid LLM-Deterministic Pipelines for Enterprise-Scale Code Migration at Bloomberg | [原始来源](https://arxiv.org/abs/2611.05457) | 主动态；时间回补v1 2026-11-03；2333自动PR、729成功迁移，限定LLM修改与独立构建测试。 |
+| 2026-11-06 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-10 仅审查任务Autopilot只读回归 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.106-10) | AI Coding 实战技巧精选；北京时间2026-11-06；测试只审查不实施、相对cwd沙盒MCP预发布修复。 |
+| 2026-11-06 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-9 悬空Symlink越界审批与补丁计数回归 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.106-9) | AI Coding 实战技巧精选；时间回补北京时间2026-11-05；Symlink外路径审批及apply_patch真实行数修复。 |
+| 2026-11-06 | NetVLAD: CNN Architecture for Weakly Supervised Place Recognition (CVPR 2016) | [原始来源](https://doi.org/10.1109/CVPR.2016.572) | 经典论文回顾；CVPR2016；可微VLAD弱监督地点检索，和UniLoop检索-核验统一框架对照。 |
 
 ## 维护检查表
 
