@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-06（Asia/Shanghai）
+> 最后更新：2026-11-07（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -186,6 +186,8 @@
 > 2026-11-05 新增 8 条主动态、2 条 AI Coding 实战技巧精选和 1 篇经典论文回顾，累计 1,238 条。
 
 > 2026-11-06 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1249条。
+>
+> 2026-11-07 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1260条。
 >
 ## 已核验条目
 
@@ -1533,6 +1535,18 @@
 | 2026-11-06 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-10 仅审查任务Autopilot只读回归 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.106-10) | AI Coding 实战技巧精选；北京时间2026-11-06；测试只审查不实施、相对cwd沙盒MCP预发布修复。 |
 | 2026-11-06 | AI Coding 实战技巧精选：Copilot CLI v1.0.106-9 悬空Symlink越界审批与补丁计数回归 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.106-9) | AI Coding 实战技巧精选；时间回补北京时间2026-11-05；Symlink外路径审批及apply_patch真实行数修复。 |
 | 2026-11-06 | NetVLAD: CNN Architecture for Weakly Supervised Place Recognition (CVPR 2016) | [原始来源](https://doi.org/10.1109/CVPR.2016.572) | 经典论文回顾；CVPR2016；可微VLAD弱监督地点检索，和UniLoop检索-核验统一框架对照。 |
+
+| 2026-11-07 | FREE-LIVO: Physically Decoupled Yet Tightly Coupled LiDAR-Inertial-Visual Odometry | [原始来源](https://arxiv.org/abs/2611.07463) | 主动态；时间回补v1 2026-11-05；独立相机/LiDAR轨迹因子图；M3DGR六序列ATE 0.45m。 |
+| 2026-11-07 | Not Losing Your Way: Mitigating Visual-Inertial Odometry Drift through On-Demand Visual Feature Creation | [原始来源](https://arxiv.org/abs/2611.07687) | 主动态；时间回补v1 2026-11-05；弱特征环境主动投放/制造视觉标记，900次仿真，RMSE约降35%。 |
+| 2026-11-07 | Radio-to-Pose Information for Gauge-Drift Correction in Cooperative Localization | [原始来源](https://arxiv.org/abs/2611.08361) | 主动态；时间回补v1 2026-11-05；无线衰减地图补偿多机共模漂移，RMSE 0.542→0.140m。 |
+| 2026-11-07 | A Unified Fractal Impedance Control Framework | [原始来源](https://arxiv.org/abs/2611.08009) | 主动态；时间回补v1 2026-11-05；H-PMP/FIC Kinova接触控制；源码TRL-Sussex/FIC_Interface。 |
+| 2026-11-07 | Time-Indexed Skill Success Models for Latency-Aware Skill Selection and Timing in Dynamic Manipulation | [原始来源](https://arxiv.org/abs/2611.07964) | 主动态；时间回补v1 2026-11-05；100–300ms延迟下技能启动时间与成功概率联合标定，UR5e真机对照。 |
+| 2026-11-07 | HITCH: Teaching a Vision-Language Model to Operate a Humanoid through a Whole-Body Harness | [原始来源](https://arxiv.org/abs/2611.08039) | 主动态；时间回补v1 2026-11-05；三维点测量+全身运动工具Harness，SIMPLE 51%→少量示例95%。 |
+| 2026-11-07 | VisionSIM: Beyond Idealized Sensors - A Multi-Modal Simulator for Robot Perception | [原始来源](https://arxiv.org/abs/2611.08368) | 主动态；时间回补v1 2026-11-05；物理传感器原始测量仿真，LiDAR/事件/iToF/热像伪影及数据集。 |
+| 2026-11-07 | Detecting Silent Faults at the Environment-Trainer Boundary in Reinforcement Learning | [原始来源](https://arxiv.org/abs/2611.08144) | 主动态；时间回补v1 2026-11-05；PlugRL Step Ledger检测环境/训练器通信静默数据故障，开源。 |
+| 2026-11-07 | AI Coding 实战技巧精选：Codex 0.167.0 Agent命令中心与跨后端会话草稿保留 | [原始来源](https://github.com/openai/codex/releases/tag/rust-v0.167.0) | AI Coding 实战技巧精选；2026-11-06 UTC；codex agents --no-daemon、未读结果和切换后端草稿检查。 |
+| 2026-11-07 | AI Coding 实战技巧精选：Copilot CLI v1.0.107 扩展沙盒和本地MCP相对目录权限 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.107) | AI Coding 实战技巧精选；北京时间2026-11-07；Sandbox extensions、MCP相对目录和Fusion tier。 |
+| 2026-11-07 | Impedance Control: An Approach to Manipulation: Part I—Theory (Hogan 1985) | [原始来源](https://doi.org/10.1115/1.3140702) | 经典论文回顾；ASME 1985；力—运动阻抗关系、交互动态与现代FIC比较。 |
 
 ## 维护检查表
 
