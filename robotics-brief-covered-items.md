@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-07（Asia/Shanghai）
+> 最后更新：2026-11-08（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -188,6 +188,8 @@
 > 2026-11-06 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1249条。
 >
 > 2026-11-07 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1260条。
+>
+> 2026-11-08 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1271条。
 >
 ## 已核验条目
 
@@ -1547,6 +1549,18 @@
 | 2026-11-07 | AI Coding 实战技巧精选：Codex 0.167.0 Agent命令中心与跨后端会话草稿保留 | [原始来源](https://github.com/openai/codex/releases/tag/rust-v0.167.0) | AI Coding 实战技巧精选；2026-11-06 UTC；codex agents --no-daemon、未读结果和切换后端草稿检查。 |
 | 2026-11-07 | AI Coding 实战技巧精选：Copilot CLI v1.0.107 扩展沙盒和本地MCP相对目录权限 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.107) | AI Coding 实战技巧精选；北京时间2026-11-07；Sandbox extensions、MCP相对目录和Fusion tier。 |
 | 2026-11-07 | Impedance Control: An Approach to Manipulation: Part I—Theory (Hogan 1985) | [原始来源](https://doi.org/10.1115/1.3140702) | 经典论文回顾；ASME 1985；力—运动阻抗关系、交互动态与现代FIC比较。 |
+
+| 2026-11-08 | An Integrated Open-Source Stack for Vision-Based Autonomous Navigation of Wheeled Rovers | [论文](https://arxiv.org/abs/2611.08100) · [公开工程](https://github.com/KodII-rover) | 主动态；时间回补v1 2026-11-05；ROS2 Humble、RTAB-Map、Nav2、行为树、STM32全链路；Jetson视觉25ms、三次实地任务。 |
+| 2026-11-08 | Fast and Reliable Open-Vocabulary Object Search with Absence Detection from Robot Memory | [论文](https://arxiv.org/abs/2611.07493) | 主动态；时间回补v1 2026-11-05；图像位姿记忆Top-K检索+视觉验证，缺失目标特异性与检测调用成本。 |
+| 2026-11-08 | SCALE: Real-Time Latent Communication for Cyber-Physical Agents | [论文](https://arxiv.org/abs/2611.08390) · [代码](https://anonymous.4open.science/r/SCALE-4E80/) | 主动态；时间回补v1 2026-11-05；潜Token变化检测、带宽与任务Deadline联合调度、多机器人实时通信。 |
+| 2026-11-08 | CRISP: Constraint-Resolved Interactions between Subsystems for Predictive Whole-Body Cooperation | [论文](https://arxiv.org/abs/2611.07268) | 主动态；时间回补v1 2026-11-05；G1闭链双臂NMPC联合优化肩部Wrench、地面GRF和关节力矩。 |
+| 2026-11-08 | STEP: Spatiotemporal Training with Explicit Prediction for Perceptive Humanoid Locomotion | [论文](https://arxiv.org/abs/2611.08097) | 主动态；时间回补v1 2026-11-05；深度/本体双向潜特征预测和动作条件预测，Noetix E1真机98/100。 |
+| 2026-11-08 | Spatial-UMI-Dream: Scaling World Action Models with Metric Geometry for UMI Manipulation | [论文](https://arxiv.org/abs/2611.07229) | 主动态；时间回补v1 2026-11-04；605小时RGB-D UMI、5B空间世界动作模型、跨本体环境72.15%。 |
+| 2026-11-08 | T3R: Training-Free Two-Stage Token Refinement Towards Efficient and Robust VLA Models | [论文](https://arxiv.org/abs/2611.08413) | 主动态；时间回补v1 2026-11-05；分割剪枝85%视觉Token及显著性Attention Bias，LLM前向最高3.3倍。 |
+| 2026-11-08 | Failure Prediction and Classification in Vision-Language-Action Models Via Calibrated Latent Probing (VLA-Tug) | [论文](https://arxiv.org/abs/2611.08425) · [项目](https://vla-tug.github.io/) | 主动态；时间回补v1 2026-11-05；潜变量失败预警、校准漏报与误报、3180条注释Episode。 |
+| 2026-11-08 | AI Coding 实战技巧精选：Claude Code v2.1.319 无人值守权限直接拒绝 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.319) | AI Coding 实战技巧精选；北京时间2026-11-07；permissions.denyInsteadOfPrompting，拒绝等待权限审批并继续任务。 |
+| 2026-11-08 | AI Coding 实战技巧精选：Gemini CLI v0.67.0 取消后停止工具与原子写入保护 | [官方Release](https://github.com/google-gemini/gemini-cli/releases/tag/v0.67.0) | AI Coding 实战技巧精选；时间回补北京时间2026-11-05；取消非交互工具、不覆盖只读文件与硬链接。 |
+| 2026-11-08 | Real-Time Obstacle Avoidance for Manipulators and Mobile Robots (Khatib, IJRR 1986) | [论文DOI](https://doi.org/10.1177/027836498600500106) · [作者记录](https://ai.stanford.edu/manips/publications.html) | 经典论文回顾；1986年3月；人工势场、任务空间实时避障、局部极小值与现代局部规划器对比。 |
 
 ## 维护检查表
 
