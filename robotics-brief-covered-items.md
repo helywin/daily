@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-08（Asia/Shanghai）
+> 最后更新：2026-11-09（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -190,6 +190,8 @@
 > 2026-11-07 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1260条。
 >
 > 2026-11-08 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1271条。
+>
+> 2026-11-09 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1282条。
 >
 ## 已核验条目
 
@@ -1561,6 +1563,18 @@
 | 2026-11-08 | AI Coding 实战技巧精选：Claude Code v2.1.319 无人值守权限直接拒绝 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.319) | AI Coding 实战技巧精选；北京时间2026-11-07；permissions.denyInsteadOfPrompting，拒绝等待权限审批并继续任务。 |
 | 2026-11-08 | AI Coding 实战技巧精选：Gemini CLI v0.67.0 取消后停止工具与原子写入保护 | [官方Release](https://github.com/google-gemini/gemini-cli/releases/tag/v0.67.0) | AI Coding 实战技巧精选；时间回补北京时间2026-11-05；取消非交互工具、不覆盖只读文件与硬链接。 |
 | 2026-11-08 | Real-Time Obstacle Avoidance for Manipulators and Mobile Robots (Khatib, IJRR 1986) | [论文DOI](https://doi.org/10.1177/027836498600500106) · [作者记录](https://ai.stanford.edu/manips/publications.html) | 经典论文回顾；1986年3月；人工势场、任务空间实时避障、局部极小值与现代局部规划器对比。 |
+
+| 2026-11-09 | H-TRIP: Exact Many-to-Many Distance Index for Multi-Robot Exploration | [原始来源](https://arxiv.org/abs/2611.08139) | 主动态；时间回补v1 2026-11-05；单调空闲图增量精确 k×k 距离，16机器人相对多源BFS 2.21–8.59倍；作者列出htrip源码。 |
+| 2026-11-09 | XM4D: 4D Reconstruction through Certifiable Geometric Optimization | [原始来源](https://arxiv.org/abs/2611.07902) | 主动态；时间回补v1 2026-11-05；尺度BA与EDG动态形变拆分为旋转QCQP/SDP几何证书。 |
+| 2026-11-09 | MessyNav: Zero-Shot Navigation via Manipulation in Messy Environments | [原始来源](https://arxiv.org/abs/2611.07417) | 主动态；时间回补v1 2026-11-05；CoRL2026；VLM交互可供性+任务技能，真机成功率67%、较基线+27pp；代码待发布。 |
+| 2026-11-09 | An Empirical Study of Reinforcement Learning for Keypoint Positioning of Deformable Linear Objects | [原始来源](https://arxiv.org/abs/2611.07261) | 主动态；时间回补v1 2026-11-05；DLO关键点PPO与GPU MuJoCo，三组真机9/10、10/10、8/10。 |
+| 2026-11-09 | Efficient Diffusion Policy Fine Tuning with Latent Noise Representation Bridging (LARBRID) | [原始来源](https://arxiv.org/abs/2611.07275) | 主动态；时间回补v1 2026-11-05；噪声—动作共享潜表示与LNL-MDP，官方Maincode-Research/LARBRID代码。 |
+| 2026-11-09 | Kinematic Hypothesis Context: Embodiment-Conditioned Learned Video Coding for Bandwidth-Limited Robot Policy Uplinks | [原始来源](https://arxiv.org/abs/2611.07411) | 主动态；时间回补v1 2026-11-05；利用关节和标定运动假设压缩云端VLA视频，6kbps闭环22.8→43.1%；代码待发布。 |
+| 2026-11-09 | La-JEPA: Compact Robot Policies with Latent World Modeling | [原始来源](https://arxiv.org/abs/2611.08156) | 主动态；时间回补v1 2026-11-05；训练预测潜特征与动作、推理仅输出动作；关联GitHub仓库目前为空。 |
+| 2026-11-09 | Symmetry-Aware Surrogate-Assisted Testing of UAVs | [原始来源](https://arxiv.org/abs/2611.08012) | 主动态；时间回补v1 2026-11-05；Aerialist对称归一化低净空关键用例命中率42%对随机约10%。 |
+| 2026-11-09 | AI Coding 实战技巧精选：Copilot CLI v1.0.108-1 沙盒内 /cd 后本地 MCP 重启 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.108-1) | AI Coding 实战技巧精选；2026-11-07 UTC；检查切换工作目录后MCP重启和沙盒拒绝路径刷新。 |
+| 2026-11-09 | AI Coding 实战技巧精选：Copilot CLI v1.0.108-0 /index 仓库检索索引 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.108-0) | AI Coding 实战技巧精选；2026-11-07 UTC；/index及符合条件仓库默认tgrep共享索引，核对数据边界。 |
+| 2026-11-09 | Lifelong Planning A* (Koenig, Likhachev, Furcy 2004) | [原始来源](https://doi.org/10.1016/j.artint.2003.12.001) | 经典论文回顾；Artificial Intelligence 2004；g/rhs增量启发式搜索与H-TRIP批量距离索引对照。 |
 
 ## 维护检查表
 
