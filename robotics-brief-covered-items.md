@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-09（Asia/Shanghai）
+> 最后更新：2026-11-10（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -192,6 +192,8 @@
 > 2026-11-08 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1271条。
 >
 > 2026-11-09 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1282条。
+>
+> 2026-11-10 新增 8 条主动态、2 条 AI Coding 实战技巧精选和 1 篇经典论文回顾，累计 1,293 条。
 >
 ## 已核验条目
 
@@ -1575,6 +1577,17 @@
 | 2026-11-09 | AI Coding 实战技巧精选：Copilot CLI v1.0.108-1 沙盒内 /cd 后本地 MCP 重启 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.108-1) | AI Coding 实战技巧精选；2026-11-07 UTC；检查切换工作目录后MCP重启和沙盒拒绝路径刷新。 |
 | 2026-11-09 | AI Coding 实战技巧精选：Copilot CLI v1.0.108-0 /index 仓库检索索引 | [原始来源](https://github.com/github/copilot-cli/releases/tag/v1.0.108-0) | AI Coding 实战技巧精选；2026-11-07 UTC；/index及符合条件仓库默认tgrep共享索引，核对数据边界。 |
 | 2026-11-09 | Lifelong Planning A* (Koenig, Likhachev, Furcy 2004) | [原始来源](https://doi.org/10.1016/j.artint.2003.12.001) | 经典论文回顾；Artificial Intelligence 2004；g/rhs增量启发式搜索与H-TRIP批量距离索引对照。 |
+| 2026-11-10 | When to Trust the BIM: Identifiability-Aware LiDAR-Inertial--BIM Fusion under As-Built Deviations | [论文](https://arxiv.org/abs/2611.09045) | 主动态；时间回补v1 2026-11-06；LIO与IFC/BIM残差的故障可辨识性，歧义时冻结危险地图/位姿更新。 |
+| 2026-11-10 | Lightweight Path-Aware Frontier Re-ranking for LiDAR-Based UAV Exploration | [论文](https://arxiv.org/abs/2611.09561) | 主动态；时间回补v1 2026-11-06；Top-N Frontier限时RRT*路径重排与路径复用，仿真最多缩短14.1%航程。 |
+| 2026-11-10 | CS-Pi: Constraint-Satisfying Flow Policy Sampling | [论文](https://arxiv.org/abs/2611.08654) · [源码](https://github.com/Sumo048/CS-Pi) | 主动态；时间回补v1 2026-11-05；冻结Flow的draw-project-renoise采样；Franka硬件55%安全成功率。 |
+| 2026-11-10 | ForPC: Force-Aware Whole-Body Control for Precise Humanoid Cart Pushing | [论文](https://arxiv.org/abs/2611.08664) · [项目](https://roboforpc.github.io/) | 主动态；时间回补v1 2026-11-05；G1推车手臂/腰腿残差力控，实机30kg载荷0.5m/s。 |
+| 2026-11-10 | Q-OIL: Optimistic Exploration in Learning from Human Interventions | [论文](https://arxiv.org/abs/2611.08576) · [项目](https://weirdlabuw.github.io/qoil/) | 主动态；时间回补v1 2026-11-05；以次优人工接管作乐观探索信号，解耦Critic避免错误传播；代码待发布。 |
+| 2026-11-10 | Meituan-Robotics-0: A Vision-Language-Action Foundation Model for Desktop Manipulation | [论文](https://arxiv.org/abs/2611.08577) · [源码](https://github.com/Meituan-Robotics/Meituan-Robotics-0) | 主动态；时间回补v1 2026-11-05；1.47亿VL数据+15060小时多本体轨迹，Rollback纠正与事件驱动Agent。 |
+| 2026-11-10 | Locating Contact on Tendon-Driven Continuum Robots From Tendon Measurements Alone via Constrained Moving Horizon Estimation | [论文](https://arxiv.org/abs/2611.09877) | 主动态；时间回补v1 2026-11-06；腱驱接触至少七维零空间，已知障碍接触互补约束MHE仿真定位0.9mm。 |
+| 2026-11-10 | When Routine Operations Break Architectural Pattern Relationships in LLM Agent Harnesses | [论文](https://arxiv.org/abs/2611.09088) | 主动态；时间回补v1 2026-11-06；插件重载或保存Allow规则破坏运行时Guardrail顺序，禁写仍可能执行。 |
+| 2026-11-10 | AI Coding 实战技巧精选：Claude Code v2.1.321 Remote Control设置和OAuth重定向沙盒回归 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.321) | AI Coding 实战技巧精选；北京时间2026-11-10 03:22；--settings与OAuth跨Host泄露、cp/mv保护目录修复回归。 |
+| 2026-11-10 | AI Coding 实战技巧精选：Copilot CLI v1.0.109-0 /share导出符号链接与Git Ref审批 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.109-0) | AI Coding 实战技巧精选；北京时间2026-11-10 05:34；Symlink分享导出确认、修改Git引用脚本严格审批；预发布。 |
+| 2026-11-10 | Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography (Fischler and Bolles, CACM 1981) | [原论文DOI](https://doi.org/10.1145/358669.358692) | 经典论文回顾；1981；RANSAC离群点拟合及其几何解释歧义，与BIM-LIO可辨识性对照。 |
 
 ## 维护检查表
 
