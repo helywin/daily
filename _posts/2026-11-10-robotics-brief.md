@@ -2,7 +2,7 @@
 layout: post
 title: "机器人 / SLAM / 控制 / AI Coding 技术深度简报｜2026-11-10"
 date: 2026-11-10 09:00:00 +0800
-description: "BIM-LIO 可辨识性、LiDAR 无人机探索路径重排、CS-Pi 安全 Flow 采样、G1 推车力控、Q-OIL 人工干预学习、美团 MR0、连续体机器人接触估计和 Agent Harness 安全失效。"
+description: "BIM-LIO、Frontier 重排、CS-Pi、G1 推车、MR0 与 Agent 安全；增补 SAG2、开源 jevos、SAG 知识库，以及 T3 Code + Codex MCP / Skill 工程实操。"
 categories: [机器人技术简报]
 tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 ---
@@ -18,6 +18,8 @@ tags: [SLAM, 机器人控制, AI-Coding, 大模型]
 **今日主线：** 让地图更新先回答“观测能否区分定位误差与真实施工偏差”；让规划器按可达路径而非直线距离选择 Frontier；让生成式动作同时满足约束和原模型的高概率行为；在人形推车中把接触力与平衡统一处理；把人工接管作为带偏差的学习信号；让 VLA 长任务和工具调用保留状态与时效；对 Agent 权限验证不能只看插件是否仍显示启用。
 
 **优先复现：** [CS-Pi](https://github.com/Sumo048/CS-Pi) 已公布核心采样器、YAML 实验和对照实现；[Meituan-Robotics-0](https://github.com/Meituan-Robotics/Meituan-Robotics-0) 已公开训练、评测、部署目录及多个模型入口。两者均不能因此被宣称已在本次运行中实际编译或训练。对现有 3D LiDAR 机器人，最值得先开展的轻量实验是 BIM-LIO 假匹配归因和 Frontier 路径代价重排。
+
+**11 月 10 日 AI 栏目修订：** 增补三项可工程化 LLM 附属技术：SAG2 多跳证据检索、jevos-v5 本地决策模型、SAG/SAG-Wiki 知识库与 Codex MCP。实战栏目仅保留 Codex/T3 Code/Skill，提供实际接入、验收与许可证/云端依赖边界，不再引用其他 Coding CLI 的版本公告。
 
 ---
 
@@ -349,35 +351,163 @@ AI Coding Agent 的安全规则分散在宿主程序、配置、插件、Hooks �
 
 ---
 
+## AI / LLM 附属框架与开源工程组件
+
+**本栏为 11 月 10 日增补的工程专题，不将已有项目当成今日首次开源。** 只选择能查到真实仓库、模型或部署入口的技术，并区分“已核实仓库/命令”和“已实际运行”。以下示例均为按作者文档整理的复现步骤，本次没有替读者运行模型或消耗 Codex 额度。
+
+### 组件 1｜SAG2：不用 Embedding 建索引，用 BM25 + Jev 进行多跳证据检索
+
+**项目与代码：** [SAG2 论文](https://arxiv.org/abs/2610.22588) · [SAG-Benchmark/sag2 官方实现](https://github.com/Zleap-AI/SAG-Benchmark/tree/main/sag2) · [完整复现 README](https://github.com/Zleap-AI/SAG-Benchmark/blob/main/sag2/README.md)。
+
+**它解决什么问题？** Agent 查技术文档、跨文件故障链、长报告时，只返回语义相似的一段文字往往不够；真正的答案可能需要先找到一个实体，再通过该实体关联到第二、第三份证据。SAG2 的路线是“问题 → 证据段落 → 扩展词 → 新证据”，不在索引时调用 LLM，也不构建 Embedding 向量库。
+
+~~~text
+原始文档 → SQLite FTS5 / BM25 索引（无 LLM 调用）
+                        ↓
+问题检索 Top 候选 → Jev 对原始问题的证据贡献打分
+                        ↓
+提取扩展词 → 继续 BM25 检索 → 去重与重新打分
+                        ↓
+返回可追溯的原文片段（不是直接编造答案）
+~~~
+
+作者在各 1,000 道题的测试里报告 MuSiQue、2WikiMultiHopQA、HotpotQA 的 **R@10 分别为 86.62%、97.43%、99.00%**；EnterpriseRAG-Bench 的 470 个标注问题、511,962 份文档上，文档 R@10 为 **81.10%**。这里 R@10 是原始证据召回率，**不是最终问答正确率**；MuSiQue 也是方法开发集，不能把它当完全独立的盲测。
+
+**最小可执行步骤（Linux，Python 3.11+、uv、C 编译器）：**
+
+~~~bash
+git clone https://github.com/Zleap-AI/SAG-Benchmark.git
+cd SAG-Benchmark/sag2
+uv sync --frozen
+# 下载固定 Benchmark 数据并建索引：不调用模型
+uv run python scripts/run_sag2_benchmark.py --download --index-only --dataset musique
+~~~
+
+默认高分路线在**查询时依赖 Jev API**。官方示例使用 OpenRouter 的 \`typesafe/jev-1.13\`，需要单独配置 API Key；不能把“零模型索引成本”误写为“端到端完全本地”。
+
+项目还提供 \`--mode local --reranker qwen\` 的本地 Qwen3-Reranker-0.6B 路线，权重需提前下载。作者在对应 MuSiQue 消融中报告本地 Qwen 两轮扩展 R@10 **74.18%**，低于 Jev 对照约 **86.6%**；不要暗示替换后完全复现云端分数。
+
+**适合什么场景？** 用于 Codex 对技术规范、历史故障、设计资料做跨文档证据检索，尤其适合“先检索后引用原文”的开发研究流程。先取自己掌握答案的 30 个跨文档问题，对比 \`rg/BM25\`、SAG2+Jev 与本地 reranker，量化证据 Recall@5、全证据命中、一次查询费用与 P95。
+
+**工程风险：** SAG2 Benchmark 是可复现算法/检索实验入口，并非自动可插入所有 Coding IDE 的成熟知识库；需要作为工具或 MCP 包装后才能参与 Codex 工作流。
+
+### 组件 2｜jevos-v5：开源 Jev 类小型判断模型，本地 CPU 提供 yes/no、选项与分数
+
+**项目与权重：** [feder-cr/jev 源码](https://github.com/feder-cr/jev) · [jevos-v5 Release](https://github.com/feder-cr/jev/releases/tag/jevos-v5) · [Hugging Face 权重](https://huggingface.co/feder-cr/jev)。
+
+首先区分两个名字：**TypeSafe Jev 是单独提供的云端决策模型；jevos 是第三方开源替代实现，不是 Jev 官方开源权重。** jevos 将一句文本/结构化状态和若干判断规则转换为 \`noul\`（yes 概率）、\`choice\`（分类）或 \`score\`（刻度）结果，避免为简单分流调用一次大型生成模型。
+
+作者发布了 MIT 许可证源码、OpenVINO INT8 权重、GGUF、Linux/Windows/macOS 预编译服务。以 Core Ultra 7 255H 16 线程测试为例，报告单次决策延迟约 **28–130 ms**；v5 版本说明报告 yes/no 主要评测分数 **78.9%**、Agent 指令数据约 **74.0%**。这些是作者选定的测试集及设备结果，不代表对任意未知规则达到相同准确率，也不应和不同任务上的 Jev 分数直接混用。
+
+**Linux 最小运行方式：** 从上述 Release 下载 Linux x64 压缩包及 \`jevos-v5-openvino-int8.zip\` 后：
+
+~~~bash
+tar -xzf jev-linux-x64.tar.gz
+cd jev
+unzip ../jevos-v5-openvino-int8.zip
+./jev serve
+~~~
+
+默认本地地址为 \`127.0.0.1:8017\`，适合 CPU 常驻；Linux x64 预编译包要求对应系统库（Release 指明 glibc 2.35+），约 1 GB 内存起步。验证独立 API：
+
+~~~bash
+curl -s http://127.0.0.1:8017/v1/systemone \
+  -H 'Content-Type: application/json' \
+  -d '{"model":"jev-latest","state":"日志显示机器人定位模块连续三次丢帧",
+       "questions":{"needs_review":{"type":"noul",
+       "instructions":"是否存在值得人工复核的定位异常证据？"}}}'
+~~~
+
+**适合什么场景？** Codex 工具调用前的低成本任务分类、日志分流、证据相关性初筛和失败告警；可将分数附带来源后传给主 Agent。强制安全权限仍由确定性代码控制，不能仅用模型概率放行高风险操作。
+
+**与 SAG2 的真实兼容边界：** jevos 暴露 \`POST /v1/systemone\`，SAG2 官方云端示例使用 \`/api/alpha/decisions\`。两者协议及返回结构未被证明完全相同；**本次没有验证 SAG2 直接将 BASE_URL 改为 jevos 就能工作**。要集成应开发并测试薄适配器，并在同一证据集合重做 Recall@K、延迟和成本 A/B。不能把 API 风格相似宣传为“本地无损替换 Jev”。
+
+### 组件 3｜SAG 与 SAG-Wiki：为 Codex 配一个能追溯原文的知识检索层
+
+**两个项目不是同一套索引实现：** [Zleap-AI/SAG](https://github.com/Zleap-AI/SAG) 是事件—实体关系及查询期动态关系扩展的知识库应用，索引时需要 Embedding/事件抽取模型；[SAG-Wiki](https://github.com/Zleap-AI/SAG-Wiki) 使用 SAG2 的 SQLite FTS5/BM25 检索路线，建索引本身无需 LLM 和 Embedding。不要因为名字相近，就将 SAG2 测试分数直接算作原始 SAG 产品实测。
+
+**最适合 Linux + Codex 的已核实链路：SAG Docker + 官方 CLI + MCP + Skill。** SAG 本地服务启动不要求先填模型密钥，但要执行 Embedding 索引、关系抽取和回答，需要配置实际模型服务。
+
+~~~bash
+git clone https://github.com/Zleap-AI/SAG.git
+cd SAG
+docker compose up -d --build
+# Web: http://localhost:3000  API: http://localhost:8000/docs
+~~~
+
+建立知识源并完成索引后，在同一 Linux 主机安装官方 CLI，再接入 Codex（Node.js ≥ 20.19）：
+
+~~~bash
+npm install --global @zleap-ai/sag-cli
+sag mcp test
+sag agent connect codex
+sag agent status
+codex mcp list
+~~~
+
+原仓库还提供随 CLI 附带的知识检索 Skill，可参考 [SAG MCP 指南](https://github.com/Zleap-AI/SAG#MCP-guide) 安装。Codex 当前通用个人 Skill 目录为 \`~/.agents/skills\`，仓库级为 \`.agents/skills\`；请按当前 Codex 环境检查 Skill 是否实际被发现。
+
+**SAG-Wiki 另一条路线：** 项目提供 Rust/Tauri 桌面、独立 CLI 和 [Codex Skill](https://github.com/Zleap-AI/SAG-Wiki/blob/main/cli/skills/sag/SKILL.md)，支持 \`sag add\` / \`sag check\` / \`sag "问题" . -m 5\`；但其 README 当前列出的 npm CLI 预编译发行平台主要是 macOS Apple Silicon 与 Windows x64。**Arch Linux 不应假定直接安装即可获得可用二进制**，先检查发行版支持或自行构建。
+
+**如何判断值不值得集成？** 拿 30 个真实工程问题做对照：Codex 直接 \`rg\`、SAG 事件—实体索引、SAG2 多跳检索。要求每条回答都能打开原始文件及对应片段，统计错误引用、跨文档证据召回、索引更新成本和平均查询时延。不要为仅有几十个源码文件的简单项目额外部署完整知识库。
+
+**安全边界：** MCP 只暴露需要的知识源；不要把整个 HOME、SSH 私钥或生产密钥目录加入索引；远程服务需鉴权，并按实际权限范围限制文档访问。
+
+---
+
 ## AI Coding 实战技巧精选
 
-### 技巧 1｜Claude Code 2.1.321：为 Remote Control 固定设置文件，回归重定向 OAuth 与目录越权
+本栏改为 **仅面向 Codex 的效率工具、可复用 Skill 和实际工作流**；不再使用其他 Coding CLI 的版本修复公告凑数。
 
-- **来源**：Anthropic，2026-11-09 19:22 UTC（北京时间 11 月 10 日 03:22），[官方 Release v2.1.321](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)。
-- **一句话结论**：新增 Remote Control 的 --settings 参数；同时修复 MCP OAuth 重定向可能向其他 Host 发送刷新 Token、Bash 在错误目录判断写入权限及 cp/mv 目标保护失效的情况。
+### 技巧 1｜T3 Code 管理本机 Codex：手机继续任务，独立 Worktree 避免互相污染
+
+- **来源**：[pingdotgg/t3code 官方仓库](https://github.com/pingdotgg/t3code) · [安装说明](https://github.com/pingdotgg/t3code/blob/main/README.md) · [远程访问指南](https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md) · [Worktree 设置](https://github.com/pingdotgg/t3code/blob/main/docs/user/project-settings.md)。
+- **一句话结论**：T3 Code 是 Codex 的跨设备操作界面，不需要再装一套“新的编码模型”；把不同任务安排到不同 Worktree，手机查看进度和审批，不要让两个任务改同一工作树。
 - **具体怎么做**：
-  1. 在隔离测试工程执行 claude --version，确认包含 v2.1.321 修复。
-  2. 准备无密钥的测试 settings 文件，使用以下命令启动远程控制会话，确认新会话继承该策略：
-  
-     ~~~bash
-     claude remote-control --settings ./claude-test-settings.json
-     ~~~
-  3. 更改设置后不要假定正在运行的 Remote Control 自动热加载。按 Release 说明重启该进程，再检查新会话。
-  4. 用虚构 OAuth 测试服务、临时 symlink 与受保护目录测试 Host 重定向及 cp/mv 写入拒绝；比较真实文件哈希。
-- **适合什么场景**：Claude Code 远程会话、MCP OAuth、多个 Worktree、无人值守编码。
-- **注意**：补丁不等于完全安全隔离；远程服务与 Shell 仍需独立权限边界，禁止用真实 Token 做恶意重定向测试。
+  1. 主机上已有 Codex CLI 时先检查 \`codex --version\` 和登录状态。Arch 可安装 \`yay -S t3code-bin\`，或直接用 \`npx t3@latest\` 试运行。
+  2. 在 T3 Code 中为同一仓库创建两个独立 Worktree/线程，例如“定位模块修复”和“只读代码审查”，确认两者 \`git status --short\` 互不影响；检查项目 Worktrees 设置中的路径和子模块策略。
+  3. 如需手机操作，按照文档使用 \`t3 up\` 配置 T3 Connect 或仅在受控局域网/Tailscale 访问；在手机选择自己的主机环境，不要直接暴露未鉴权的本地服务到公网。
+  4. 完成任务后先审查 Diff 和必要测试，再人工合并；比较单工作树串行与双 Worktree 的冲突次数、人工切换成本和真实完成时间。
+- **适合什么场景**：Codex + Arch Linux、手机/电脑跨设备、多 C++/ROS2 工程、多个独立任务。
+- **注意**：并行线程仍然会消耗相应 Codex 使用额度，T3 Code 不会凭空增加订阅限额；远程主机需要保持可访问。文中没有替你运行任何 Codex 任务。
 
-### 技巧 2｜Copilot CLI 1.0.109-0：/share、/export 遇到符号链接必须确认，限制 Git Ref 修改
+### 技巧 2｜把 SAG 接到 Codex 的 MCP，再用原文证据回答跨文档问题
 
-- **来源**：GitHub，2026-11-09 21:34 UTC（北京时间 11 月 10 日 05:34），[官方 v1.0.109-0 预发布](https://github.com/github/copilot-cli/releases/tag/v1.0.109-0)。
-- **一句话结论**：在分享/导出本地文件时跟随 Symlink 前要求确认；只读脚本减少无谓审批，修改 Git Ref 或经隐藏路径读取的脚本则更严格审批。
+- **来源**：[SAG 官方 MCP / Codex 指南](https://github.com/Zleap-AI/SAG#MCP-guide) · [Codex MCP 命令说明](https://learn.chatgpt.com/docs/cli/reference)。
+- **一句话结论**：相比让 Codex 反复通读一堆 PDF、设计文档或历史说明，先通过检索工具返回可追溯片段，再让 Agent 查对应源码与执行测试。
 - **具体怎么做**：
-  1. 在临时 HOME 与独立 Git Worktree 中安装/启动该预发布，执行 copilot --version 核对版本。
-  2. 准备一个无害 symlink（指向工作目录外的临时文本），通过 /share 或 /export 测试：预期必须先询问是否跟随链接，拒绝后原文件不应被读取/导出。
-  3. 分别测试纯 git status 脚本与修改 Git Ref 的命令，检查后者不能因“这是脚本”而跳过权限复核。
-  4. 使用 git status --porcelain 和 SHA256 检查工作区与链接目标的实际变化。
-- **适合什么场景**：Copilot CLI、Linux 工作树、Agent 数据导出、自动化 CI 和高权限仓库。
-- **注意**：这是预发布；URL 子域名批准为会话级范围，实际访问边界还需要最小权限与网络策略。
+  1. 按上方 SAG 组件步骤启动容器，添加一个**小范围**知识源并完成索引，不要一次导入整个主目录。
+  2. 使用 \`sag mcp test\`、\`sag agent connect codex\`、\`codex mcp list\` 确认工具确实出现在当前 Codex 配置里。
+  3. 给 Codex 一个跨两份文档才能回答的问题，要求“先返回两个原始文件的证据位置，再判断结论”；同时运行 \`rg\` 基线。
+  4. 检查证据是否真实存在、查询时延和新增文件被重新索引后能否检索到，再决定是否长期启用。
+- **适合什么场景**：GB28181/ROS2 技术规格、长项目设计文件、历史 Bug 分析、Codex 研究型任务。
+- **注意**：工具能检索到相关文本不代表它是当前版本的正确实现；必须结合 Git 当前分支、运行配置与必要测试判断。
+
+### 技巧 3｜为 Codex 建一个十行级 Skill：改动后验证，不再靠长篇 AGENTS.md 堆规则
+
+- **来源**：[Codex Skills 官方说明](https://learn.chatgpt.com/docs/customization/overview) · [Codex Skill 构建文档](https://learn.chatgpt.com/docs/build-skills)。
+- **一句话结论**：把常用的“限定修改范围 → 运行最小相关测试 → 查看 Diff”打包为 Skill，只有需要时再加载，避免每轮 Prompt 重复铺满项目规范。
+- **具体怎么做**：
+  1. 在仓库创建 \`.agents/skills/verify-change/SKILL.md\`。
+  2. 填入下面这份最小 Skill：
+
+~~~markdown
+---
+name: verify-change
+description: When code changes are complete, verify the smallest relevant build/test and inspect the diff.
+---
+
+1. Inspect git diff --check and git diff --stat first.
+2. Run only the build/test commands relevant to changed modules.
+3. Check that existing public APIs and error semantics still pass.
+4. Report changed files, test result, and remaining failures.
+5. Do not modify tests to conceal failures; do not auto-commit or push.
+~~~
+
+  3. 在新 Codex 会话中用 \`$verify-change\` 显式触发，选择一个小改动，检查 Skill 是否被加载及真正运行了相应测试。
+  4. 与每次都粘贴长提示词的方式对照，比较上下文占用、无关文件修改和验收遗漏；确认有效后再推广给其他仓库。
+- **适合什么场景**：Codex CLI、C++/ROS2、多模块工程、长期任务和共用 Skill。
+- **注意**：Skill 是操作指导而不是权限沙盒；复杂 CI、安全发布和跨仓库写操作仍须有独立执行权限。不要因为本例出现 Skill，就额外生成大批无价值日志与验收脚本。
 
 ---
 
@@ -433,6 +563,8 @@ RANSAC 将“在大量错误观测下仍可形成模型假设”变成计算机�
 
 **今日最值得动手：** 先用 [CS-Pi 仓库](https://github.com/Sumo048/CS-Pi) 跑二维约束采样与纯投影对照，再用一套现有 3D LiDAR 地图做 BIM/走廊歧义实验，最后检查 Coding Agent 在插件重载、路径切换后的拒绝规则是否仍然有效。对于 MR0，先复现实验 Benchmark 和工具时序，再讨论真实机器人部署。
 
+**AI 工程技术补充：** SAG2 解决跨文档证据扩展，jevos 提供可本地化的轻量判断，但必须明确 TypeSafe Jev 云端服务与独立开源替代的性能差别。SAG 可通过 MCP 向 Codex 提供可溯源知识，T3 Code 用于跨设备控制与隔离 Worktree；最小 Skill 则将关键回归动作按需加载。推荐先针对 30 个真实问题和一个具体仓库做 A/B，不要为了“最新技术”给简单工程叠加不必要的框架。
+
 ---
 
 ## 最值得深入研究或尝试复现的方向
@@ -445,7 +577,9 @@ RANSAC 将“在大量错误观测下仍可形成模型假设”变成计算机�
 6. **MR0 桌面 VLA**：固定 RoboTwin 评测协议，观察异步动作块时效、Rollback 正负监督与事件驱动任务恢复。
 7. **连续体机器人 MHE**：用已知与未知墙面几何分别测试接触位置可辨识性，再比较 EKF 与约束 MHE。
 8. **Agent Harness 失效回归**：对插件重新加载、允许规则更新和 Worktree 切换建立独立拒绝测试，检查实际文件哈希。
-9. **AI Coding 新版本**：在无密钥测试环境验证 Claude Code OAuth 重定向、受保护文件写入和 Copilot /share Symlink 询问。
+9. **SAG2 多跳检索**：以自己掌握证据的 30 个跨文档问题，对比 BM25、SAG2+Jev 与本地 Qwen 重排的 Recall@K、成本和查询 P95。
+10. **jevos-v5 本地判断**：在 Linux CPU 上运行 `/v1/systemone`，分别测真假判断、误报率、冷启动与 P95；不用模型分数直接决定高权限动作。
+11. **T3 Code + Codex + Skill**：为两个独立任务创建 Worktree，通过 T3 Code 管理会话，配置只读检索 MCP 与 `verify-change`，测实际完成时间、无关改动和测试遗漏。
 
 ---
 
@@ -459,6 +593,8 @@ RANSAC 将“在大量错误观测下仍可形成模型假设”变成计算机�
 
 **具身 VLA 与 Coding Agent：** [MR0 论文](https://arxiv.org/abs/2611.08577) · [MR0 源码与模型](https://github.com/Meituan-Robotics/Meituan-Robotics-0) · [Agent Harness 架构失效](https://arxiv.org/abs/2611.09088)。
 
-**AI Coding 一手 Release：** [Claude Code v2.1.321](https://github.com/anthropics/claude-code/releases/tag/v2.1.321) · [Copilot CLI v1.0.109-0](https://github.com/github/copilot-cli/releases/tag/v1.0.109-0)。
+**AI / LLM 附属框架：** [SAG2 论文](https://arxiv.org/abs/2610.22588) · [SAG2 代码与评测](https://github.com/Zleap-AI/SAG-Benchmark) · [jevos 开源模型](https://github.com/feder-cr/jev) · [jevos-v5 权重](https://huggingface.co/feder-cr/jev) · [SAG](https://github.com/Zleap-AI/SAG) · [SAG-Wiki](https://github.com/Zleap-AI/SAG-Wiki)。
+
+**Codex 工程实操：** [T3 Code](https://github.com/pingdotgg/t3code) · [T3 Code 远程连接](https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md) · [SAG 官方 MCP 接入](https://github.com/Zleap-AI/SAG#MCP-guide) · [Codex Skills](https://learn.chatgpt.com/docs/customization/overview)。
 
 **经典论文：** [Fischler & Bolles 1981 RANSAC DOI](https://doi.org/10.1145/358669.358692) · [SRI 机构发表记录](https://www.sri.com/publication/artificial-intelligence-pubs/random-sample-consensus-a-paradigm-for-model-fitting-with-applications-to-image-analysis-and-automated-cartography-2/)。
