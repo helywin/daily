@@ -193,7 +193,7 @@
 >
 > 2026-11-09 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1282条。
 >
-> 2026-11-10 新增 8 条主动态、2 条 AI Coding 实战技巧精选和 1 篇经典论文回顾，累计 1,293 条。
+> 2026-11-10 修订最终版：8 条主动态、3 条 AI/LLM 附属框架与组件、3 条 Codex 实战技巧精选和 1 篇经典论文回顾，共 15 条；替换早间两条不适用工具公告，累计 1,297 条。
 >
 ## 已核验条目
 
@@ -1585,8 +1585,12 @@
 | 2026-11-10 | Meituan-Robotics-0: A Vision-Language-Action Foundation Model for Desktop Manipulation | [论文](https://arxiv.org/abs/2611.08577) · [源码](https://github.com/Meituan-Robotics/Meituan-Robotics-0) | 主动态；时间回补v1 2026-11-05；1.47亿VL数据+15060小时多本体轨迹，Rollback纠正与事件驱动Agent。 |
 | 2026-11-10 | Locating Contact on Tendon-Driven Continuum Robots From Tendon Measurements Alone via Constrained Moving Horizon Estimation | [论文](https://arxiv.org/abs/2611.09877) | 主动态；时间回补v1 2026-11-06；腱驱接触至少七维零空间，已知障碍接触互补约束MHE仿真定位0.9mm。 |
 | 2026-11-10 | When Routine Operations Break Architectural Pattern Relationships in LLM Agent Harnesses | [论文](https://arxiv.org/abs/2611.09088) | 主动态；时间回补v1 2026-11-06；插件重载或保存Allow规则破坏运行时Guardrail顺序，禁写仍可能执行。 |
-| 2026-11-10 | AI Coding 实战技巧精选：Claude Code v2.1.321 Remote Control设置和OAuth重定向沙盒回归 | [官方Release](https://github.com/anthropics/claude-code/releases/tag/v2.1.321) | AI Coding 实战技巧精选；北京时间2026-11-10 03:22；--settings与OAuth跨Host泄露、cp/mv保护目录修复回归。 |
-| 2026-11-10 | AI Coding 实战技巧精选：Copilot CLI v1.0.109-0 /share导出符号链接与Git Ref审批 | [官方Release](https://github.com/github/copilot-cli/releases/tag/v1.0.109-0) | AI Coding 实战技巧精选；北京时间2026-11-10 05:34；Symlink分享导出确认、修改Git引用脚本严格审批；预发布。 |
+| 2026-11-10 | SAG2: Embedding-Free Multi-Hop Evidence Retrieval (SQLite FTS5 + Jev) | [论文](https://arxiv.org/abs/2610.22588) · [源码](https://github.com/Zleap-AI/SAG-Benchmark) | AI 附属框架/组件；工程专题补充回顾；BM25多跳扩展、Jev云端打分与本地Qwen重排对照；检索Recall不等于问答准确率。 |
+| 2026-11-10 | jevos-v5: Local Open Source Decision Model by feder-cr | [源码与版本](https://github.com/feder-cr/jev/releases/tag/jevos-v5) · [模型](https://huggingface.co/feder-cr/jev) | AI 附属框架/组件；工程专题补充回顾；CPU本地判断noul/choice/score，/v1/systemone；并非TypeSafe Jev开源权重，也未验证直接替换SAG2云端端点。 |
+| 2026-11-10 | SAG / SAG-Wiki: Evidence-Traceable Knowledge Tools for Codex | [SAG源码](https://github.com/Zleap-AI/SAG) · [SAG-Wiki源码](https://github.com/Zleap-AI/SAG-Wiki) | AI 附属框架/组件；工程专题补充回顾；区分SAG事件实体索引与SAG2 FTS5；原始SAG可Docker部署并用官方CLI接入Codex MCP。 |
+| 2026-11-10 | AI Coding 实战技巧精选：T3 Code 控制 Codex 与 Worktree 隔离 | [官方源码](https://github.com/pingdotgg/t3code) | Codex专用实战；Arch使用npx t3@latest或AUR，移动端远程连接、每个独立任务使用单独Worktree，验证文件不互相污染。 |
+| 2026-11-10 | AI Coding 实战技巧精选：SAG 官方 CLI 连接 Codex MCP | [SAG MCP指南](https://github.com/Zleap-AI/SAG#MCP-guide) | Codex专用实战；sag mcp test / sag agent connect codex / codex mcp list；小范围知识源检索并核实原文证据。 |
+| 2026-11-10 | AI Coding 实战技巧精选：Codex verify-change 精简 Skill | [Codex Skills文档](https://learn.chatgpt.com/docs/customization/overview) | Codex专用实战；仓库.agents/skills/verify-change/SKILL.md，按需检查git diff、模块相关构建与测试，不自动commit/push。 |
 | 2026-11-10 | Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography (Fischler and Bolles, CACM 1981) | [原论文DOI](https://doi.org/10.1145/358669.358692) | 经典论文回顾；1981；RANSAC离群点拟合及其几何解释歧义，与BIM-LIO可辨识性对照。 |
 
 ## 维护检查表
