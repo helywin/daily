@@ -383,11 +383,11 @@ uv sync --frozen
 uv run python scripts/run_sag2_benchmark.py --download --index-only --dataset musique
 ~~~
 
-默认高分路线在**查询时依赖 Jev API**。官方示例使用 OpenRouter 的 \`typesafe/jev-1.13\`，需要单独配置 API Key；不能把“零模型索引成本”误写为“端到端完全本地”。
+默认高分路线在**查询时依赖 Jev API**。官方示例使用 OpenRouter 的 `typesafe/jev-1.13`，需要单独配置 API Key；不能把“零模型索引成本”误写为“端到端完全本地”。
 
-项目还提供 \`--mode local --reranker qwen\` 的本地 Qwen3-Reranker-0.6B 路线，权重需提前下载。作者在对应 MuSiQue 消融中报告本地 Qwen 两轮扩展 R@10 **74.18%**，低于 Jev 对照约 **86.6%**；不要暗示替换后完全复现云端分数。
+项目还提供 `--mode local --reranker qwen` 的本地 Qwen3-Reranker-0.6B 路线，权重需提前下载。作者在对应 MuSiQue 消融中报告本地 Qwen 两轮扩展 R@10 **74.18%**，低于 Jev 对照约 **86.6%**；不要暗示替换后完全复现云端分数。
 
-**适合什么场景？** 用于 Codex 对技术规范、历史故障、设计资料做跨文档证据检索，尤其适合“先检索后引用原文”的开发研究流程。先取自己掌握答案的 30 个跨文档问题，对比 \`rg/BM25\`、SAG2+Jev 与本地 reranker，量化证据 Recall@5、全证据命中、一次查询费用与 P95。
+**适合什么场景？** 用于 Codex 对技术规范、历史故障、设计资料做跨文档证据检索，尤其适合“先检索后引用原文”的开发研究流程。先取自己掌握答案的 30 个跨文档问题，对比 `rg/BM25`、SAG2+Jev 与本地 reranker，量化证据 Recall@5、全证据命中、一次查询费用与 P95。
 
 **工程风险：** SAG2 Benchmark 是可复现算法/检索实验入口，并非自动可插入所有 Coding IDE 的成熟知识库；需要作为工具或 MCP 包装后才能参与 Codex 工作流。
 
@@ -395,11 +395,11 @@ uv run python scripts/run_sag2_benchmark.py --download --index-only --dataset mu
 
 **项目与权重：** [feder-cr/jev 源码](https://github.com/feder-cr/jev) · [jevos-v5 Release](https://github.com/feder-cr/jev/releases/tag/jevos-v5) · [Hugging Face 权重](https://huggingface.co/feder-cr/jev)。
 
-首先区分两个名字：**TypeSafe Jev 是单独提供的云端决策模型；jevos 是第三方开源替代实现，不是 Jev 官方开源权重。** jevos 将一句文本/结构化状态和若干判断规则转换为 \`noul\`（yes 概率）、\`choice\`（分类）或 \`score\`（刻度）结果，避免为简单分流调用一次大型生成模型。
+首先区分两个名字：**TypeSafe Jev 是单独提供的云端决策模型；jevos 是第三方开源替代实现，不是 Jev 官方开源权重。** jevos 将一句文本/结构化状态和若干判断规则转换为 `noul`（yes 概率）、`choice`（分类）或 `score`（刻度）结果，避免为简单分流调用一次大型生成模型。
 
 作者发布了 MIT 许可证源码、OpenVINO INT8 权重、GGUF、Linux/Windows/macOS 预编译服务。以 Core Ultra 7 255H 16 线程测试为例，报告单次决策延迟约 **28–130 ms**；v5 版本说明报告 yes/no 主要评测分数 **78.9%**、Agent 指令数据约 **74.0%**。这些是作者选定的测试集及设备结果，不代表对任意未知规则达到相同准确率，也不应和不同任务上的 Jev 分数直接混用。
 
-**Linux 最小运行方式：** 从上述 Release 下载 Linux x64 压缩包及 \`jevos-v5-openvino-int8.zip\` 后：
+**Linux 最小运行方式：** 从上述 Release 下载 Linux x64 压缩包及 `jevos-v5-openvino-int8.zip` 后：
 
 ~~~bash
 tar -xzf jev-linux-x64.tar.gz
@@ -408,7 +408,7 @@ unzip ../jevos-v5-openvino-int8.zip
 ./jev serve
 ~~~
 
-默认本地地址为 \`127.0.0.1:8017\`，适合 CPU 常驻；Linux x64 预编译包要求对应系统库（Release 指明 glibc 2.35+），约 1 GB 内存起步。验证独立 API：
+默认本地地址为 `127.0.0.1:8017`，适合 CPU 常驻；Linux x64 预编译包要求对应系统库（Release 指明 glibc 2.35+），约 1 GB 内存起步。验证独立 API：
 
 ~~~bash
 curl -s http://127.0.0.1:8017/v1/systemone \
@@ -420,7 +420,7 @@ curl -s http://127.0.0.1:8017/v1/systemone \
 
 **适合什么场景？** Codex 工具调用前的低成本任务分类、日志分流、证据相关性初筛和失败告警；可将分数附带来源后传给主 Agent。强制安全权限仍由确定性代码控制，不能仅用模型概率放行高风险操作。
 
-**与 SAG2 的真实兼容边界：** jevos 暴露 \`POST /v1/systemone\`，SAG2 官方云端示例使用 \`/api/alpha/decisions\`。两者协议及返回结构未被证明完全相同；**本次没有验证 SAG2 直接将 BASE_URL 改为 jevos 就能工作**。要集成应开发并测试薄适配器，并在同一证据集合重做 Recall@K、延迟和成本 A/B。不能把 API 风格相似宣传为“本地无损替换 Jev”。
+**与 SAG2 的真实兼容边界：** jevos 暴露 `POST /v1/systemone`，SAG2 官方云端示例使用 `/api/alpha/decisions`。两者协议及返回结构未被证明完全相同；**本次没有验证 SAG2 直接将 BASE_URL 改为 jevos 就能工作**。要集成应开发并测试薄适配器，并在同一证据集合重做 Recall@K、延迟和成本 A/B。不能把 API 风格相似宣传为“本地无损替换 Jev”。
 
 ### 组件 3｜SAG 与 SAG-Wiki：为 Codex 配一个能追溯原文的知识检索层
 
@@ -445,11 +445,11 @@ sag agent status
 codex mcp list
 ~~~
 
-原仓库还提供随 CLI 附带的知识检索 Skill，可参考 [SAG MCP 指南](https://github.com/Zleap-AI/SAG#MCP-guide) 安装。Codex 当前通用个人 Skill 目录为 \`~/.agents/skills\`，仓库级为 \`.agents/skills\`；请按当前 Codex 环境检查 Skill 是否实际被发现。
+原仓库还提供随 CLI 附带的知识检索 Skill，可参考 [SAG MCP 指南](https://github.com/Zleap-AI/SAG#MCP-guide) 安装。Codex 当前通用个人 Skill 目录为 `~/.agents/skills`，仓库级为 `.agents/skills`；请按当前 Codex 环境检查 Skill 是否实际被发现。
 
-**SAG-Wiki 另一条路线：** 项目提供 Rust/Tauri 桌面、独立 CLI 和 [Codex Skill](https://github.com/Zleap-AI/SAG-Wiki/blob/main/cli/skills/sag/SKILL.md)，支持 \`sag add\` / \`sag check\` / \`sag "问题" . -m 5\`；但其 README 当前列出的 npm CLI 预编译发行平台主要是 macOS Apple Silicon 与 Windows x64。**Arch Linux 不应假定直接安装即可获得可用二进制**，先检查发行版支持或自行构建。
+**SAG-Wiki 另一条路线：** 项目提供 Rust/Tauri 桌面、独立 CLI 和 [Codex Skill](https://github.com/Zleap-AI/SAG-Wiki/blob/main/cli/skills/sag/SKILL.md)，支持 `sag add` / `sag check` / `sag "问题" . -m 5`；但其 README 当前列出的 npm CLI 预编译发行平台主要是 macOS Apple Silicon 与 Windows x64。**Arch Linux 不应假定直接安装即可获得可用二进制**，先检查发行版支持或自行构建。
 
-**如何判断值不值得集成？** 拿 30 个真实工程问题做对照：Codex 直接 \`rg\`、SAG 事件—实体索引、SAG2 多跳检索。要求每条回答都能打开原始文件及对应片段，统计错误引用、跨文档证据召回、索引更新成本和平均查询时延。不要为仅有几十个源码文件的简单项目额外部署完整知识库。
+**如何判断值不值得集成？** 拿 30 个真实工程问题做对照：Codex 直接 `rg`、SAG 事件—实体索引、SAG2 多跳检索。要求每条回答都能打开原始文件及对应片段，统计错误引用、跨文档证据召回、索引更新成本和平均查询时延。不要为仅有几十个源码文件的简单项目额外部署完整知识库。
 
 **安全边界：** MCP 只暴露需要的知识源；不要把整个 HOME、SSH 私钥或生产密钥目录加入索引；远程服务需鉴权，并按实际权限范围限制文档访问。
 
@@ -464,9 +464,9 @@ codex mcp list
 - **来源**：[pingdotgg/t3code 官方仓库](https://github.com/pingdotgg/t3code) · [安装说明](https://github.com/pingdotgg/t3code/blob/main/README.md) · [远程访问指南](https://github.com/pingdotgg/t3code/blob/main/docs/user/remote-access.md) · [Worktree 设置](https://github.com/pingdotgg/t3code/blob/main/docs/user/project-settings.md)。
 - **一句话结论**：T3 Code 是 Codex 的跨设备操作界面，不需要再装一套“新的编码模型”；把不同任务安排到不同 Worktree，手机查看进度和审批，不要让两个任务改同一工作树。
 - **具体怎么做**：
-  1. 主机上已有 Codex CLI 时先检查 \`codex --version\` 和登录状态。Arch 可安装 \`yay -S t3code-bin\`，或直接用 \`npx t3@latest\` 试运行。
-  2. 在 T3 Code 中为同一仓库创建两个独立 Worktree/线程，例如“定位模块修复”和“只读代码审查”，确认两者 \`git status --short\` 互不影响；检查项目 Worktrees 设置中的路径和子模块策略。
-  3. 如需手机操作，按照文档使用 \`t3 up\` 配置 T3 Connect 或仅在受控局域网/Tailscale 访问；在手机选择自己的主机环境，不要直接暴露未鉴权的本地服务到公网。
+  1. 主机上已有 Codex CLI 时先检查 `codex --version` 和登录状态。Arch 可安装 `yay -S t3code-bin`，或直接用 `npx t3@latest` 试运行。
+  2. 在 T3 Code 中为同一仓库创建两个独立 Worktree/线程，例如“定位模块修复”和“只读代码审查”，确认两者 `git status --short` 互不影响；检查项目 Worktrees 设置中的路径和子模块策略。
+  3. 如需手机操作，按照文档使用 `t3 up` 配置 T3 Connect 或仅在受控局域网/Tailscale 访问；在手机选择自己的主机环境，不要直接暴露未鉴权的本地服务到公网。
   4. 完成任务后先审查 Diff 和必要测试，再人工合并；比较单工作树串行与双 Worktree 的冲突次数、人工切换成本和真实完成时间。
 - **适合什么场景**：Codex + Arch Linux、手机/电脑跨设备、多 C++/ROS2 工程、多个独立任务。
 - **注意**：并行线程仍然会消耗相应 Codex 使用额度，T3 Code 不会凭空增加订阅限额；远程主机需要保持可访问。文中没有替你运行任何 Codex 任务。
@@ -477,8 +477,8 @@ codex mcp list
 - **一句话结论**：相比让 Codex 反复通读一堆 PDF、设计文档或历史说明，先通过检索工具返回可追溯片段，再让 Agent 查对应源码与执行测试。
 - **具体怎么做**：
   1. 按上方 SAG 组件步骤启动容器，添加一个**小范围**知识源并完成索引，不要一次导入整个主目录。
-  2. 使用 \`sag mcp test\`、\`sag agent connect codex\`、\`codex mcp list\` 确认工具确实出现在当前 Codex 配置里。
-  3. 给 Codex 一个跨两份文档才能回答的问题，要求“先返回两个原始文件的证据位置，再判断结论”；同时运行 \`rg\` 基线。
+  2. 使用 `sag mcp test`、`sag agent connect codex`、`codex mcp list` 确认工具确实出现在当前 Codex 配置里。
+  3. 给 Codex 一个跨两份文档才能回答的问题，要求“先返回两个原始文件的证据位置，再判断结论”；同时运行 `rg` 基线。
   4. 检查证据是否真实存在、查询时延和新增文件被重新索引后能否检索到，再决定是否长期启用。
 - **适合什么场景**：GB28181/ROS2 技术规格、长项目设计文件、历史 Bug 分析、Codex 研究型任务。
 - **注意**：工具能检索到相关文本不代表它是当前版本的正确实现；必须结合 Git 当前分支、运行配置与必要测试判断。
@@ -488,7 +488,7 @@ codex mcp list
 - **来源**：[Codex Skills 官方说明](https://learn.chatgpt.com/docs/customization/overview) · [Codex Skill 构建文档](https://learn.chatgpt.com/docs/build-skills)。
 - **一句话结论**：把常用的“限定修改范围 → 运行最小相关测试 → 查看 Diff”打包为 Skill，只有需要时再加载，避免每轮 Prompt 重复铺满项目规范。
 - **具体怎么做**：
-  1. 在仓库创建 \`.agents/skills/verify-change/SKILL.md\`。
+  1. 在仓库创建 `.agents/skills/verify-change/SKILL.md`。
   2. 填入下面这份最小 Skill：
 
 ~~~markdown
@@ -504,7 +504,7 @@ description: When code changes are complete, verify the smallest relevant build/
 5. Do not modify tests to conceal failures; do not auto-commit or push.
 ~~~
 
-  3. 在新 Codex 会话中用 \`$verify-change\` 显式触发，选择一个小改动，检查 Skill 是否被加载及真正运行了相应测试。
+  3. 在新 Codex 会话中用 `$verify-change` 显式触发，选择一个小改动，检查 Skill 是否被加载及真正运行了相应测试。
   4. 与每次都粘贴长提示词的方式对照，比较上下文占用、无关文件修改和验收遗漏；确认有效后再推广给其他仓库。
 - **适合什么场景**：Codex CLI、C++/ROS2、多模块工程、长期任务和共用 Skill。
 - **注意**：Skill 是操作指导而不是权限沙盒；复杂 CI、安全发布和跨仓库写操作仍须有独立执行权限。不要因为本例出现 Skill，就额外生成大批无价值日志与验收脚本。
