@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-10（Asia/Shanghai）
+> 最后更新：2026-11-11（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -194,6 +194,8 @@
 > 2026-11-09 新增8条主动态、2条AI Coding实战技巧精选、1条经典论文回顾，共1282条。
 >
 > 2026-11-10 修订最终版：8 条主动态、3 条 AI/LLM 附属框架与组件、3 条 Codex 实战技巧精选和 1 篇经典论文回顾，共 15 条；替换早间两条不适用工具公告，累计 1,297 条。
+>
+> 2026-11-11 新增 7 条主动态、2 条 AI/LLM 附属框架与组件、2 条 Codex 实战技巧及 1 篇经典论文回顾，共 12 条，累计 1,309 条。
 >
 ## 已核验条目
 
@@ -1592,6 +1594,19 @@
 | 2026-11-10 | AI Coding 实战技巧精选：SAG 官方 CLI 连接 Codex MCP | [SAG MCP指南](https://github.com/Zleap-AI/SAG#MCP-guide) | Codex专用实战；sag mcp test / sag agent connect codex / codex mcp list；小范围知识源检索并核实原文证据。 |
 | 2026-11-10 | AI Coding 实战技巧精选：Codex verify-change 精简 Skill | [Codex Skills文档](https://learn.chatgpt.com/docs/customization/overview) | Codex专用实战；仓库.agents/skills/verify-change/SKILL.md，按需检查git diff、模块相关构建与测试，不自动commit/push。 |
 | 2026-11-10 | Random Sample Consensus: A Paradigm for Model Fitting with Applications to Image Analysis and Automated Cartography (Fischler and Bolles, CACM 1981) | [原论文DOI](https://doi.org/10.1145/358669.358692) | 经典论文回顾；1981；RANSAC离群点拟合及其几何解释歧义，与BIM-LIO可辨识性对照。 |
+
+| 2026-11-11 | Galilean Robots, Aristotelian Sensors: Joint Spatiotemporal Trajectory Estimation and Extrinsic Calibration | [原始来源](https://arxiv.org/abs/2611.12526) | 主动态；时间回补v1 2026-11-09；群结构统一时空外参和机器人轨迹，独立官方源码未核验。 |
+| 2026-11-11 | DASH-SLAM: Calibration-Free Metric Monocular SLAM via Depth Scale Propagation | [原始来源](https://arxiv.org/abs/2611.10239) | 主动态；时间回补v1 2026-11-06；Depth Anything 3、共享关键帧深度比、阻尼尺度锚定。 |
+| 2026-11-11 | Efficient Learning of Differentiable MPC Policies on the GPU via Smoothed ADMM and First-Order Reinforcement Learning | [原始来源](https://arxiv.org/abs/2611.09937) | 主动态；时间回补原始v1 2026-10-13；SmoothedTurboMPC与SHAC；官方TurboMPC源码可见。 |
+| 2026-11-11 | UniLatent: Cross-Embodiment Transfer via Latent Observation Alignment | [原始来源](https://arxiv.org/abs/2611.10061) | 主动态；时间回补v1 2026-11-06；DINOv2冻结目标Encoder、源/目标潜空间对齐；真机27/30需十条目标演示。 |
+| 2026-11-11 | A Unified Inertial Encoder for Human and Humanoid Motion | [原始来源](https://arxiv.org/abs/2611.10137) | 主动态；时间回补v1 2026-11-06；人类与G1对应位置合成IMU；真机速度误差0.099m/s。 |
+| 2026-11-11 | Capturability-Aware Footstep Planning in Cluttered Environments: A Recursively Feasible Sequential MPC on Axis-Aligned Safe Corridors | [原始来源](https://arxiv.org/abs/2611.10169) | 主动态；时间回补v1 2026-11-06；LIP捕获约束+矩形安全走廊；Digit仿真。 |
+| 2026-11-11 | DPGS-SLAM: Diffusion-Prior and Provenance-Aware Monocular Gaussian Splatting SLAM for Dynamic Visual Sensing | [原始来源](https://arxiv.org/abs/2611.12038) | 主动态；时间回补2026-11-10公开批次，v1具体UTC时刻未独立确认；动态遮挡补全及地图来源标记。 |
+| 2026-11-11 | NINJA: A Navigator-Inspector Joint Architecture for Context-Efficient Issue Localization | [原始来源](https://github.com/wantbook-book/NINJA) | AI 附属框架/组件；时间回补v1 2026-11-05；RepoSearch+LocAgent、verl SFT/RL、全局导航与局部Inspector上下文隔离。 |
+| 2026-11-11 | Ninada: Sub-Clause Split-Graph VITS Streaming and Capability-Routed 24 kHz Speech Synthesis Across Twelve Scripts | [原始来源](https://github.com/hemanth/ninada) | AI 附属框架/组件；时间回补v1 2026-11-05；流式24kHz PCM、Python/JS、移动端ONNX，暂不支持普通话。 |
+| 2026-11-11 | AI Coding 实战技巧精选：Codex 配 ast-grep 做 C++ AST 结构检索 | [原始来源](https://github.com/ast-grep/ast-grep) | AI Coding 实战技巧精选；Codex专用；AST模式定位调用点、降低全文件读取；早期项目工程工具补充回顾。 |
+| 2026-11-11 | AI Coding 实战技巧精选：NVIDIA 官方 Skills 按需安装到 Codex | [原始来源](https://github.com/NVIDIA/skills) | AI Coding 实战技巧精选；Codex专用；npx skills add按需安装cuOpt等专业Skill；安全审查和A/B。 |
+| 2026-11-11 | Closed-form Solution of Absolute Orientation Using Unit Quaternions (Horn 1987) | [原始来源](https://doi.org/10.1364/JOSAA.4.000629) | 经典论文回顾；1987年4月；四元数点集对齐解析旋转、平移和可选尺度，不能替代时钟标定。 |
 
 ## 维护检查表
 
