@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-11（Asia/Shanghai）
+> 最后更新：2026-11-12（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -196,6 +196,8 @@
 > 2026-11-10 修订最终版：8 条主动态、3 条 AI/LLM 附属框架与组件、3 条 Codex 实战技巧精选和 1 篇经典论文回顾，共 15 条；替换早间两条不适用工具公告，累计 1,297 条。
 >
 > 2026-11-11 新增 7 条主动态、2 条 AI/LLM 附属框架与组件、2 条 Codex 实战技巧及 1 篇经典论文回顾，共 12 条，累计 1,309 条。
+>
+> 2026-11-12 新增 8 条机器人/控制主动态、2 条 AI 附属框架/组件（其中 Locus 与其 Codex 技巧合并去重）、另 1 条 Codex 实操、1 篇经典论文，共 12 个唯一工作，累计 1,321 条。
 >
 ## 已核验条目
 
@@ -1607,6 +1609,18 @@
 | 2026-11-11 | AI Coding 实战技巧精选：Codex 配 ast-grep 做 C++ AST 结构检索 | [原始来源](https://github.com/ast-grep/ast-grep) | AI Coding 实战技巧精选；Codex专用；AST模式定位调用点、降低全文件读取；早期项目工程工具补充回顾。 |
 | 2026-11-11 | AI Coding 实战技巧精选：NVIDIA 官方 Skills 按需安装到 Codex | [原始来源](https://github.com/NVIDIA/skills) | AI Coding 实战技巧精选；Codex专用；npx skills add按需安装cuOpt等专业Skill；安全审查和A/B。 |
 | 2026-11-11 | Closed-form Solution of Absolute Orientation Using Unit Quaternions (Horn 1987) | [原始来源](https://doi.org/10.1364/JOSAA.4.000629) | 经典论文回顾；1987年4月；四元数点集对齐解析旋转、平移和可选尺度，不能替代时钟标定。 |
+| 2026-11-12 | Maze Runner: Autonomous Maze Navigation with Line-Based Localization and Control Barrier Functions | [论文](https://arxiv.org/abs/2611.12949) · [源码](https://github.com/alvgaona/maze-runner) | 主动态；时间回补v1 2026-11-06；2D LiDAR线特征EKF/EKF-SLAM、A*/Hybrid A*、NMPC+离散CBF；C++ ROS2 Pixi可构建。 |
+| 2026-11-12 | GEMOR-GS: Global Extrinsic-calibration-refined Mapping and Online Relocalization for 3D Gaussian-Splatting SLAM | [论文](https://arxiv.org/abs/2611.13528) | 主动态；时间回补v1 2026-11-10；LiDAR-Camera外参直接法、3DGS全局修正、XFeat/RANSAC-PnP重定位；官方工程未核实。 |
+| 2026-11-12 | HiPFuse: Real-Time LiDAR Semantic Segmentation for Robotic Perception on Edge Devices | [论文](https://arxiv.org/abs/2611.14025) · [作者仓库](https://github.com/haiyang2022/HiPFuse) | 主动态；时间回补v1 2026-11-10；高度分组Point-BEV语义分割Jetson14.2/22.4FPS；仓库当前仅README，不可直接复现。 |
+| 2026-11-12 | NIF-VIO: Visual--Inertial Odometry Across Inertial and Non-Inertial Reference Frames | [论文](https://arxiv.org/abs/2611.13662) | 主动态；时间回补v1 2026-11-10；加速/旋转载体中的跨参考系VIO，一致性约束隔离与局部重优化。 |
+| 2026-11-12 | Latent Barrier Steering: Hierarchical Safety for Generative Planning | [论文](https://arxiv.org/abs/2611.13227) | 主动态；时间回补v1 2026-11-09；先引导生成行为潜变量再用Path CBF-QP修正，与已报道CS-Pi为不同方法。 |
+| 2026-11-12 | Few-Shot Residual Adaptation of Pretrained Latent World Models | [论文](https://arxiv.org/abs/2611.13592) | 主动态；时间回补v1 2026-11-10；冻结世界模型、双位置残差、三次交互适应质心/摩擦，真机90%/100%指定任务。 |
+| 2026-11-12 | From Video Frames to Robot Meta-Frames: A Unified Latent Interface for World Action Models (MetaWAM) | [论文](https://arxiv.org/abs/2611.14365) · [源码](https://github.com/showlab/MetaWAM) | 主动态；时间回补v1 2026-11-10；Cosmos Policy 2B，DCT固定频带Meta-frame，RoboCasa68.9%，论文报告延迟-39%；源码与Checkpoint公开。 |
+| 2026-11-12 | ASPIRE: An Agentic System-Identification Platform for Iterative Reasoning and Exploration | [论文](https://arxiv.org/abs/2611.13114) | 主动态；时间回补v1 2026-11-09；Agent系统辨识与独立保留测试集、物理条件验证；30/30有效模型；可复现Harness未核实。 |
+| 2026-11-12 | Locus MCP: LSP Code Intelligence for Codex | [源码](https://github.com/paladini/locus-mcp) | AI 附属框架/组件 + AI Coding 实战技巧精选（同一工作合并去重）；Node22/MIT，LSP定位、引用、诊断；Codex MCP配置与十个真实问题A/B。 |
+| 2026-11-12 | SAFE: Code-Grounded Agentic Explanations for Static Analysis Findings | [论文](https://arxiv.org/abs/2611.13041) · [源码](https://github.com/fraunhofer-iem/safe) | AI 附属框架/组件；时间回补v1 2026-11-09；SARIF静态检测与LLM解释职责分离；IntelliJ插件，论文新版与仓库版本一致性未完全核实。 |
+| 2026-11-12 | AI Coding 实战技巧精选：git bisect run 自动回归定位 + Codex 根因解释 | [Git官方文档](https://git-scm.com/docs/git-bisect) | AI Coding 实战技巧精选；工程方法回顾；独立Worktree中以稳定回归脚本二分定位首个坏Commit，模型只分析Diff。 |
+| 2026-11-12 | Model Predictive Path Integral Control: From Theory to Parallel Computation (Williams, Aldrich, Theodorou 2017) | [期刊原论文](https://doi.org/10.2514/1.G001921) | 经典论文回顾；2017年1月31日在线发表；重要性采样/GPU轨迹Rollout、指数加权控制更新及动力学限制。 |
 
 ## 维护检查表
 
