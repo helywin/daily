@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-12（Asia/Shanghai）
+> 最后更新：2026-11-13（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -198,6 +198,8 @@
 > 2026-11-11 新增 7 条主动态、2 条 AI/LLM 附属框架与组件、2 条 Codex 实战技巧及 1 篇经典论文回顾，共 12 条，累计 1,309 条。
 >
 > 2026-11-12 新增 8 条机器人/控制主动态、2 条 AI 附属框架/组件（其中 Locus 与其 Codex 技巧合并去重）、另 1 条 Codex 实操、1 篇经典论文，共 12 个唯一工作，累计 1,321 条。
+>
+> 2026-11-13 新增 8 条主动态、2 条 AI 附属框架/组件、2 条 Codex 实战技巧与 1 篇经典论文回顾，累计 1,334 条。
 >
 ## 已核验条目
 
@@ -1621,6 +1623,20 @@
 | 2026-11-12 | SAFE: Code-Grounded Agentic Explanations for Static Analysis Findings | [论文](https://arxiv.org/abs/2611.13041) · [源码](https://github.com/fraunhofer-iem/safe) | AI 附属框架/组件；时间回补v1 2026-11-09；SARIF静态检测与LLM解释职责分离；IntelliJ插件，论文新版与仓库版本一致性未完全核实。 |
 | 2026-11-12 | AI Coding 实战技巧精选：git bisect run 自动回归定位 + Codex 根因解释 | [Git官方文档](https://git-scm.com/docs/git-bisect) | AI Coding 实战技巧精选；工程方法回顾；独立Worktree中以稳定回归脚本二分定位首个坏Commit，模型只分析Diff。 |
 | 2026-11-12 | Model Predictive Path Integral Control: From Theory to Parallel Computation (Williams, Aldrich, Theodorou 2017) | [期刊原论文](https://doi.org/10.2514/1.G001921) | 经典论文回顾；2017年1月31日在线发表；重要性采样/GPU轨迹Rollout、指数加权控制更新及动力学限制。 |
+
+| 2026-11-13 | From Depth to Safe Depth: Uncertainty-Aware Monocular Perception for Mobile Robot Navigation | [论文](https://arxiv.org/abs/2611.13769) | 主动态；时间回补v1 2026-11-10；0.58M不确定性深度校正头，Nav2仿真碰撞率63%降至3%，代码未独立验证。 |
+| 2026-11-13 | FAME-QP: A GPU-Accelerated Quadratic-Programming Solver for Real-Time Model Predictive Control | [论文](https://arxiv.org/abs/2611.13766) · [源码](https://github.com/santoshrajkumar/fame-qp) | 主动态；时间回补v1 2026-11-10；MIT开源GPU融合ADMM/CUDA Graph/Triton，README提供pip install。 |
+| 2026-11-13 | SIGMO: Sigmoid Gated Interaction-Aware Motion Planning | [论文](https://arxiv.org/abs/2611.14414) | 主动态；时间回补v1 2026-11-10；多智能体让行sigmoid与滚动规划，项目工程未核实。 |
+| 2026-11-13 | Koopman Model-Based Reinforcement Learning | [论文](https://arxiv.org/abs/2611.14186) | 主动态；时间回补v1 2026-11-10；随机Koopman一步预测与Critic，物理四足站立/双足行走。 |
+| 2026-11-13 | ExRL: Sample-Efficient Online Adaptation of Long-Chunk Policies via Execution Length Control | [论文](https://arxiv.org/abs/2611.13482) · [项目](https://exrl-project.github.io/) | 主动态；时间回补v1 2026-11-10；离策略RL只优化动作块执行长度，源码未独立核实。 |
+| 2026-11-13 | LEASH: Stay Safe in Agentic Robotics / RoboRisk | [论文](https://arxiv.org/abs/2611.14115) · [源码](https://github.com/zhuqinfeng1999/LEASH) | 主动态；时间回补v1 2026-11-10；MIT开源、105任务、Jev Task/Action/Commit安全门，11月11/12公开。 |
+| 2026-11-13 | Is Your Robot's Memory Just a Clock? Temporal Shortcuts in Memory-Augmented VLA Policies | [论文](https://arxiv.org/abs/2611.14488) | 主动态；时间回补v1 2026-11-10；不会改变任务的暂停帧导致VLA虚假进度，事件记忆较稳健。 |
+| 2026-11-13 | One Policy for 100 Household Tasks: Our Solution for the 2026 BEHAVIOR Challenge | [论文](https://arxiv.org/abs/2611.14432) · [代码](https://github.com/Robot-Learning-Collective/behavior-1k-solution-2026) | 主动态；时间回补v1 2026-11-10；100任务VLA、公开2.9B Checkpoint，Agent训练实践会话未完整开源。 |
+| 2026-11-13 | Model-Free Runtime Measurement of Task-Relevant Information / Acquisition-State Telemetry | [论文](https://arxiv.org/abs/2611.14111) · [源码](https://github.com/dimipan/ast-telemetry) | AI 附属框架/组件；时间回补v1 2026-11-10；监测信息进度/停滞，嵌套目录Python CPU复现。 |
+| 2026-11-13 | retrieval-lens: MCP Retrieval Flight Recorder | [源码](https://github.com/Vbj1808/retrieval-lens) | AI 附属框架/组件；工程补充回顾；MIT MCP工具，检索显式observe、query、diff、stats，非自动拦截。 |
+| 2026-11-13 | AI Coding 实战技巧精选：rr-debugger 录制与回放 C++ 故障 | [源码](https://github.com/rr-debugger/rr) | AI Coding 实战技巧精选；Codex + Linux调试，rr check/record/replay，需兼容CPU perf，不支持所有GPU场景。 |
+| 2026-11-13 | AI Coding 实战技巧精选：git range-diff 对比 Codex Rebase 前后补丁 | [Git文档](https://git-scm.com/docs/git-range-diff) | AI Coding 实战技巧精选；用两组提交range-diff检查补丁漂移，人工阅读及独立回归。 |
+| 2026-11-13 | iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree (Kaess et al., IJRR 2012) | [论文DOI](https://doi.org/10.1177/0278364911430419) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾；2011-12在线发表，2012-02期刊；Bayes Tree增量重线性化、回环因子图与多传感器后端。 |
 
 ## 维护检查表
 
