@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-13（Asia/Shanghai）
+> 最后更新：2026-11-14（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -200,6 +200,8 @@
 > 2026-11-12 新增 8 条机器人/控制主动态、2 条 AI 附属框架/组件（其中 Locus 与其 Codex 技巧合并去重）、另 1 条 Codex 实操、1 篇经典论文，共 12 个唯一工作，累计 1,321 条。
 >
 > 2026-11-13 新增 8 条主动态、2 条 AI 附属框架/组件、2 条 Codex 实战技巧与 1 篇经典论文回顾，累计 1,334 条。
+>
+> 2026-11-14 新增 8 条主动态、1 条 AI / LLM 附属组件、1 条 AI Coding 新实操主题和 1 篇经典回顾；Alloy 的 Codex MCP 实战与主动态为同一项目只登记一次，本日新增 11 条，累计 1,345 条。
 >
 ## 已核验条目
 
@@ -1637,6 +1639,18 @@
 | 2026-11-13 | AI Coding 实战技巧精选：rr-debugger 录制与回放 C++ 故障 | [源码](https://github.com/rr-debugger/rr) | AI Coding 实战技巧精选；Codex + Linux调试，rr check/record/replay，需兼容CPU perf，不支持所有GPU场景。 |
 | 2026-11-13 | AI Coding 实战技巧精选：git range-diff 对比 Codex Rebase 前后补丁 | [Git文档](https://git-scm.com/docs/git-range-diff) | AI Coding 实战技巧精选；用两组提交range-diff检查补丁漂移，人工阅读及独立回归。 |
 | 2026-11-13 | iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree (Kaess et al., IJRR 2012) | [论文DOI](https://doi.org/10.1177/0278364911430419) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾；2011-12在线发表，2012-02期刊；Bayes Tree增量重线性化、回环因子图与多传感器后端。 |
+
+| 2026-11-14 | QVS-LIVO RiskMap: Health- and Information-Aware View Selection for Multi-Camera LIVO and Off-Road Risk Mapping | [论文](https://arxiv.org/abs/2611.16205) · [源码](https://github.com/zihanPan-HIT/QVS-LIVO) | 主动态；时间回补v1 2026-11-12；四相机只读健康检测及选择性光度修正，ROS2 Humble公开核心，论文语义风险层未发布。 |
+| 2026-11-14 | CT-SGAL-LIO: Causal Continuous Time Refinement of Discrete LiDAR Inertial Odometry | [论文](https://arxiv.org/abs/2611.16918) | 主动态；时间回补v1 2026-11-12；固定lag立方spline，R-Campus后验跳变-85.4%，代码计划发布。 |
+| 2026-11-14 | EMS-Nav: Embodied Multi-Scale Navigation | [论文](https://arxiv.org/abs/2611.15589) | 主动态；时间回补v1 2026-11-11；区域/房间/物体/实例多尺度导航，成功率+9.39pp，完整源码未独立确认。 |
+| 2026-11-14 | Robot Navigation and Obstacle Avoidance from Randomly Positioned External Cameras (VINE) | [论文](https://arxiv.org/abs/2611.16282) | 主动态；时间回补v1 2026-11-12；外置相机图像→视角不变障碍图→PPO/A*，模拟相机位置扰动。 |
+| 2026-11-14 | Generalized Inverse Kinematics via Conditional Flow (GenGenIK) | [论文](https://arxiv.org/abs/2611.15565) · [项目](https://icra-2027-gengenik.github.io/) | 主动态；时间回补v1 2026-11-11；条件Flow生成多端多解IK，需外部FK/碰撞安全检查。 |
+| 2026-11-14 | FORGE: Force-Aware Multi-Granularity Control for Efficient Humanoid Loco-Manipulation | [论文](https://arxiv.org/abs/2611.17142) · [项目](https://bb0928.github.io/forge/) | 主动态；时间回补v1 2026-11-12；G1稀疏手腕位姿、可选力输入、低频接触力估计和冻结行走先验。 |
+| 2026-11-14 | Alloy: A Multi-Material Physics Engine for Robot Learning | [论文](https://arxiv.org/abs/2611.16312) · [源码](https://github.com/argonrobotics-ai/alloy) | 主动态兼Codex实战工具去重；时间回补v1 2026-11-12；Apache-2.0 Python3.11/12多材料仿真+alloy mcp，版本0.x，Codex MCP技巧不另计数。 |
+| 2026-11-14 | Prediction-Error-Tightened MPC for Socially Compliant Crowd Navigation | [论文](https://arxiv.org/abs/2611.15781) | 主动态；时间回补v1 2026-11-11；300个仿真种子接触10%→1.33%，语义个人空间另实验22.84%→2.11%。 |
+| 2026-11-14 | When Agents Need to Consolidate Memories: Memory-TCG / RRR Conversation ESAA | [论文](https://arxiv.org/abs/2611.15644) · [代码](https://github.com/elzobrito/conversation-esaa-rrr-artifacts) | AI 附属框架/组件；v1 2026-11-11；MIT合成实验复现，压缩记忆权威决策/冲突证据，非成熟Codex插件。 |
+| 2026-11-14 | AI Coding 实战技巧精选：Spec-Driven PBT 根据需求不变量测试 Codex 补丁 | [论文](https://arxiv.org/abs/2611.15920) | AI Coding 实战技巧精选；v1 2026-11-11；先取规格再看代码构造PBT，完整研究Harness代码未独立确认。 |
+| 2026-11-14 | Graduated Non-Convexity for Robust Spatial Perception: From Non-Minimal Solvers to Global Outlier Rejection (Yang et al. 2019/2020) | [论文](https://arxiv.org/abs/1909.08605) | 经典论文回顾；GNC稳健核与Black-Rangarajan对偶，70-80%错误观测为作者实测非普适保证。 |
 
 ## 维护检查表
 
