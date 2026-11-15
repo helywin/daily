@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-14（Asia/Shanghai）
+> 最后更新：2026-11-15（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -202,6 +202,8 @@
 > 2026-11-13 新增 8 条主动态、2 条 AI 附属框架/组件、2 条 Codex 实战技巧与 1 篇经典论文回顾，累计 1,334 条。
 >
 > 2026-11-14 新增 8 条主动态、1 条 AI / LLM 附属组件、1 条 AI Coding 新实操主题和 1 篇经典回顾；Alloy 的 Codex MCP 实战与主动态为同一项目只登记一次，本日新增 11 条，累计 1,345 条。
+>
+> 2026-11-15 新增 7 条机器人/控制主动态、2 项 AI/LLM 附属框架与开源组件、2 条 Codex AI Coding 实战技巧精选和 1 篇经典论文回顾，共 12 条，累计 1,357 条。
 >
 ## 已核验条目
 
@@ -1651,6 +1653,19 @@
 | 2026-11-14 | When Agents Need to Consolidate Memories: Memory-TCG / RRR Conversation ESAA | [论文](https://arxiv.org/abs/2611.15644) · [代码](https://github.com/elzobrito/conversation-esaa-rrr-artifacts) | AI 附属框架/组件；v1 2026-11-11；MIT合成实验复现，压缩记忆权威决策/冲突证据，非成熟Codex插件。 |
 | 2026-11-14 | AI Coding 实战技巧精选：Spec-Driven PBT 根据需求不变量测试 Codex 补丁 | [论文](https://arxiv.org/abs/2611.15920) | AI Coding 实战技巧精选；v1 2026-11-11；先取规格再看代码构造PBT，完整研究Harness代码未独立确认。 |
 | 2026-11-14 | Graduated Non-Convexity for Robust Spatial Perception: From Non-Minimal Solvers to Global Outlier Rejection (Yang et al. 2019/2020) | [论文](https://arxiv.org/abs/1909.08605) | 经典论文回顾；GNC稳健核与Black-Rangarajan对偶，70-80%错误观测为作者实测非普适保证。 |
+
+| 2026-11-15 | Terrain-Aware Thompson Sampling for Multi-Drone Search and Rescue | [论文](https://arxiv.org/abs/2611.14685) | 主动态；时间回补 v1 2026-11-10 UTC；YOSAR真实案例驱动多无人机地形先验搜索与林冠遮挡，仿真结果，未核实完整官方源码 |
+| 2026-11-15 | HeadIO: Body-Frame Heading Decomposition for Neural Inertial Odometry on Head-Mounted Devices | [论文](https://arxiv.org/abs/2611.14895) | 主动态；时间回补 v1 2026-11-11 UTC；tilt/yaw分离，Nymeria RTE-5s 0.260m→0.239m，无直接机器人主定位替换证明 |
+| 2026-11-15 | Informative Path Planning with Gaussian Processes: Error Bounds, Algorithms, and Benchmarks | [论文](https://arxiv.org/abs/2611.16877) | 主动态；时间回补 v1 2026-11-12 UTC；GP后验预测方差与GreedyCover离散路径规划；近似保证受理论假设限制 |
+| 2026-11-15 | SPARC: RoboCup Standard Platform for Autonomous Rescue Competition with Initial Datasets, Software, and Simulation Environments | [论文](https://arxiv.org/abs/2611.15443) · [源码](https://github.com/STAR-Explorer-Robotics/Robocup_system) | 主动态；时间回补 v1 2026-11-11 UTC；前后LiDAR+IMU真实Bag和ROS2地形导航代码；README明确重组源码尚未验证完整部署 |
+| 2026-11-15 | BlinkMimic: Training a Humanoid Motion Tracker in Minutes on a Single GPU | [论文](https://arxiv.org/abs/2611.16422) · [源码](https://github.com/fuyichen0725/blinkmimic) | 主动态；时间回补 v1 2026-11-12 UTC；G1 40段LAFAN1模拟动作跟踪，RTX4090训练严格目标约3.38min，MIT源码 |
+| 2026-11-15 | NSDL: Neuro-Symbolic Division of Labor for Multi-Robot Task Planning | [论文](https://arxiv.org/abs/2611.16671) · [源码](https://github.com/Xincheng-Tan/NSDL) | 主动态；时间回补 v1 2026-11-12 UTC；VLM任务草图与确定性Solver协作，离线无GPU规划测试及公开权重 |
+| 2026-11-15 | HDH: Hindsight-based Action Verification for Frozen Vision-Language-Action Models | [论文](https://arxiv.org/abs/2611.14834) | 主动态；时间回补 v1 2026-11-10 UTC；冻结VLA轨迹成功经验训练轻量候选动作验证器，仍需确定性约束 |
+| 2026-11-15 | Robo-SWE: Executable Robotics Software Engineering Benchmark | [论文](https://arxiv.org/abs/2611.16116) · [数据](https://huggingface.co/datasets/vharatian/Robo-SWE) | AI 附属框架/组件；时间回补 v1 2026-11-11 UTC；28机器人仓库236个可执行修复任务，F2P容器评测，非Codex插件 |
+| 2026-11-15 | Guided Generation of Linux Kernel Semantic Patches with Small Local Language Models | [论文](https://arxiv.org/abs/2611.16215) · [代码](https://github.com/MohannedAhmed67/kernel-sibling-migrations) | AI 附属框架/组件；时间回补 v1 2026-11-12 UTC；本地Qwen2.5-Coder7B生成Coccinelle SmPL迁移规则；仓库H3未复现 |
+| 2026-11-15 | AI Coding 实战技巧精选：Codex 两版本 Fail-to-Pass 回归测试与 Worktree | [论文](https://arxiv.org/abs/2611.16114) · [Git手册](https://git-scm.com/docs/git-worktree) | AI Coding 实战技巧精选；需求/故障真实回归需修复前失败修复后通过，隔离Worktree与最小相关测试 |
+| 2026-11-15 | AI Coding 实战技巧精选：LLVM clang-tidy-diff 差分C++静态审查 | [官方源码](https://github.com/llvm/llvm-project/blob/main/clang-tools-extra/clang-tidy/tool/clang-tidy-diff.py) | AI Coding 实战技巧精选；针对改动行聚合诊断交给Codex处理，依赖正确compile_commands.json |
+| 2026-11-15 | An Analysis of Approximations for Maximizing Submodular Set Functions—I (Nemhauser, Wolsey & Fisher 1978) | [DOI](https://doi.org/10.1007/BF01588971) | 经典论文回顾；1978；单调次模基数约束下贪心1-1/e保证，适用于信息路径规划理论对照 |
 
 ## 维护检查表
 
