@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-15（Asia/Shanghai）
+> 最后更新：2026-11-16（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -204,6 +204,8 @@
 > 2026-11-14 新增 8 条主动态、1 条 AI / LLM 附属组件、1 条 AI Coding 新实操主题和 1 篇经典回顾；Alloy 的 Codex MCP 实战与主动态为同一项目只登记一次，本日新增 11 条，累计 1,345 条。
 >
 > 2026-11-15 新增 7 条机器人/控制主动态、2 项 AI/LLM 附属框架与开源组件、2 条 Codex AI Coding 实战技巧精选和 1 篇经典论文回顾，共 12 条，累计 1,357 条。
+>
+> 2026-11-16 新增 8 条主动态、2 条 AI/LLM 附属组件、2 条 Codex 技巧及 1 篇经典论文；Polaris 组件与技巧同一项目合并去重，实际新增 12 条，累计 1,369 条。
 >
 ## 已核验条目
 
@@ -1666,6 +1668,18 @@
 | 2026-11-15 | AI Coding 实战技巧精选：Codex 两版本 Fail-to-Pass 回归测试与 Worktree | [论文](https://arxiv.org/abs/2611.16114) · [Git手册](https://git-scm.com/docs/git-worktree) | AI Coding 实战技巧精选；需求/故障真实回归需修复前失败修复后通过，隔离Worktree与最小相关测试 |
 | 2026-11-15 | AI Coding 实战技巧精选：LLVM clang-tidy-diff 差分C++静态审查 | [官方源码](https://github.com/llvm/llvm-project/blob/main/clang-tools-extra/clang-tidy/tool/clang-tidy-diff.py) | AI Coding 实战技巧精选；针对改动行聚合诊断交给Codex处理，依赖正确compile_commands.json |
 | 2026-11-15 | An Analysis of Approximations for Maximizing Submodular Set Functions—I (Nemhauser, Wolsey & Fisher 1978) | [DOI](https://doi.org/10.1007/BF01588971) | 经典论文回顾；1978；单调次模基数约束下贪心1-1/e保证，适用于信息路径规划理论对照 |
+| 2026-11-16 | Autonomous Trail Racing with a Bicycle Robot / SemMap | [论文](https://arxiv.org/abs/2611.15280) · [源码](https://github.com/rai-opensource/sem_map) | 主动态；时间回补v1 2026-11-11；DINOv3语义可通行图+LiDAR高程，真实山地959m；SemMap非商业研究许可，ROS2源码公开。 |
+| 2026-11-16 | DroneDiffusion: Uncertainty-Guided Diffusion Path Planner for UAV Navigation | [论文](https://arxiv.org/abs/2611.15277) | 主动态；时间回补v1 2026-11-11；感知失效风险图+DDPM/ESDF CHOMP，RTX4070Super完整管线181.36ms，正式代码未确认、同名旧JAX工作非此项目。 |
+| 2026-11-16 | APG-Planner: Learning Vision-Based High-Speed Trajectory Planning via Analytic Policy Gradient | [论文](https://arxiv.org/abs/2611.15296) | 主动态；时间回补v1 2026-11-11；差分平坦与可微Episode轨迹优化，30min单GPU与真机峰值11m/s；官方训练代码未确认。 |
+| 2026-11-16 | DIVAL: Diffeomorphic Vector-Field Alignment for Nonholonomic Motion Planning | [论文](https://arxiv.org/abs/2611.14918) | 主动态；时间回补v1 2026-11-11；对齐初始航向与名义场，硬件非完整底盘避障；完整代码未确认。 |
+| 2026-11-16 | A Coupled Control Barrier Function Approach to Deadlock-Free Multi-Robot Conflict Resolution | [论文](https://arxiv.org/abs/2611.16218) | 主动态；时间回补v1 2026-11-12；QP耦合CBF+Yielding Matrix、考虑有限制动不可消除Slack；仅特定假设充分保证。 |
+| 2026-11-16 | Visibility-Aware Task and Motion Planning with Task-Centric Perception | [论文](https://arxiv.org/abs/2611.16213) | 主动态；时间回补v1 2026-11-12；TAMP中插入主动感知与持久物体网格/已观测占据记忆；完整源码未确认。 |
+| 2026-11-16 | An Integrated Architecture for Data-Efficient Real-Time Neural Imitation of Nonlinear Time-Optimal Model Predictive Control | [论文](https://arxiv.org/abs/2611.17005) | 主动态；时间回补v1 2026-11-12；SIFS采样、Furuta硬件1.4Hz教师→1kHz学生，非普适MPC加速。 |
+| 2026-11-16 | BWM-Forge: Agentic World Programming for Embodied Intelligence | [论文](https://arxiv.org/abs/2611.16221) · [源码](https://github.com/Lcixs/BWM-Forge) | 主动态；时间回补v1 2026-11-12；Apache2.0 Blender可编辑场景+代理审核/视频服务，当前Windows优先且外部API依赖。 |
+| 2026-11-16 | Polaris: Local Documentation RAG MCP for Codex | [源码](https://github.com/girard-g/polaris) | AI 附属框架/组件及 AI Coding 实战技巧精选联合去重；MIT Rust纯本地文档BM25+ONNX/向量，codex mcp add；工程补充回顾，非当天发布。 |
+| 2026-11-16 | When Evaluators of AI Agents Disagree: Native Scoring, LLM Judges and Commit-Boundary Checks | [论文](https://arxiv.org/abs/2611.14581) · [复现包](https://doi.org/10.5281/zenodo.23683806) | AI 附属框架/组件；时间回补v1 2026-11-10；2160个tau2实验、11例禁止写入边界检查全部捕获；Zenodo复现下载网页验证失败。 |
+| 2026-11-16 | AI Coding 实战技巧精选：oasdiff OpenAPI Breaking Change Contract Check for Codex | [源码](https://github.com/oasdiff/oasdiff) | Codex专用工程技巧；复盘开源工具，容器执行oasdiff breaking，独立API契约验收、无法覆盖SIP/RTP协议。 |
+| 2026-11-16 | Asymptotic Stability and Feedback Stabilization (Brockett 1983) | [原始论文存档](https://www.hrl.harvard.edu/publications/brockett83asymptotic.pdf) | 经典论文回顾；1983非完整约束静态平滑反馈可稳定性的必要条件，与DIVAL起步航向对齐比较。 |
 
 ## 维护检查表
 
