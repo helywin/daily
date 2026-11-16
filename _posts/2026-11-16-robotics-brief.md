@@ -63,7 +63,7 @@ colcon build
 source install/setup.bash
 ~~~
 
-需要图形桌面时先按 README 配置 X11/RViz 权限，不能无条件复制宽松的 xhost 设置到生产主机。之后按官方 \`scripts/artifacts/download.sh\` 获取模型，并用与设备匹配的 TensorRT 版本导出。
+需要图形桌面时先按 README 配置 X11/RViz 权限，不能无条件复制宽松的 xhost 设置到生产主机。之后按官方 `scripts/artifacts/download.sh` 获取模型，并用与设备匹配的 TensorRT 版本导出。
 
 **关键许可限制：SemMap 代码采用 RAI Institute Research License，仅允许非商业研究使用。** 它不是可直接集成进商业产品的 Apache/MIT 项目。公开仓库也未包含作者内部机器人配置及完整论文评测代码。
 
@@ -357,7 +357,7 @@ python -m gui.app
 
 **源码：** [girard-g/polaris](https://github.com/girard-g/polaris)，MIT 许可证，Rust 单文件可执行分发。
 
-**痛点与模块：** Codex 经常为回答“项目某个设计约束写在哪里”而 \`rg\`、打开多份 Markdown。Polaris 使用本地 ONNX Embedding、SQLite FTS5/BM25 和 sqlite-vec KNN 检索，再以 RRF 融合与 MMR 去重，将有限的相关原文段落通过 MCP 返回给 Codex。不用云端 Key；索引与向量计算在本机。它不是 SAG2 的多跳 Jev 评分框架，也不会无损复现 SAG2 Benchmark。
+**痛点与模块：** Codex 经常为回答“项目某个设计约束写在哪里”而 `rg`、打开多份 Markdown。Polaris 使用本地 ONNX Embedding、SQLite FTS5/BM25 和 sqlite-vec KNN 检索，再以 RRF 融合与 MMR 去重，将有限的相关原文段落通过 MCP 返回给 Codex。不用云端 Key；索引与向量计算在本机。它不是 SAG2 的多跳 Jev 评分框架，也不会无损复现 SAG2 Benchmark。
 
 **最小运行：**
 
@@ -369,9 +369,9 @@ polaris index ./docs
 polaris watch ./docs     # Codex 场景，持续增量索引
 ~~~
 
-运行 \`polaris serve\` 可作为 stdio MCP Server；Codex 手动注册方式见下文。作者的 token 节省指标来源于其项目文档的特定检索测试，**不是 Codex 端到端完成率 Benchmark**，不应直接宣传任意项目都能省 10–40 倍 Token。
+运行 `polaris serve` 可作为 stdio MCP Server；Codex 手动注册方式见下文。作者的 token 节省指标来源于其项目文档的特定检索测试，**不是 Codex 端到端完成率 Benchmark**，不应直接宣传任意项目都能省 10–40 倍 Token。
 
-**A/B 验收：** 从现有 C++/ROS2 项目文档挑 30 个有标准答案的问题，比较 \`rg\` + 阅读文档与 Polaris 的证据 Top-5 命中率、错误引用、首次准备时间、文件更新后的索引新鲜度、返回 Token 与查询 P95。只索引需要的 Markdown，不向共享 MCP 暴露私钥文件或整个 HOME。
+**A/B 验收：** 从现有 C++/ROS2 项目文档挑 30 个有标准答案的问题，比较 `rg` + 阅读文档与 Polaris 的证据 Top-5 命中率、错误引用、首次准备时间、文件更新后的索引新鲜度、返回 Token 与查询 P95。只索引需要的 Markdown，不向共享 MCP 暴露私钥文件或整个 HOME。
 
 **风险：** 项目处于积极开发期，README 所述能力需自行测试；当前主要面向 Markdown 文档，并非完整 C++ 跨函数依赖图，也不等于 Agent 记忆系统。未实际本机运行。
 
@@ -412,7 +412,7 @@ Codex 只对失败根因作解释与修复建议
 - **来源**：[Polaris 原始 README](https://github.com/girard-g/polaris)。
 - **一句话结论**：当任务需要阅读大量 Markdown 技术规范时，将本地索引作为只读检索工具，避免每次全文送进上下文。
 - **具体怎么做**：
-  1. 按组件说明安装 Polaris，对项目文档运行 \`polaris index ./docs\`；用 \`polaris watch ./docs\` 保持索引更新。
+  1. 按组件说明安装 Polaris，对项目文档运行 `polaris index ./docs`；用 `polaris watch ./docs` 保持索引更新。
   2. 使用当前 Codex CLI 的 MCP 子命令注册本地程序，**不需要云端 API Key**：
   
      ~~~bash
@@ -421,7 +421,7 @@ Codex 只对失败根因作解释与修复建议
      ~~~
 
   3. 新开 Codex 会话，要求“先返回有关参数 X 的文档原句和文件位置，再读对应源码，不要凭推测回答”。
-  4. 与相同问题下直接 \`rg\` 的方案比较原文命中、错误引用、上下文大小和端到端耗时。
+  4. 与相同问题下直接 `rg` 的方案比较原文命中、错误引用、上下文大小和端到端耗时。
 - **适合什么场景**：Codex/T3 Code、长技术文档、ROS2/SIP 多文件规范。
 - **注意**：Codex MCP 配置是否被当前 T3 Code 会话继承必须实际检查；Polaris 主要索引 Markdown，不替代 clangd/LSP 符号检索。与上方 Polaris 组件属于同一项目，**去重索引只登记一次**。
 
@@ -430,7 +430,7 @@ Codex 只对失败根因作解释与修复建议
 - **来源**：[oasdiff 官方仓库](https://github.com/oasdiff/oasdiff) · [CLI Getting Started](https://www.oasdiff.com/docs/getting-started)。
 - **一句话结论**：修改 NestJS/HTTP API 后，不要只让 Codex 自述“保持兼容”；用确定性 OpenAPI 差分检查接口有无破坏性变化。
 - **具体怎么做**：
-  1. 将 API 变更前后的 OpenAPI 定义保存为 \`base.yaml\` 与 \`revision.yaml\`。
+  1. 将 API 变更前后的 OpenAPI 定义保存为 `base.yaml` 与 `revision.yaml`。
   2. 用容器直接运行，不需要在宿主机安装 Go：
   
      ~~~bash
