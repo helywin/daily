@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-16（Asia/Shanghai）
+> 最后更新：2026-11-17（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -206,6 +206,8 @@
 > 2026-11-15 新增 7 条机器人/控制主动态、2 项 AI/LLM 附属框架与开源组件、2 条 Codex AI Coding 实战技巧精选和 1 篇经典论文回顾，共 12 条，累计 1,357 条。
 >
 > 2026-11-16 新增 8 条主动态、2 条 AI/LLM 附属组件、2 条 Codex 技巧及 1 篇经典论文；Polaris 组件与技巧同一项目合并去重，实际新增 12 条，累计 1,369 条。
+>
+> 2026-11-17 新增 8 条主动态、3 条 AI / LLM 附属框架组件、2 条 Codex 实战技巧和 1 条经典论文；ProdPilot 同时作为组件和技巧只计一次，新增 13 个唯一条目，共 1,382 条。
 >
 ## 已核验条目
 
@@ -1680,6 +1682,20 @@
 | 2026-11-16 | When Evaluators of AI Agents Disagree: Native Scoring, LLM Judges and Commit-Boundary Checks | [论文](https://arxiv.org/abs/2611.14581) · [复现包](https://doi.org/10.5281/zenodo.23683806) | AI 附属框架/组件；时间回补v1 2026-11-10；2160个tau2实验、11例禁止写入边界检查全部捕获；Zenodo复现下载网页验证失败。 |
 | 2026-11-16 | AI Coding 实战技巧精选：oasdiff OpenAPI Breaking Change Contract Check for Codex | [源码](https://github.com/oasdiff/oasdiff) | Codex专用工程技巧；复盘开源工具，容器执行oasdiff breaking，独立API契约验收、无法覆盖SIP/RTP协议。 |
 | 2026-11-16 | Asymptotic Stability and Feedback Stabilization (Brockett 1983) | [原始论文存档](https://www.hrl.harvard.edu/publications/brockett83asymptotic.pdf) | 经典论文回顾；1983非完整约束静态平滑反馈可稳定性的必要条件，与DIVAL起步航向对齐比较。 |
+
+| 2026-11-17 | NPU-Accelerated GNSS Signal Acquisition / PocketSDR-NPU | [论文](https://arxiv.org/abs/2611.18186) · [代码](https://github.com/taroz/PocketSDR-NPU) | 主动态；时间回补 v1 2026-11-13 UTC；BSD-2 RK3588 RKNN 与AX8850 CPU/NPU GNSS相关搜索，各平台性能不可混用。 |
+| 2026-11-17 | ERA: Error-Resistant Autonomous Object Navigation with Predicted Depth | [论文](https://arxiv.org/abs/2611.17730) | 主动态；时间回补 v1 2026-11-13 UTC；预测深度可撤销占据、可达视点再探索、目标多视角验证。 |
+| 2026-11-17 | PoliMop: Policy-in-the-Loop Motion Planning in 3D Spaces for Mobile Robots | [论文](https://arxiv.org/abs/2611.18110) · [项目](https://ariael21.github.io/polimop.html) | 主动态；时间回补 v1 2026-11-13 UTC；仿真Rollout驱动kinodynamic RRT，作者网页Code coming soon。 |
+| 2026-11-17 | Reusing Locomotion Training Recipes Across Humanoids via Body-Aligned Virtual Joints | [论文](https://arxiv.org/abs/2611.18003) | 主动态；时间回补 v1 2026-11-13 UTC；虚拟关节到原生执行器确定性映射，G1航向漂移降低近六倍，完整代码待核实。 |
+| 2026-11-17 | Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training | [论文](https://arxiv.org/abs/2611.17394) | 主动态；时间回补 v1 2026-11-12 UTC；Agent从失败状态生成经验证的续接演示与Flow损失筛选，真机代码待核实。 |
+| 2026-11-17 | Racing the Clock: Teaching VLNs Budget-Conditioned Object Search | [论文](https://arxiv.org/abs/2611.17442) | 主动态；时间回补 v1 2026-11-12 UTC；HM3D 2000步 Bellman部分观察教师召回71.4%对TSP教师65.5%。 |
+| 2026-11-17 | X-Nav Technical Report: Real-World Long-Horizon Indoor-to-Outdoor Navigation on a Humanoid Robot | [论文](https://arxiv.org/abs/2611.17598) | 主动态；时间回补 v1 2026-11-12 UTC；Lingxi X2约百米跨室内外任务，RGB高层LiDAR里程计低层，源码未核实。 |
+| 2026-11-17 | Objectives as Policies: Vision-Language Model Cost Programs for Contact-Rich Manipulation | [论文](https://arxiv.org/abs/2611.18298) | 主动态；时间回补 v1 2026-11-13 UTC；VLM编代价程序与多阶段MPC仿真后再验证真机，完整代码未核实。 |
+| 2026-11-17 | ProdPilot: Layered MCP Production Readiness Framework | [论文](https://arxiv.org/abs/2611.17381) · [代码](https://github.com/prodpilotai/ProdPilot) | AI 附属框架/组件兼 AI Coding 实战技巧；MIT 50条规则确定性复核；只适用Node Express与React Vite，Codex只读审计、不默认部署。 |
+| 2026-11-17 | Interpreting Coding Agents Through Their Behavioral Trajectories / trajectory-analyzer | [论文](https://arxiv.org/abs/2611.17440) · [代码](https://github.com/SWE-rebench/trajectory-analyzer) | AI 附属框架/组件；MIT Python轨迹行为解析，完整论文数据集部分不可公开复现。 |
+| 2026-11-17 | skills-mcp: Agent Skill Discovery Catalog | [代码](https://github.com/gengirish/skills-mcp) | AI 附属框架/组件；MIT技能目录与Codex MCP，用前审查第三方Skill及固定来源版本。 |
+| 2026-11-17 | AI Coding 实战技巧精选：git rerere 复用经审查的Merge/Rebase冲突修复 | [官方文档](https://git-scm.com/docs/git-rerere) | 只供Codex与T3 Code多Worktree；启用rerere并人工审查复用冲突结果和运行测试。 |
+| 2026-11-17 | LSD-SLAM: Large-Scale Direct Monocular SLAM (Engel, Schöps, Cremers, ECCV 2014) | [正式DOI](https://doi.org/10.1007/978-3-319-10605-2_54) · [源代码](https://github.com/tum-vision/lsd_slam) | 经典论文回顾；ECCV2014半稠密直接法、逆深度不确定性和Sim(3)尺度漂移；GPLv3老ROS实现。 |
 
 ## 维护检查表
 
