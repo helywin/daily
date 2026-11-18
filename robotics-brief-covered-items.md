@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-17（Asia/Shanghai）
+> 最后更新：2026-11-18（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -208,6 +208,8 @@
 > 2026-11-16 新增 8 条主动态、2 条 AI/LLM 附属组件、2 条 Codex 技巧及 1 篇经典论文；Polaris 组件与技巧同一项目合并去重，实际新增 12 条，累计 1,369 条。
 >
 > 2026-11-17 新增 8 条主动态、3 条 AI / LLM 附属框架组件、2 条 Codex 实战技巧和 1 条经典论文；ProdPilot 同时作为组件和技巧只计一次，新增 13 个唯一条目，共 1,382 条。
+>
+> 2026-11-18 新增8条主动态、1条AI/LLM附属框架、2条Codex实战技巧及1条经典论文回顾，共1,394条；全部唯一来源联合去重。GHySSeg数据集DOI跳转未能独立验证。
 >
 ## 已核验条目
 
@@ -1696,6 +1698,19 @@
 | 2026-11-17 | skills-mcp: Agent Skill Discovery Catalog | [代码](https://github.com/gengirish/skills-mcp) | AI 附属框架/组件；MIT技能目录与Codex MCP，用前审查第三方Skill及固定来源版本。 |
 | 2026-11-17 | AI Coding 实战技巧精选：git rerere 复用经审查的Merge/Rebase冲突修复 | [官方文档](https://git-scm.com/docs/git-rerere) | 只供Codex与T3 Code多Worktree；启用rerere并人工审查复用冲突结果和运行测试。 |
 | 2026-11-17 | LSD-SLAM: Large-Scale Direct Monocular SLAM (Engel, Schöps, Cremers, ECCV 2014) | [正式DOI](https://doi.org/10.1007/978-3-319-10605-2_54) · [源代码](https://github.com/tum-vision/lsd_slam) | 经典论文回顾；ECCV2014半稠密直接法、逆深度不确定性和Sim(3)尺度漂移；GPLv3老ROS实现。 |
+
+| 2026-11-18 | EasyNav: A Modular Architecture for Real-Time Navigation Across Heterogeneous Robot Environments | [论文](https://arxiv.org/abs/2611.19894) · [源码](https://github.com/EasyNavigation/EasyNavigation) | 主动态；时间回补v1 2026-11-15 UTC；共享NavState、ROS2模块化导航，指定实验室内反应延迟377→33ms。 |
+| 2026-11-18 | Polygraph: Large-Scale Multi-Session Trajectory Optimization using Pose Graphs | [论文](https://arxiv.org/abs/2611.21163) | 主动态；时间回补v1 2026-11-16 UTC；不依赖统一稠密3D地图的在线多会话轨迹图及两级闭环准入。 |
+| 2026-11-18 | OrthoMark: Lightweight Orthographic LiDAR Place Recognition | [论文](https://arxiv.org/abs/2611.20570) | 主动态；时间回补v1 2026-11-16 UTC；约1.9KB BEV检索键、16位高度掩码验证，未将同名水印仓库冒充源码。 |
+| 2026-11-18 | GHySSeg: Real-Time Ground and Road Segmentation for Hybrid Solid-State LiDAR | [论文](https://arxiv.org/abs/2611.21507) · [数据DOI](https://doi.org/10.5281/zenodo.21705196) | 主动态；时间回补v1 2026-11-16 UTC；不依赖GPU约22ms/帧；Zenodo下载重定向未验证。 |
+| 2026-11-18 | Passage-Focused Soft Coordination for Hierarchical Multi-Robot Navigation | [论文](https://arxiv.org/abs/2611.18877) | 主动态；时间回补v1 2026-11-13 UTC；凸通道图+软时间协调+在线MPPI，1200实例和8真机实验。 |
+| 2026-11-18 | Selective Sensor Acquisition for Multimodal Place Recognition | [论文](https://arxiv.org/abs/2611.20730) | 主动态；时间回补v1 2026-11-16 UTC；25%次级传感器预算获得55%额外融合增益。 |
+| 2026-11-18 | ForceHarness: Turning Force into Action and Physics for Frozen Frontier Models | [论文](https://arxiv.org/abs/2611.21099) · [源码](https://github.com/showlab/ForceHarness) | 主动态；时间回补v1 2026-11-16 UTC；MIT开源力控工具与fake离线测试，真实FR3任务2/60→54/60；API模型调用另需额度。 |
+| 2026-11-18 | DynLimit: A Simulation Benchmark for Dynamics-Critical Planning and Control | [论文](https://arxiv.org/abs/2611.19785) · [源码](https://github.com/Yang2581/dynlimit) | 主动态；时间回补v1 2026-11-15 UTC；450次仿真实验、无需商业CarSim的Mock模型和要求/执行/结果分层验证。 |
+| 2026-11-18 | Linglong Agent Service: Centralized Agent Reasoning and Distributed Tool Execution | [论文](https://arxiv.org/abs/2611.21129) · [源码](https://github.com/mz24cn/agents) | AI 附属框架/组件；MIT Python标准库Agent运行时，母端推理/子端工具执行，完整功能Python3.10+，不默认授权远程任意Shell。 |
+| 2026-11-18 | AI Coding 实战技巧精选：Generate-then-Grep for Codex Code Search | [论文](https://arxiv.org/abs/2611.20455) · [ripgrep](https://github.com/BurntSushi/ripgrep) | Codex工程技巧；生成候选标识符再使用rg验证；实际词项检索效果须在本机仓库A/B。 |
+| 2026-11-18 | AI Coding 实战技巧精选：Mozilla sccache CMake Compiler Launcher | [官方源码](https://github.com/mozilla/sccache) | Codex工程补充回顾；sccache缓存C++/ROS2重复编译，跟踪命中率及构建测试；非今日新发布。 |
+| 2026-11-18 | Shortest Paths in Graphs of Convex Sets (Marcucci et al. 2021 / SIAM 2024) | [论文](https://arxiv.org/abs/2101.11565) · [正式DOI](https://doi.org/10.1137/22M1523790) | 经典论文回顾；凸区域图离散路线与连续路径联合优化，关联多机器人瓶颈走廊协调。 |
 
 ## 维护检查表
 
