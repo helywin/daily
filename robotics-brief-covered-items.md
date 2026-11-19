@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-18（Asia/Shanghai）
+> 最后更新：2026-11-19（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -210,6 +210,8 @@
 > 2026-11-17 新增 8 条主动态、3 条 AI / LLM 附属框架组件、2 条 Codex 实战技巧和 1 条经典论文；ProdPilot 同时作为组件和技巧只计一次，新增 13 个唯一条目，共 1,382 条。
 >
 > 2026-11-18 新增8条主动态、1条AI/LLM附属框架、2条Codex实战技巧及1条经典论文回顾，共1,394条；全部唯一来源联合去重。GHySSeg数据集DOI跳转未能独立验证。
+>
+> 2026-11-19 新增 8 条主动态、3 条 AI / LLM 附属组件（其中 2 项同时是 Codex 技巧）、1 篇经典论文回顾，新增 12 条唯一工作，累计 1,406 条。
 >
 ## 已核验条目
 
@@ -1711,6 +1713,19 @@
 | 2026-11-18 | AI Coding 实战技巧精选：Generate-then-Grep for Codex Code Search | [论文](https://arxiv.org/abs/2611.20455) · [ripgrep](https://github.com/BurntSushi/ripgrep) | Codex工程技巧；生成候选标识符再使用rg验证；实际词项检索效果须在本机仓库A/B。 |
 | 2026-11-18 | AI Coding 实战技巧精选：Mozilla sccache CMake Compiler Launcher | [官方源码](https://github.com/mozilla/sccache) | Codex工程补充回顾；sccache缓存C++/ROS2重复编译，跟踪命中率及构建测试；非今日新发布。 |
 | 2026-11-18 | Shortest Paths in Graphs of Convex Sets (Marcucci et al. 2021 / SIAM 2024) | [论文](https://arxiv.org/abs/2101.11565) · [正式DOI](https://doi.org/10.1137/22M1523790) | 经典论文回顾；凸区域图离散路线与连续路径联合优化，关联多机器人瓶颈走廊协调。 |
+
+| 2026-11-19 | SE(3)-LIVOM: Adaptive Multi-LiDAR-Inertial-Visual Odometry and Mapping | [论文](https://arxiv.org/abs/2611.22047) · [源码](https://github.com/url-kaist/se3-livom-comfort) | 主动态；时间回补 v1 2026-11-17 UTC；COMFORT双LiDAR/相机/IMU前后端；Docker ROS1 复现；GPL-2.0。 |
+| 2026-11-19 | DGV-DLIVO: Degeneracy-Guided Visual Compensation for LIVO | [论文](https://arxiv.org/abs/2611.22385) · [部分代码](https://github.com/0RayZhang0/DGV-DLIVO) | 主动态；时间回补 v1 2026-11-17 UTC；隧道LiDAR退化方向子空间视觉补偿；目前仅公开nano_gicp融合组件，完整工程未发布。 |
+| 2026-11-19 | Pelorus: Resource-Aware LiDAR-Inertial Odometry with Fixed-Capacity Multi-Resolution NDT | [论文](https://arxiv.org/abs/2611.22850) · [作者代码地址](https://codeberg.org/stelzo/pelorus) | 主动态；时间回补 v1 2026-11-17 UTC；固定内存NDT地图、相关性体素淘汰、Jetson Orin NX 128线10Hz；Codeberg本轮无法独立读取验证。 |
+| 2026-11-19 | COAST: Safe Flight Corridor Planner for Fast and Robust Snap-Minimized Trajectories | [论文](https://arxiv.org/abs/2611.22447) · [源码](https://github.com/byu-magicc/Minimum-Snap-Trajectories) | 主动态；时间回补 v1 2026-11-17 UTC；Safe Flight Corridors与B-spline控制点硬约束QP，BSD-3，Python/C++测试公开。 |
+| 2026-11-19 | Risk Density RRT*: Risk Density Modeling for Collision-Probability Path Planning | [论文](https://arxiv.org/abs/2611.22654) | 主动态；时间回补 v1 2026-11-17 UTC；连续路径碰撞风险密度与Monte Carlo评估，官方完整源码未独立核实。 |
+| 2026-11-19 | Task Convergent Flow Matching for Robot Manipulation | [论文](https://arxiv.org/abs/2611.22609) | 主动态；时间回补 v1 2026-11-17 UTC；Flow动作段进度Funnel和源噪声受限CMA-ES，PushT 31.3%至88.5%，源码未确认。 |
+| 2026-11-19 | SR-VLA: Selective KV Cache Repair and Predictive Lookahead for VLA | [论文](https://arxiv.org/abs/2611.22356) | 主动态；时间回补 v1 2026-11-17 UTC；预取下一Chunk与选择性KV修复，特定LIBERO模型查询加速非端到端提升。 |
+| 2026-11-19 | Flash ALOHA / ALOHA Lightning: Human-Speed Bimanual Manipulation | [论文](https://arxiv.org/abs/2611.21919) · [源码](https://github.com/JohnYao93/flash-aloha) | 主动态；时间回补 v1 2026-11-16 UTC；约50条示教、ACT/Flow及高速平滑；MIT源码及离线测试，真机操作有电机安全风险。 |
+| 2026-11-19 | EmbedGym: Embedded Firmware Agent with MCU and Peripheral Simulation | [论文](https://arxiv.org/abs/2611.21845) · [项目](https://embedgym.github.io/) | AI 附属框架/组件；时间回补 v1 2026-11-16 UTC；MCU指令级仿真与外设注入；论文声称开源但本轮未核实源码仓库、许可证或安装命令。 |
+| 2026-11-19 | mcpc: Apify Universal MCP CLI for On-Demand Tool Discovery | [源码](https://github.com/apify/mcpc) | AI 附属框架/组件兼 AI Coding 实战技巧精选；工程补充回顾、非当日首发；按需tools-list/tools-get及JSON调用，Linux无钥匙环时需留意凭据文件。 |
+| 2026-11-19 | MCP Inspector v2: Protocol-Level MCP CLI Smoke Testing | [源码](https://github.com/modelcontextprotocol/inspector) · [测试指南](https://github.com/modelcontextprotocol/inspector/blob/main/docs/cli-smoke-testing.md) | AI 附属框架/组件兼 AI Coding 实战技巧精选；工程补充回顾、非当日首发；initialize、tools/list、只读工具测试，需固定Node及Inspector版本。 |
+| 2026-11-19 | Least-Squares Estimation of Transformation Parameters Between Two Point Patterns (Umeyama 1991) | [DOI](https://doi.org/10.1109/34.88573) | 经典论文回顾；1991 IEEE PAMI；SVD求三维点对应刚体/相似变换，外参固定尺度及离群点退化边界。 |
 
 ## 维护检查表
 
