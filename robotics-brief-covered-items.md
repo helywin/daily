@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-19（Asia/Shanghai）
+> 最后更新：2026-11-20（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -212,6 +212,8 @@
 > 2026-11-18 新增8条主动态、1条AI/LLM附属框架、2条Codex实战技巧及1条经典论文回顾，共1,394条；全部唯一来源联合去重。GHySSeg数据集DOI跳转未能独立验证。
 >
 > 2026-11-19 新增 8 条主动态、3 条 AI / LLM 附属组件（其中 2 项同时是 Codex 技巧）、1 篇经典论文回顾，新增 12 条唯一工作，累计 1,406 条。
+>
+> 2026-11-20 新增 8 条主动态、1 条 AI / LLM 附属组件（同时作为 1 条 Codex 实战技巧）、1 条独立 Codex 技巧与 1 篇经典论文回顾；新增唯一工作共 11 条，累计 1,417 条。
 >
 ## 已核验条目
 
@@ -1726,6 +1728,18 @@
 | 2026-11-19 | mcpc: Apify Universal MCP CLI for On-Demand Tool Discovery | [源码](https://github.com/apify/mcpc) | AI 附属框架/组件兼 AI Coding 实战技巧精选；工程补充回顾、非当日首发；按需tools-list/tools-get及JSON调用，Linux无钥匙环时需留意凭据文件。 |
 | 2026-11-19 | MCP Inspector v2: Protocol-Level MCP CLI Smoke Testing | [源码](https://github.com/modelcontextprotocol/inspector) · [测试指南](https://github.com/modelcontextprotocol/inspector/blob/main/docs/cli-smoke-testing.md) | AI 附属框架/组件兼 AI Coding 实战技巧精选；工程补充回顾、非当日首发；initialize、tools/list、只读工具测试，需固定Node及Inspector版本。 |
 | 2026-11-19 | Least-Squares Estimation of Transformation Parameters Between Two Point Patterns (Umeyama 1991) | [DOI](https://doi.org/10.1109/34.88573) | 经典论文回顾；1991 IEEE PAMI；SVD求三维点对应刚体/相似变换，外参固定尺度及离群点退化边界。 |
+
+| 2026-11-20 | Facet-SLAM: Real-Time Triangle Splatting SLAM | [论文](https://arxiv.org/abs/2611.23935) · [源码](https://github.com/edward62740/Facet-SLAM) | 主动态；时间回补 v1 2026-11-18 06:23 UTC；RGB-D三角面元GICP跟踪约100FPS，表面Chamfer 1.55→0.86cm；组合许可整体非商业研究。 |
+| 2026-11-20 | Proprioceptive Simultaneous Base and Terrain Elevation Estimation (SBEE) | [论文](https://arxiv.org/abs/2611.24310) | 主动态；时间回补 v1 2026-11-18 12:19 UTC；LI-EKF和足底接触高程地图双向校正，GrandTour 296m ATE 1.062m；作者声明代码待接收后发布。 |
+| 2026-11-20 | Radar-Native Control Barrier Functions: Doppler Range Rate as a Measured Barrier Derivative | [论文](https://arxiv.org/abs/2611.23654) | 主动态；时间回补 v1 2026-11-18 00:19 UTC；FMCW原生Doppler纵向CBF，508配对相遇缓冲侵入2次，对照15/25次，检测与制动能力有界。 |
+| 2026-11-20 | High-Precision Docking of Differential-Drive Mobile Robots Through LiDAR and Vision Collaboration | [论文](https://arxiv.org/abs/2611.24191) | 主动态；时间回补 v1 2026-11-18 10:28 UTC；LiDAR柜前直线+AprilTag相交，111次工位对接全部完成，车载相对教示横向RMS 5.93mm，非外部绝对精度。 |
+| 2026-11-20 | Scalable Iterative Multi-Agent Path Finding under Turn Constraints (PIBT*_T) | [论文](https://arxiv.org/abs/2611.23911) · [源码](https://github.com/tzy82065/PIBTT2) | 主动态；时间回补 v1 2026-11-18 06:01 UTC；转向时间、占位和死锁处理，CMake C++源码，指定标准MAPF最多千机器人数秒。 |
+| 2026-11-20 | Control-Aware Separating Hyperplanes for Control Barrier Functions in Planar Navigation | [论文](https://arxiv.org/abs/2611.23867) | 主动态；时间回补 v1 2026-11-18 05:19 UTC；二维多边形Minkowski Difference闭式可行候选，16障碍6.1倍每步加速，未证实源码。 |
+| 2026-11-20 | CommDreamer: Radio-Geometric World Models for Mapless Cellular-Connected UAV Trajectory Planning | [论文](https://arxiv.org/abs/2611.24244) · [AeroCity-RT仿真器](https://github.com/ppppyq/AeroCity-RT) | 主动态；时间回补 v1 2026-11-18 11:22 UTC；联合3D LiDAR与蜂窝SINR潜变量规划；100%成功仅限选定仿真；开源的是城市无线仿真器非完整WAM。 |
+| 2026-11-20 | ProbeShare: Probing a Few, Sharing Across Many for Fast World-Model Planning | [论文](https://arxiv.org/abs/2611.24229) | 主动态；时间回补 v1 2026-11-18 11:05 UTC；少量世界模型探针共享动作特征，RoboCasa四任务Episode规划较密集RoboJEPA加速43.8-128.9倍，未核实代码。 |
+| 2026-11-20 | torchtest2: One-Call Sanity Checks for PyTorch Models | [源码](https://github.com/Hrehory/torchtest2) · [论文](https://arxiv.org/abs/2611.23273) | AI 附属框架/组件兼 AI Coding 实战技巧精选；2026-10-16原始v1工程补充回顾；Apache-2.0，单Batch 18项训练前静默Bug检查，未实际安装运行。 |
+| 2026-11-20 | AI Coding 实战技巧精选：Git Pickaxe -S/-G 追溯源码历史回归 | [Git官方文档](https://git-scm.com/docs/git-log) | Codex工程技巧补充回顾；git log -S 与 -G 定位符号变更补丁，关联测试验证，不自动修改、提交和推送。 |
+| 2026-11-20 | Priority Inheritance with Backtracking for Iterative Multi-agent Path Finding (Okumura et al., IJCAI 2019) | [原论文DOI](https://doi.org/10.24963/ijcai.2019/76) · [AI2022扩展](https://doi.org/10.1016/j.artint.2022.103752) | 经典论文回顾；2019/2022 经典PIBT优先级继承与回溯，比较本期PIBT*_T转向依赖/实际Makespan假设。 |
 
 ## 维护检查表
 
