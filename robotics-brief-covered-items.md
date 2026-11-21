@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-20（Asia/Shanghai）
+> 最后更新：2026-11-21（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -214,6 +214,8 @@
 > 2026-11-19 新增 8 条主动态、3 条 AI / LLM 附属组件（其中 2 项同时是 Codex 技巧）、1 篇经典论文回顾，新增 12 条唯一工作，累计 1,406 条。
 >
 > 2026-11-20 新增 8 条主动态、1 条 AI / LLM 附属组件（同时作为 1 条 Codex 实战技巧）、1 条独立 Codex 技巧与 1 篇经典论文回顾；新增唯一工作共 11 条，累计 1,417 条。
+>
+> 2026-11-21 新增 8 条主动态、1 条 AI 附属框架/组件、2 条 AI Coding 实战技巧精选及 1 条经典论文回顾，共 1429 条。
 >
 ## 已核验条目
 
@@ -1740,6 +1742,19 @@
 | 2026-11-20 | torchtest2: One-Call Sanity Checks for PyTorch Models | [源码](https://github.com/Hrehory/torchtest2) · [论文](https://arxiv.org/abs/2611.23273) | AI 附属框架/组件兼 AI Coding 实战技巧精选；2026-10-16原始v1工程补充回顾；Apache-2.0，单Batch 18项训练前静默Bug检查，未实际安装运行。 |
 | 2026-11-20 | AI Coding 实战技巧精选：Git Pickaxe -S/-G 追溯源码历史回归 | [Git官方文档](https://git-scm.com/docs/git-log) | Codex工程技巧补充回顾；git log -S 与 -G 定位符号变更补丁，关联测试验证，不自动修改、提交和推送。 |
 | 2026-11-20 | Priority Inheritance with Backtracking for Iterative Multi-agent Path Finding (Okumura et al., IJCAI 2019) | [原论文DOI](https://doi.org/10.24963/ijcai.2019/76) · [AI2022扩展](https://doi.org/10.1016/j.artint.2022.103752) | 经典论文回顾；2019/2022 经典PIBT优先级继承与回溯，比较本期PIBT*_T转向依赖/实际Makespan假设。 |
+
+| 2026-11-21 | I See You: Initial Multi-Robot LiDAR Registration with Mutual-Observation Checks | [论文](https://arxiv.org/abs/2611.26276) · [源码](https://github.com/tu-darmstadt-ros-pkg/i-see-you-registration) | 主动态；时间回补 v1 2026-11-19 UTC；单帧跨机器人LiDAR粗精配准、实体包围盒与互相可见性检查、ROS2 Jazzy可复现。 |
+| 2026-11-21 | Reference-Twist-Based Velocity-Domain Spatiotemporal Calibration for mmWave Radar, Event Camera, and IMU | [论文](https://arxiv.org/abs/2611.26083) | 主动态；时间回补 v1 2026-11-19 UTC；可信参考Twist条件化多Radar/Event/IMU时空标定，作者匿名代码镜像不可核实。 |
+| 2026-11-21 | Collision-Free Is Not Enough: Passage-Conditioned Navigation for Wheeled-Legged Robots | [论文](https://arxiv.org/abs/2611.25788) | 主动态；时间回补 v1 2026-11-19 UTC；保存成功登梯入口位姿、容差守门和退回重进入，不改厂商步态。 |
+| 2026-11-21 | Cognitive-Horizon Action Chunking (CHAC): Adaptive Replanning for Embodied Navigation | [论文](https://arxiv.org/abs/2611.25587) · [MIT代码](https://github.com/phare111/chac) | 主动态；时间回补 v1 2026-11-19 UTC；冻结OmniNav Waypoint推理按事件刷新，公开Habitat入口，节省调用同时需披露成功率损失。 |
+| 2026-11-21 | LocoMuJoCo: A Comprehensive Imitation Learning Benchmark for Whole-Body Control | [论文](https://arxiv.org/abs/2611.26293) · [MIT源码](https://github.com/robfiras/loco-mujoco) | 主动态；时间回补 v1 2026-11-19 UTC；MuJoCo/MJX/MjWarp统一动作模仿训练、G1及AgiBot真机配套；论文新覆盖，软件此前已存在。 |
+| 2026-11-21 | From Self-Play RL to Constrained Control: Distilling DiffMPC Students with DAgger | [论文](https://arxiv.org/abs/2611.25197) | 主动态；时间回补 v1 2026-11-18 UTC；PPO教师到约束DiffMPC学生，DAgger闭环采样；完整源码未核实。 |
+| 2026-11-21 | ROAM: Bridging Vision-Language Reasoning and Learned Control for Legged Navigation in the Wild | [论文](https://arxiv.org/abs/2611.25215) · [项目](https://roam-hiking.github.io/) | 主动态；时间回补 v1 2026-11-18 UTC；VLM语义风险成本与开放词汇分割、RL局部导航和运动分层；未核实完整ROS2部署代码。 |
+| 2026-11-21 | Old-School Planners Drive (Sometimes) Better Than Learned Ones | [论文](https://arxiv.org/abs/2611.25138) | 主动态；时间回补 v1 2026-11-18 UTC；16种传统规划器同感知A/B，在指定HUGSIM对照中9种优于学习式规划。 |
+| 2026-11-21 | Filing-Evidence / Show Your Work: Can Small Open Models Read SEC Filings with Evidence a Machine Can Check? | [论文](https://arxiv.org/abs/2611.24990) · [Apache源码](https://github.com/pramana-research/filing-evidence) | AI 附属框架/组件；时间回补 v1 2026-11-18 UTC；机器验原文证据与数值，独立Regrade和数据集；非通用RAG MCP。 |
+| 2026-11-21 | AI Coding 实战技巧精选：CTest --rerun-failed 对Codex C++局部失败测试快速反馈 | [CTest官方手册](https://cmake.org/cmake/help/latest/manual/ctest.1.html) | AI Coding 实战技巧精选；工程补充回顾；先重跑上轮失败用例，再执行完整CTests，真实构建与回归必须保留。 |
+| 2026-11-21 | AI Coding 实战技巧精选：clangd --check 与真实 compile_commands.json 检验C++修改 | [clangd官方文档](https://clangd.llvm.org/guides/system-headers) | AI Coding 实战技巧精选；工程补充回顾；先确认编译数据库、检查目标文件，再真实链接及运行测试。 |
+| 2026-11-21 | Fast Global Registration (Zhou, Park, Koltun, ECCV 2016) | [ECCV 2016 DOI](https://doi.org/10.1007/978-3-319-46475-6_47) · [MIT历史源码](https://github.com/isl-org/FastGlobalRegistration) | 经典论文回顾；快速鲁棒点云全局配准，强调与物理可见性检查、KISS-Matcher、错误对应验收的区别。 |
 
 ## 维护检查表
 
