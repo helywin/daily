@@ -1,6 +1,6 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-21（Asia/Shanghai）
+> 最后更新：2026-11-22（Asia/Shanghai）
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -216,6 +216,8 @@
 > 2026-11-20 新增 8 条主动态、1 条 AI / LLM 附属组件（同时作为 1 条 Codex 实战技巧）、1 条独立 Codex 技巧与 1 篇经典论文回顾；新增唯一工作共 11 条，累计 1,417 条。
 >
 > 2026-11-21 新增 8 条主动态、1 条 AI 附属框架/组件、2 条 AI Coding 实战技巧精选及 1 条经典论文回顾，共 1429 条。
+>
+> 2026-11-22 新增8条主动态、1项AI附属框架、2条AI Coding实战技巧和1篇经典论文，共1,441条。
 >
 ## 已核验条目
 
@@ -1755,6 +1757,18 @@
 | 2026-11-21 | AI Coding 实战技巧精选：CTest --rerun-failed 对Codex C++局部失败测试快速反馈 | [CTest官方手册](https://cmake.org/cmake/help/latest/manual/ctest.1.html) | AI Coding 实战技巧精选；工程补充回顾；先重跑上轮失败用例，再执行完整CTests，真实构建与回归必须保留。 |
 | 2026-11-21 | AI Coding 实战技巧精选：clangd --check 与真实 compile_commands.json 检验C++修改 | [clangd官方文档](https://clangd.llvm.org/guides/system-headers) | AI Coding 实战技巧精选；工程补充回顾；先确认编译数据库、检查目标文件，再真实链接及运行测试。 |
 | 2026-11-21 | Fast Global Registration (Zhou, Park, Koltun, ECCV 2016) | [ECCV 2016 DOI](https://doi.org/10.1007/978-3-319-46475-6_47) · [MIT历史源码](https://github.com/isl-org/FastGlobalRegistration) | 经典论文回顾；快速鲁棒点云全局配准，强调与物理可见性检查、KISS-Matcher、错误对应验收的区别。 |
+| 2026-11-22 | Stereo Visual Odometry with In-the-Loop Geometric Feed-Forward Models Towards Dense Metric Mapping | [论文](https://arxiv.org/abs/2611.25445) | 主动态；时间回补 v1 2026-11-19 UTC；稀疏立体公制地标校正GFM稠密深度Scale/Shift与局部子地图；完整源码未核实。 |
+| 2026-11-22 | Planning to Stop: Factored Certification and Terminal Repair for Noncircular Robots (GeoDiff) | [论文](https://arxiv.org/abs/2611.26167) | 主动态；时间回补 v1 2026-11-19 UTC；非圆形足迹机器人终端停稳集合、原目标认证与终端段修复。 |
+| 2026-11-22 | Mapping the Wind to Find the Source: Online Physics-Informed Gas Source Localization with Mobile Robots | [论文](https://arxiv.org/abs/2611.25067) | 主动态；时间回补 v1 2026-11-18 UTC；移动测风、气体扩散预测与贝叶斯主动搜索泄漏源。 |
+| 2026-11-22 | Close&Safe: Maximal Task Preservation for Redundant Manipulators via C-Space Boundary Detour | [论文](https://arxiv.org/abs/2611.26031) | 主动态；时间回补 v1 2026-11-19 UTC；利用配置空间边界绕行，仅修复被障碍阻断的原任务轨迹片段。 |
+| 2026-11-22 | Stuck in Place: Stall Diagnosis and Remedies for JEPA Planners (Unstick) | [论文](https://arxiv.org/abs/2611.25415) · [MIT源码](https://github.com/jhlee0619/unstick) | 主动态；时间回补 v1 2026-11-19 UTC；闭环JEPA规划固定点、预测误差记忆或重初始化，公开评测及权重。 |
+| 2026-11-22 | MoRE: Mixture-of-Experts for Multi-Physics Robotic World Models | [论文](https://arxiv.org/abs/2611.25336) · [源码](https://github.com/AlwaySleepy/MoRE-WM) | 主动态；时间回补 v1 2026-11-19 UTC；刚体、软体与抓持运动专家预测3D点云并用于物理MPC，公开权重与数据。 |
+| 2026-11-22 | MAWAM: A Multi-Agent World-Action Model for Coordinated Manipulation | [论文](https://arxiv.org/abs/2611.25105) | 主动态；时间回补 v1 2026-11-18 UTC；跨机械臂注意力联合预测未来动作与视图，真实交接操作。 |
+| 2026-11-22 | WAMotor: Accelerating World Action Models via Speculative Inference under Dual Nonuniform Denoising Dynamics | [论文](https://arxiv.org/abs/2611.25413) · [源码](https://github.com/Overdue-Lin/WAMotor) | 主动态；时间回补 v1 2026-11-19 UTC；锚点速度复用和按步长验证的Flow投机推理，公开评测入口。 |
+| 2026-11-22 | SkillBridge: Cost-Aware Diagnosis and Repair of Cross-OS Compatibility Defects in Agent Skills | [论文](https://arxiv.org/abs/2611.26256) · [源码](https://github.com/TankTechnology/SkillBridge) | AI 附属框架/组件；时间回补 v1 2026-11-19 UTC；跨OS Skill静态契约检查、选择性动态测试与修复回放；公开研究管道并非成熟Codex插件。 |
+| 2026-11-22 | AI Coding 实战技巧精选：git rebase --exec 每笔历史补丁运行相关测试 | [Git官方手册](https://git-scm.com/docs/git-rebase) | AI Coding 实战技巧精选；工程补充回顾；Codex/T3 Code工作树按Commit执行可复现C++回归测试。 |
+| 2026-11-22 | AI Coding 实战技巧精选：Ninja -d explain 定位无谓重编译 | [Ninja官方手册](https://ninja-build.org/manual.html) | AI Coding 实战技巧精选；工程补充回顾；识别过时依赖、生成步骤和编译参数引起的无谓C++重编译。 |
+| 2026-11-22 | On-Manifold Preintegration for Real-Time Visual-Inertial Odometry (Forster et al., IEEE TRO 2017) | [论文](https://arxiv.org/abs/1512.02363) · [DOI](https://doi.org/10.1109/TRO.2016.2597321) | 经典论文回顾；IMU SO(3)预积分、偏置修正、协方差与GTSAM关键帧因子图；最初预印本2015年12月。 |
 
 ## 维护检查表
 
