@@ -1,6 +1,8 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-22（Asia/Shanghai）
+> 最后更新：2026-11-23（Asia/Shanghai）
+>
+> 2026-11-23 新增 8 条主动态、2 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选与 1 篇经典论文回顾，共 13 条，累计 1,454 条。
 >
 > 用途：每日简报选题前强制查重。本文件保留全部历史条目的最近覆盖日期、规范标题、至少一个可直接访问的原始来源和必要备注。
 >
@@ -1769,6 +1771,20 @@
 | 2026-11-22 | AI Coding 实战技巧精选：git rebase --exec 每笔历史补丁运行相关测试 | [Git官方手册](https://git-scm.com/docs/git-rebase) | AI Coding 实战技巧精选；工程补充回顾；Codex/T3 Code工作树按Commit执行可复现C++回归测试。 |
 | 2026-11-22 | AI Coding 实战技巧精选：Ninja -d explain 定位无谓重编译 | [Ninja官方手册](https://ninja-build.org/manual.html) | AI Coding 实战技巧精选；工程补充回顾；识别过时依赖、生成步骤和编译参数引起的无谓C++重编译。 |
 | 2026-11-22 | On-Manifold Preintegration for Real-Time Visual-Inertial Odometry (Forster et al., IEEE TRO 2017) | [论文](https://arxiv.org/abs/1512.02363) · [DOI](https://doi.org/10.1109/TRO.2016.2597321) | 经典论文回顾；IMU SO(3)预积分、偏置修正、协方差与GTSAM关键帧因子图；最初预印本2015年12月。 |
+
+| 2026-11-23 | ScaRF-SLAM: Scale-Consistent Reconstruction with Feed-Forward Models and Classical Visual SLAM | [论文](https://arxiv.org/abs/2606.00307) · [GPL-3.0 代码](https://github.com/ori-drs/ScaRF-SLAM) | 主动态；工程补充回顾，原始 v1 2026-05-29；传统SLAM负责跟踪，GFM只做尺度一致稠密地图。 |
+| 2026-11-23 | EAGLE: Explicit Spatial Belief with Vision-Language Distillation for Active Geo-Localization | [论文](https://arxiv.org/abs/2611.25866) | 主动态；时间回补 v1 2026-11-19；显式栅格信念蒸馏，部署无大VLM；作者承诺代码将公开。 |
+| 2026-11-23 | ST-RCP: Spatio-Temporal Relay Cooperation and Planning for Communication-Aware UAVs | [论文](https://arxiv.org/abs/2611.25558) | 主动态；时间回补 v1 2026-11-19；盲区预测、动态中继、航迹与调度联合优化；未核实源码。 |
+| 2026-11-23 | Differentiable Hydrodynamics for Whole-Body MPC of Underwater Robots | [论文](https://arxiv.org/abs/2611.25373) | 主动态；时间回补 v1 2026-11-19；球谐水动力模型、解析雅可比与推进器/机械臂全身MPC；未核实源码。 |
+| 2026-11-23 | VG-Steer: Visual-Geometric Policy Steering from In-Context Aligned Abstractions | [论文](https://arxiv.org/abs/2611.25199) · [源码](https://github.com/arthurfenderbucker/VG-Steer) | 主动态；时间回补 v1 2026-11-18；冻结Flow VLA按相对几何关系纠偏、代码已核验；需外部模型及API。 |
+| 2026-11-23 | WEVO: World Model-Enabled VLA Optimization for Whole-Body Loco-Manipulation | [论文](https://arxiv.org/abs/2611.25251) · [项目](https://qianzhong-chen.github.io/wevo.github.io/) | 主动态；时间回补 v1 2026-11-18；视频世界模型对齐真实长时任务后训练；训练源码未核实。 |
+| 2026-11-23 | Verify2Act: Critic-Guided Latent World Models for Verifying Language-Conditioned Manipulation Plans | [论文](https://arxiv.org/abs/2611.25243) | 主动态；时间回补 v1 2026-11-18；候选方案先在DINOv2潜空间预测再给Critic验证。 |
+| 2026-11-23 | Reasoning on Call (RoC): Event-Triggered Reasoning for Long-Horizon Robot Manipulation | [论文](https://arxiv.org/abs/2611.26341) | 主动态；时间回补 v1 2026-11-19；状态进展监视器事件触发高层Agent，记忆只记录验证结果。 |
+| 2026-11-23 | agent-skill-eval: Real Harness Evaluation of Agent Skills | [官方仓库](https://github.com/tardigrde/agent-skill-eval) | AI 附属框架/组件；Codex Skill有无A/B及沙盒评测；原生模式非隔离，运行会消耗Codex额度；本日仅核验文档。 |
+| 2026-11-23 | mcp-local-rag: Local Hybrid Document Retrieval MCP | [MIT源码](https://github.com/shinpr/mcp-local-rag) | AI 附属框架/组件；Node22.20+本地嵌入与全文混合检索，支持Codex MCP，未实际安装。 |
+| 2026-11-23 | AI Coding 实战技巧精选：CTest --repeat until-fail 捕获间歇性失败 | [CTest官方手册](https://cmake.org/cmake/help/latest/manual/ctest.1.html) | AI Coding 实战技巧精选；重复20次测试查抖动，不同于已覆盖--rerun-failed。 |
+| 2026-11-23 | AI Coding 实战技巧精选：Git sparse-checkout 限定Codex单任务工作目录 | [Git官方文档](https://git-scm.com/docs/git-sparse-checkout) | AI Coding 实战技巧精选；cone模式限制Monorepo可见文件并与全量构建对照，非权限沙盒。 |
+| 2026-11-23 | Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping (Rosinol et al., 2019/2020) | [论文](https://arxiv.org/abs/1910.02490) · [代码](https://github.com/MIT-SPARK/Kimera-VIO) | 经典论文回顾；2019 v1/2020修订；VIO、位姿图、Mesh与语义建图分层，并与本期ScaRF比较。 |
 
 ## 维护检查表
 
