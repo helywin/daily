@@ -1,6 +1,8 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-23（Asia/Shanghai）
+> 最后更新：2026-11-24（Asia/Shanghai）
+>
+> 2026-11-24 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选，共 11 条新记录，另更新 DWA 经典复盘 1 条，累计 1,465 条。
 >
 > 2026-11-23 新增 8 条主动态、2 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选与 1 篇经典论文回顾，共 13 条，累计 1,454 条。
 >
@@ -488,7 +490,7 @@
 | 2026-08-09 | GAUGE: A Measurement-Grounded Benchmark for Physical Fidelity in Simulation Engines and Video World Models | [论文](https://arxiv.org/abs/2608.05948) | 时间回补；sim-to-real 物理真实性 |
 | 2026-08-09 | DCAS: Decoupling CLI Agent Scaffolding to Internalize Planning across Scaffolds | [论文](https://arxiv.org/abs/2608.06113) | 时间回补；AI Coding 跨 scaffold |
 | 2026-08-09 | AgentExecutor: Partial Code Execution via Agentic Context Generation | [论文](https://arxiv.org/abs/2608.05959) | 时间回补；AI Coding 动态验证 |
-| 2026-08-09 | The Dynamic Window Approach to Collision Avoidance | [论文页](https://publications.ri.cmu.edu/the-dynamic-window-approach-to-collision-avoidance) · [DOI](https://doi.org/10.1109/100.580977) | 经典论文回顾 |
+| 2026-11-24 | The Dynamic Window Approach to Collision Avoidance | [论文页](https://publications.ri.cmu.edu/the-dynamic-window-approach-to-collision-avoidance) · [DOI](https://doi.org/10.1109/100.580977) | 经典论文回顾；首次覆盖2026-08-09；2026-11-24经典复盘：状态年龄、停车距离与真实制动时延预算。 |
 | 2026-08-10 | Prior-SG: Task and Prior Driven Region Segmentation for Scene Graphs in Arbitrarily-Structured Environments | [论文](https://arxiv.org/abs/2608.06170) | 时间回补；8 月 10 日早间尚无新 arXiv 批次 |
 | 2026-08-10 | ATP: Anatomical Torque with Passivity-based Control Framework for Safe Upper-Limb Exoskeleton Assistance | [论文](https://arxiv.org/abs/2608.05723) | 时间回补；安全外骨骼控制 |
 | 2026-08-10 | Observation-Grounded Self-Predictive Reinforcement Learning for Visual Continuous Control / OG-SPR | [论文](https://arxiv.org/abs/2608.05989) | 时间回补；视觉强化学习 |
@@ -1785,6 +1787,18 @@
 | 2026-11-23 | AI Coding 实战技巧精选：CTest --repeat until-fail 捕获间歇性失败 | [CTest官方手册](https://cmake.org/cmake/help/latest/manual/ctest.1.html) | AI Coding 实战技巧精选；重复20次测试查抖动，不同于已覆盖--rerun-failed。 |
 | 2026-11-23 | AI Coding 实战技巧精选：Git sparse-checkout 限定Codex单任务工作目录 | [Git官方文档](https://git-scm.com/docs/git-sparse-checkout) | AI Coding 实战技巧精选；cone模式限制Monorepo可见文件并与全量构建对照，非权限沙盒。 |
 | 2026-11-23 | Kimera: an Open-Source Library for Real-Time Metric-Semantic Localization and Mapping (Rosinol et al., 2019/2020) | [论文](https://arxiv.org/abs/1910.02490) · [代码](https://github.com/MIT-SPARK/Kimera-VIO) | 经典论文回顾；2019 v1/2020修订；VIO、位姿图、Mesh与语义建图分层，并与本期ScaRF比较。 |
+
+| 2026-11-24 | Instant-LIVO: Efficient LiDAR-Inertial-Visual Odometry with Compact Geometry and a Bounded Single-Reference-Frame Map | [论文](https://arxiv.org/abs/2611.27633) · [代码](https://github.com/Faker-0714/Instant-LIVO) | 主动态；时间回补 v1 2026-11-20；OctVox、缓存分阶段KNN、单视觉参考帧与Schmidt融合。 |
+| 2026-11-24 | BRINA: Bottom-Referenced Inertial Navigation with AKAZE, a Sonar SLAM for Autonomous Marine Vehicles | [论文](https://arxiv.org/abs/2611.27817) | 主动态；时间回补 v1 2026-11-20；海床尺度锚定、声呐惯性因子图与回环。 |
+| 2026-11-24 | A Lightweight Method for Validating Simulated LiDAR Configurations Based on Point Density over Distance | [论文](https://arxiv.org/abs/2611.27379) | 主动态；时间回补 v1 2026-11-20；距离分箱点密度DSS，非完整仿真保真度。 |
+| 2026-11-24 | Where Delay Compensation Belongs in a Decentralized Mean-Field-Game Swarm with a Control-Barrier Safety Filter | [论文](https://arxiv.org/abs/2611.27540) | 主动态；时间回补 v1 2026-11-20；路由与CBF安全层延迟补偿对照。 |
+| 2026-11-24 | Many Plans at Once: Diverse Top-Quality Planning in Continuous Time | [论文](https://arxiv.org/abs/2611.27012) | 主动态；时间回补 v1 2026-11-20；多样连续轨迹与预算内候选。 |
+| 2026-11-24 | One Behavior, Out of Order: Deterministic Execution and Parallel Simulation of ROS 2 Applications | [论文](https://arxiv.org/abs/2611.26676) · [代码](https://github.com/ChengziHuang/let_ros) | 主动态；时间回补 v1 2026-11-19；LET逻辑执行时间、乱序并行仿真。 |
+| 2026-11-24 | Latent Space Planning with Sequential Monte Carlo | [论文](https://arxiv.org/abs/2611.26706) | 主动态；时间回补 v1 2026-11-19；SMC候选群体与梯度规划。 |
+| 2026-11-24 | FORTH: Grounding Tactile VLA Execution via Forward-Only Proxy-Control Pairing | [论文](https://arxiv.org/abs/2611.26744) · [代码](https://github.com/Jordanlllll/FORTH) | 主动态；时间回补 v1 2026-11-19；仓库自审否定三模块联动优势，修正抓力数字；仅核心代码与轨迹。 |
+| 2026-11-24 | Epistemic Guard: Out-of-Process MCP Receipt Proxying, Post-Turn Prose Supervision, and Provenance-Gated Memory for Tool-Using Autonomous Agents | [论文](https://arxiv.org/abs/2611.27095) · [代码](https://github.com/AlienatedAliens/epistemic-guard) | AI 附属框架/组件；时间回补 v1 2026-11-20；签名执行回执、CPU分类器、记忆门控；真实代理测试误报较高。 |
+| 2026-11-24 | AI Coding 实战技巧精选：CMake --fresh 区分缓存与源码错误 | [官方手册](https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake-fresh) | AI Coding 实战技巧精选；工程补充回顾；独立构建目录重新配置与真实回归。 |
+| 2026-11-24 | AI Coding 实战技巧精选：Git worktree lock 保护间歇挂载工作树 | [官方手册](https://git-scm.com/docs/git-worktree) | AI Coding 实战技巧精选；工程补充回顾；移动SSD的工作树管理元数据保护，非互斥或备份。 |
 
 ## 维护检查表
 
