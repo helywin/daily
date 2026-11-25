@@ -1,6 +1,8 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-24（Asia/Shanghai）
+> 最后更新：2026-11-25（Asia/Shanghai）
+>
+> 2026-11-25 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选与 1 篇经典论文回顾，共 12 条，累计 1,477 条。
 >
 > 2026-11-24 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选，共 11 条新记录，另更新 DWA 经典复盘 1 条，累计 1,465 条。
 >
@@ -1799,6 +1801,19 @@
 | 2026-11-24 | Epistemic Guard: Out-of-Process MCP Receipt Proxying, Post-Turn Prose Supervision, and Provenance-Gated Memory for Tool-Using Autonomous Agents | [论文](https://arxiv.org/abs/2611.27095) · [代码](https://github.com/AlienatedAliens/epistemic-guard) | AI 附属框架/组件；时间回补 v1 2026-11-20；签名执行回执、CPU分类器、记忆门控；真实代理测试误报较高。 |
 | 2026-11-24 | AI Coding 实战技巧精选：CMake --fresh 区分缓存与源码错误 | [官方手册](https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake-fresh) | AI Coding 实战技巧精选；工程补充回顾；独立构建目录重新配置与真实回归。 |
 | 2026-11-24 | AI Coding 实战技巧精选：Git worktree lock 保护间歇挂载工作树 | [官方手册](https://git-scm.com/docs/git-worktree) | AI Coding 实战技巧精选；工程补充回顾；移动SSD的工作树管理元数据保护，非互斥或备份。 |
+
+| 2026-11-25 | GeLiFiSH: Recursive LiDAR Keypoint Estimation with Ground and Moving Object Segmentation | [论文](https://arxiv.org/abs/2611.30402) | 主动态；时间回补 v1 2026-11-23 UTC；递归关键点、地面及动态分割；作者说明接收后公开源码。 |
+| 2026-11-25 | Toward Open Room-Scale Scanning with Consumer LiDAR via Depth-Inertial Odometry (Mobile-LIO) | [论文](https://arxiv.org/abs/2611.30166) | 主动态；时间回补 v1 2026-11-23 UTC；手机深度惯性里程计、误差预算与短时设备回放；未核实完整仓库。 |
+| 2026-11-25 | Confidently Lost: Silent Failure and Edge Deployment of Dense Visual SLAM under Photon Starvation | [论文](https://arxiv.org/abs/2611.30173) | 主动态；时间回补 v1 2026-11-23 UTC；暗光下MASt3R-SLAM错误高置信、关键帧与回环异常。 |
+| 2026-11-25 | HERO: Hierarchical Region-Aware Reinforcement Learning for Autonomous Exploration | [论文](https://arxiv.org/abs/2611.30072) | 主动态；时间回补 v1 2026-11-23 UTC；区域拓扑与局部双分支图策略；未核实源码。 |
+| 2026-11-25 | Occupancy Planar Patch: Incremental Probabilistic Bounded-Plane Reconstruction from LiDAR Data | [论文](https://arxiv.org/abs/2611.28403) | 主动态；时间回补 v1 2026-11-20 UTC；射线距离似然、平面边界占据、磁盘分页、精度完整性权衡。 |
+| 2026-11-25 | Neural Fidelity Calibration: Turning Field Anomalies into Simulation Fine-Tuning / Neural Fidelity Calibration for Informative Sim-to-Real Adaptation | [论文一](https://arxiv.org/abs/2611.28260) · [论文二](https://arxiv.org/abs/2611.28274) · [项目](https://www.youwei-yu.com/nfc/) · [仓库](https://github.com/youwyu/NFC) | 主动态；时间回补 v1 2026-11-20 UTC；同一工作合并登记；联合物理参数与残差校准；仓库仅LICENSE。 |
+| 2026-11-25 | FlowPAC: Flow-Guided Visual Pruning and Action Caching for Efficient VLA Inference | [论文](https://arxiv.org/abs/2611.28256) | 主动态；时间回补 v1 2026-11-20 UTC；光流引导Token选择和动作块刷新。 |
+| 2026-11-25 | Does the Agent's Map Match the Territory? Architectural Claims in AI Agent Context Files and Their Fit with the Code | [论文](https://arxiv.org/abs/2611.29916) | 主动态；时间回补 v1 2026-11-23 UTC；AGENTS.md路径声明及依赖规则与真实代码的一致性。 |
+| 2026-11-25 | Improving Repair Agents with Cause-Chain Diagnoses (FORECAST) | [论文](https://arxiv.org/abs/2611.30574) · [源码](https://github.com/smythi93/forecast) · [PyPI](https://pypi.org/project/forecast-repair/) | AI 附属框架/组件；时间回补 v1 2026-11-23 UTC；通过/失败测试轨迹差异诊断，Apache-2.0，Python 3.12+；未运行。 |
+| 2026-11-25 | AI Coding 实战技巧精选：CMake --graphviz 核验AGENTS.md目标依赖边界 | [官方文档](https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake-graphviz) | AI Coding 实战技巧精选；工程补充回顾；目标链接图与声明架构比对，不替代运行时依赖检查。 |
+| 2026-11-25 | AI Coding 实战技巧精选：git check-ignore -v 定位文件忽略规则 | [官方文档](https://git-scm.com/docs/git-check-ignore) | AI Coding 实战技巧精选；工程补充回顾；定位命中规则与行号，避免强制提交秘密或生成物。 |
+| 2026-11-25 | Using Occupancy Grids for Mobile Robot Perception and Navigation (Alberto Elfes, 1989) | [DOI](https://doi.org/10.1109/2.30720) · [IEEE](https://ieeexplore.ieee.org/document/30720/) | 经典论文回顾；射线空闲证据与概率占据、多雷达独立原点、与OPP平面表示对照。 |
 
 ## 维护检查表
 
