@@ -1,6 +1,8 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-25（Asia/Shanghai）
+> 最后更新：2026-11-26（Asia/Shanghai）
+>
+> 2026-11-26 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选与 1 篇经典论文回顾，共 12 条，累计 1,489 条。
 >
 > 2026-11-25 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选与 1 篇经典论文回顾，共 12 条，累计 1,477 条。
 >
@@ -1814,6 +1816,19 @@
 | 2026-11-25 | AI Coding 实战技巧精选：CMake --graphviz 核验AGENTS.md目标依赖边界 | [官方文档](https://cmake.org/cmake/help/latest/manual/cmake.1.html#cmdoption-cmake-graphviz) | AI Coding 实战技巧精选；工程补充回顾；目标链接图与声明架构比对，不替代运行时依赖检查。 |
 | 2026-11-25 | AI Coding 实战技巧精选：git check-ignore -v 定位文件忽略规则 | [官方文档](https://git-scm.com/docs/git-check-ignore) | AI Coding 实战技巧精选；工程补充回顾；定位命中规则与行号，避免强制提交秘密或生成物。 |
 | 2026-11-25 | Using Occupancy Grids for Mobile Robot Perception and Navigation (Alberto Elfes, 1989) | [DOI](https://doi.org/10.1109/2.30720) · [IEEE](https://ieeexplore.ieee.org/document/30720/) | 经典论文回顾；射线空闲证据与概率占据、多雷达独立原点、与OPP平面表示对照。 |
+
+| 2026-11-26 | AirLeg: A Robust and Accurate Self-Supervised Visual-Inertial-Leg SLAM System | [论文](https://arxiv.org/abs/2611.32523) | 主动态；时间回补 v1 2026-11-24 UTC；双窗口视觉惯性腿部融合、无标签适配；未核实源码。 |
+| 2026-11-26 | GOLD-SLAM: Gaussian-splatting Omnidirectional LiDAR-Depth SLAM | [论文](https://arxiv.org/abs/2611.32335) | 主动态；时间回补 v1 2026-11-24 UTC；球面几何、深度引导高斯地图、Orin NX OOM 及内存边界。 |
+| 2026-11-26 | Seeing to Drive on a Single Board: Attention-Free Depth for Onboard Robot Navigation (DANIEL) | [论文](https://arxiv.org/abs/2611.32718) · [源码](https://github.com/itaim18/DANIEL) · [项目](https://itaim18.github.io/seeing-to-drive/) | 主动态；时间回补 v1 2026-11-24 UTC；无 Attention 蒸馏、Hailo INT8、代码 MIT/模型非商业。 |
+| 2026-11-26 | Exteroceptive Sensor Faults in Autonomous Vehicles: A Cross-Modal Taxonomy and Fault Injection Toolkit | [论文](https://arxiv.org/abs/2611.31667) · [代码](https://github.com/davidepossenti/AV-SensorFault-Toolkit) | 主动态；时间回补 v1 2026-11-23 UTC；94 例程、离线故障注入、Apache-2.0。 |
+| 2026-11-26 | Collision Rendering: GPU-Accelerated Trajectory Planning on Sparse Voxel Radiance Fields with Risk-Bounded Collision Checking | [论文](https://arxiv.org/abs/2611.31658) | 主动态；时间回补 v1 2026-11-23 UTC；球面渲染碰撞概率界、可微代价，未核实源码。 |
+| 2026-11-26 | Sampling at Scale: Distributed Multi-Agent Trajectory Optimization (DS-TO) | [论文](https://arxiv.org/abs/2611.31561) | 主动态；时间回补 v1 2026-11-23 UTC；ADMM/MPPI 共识拆分、1024 规模仿真，非实时 MPC。 |
+| 2026-11-26 | EvoMisty: Building, Optimizing, and Evolving Capabilities on a Social Robot | [论文](https://arxiv.org/abs/2611.31341) · [项目](https://wangxiaoshawn.github.io/projects/evomisty/index.html) | 主动态；时间回补 v1 2026-11-23 UTC；Codex 原子能力与真机验收，未核实完整源码。 |
+| 2026-11-26 | Diffs Are Cheap, Show Me the Trajectory: An Empirical Study of Trajectory-Informed Code Review | [论文](https://arxiv.org/abs/2611.31316) | 主动态；时间回补 v1 2026-11-23 UTC；执行轨迹辅助审查、召回与成本权衡。 |
+| 2026-11-26 | The Defect Is in the Arithmetic Between the Files: Static Detection of Exactly-Once Violations in Payment Pipelines (StreamCheck) | [论文](https://arxiv.org/abs/2611.31298) · [源码](https://github.com/abhisheksharma2411/streamcheck) · [DOI](https://doi.org/10.5281/zenodo.24412123) | AI 附属框架/组件；时间回补 v1 2026-11-21 UTC；确定性跨配置分析与可执行反例；MIT。 |
+| 2026-11-26 | AI Coding 实战技巧精选：git merge-tree 预检并行工作树合并冲突 | [官方文档](https://git-scm.com/docs/git-merge-tree) | AI Coding 实战技巧精选；工程补充回顾；不改变工作树与索引的合并预检。 |
+| 2026-11-26 | AI Coding 实战技巧精选：git diff-tree 验收单笔 Agent 提交的文件范围 | [官方文档](https://git-scm.com/docs/git-diff-tree) | AI Coding 实战技巧精选；工程补充回顾；提交对象路径清单、NUL 分隔范围检查。 |
+| 2026-11-26 | A Tutorial on Particle Filters for Online Nonlinear/Non-Gaussian Bayesian Tracking (Arulampalam et al., 2002) | [DOI](https://doi.org/10.1109/78.978374) · [书目](https://openalex.org/works/W2160337655) | 经典论文回顾；多峰重定位、重要性采样及 ESS，现代 AMCL 参考。 |
 
 ## 维护检查表
 
