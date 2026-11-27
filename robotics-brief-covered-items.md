@@ -1,6 +1,8 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-26（Asia/Shanghai）
+> 最后更新：2026-11-27（Asia/Shanghai）
+>
+> 2026-11-27 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选，共 11 条新记录，另更新 Square Root SAM 经典复盘 1 条，累计 1,500 条。
 >
 > 2026-11-26 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选与 1 篇经典论文回顾，共 12 条，累计 1,489 条。
 >
@@ -843,7 +845,7 @@
 | 2026-09-13 | Harness Robotic OS: A Unified Embodied-Agent Runtime for Closed-Loop Quadruped Inspection | [论文](https://arxiv.org/abs/2609.11225) | 时间回补；v1 2026-09-10；确定性导航栈 + Agent 任务编排/记忆/治理式自进化；四足巡检闭环。 |
 | 2026-09-13 | Engineering Reliable Commit Gates for Agentic AI: Cost-Aware Verification Portfolios under Common-Mode Data Failures | [论文](https://arxiv.org/abs/2609.10969) | 时间回补；v1 2026-09-10；独立证据源、校准验证组合与原子 commit-time guard。 |
 | 2026-09-13 | GPT-Live-1 | [官方发布](https://openai.com/index/introducing-gpt-live-1-in-the-api/) | 时间回补；2026-09-10 API 正式发布；full-duplex voice model，可委派深度推理与工具调用给后端模型。 |
-| 2026-09-13 | Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing | [DOI](https://doi.org/10.1177/0278364906072768) · [CMU](https://publications.ri.cmu.edu/square-root-sam-simultaneous-localization-and-mapping-via-square-root-information-smoothing) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾；IJRR 2006；square-root information smoothing、稀疏因子化、变量排序与 factor-graph SLAM。 |
+| 2026-11-27 | Square Root SAM: Simultaneous Localization and Mapping via Square Root Information Smoothing | [DOI](https://doi.org/10.1177/0278364906072768) · [CMU](https://publications.ri.cmu.edu/square-root-sam-simultaneous-localization-and-mapping-via-square-root-information-smoothing) · [GTSAM](https://github.com/borglab/gtsam) | 经典论文回顾；IJRR 2006；square-root information smoothing、稀疏因子化、变量排序与 factor-graph SLAM。；经典复盘（首次覆盖 2026-09-13）：对比 xFORM 测量行压缩与稀疏消元填充，QR 等价性边界。 |
 
 | 2026-09-14 | GRADE: Single-Frame Generative Radar Depth Estimation Under Visual Degradation | [论文](https://arxiv.org/abs/2609.10756) · [项目页](https://phi-lab-rice.github.io/GRADE/) | 时间回补；v1 2026-09-09；4D mmWave radar metric depth + latent diffusion，在真实烟雾下维持稠密深度。 |
 | 2026-09-14 | Rapid Learning of Dexterous In-Hand Pen Writing through Real-Time Jacobian Estimation | [论文](https://arxiv.org/abs/2609.11775) · [项目页](https://srl-ethz.github.io/rapid-dexterous-writing/) | 时间回补；v1 2026-09-10；真实机器人在线 task Jacobian 估计，约 18 s 初始化，无 RL/IL 预训练。 |
@@ -1829,6 +1831,18 @@
 | 2026-11-26 | AI Coding 实战技巧精选：git merge-tree 预检并行工作树合并冲突 | [官方文档](https://git-scm.com/docs/git-merge-tree) | AI Coding 实战技巧精选；工程补充回顾；不改变工作树与索引的合并预检。 |
 | 2026-11-26 | AI Coding 实战技巧精选：git diff-tree 验收单笔 Agent 提交的文件范围 | [官方文档](https://git-scm.com/docs/git-diff-tree) | AI Coding 实战技巧精选；工程补充回顾；提交对象路径清单、NUL 分隔范围检查。 |
 | 2026-11-26 | A Tutorial on Particle Filters for Online Nonlinear/Non-Gaussian Bayesian Tracking (Arulampalam et al., 2002) | [DOI](https://doi.org/10.1109/78.978374) · [书目](https://openalex.org/works/W2160337655) | 经典论文回顾；多峰重定位、重要性采样及 ESS，现代 AMCL 参考。 |
+
+| 2026-11-27 | xFORM: Accelerating Fixed-Lag LiDAR Odometry with Exact Factor Compression | [论文](https://arxiv.org/abs/2611.34053) | 主动态；时间回补 v1 2026-11-25 UTC；34 维扫描对残差，固定对应与共同各向同性权重；CPU/GPU 加速。 |
+| 2026-11-27 | Autonomous Vineyard Exploration using LiDAR Sensing: A Field Evaluation on Legged-Wheeled Quadruped Robot | [论文](https://arxiv.org/abs/2611.34246) | 主动态；时间回补 v1 2026-11-25 UTC；Go2 Wheeled 370 m 实地行跟踪与行间切换局限。 |
+| 2026-11-27 | Evaluating More with Less: Black-Box Test Selection for AI Agents | [论文](https://arxiv.org/abs/2611.34617) | 主动态；时间回补 v1 2026-11-25 UTC；Codex 分层测试选择与失败优先两种目标。 |
+| 2026-11-27 | FOCI: Trajectory Optimization on Gaussian Splats for Gaussian Robots | [新论文](https://arxiv.org/abs/2611.33380) · [IROS 原版](https://arxiv.org/abs/2505.08510) · [源码](https://github.com/leggedrobotics/foci) | 主动态；时间回补 v1 2026-11-24 UTC；IROS 2025 期刊扩展；高斯重叠积分、MIT/MA27 独立许可。 |
+| 2026-11-27 | Why Does Sensor Depth Fail Learned Manipulation Policies? Finding the Failure Mode with ACT | [论文](https://arxiv.org/abs/2611.33352) | 主动态；时间回补 v1 2026-11-24 UTC；深度空洞、有效掩码与噪声消融。 |
+| 2026-11-27 | RoboARC: Physical Puzzles for Robotic Manipulation under Spatial Constraints | [论文](https://arxiv.org/abs/2611.33390) · [项目](https://roboarc.embodied-first-exam.ai/) · [源码](https://github.com/mll-lab-nu/RoboARC) | 主动态；时间回补 v1 2026-11-24 UTC；90 项物理谜题、Codex 全知与传感器设置对照；MIT。 |
+| 2026-11-27 | Model Predictive Control of a Multirotor UAV with a Cable-Suspended Payload: A Comparison of Shifted and Transformer-Based Warm Starts | [论文](https://arxiv.org/abs/2611.33514) | 主动态；时间回补 v1 2026-11-24 UTC；传统移位热启动在闭环仿真更快，未达到实时。 |
+| 2026-11-27 | GhostAPI-V: Evaluating Audited Diagnostics for Internal API Migration Repair | [论文](https://arxiv.org/abs/2611.33396) | 主动态；时间回补 v1 2026-11-24 UTC；API 迁移双向契约与独立行为测试。 |
+| 2026-11-27 | What Does Skill Lift Actually Measure? A Source-Code-Level Audit and Noise-Aware Reanalysis of SkillsBench | [论文](https://arxiv.org/abs/2611.33943) · [代码](https://github.com/rrrrr4788/skillsbench-lift-reanalysis) | AI 附属框架/组件；时间回补 v1 2026-11-25 UTC；MIT 本地评测审计与统计复算，评分器依赖及环境污染。 |
+| 2026-11-27 | AI Coding 实战技巧精选：git interpret-trailers 结构化提交测试证据索引 | [官方文档](https://git-scm.com/docs/git-interpret-trailers) | AI Coding 实战技巧精选；工程补充回顾；结构化尾注与独立证据核验。 |
+| 2026-11-27 | AI Coding 实战技巧精选：git show-ref --verify 精确分支核验 | [官方文档](https://git-scm.com/docs/git-show-ref) | AI Coding 实战技巧精选；工程补充回顾；多工作树精确 ref 及 SHA 核验。 |
 
 ## 维护检查表
 
