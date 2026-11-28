@@ -1,6 +1,8 @@
 # 机器人技术简报已覆盖条目索引
 
-> 最后更新：2026-11-27（Asia/Shanghai）
+> 最后更新：2026-11-28（Asia/Shanghai）
+>
+> 2026-11-28 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选与 1 篇经典论文回顾，共 12 条，累计 1,512 条。
 >
 > 2026-11-27 新增 8 条主动态、1 条 AI/LLM 附属框架/组件、2 条 AI Coding 实战技巧精选，共 11 条新记录，另更新 Square Root SAM 经典复盘 1 条，累计 1,500 条。
 >
@@ -1843,6 +1845,19 @@
 | 2026-11-27 | What Does Skill Lift Actually Measure? A Source-Code-Level Audit and Noise-Aware Reanalysis of SkillsBench | [论文](https://arxiv.org/abs/2611.33943) · [代码](https://github.com/rrrrr4788/skillsbench-lift-reanalysis) | AI 附属框架/组件；时间回补 v1 2026-11-25 UTC；MIT 本地评测审计与统计复算，评分器依赖及环境污染。 |
 | 2026-11-27 | AI Coding 实战技巧精选：git interpret-trailers 结构化提交测试证据索引 | [官方文档](https://git-scm.com/docs/git-interpret-trailers) | AI Coding 实战技巧精选；工程补充回顾；结构化尾注与独立证据核验。 |
 | 2026-11-27 | AI Coding 实战技巧精选：git show-ref --verify 精确分支核验 | [官方文档](https://git-scm.com/docs/git-show-ref) | AI Coding 实战技巧精选；工程补充回顾；多工作树精确 ref 及 SHA 核验。 |
+
+| 2026-11-28 | MERLoc: Robust Robot Localization in Dynamic Environments with Pose-Based Retrieval over 3D Gaussian Splatting References | [论文](https://arxiv.org/abs/2611.34932) | 主动态；时间回补 v1 2026-11-25 UTC；位姿检索预渲染参考、动态定位；未核实完整源码。 |
+| 2026-11-28 | μMPC: Microsecond-Scale Nonlinear and World Model Control from Edge to GPU via Koopman-Linearized Precompilation | [论文](https://arxiv.org/abs/2611.34597) · [项目](https://www.deveshnath.com/projects/micrompc/) · [代码](https://github.com/trustworthyrobotics/microMPC) | 主动态；时间回补 v1 2026-11-25 UTC；Koopman 凝聚 QP、预编译算子；MIT。 |
+| 2026-11-28 | Geometric Acceleration Obstacles: Physical Boundary Structure and Affine Safety Certificates | [论文](https://arxiv.org/abs/2611.34586) | 主动态；时间回补 v1 2026-11-25 UTC；加速度空间仿射安全约束。 |
+| 2026-11-28 | Dynamic Task Update Benchmark (DTU-Bench): Evaluating Runtime Task Adaptation in Robotic Manipulation | [论文](https://arxiv.org/abs/2611.34538) · [项目](https://dtu-bench.github.io/) | 主动态；时间回补 v1 2026-11-25 UTC；运行中任务更新与旧任务干预。 |
+| 2026-11-28 | DynaRC: Dynamics-Robust 4-D Radar Relocalization with Rate-Adaptive Sequence Matching | [论文](https://arxiv.org/abs/2611.34453) | 主动态；时间回补 v1 2026-11-25 UTC；Doppler、变速序列与输出率。 |
+| 2026-11-28 | Ground Your Steps: Optimizing Sampling Schedules in Flow Matching Robot Policies | [论文](https://arxiv.org/abs/2611.34148) · [代码](https://github.com/D-Robotics-AI-Lab/GroundYourSteps) | 主动态；时间回补 v1 2026-11-25 UTC；固定 NFE 优化积分节点；Apache-2.0。 |
+| 2026-11-28 | End-to-End Image-Goal Navigation for Agile Quadrotors via Recurrent State Distillation | [论文](https://arxiv.org/abs/2611.34046) | 主动态；时间回补 v1 2026-11-25 UTC；循环视觉控制与真机验证。 |
+| 2026-11-28 | SimFusion: Multi-Fidelity Simulation-based Testing of Automated Driving Systems | [论文](https://arxiv.org/abs/2611.34202) · [代码](https://github.com/ast-fortiss-tum/simfusion) | 主动态；时间回补 v1 2026-11-25 UTC；多保真一致性预测及失败验证。 |
+| 2026-11-28 | MGMem: An Efficient, Deterministic, and Provenance-Preserving Framework for Long-Horizon Agent Memory | [论文](https://arxiv.org/abs/2611.33174) · [代码](https://github.com/junhong-h/MGMem) | AI 附属框架/组件；补充回顾 v1 2026-10-21；原文关联图、无生成式索引调用；许可证未确认。 |
+| 2026-11-28 | AI Coding 实战技巧精选：CTest RESOURCE_LOCK 共享设备测试互斥 | [官方文档](https://cmake.org/cmake/help/latest/prop_test/RESOURCE_LOCK.html) | AI Coding 实战技巧精选；工程补充回顾；避免并行测试资源冲突。 |
+| 2026-11-28 | AI Coding 实战技巧精选：git apply --check 目标工作树补丁预检 | [官方文档](https://git-scm.com/docs/git-apply) | AI Coding 实战技巧精选；工程补充回顾；先检查补丁范围与可应用性。 |
+| 2026-11-28 | Reciprocal Velocity Obstacles for Real-Time Multi-Agent Navigation (RVO, ICRA 2008) | [DOI](https://doi.org/10.1109/ROBOT.2008.4543489) · [作者项目](https://gamma-web.iacs.umd.edu/RVO/) | 经典论文回顾；互惠避碰、速度空间与动力学受限控制对照。 |
 
 ## 维护检查表
 
